@@ -1,5 +1,84 @@
+Character design
+================
 You:
 
    o
   /|\
   / \
+
+You with basic helmet and basic armor:
+
+   0
+  /:\
+  / \
+
+You with advanced helmet and advanced armor:
+
+  (0)
+ /[:]\
+  / \
+
+You with clown helmet and clown armor:
+
+  <0>
+ /[*]\
+  / \
+
+You with geek helmet and geek armor:
+
+  {0}
+ /\G/\
+  / \
+
+
+Weapons
+=======
+
+Basic stick
+
+   o
+  /|\|
+  / \
+
+Frying pan
+
+   o O
+  /|\|
+  / \
+
+Stone
+   o
+  /|\.
+  / \
+
+Bow
+   o
+  /|\}
+  / \
+
+Gun
+   o
+  /|\.=
+  / \
+
+
+Enemy's
+=======
+Tiny fish
+
+>{ .}
+
+Tiny fish with gun
+
+Big fish
+
+         }\
+       .'  \
+    }\/    o\
+    }/\   ) _}
+       `.  /
+         }/
+
+
+Level design
+============
