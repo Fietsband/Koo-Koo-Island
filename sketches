@@ -130,13 +130,209 @@ Octopussbunny (HP 1)
 Level design
 ============
 
-Je bent op een eiland met 1 seashell.
 Je zit op een eiland (je kan op de schelp klikken - per klik +1) - bij 20 schelpen verschijnt een vis.
+
+
+                    _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ~~
+           ~~   .-'`  |_|  ``""-._   ~/_~
+            ~~.'      |=|         '-./_/ ~
+              |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+Na 20 schelpen verschijnt er een vis (daarvan kun je oesters kopen en drijfhout)
+
+                    _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ~~
+           ~~   .-'`  |_|  ``""-._   ~/_~
+            ~~.'      |=|         '-./_/ ~
+        ><'>  |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+Van drijfhout kun je een brug bouwen.
+Van oesters kun je skills upgraden etc.
+
 Bij deze vis kun je shit kopen
 - wreckage (5 seashells)
 - oysters  (10 seashells)
 
 Bij 100 shells verschijnt er flessenpost met daarop een kaart.
-De kaart is magisch en er kunnen verschillend delen unlocked worden.
+De kaart is magisch en er kunnen verschillend delen unlocked worden (op deze map).
 
 Je hebt een map (kaart). Die krijg je via flessenpost op je eiland
+
+
+                    _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ]~~
+           ~~   .-'`  |_|  ``(|)-._  ~/_~
+            ~~.'      |=|         '-./_/ ~
+        ><'>  |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+Als je op de fles klikt:
+
+         []
+        [||]
+        ||||
+        |  |
+        |  |
+       /  _ \
+       |(-_)|
+       |\  /|
+       ||  ||
+       ||  ||
+       ||  ||
+       |/  \|
+       |-..'|
+       `""""`
+
+"You found an ancient map."
+
+
+Seashells: x
+Oysters: x
+
+[ Map ]
+                    _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ]~~
+           ~~   .-'`  |_|  ``( )-._  ~/_~
+            ~~.'      |=|         '-./_/ ~
+        ><'>  |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+[ Save ] [ Auto-save: on ]
+
+
+Als je op [ map ] klikt dan:
+
+=========================================
+||                           /
+||    ~     ~       '```````,
+||  ~   ~       ~  /```O```/
+||           ~  X  '``````.
+||                / \._`/
+||         ._/'\/
+||  . '\  '
+||/     '/
+||
+||
+||
+
+Legenda:
+
+X: where you are now
+O: place
+~: water
+`: land
+
+The rest of the map is still torn.
+
+Als je op het 2de rondje klikt zie je: Can't go there yet.
+
+
+Seashells: x
+Oysters: x
+
+[ Map ][ Inventory ]
+                    _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ]~~
+           ~~   .-'`  |_|  ``( )-._  ~/_~
+            ~~.'      |=|         '-./_/ ~
+        ><'>  |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+[ Save ] [ Auto-save: on ]
+
+Als je genoeg hout hebt gekocht (100 stukken) -
+dan kun je een brug bouwen naar de 2de O op de kaart.
+
+--
+
+Map:
+
+=========================================
+||                           /
+||    ~     ~       '```````,
+||  ~   ~       ~  /```O```/
+||           ~  X  '``````.
+||                / \._`/
+||         ._/'\/
+||  . '\  '
+||/     '/
+||
+||
+||
+
+Legenda:
+
+X: where you are now
+O: place
+~: water
+`: land
+
+--
+
+Actie: Klikken op 2de O
+
+--
+
