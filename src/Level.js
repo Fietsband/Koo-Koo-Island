@@ -1,0 +1,7 @@
+Level.prototype = {
+
+}
+
+function Level(){
+
+}

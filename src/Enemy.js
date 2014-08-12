@@ -1,0 +1,7 @@
+Enemy.prototype = {
+
+}
+
+function Enemy(){
+
+}

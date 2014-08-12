@@ -1,0 +1,7 @@
+Player.prototype = {
+
+}
+
+function Player(){
+
+}

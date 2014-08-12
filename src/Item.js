@@ -1,0 +1,7 @@
+Item.prototype = {
+
+}
+
+function Item(){
+
+}
