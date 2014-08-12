@@ -1,0 +1,16 @@
+body{
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.character{
+
+}
+
+.character .head{
+  padding-left: 7px;
+}
+
+.character .bottom{
+  padding-left: 3px;
+}
