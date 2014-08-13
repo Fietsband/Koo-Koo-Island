@@ -14,5 +14,9 @@ GameStorage = {
 
   get: function(key){
     return localStorage.getItem(key);
+  },
+
+  keyExists: function(key){
+    return localStorage.getItem(key) !== null;
   }
 }

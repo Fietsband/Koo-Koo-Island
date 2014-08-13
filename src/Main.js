@@ -16,7 +16,9 @@ Game.prototype = {
   },
 
   storeGid: function(){
-    GameStorage.store("koo-koo-island-gid", this.gid);
+    if(!GameStorage.keyExists("koo-koo-island-gid")){
+      GameStorage.store("koo-koo-island-gid", this.gid);
+    }
   },
 
   getOldGameData: function(){
