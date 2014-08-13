@@ -2,6 +2,6 @@ Item.prototype = {
 
 }
 
-function Item(){
-
+function Item(name){
+  this.name = name;
 }
