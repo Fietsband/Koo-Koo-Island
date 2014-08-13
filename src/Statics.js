@@ -1,14 +1,14 @@
 var clickAreas = {
   island: [
     {
-      x: 201,
-      y: 195,
+      id: "island-seashell",
       width: 12,
       height: 12,
+      showWhen: null,
+      note: "First shell where you can click on",
       method: function(){
         console.log("hoi");
-      },
-      note: "First shell where you can click on"
+      }
     }
   ]
 }

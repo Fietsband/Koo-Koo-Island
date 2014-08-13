@@ -15,8 +15,16 @@ ClickArea.prototype = {
   },
 
   setPosition: function(){
-    this.clickElement.style.left   = this.posX.toString() + "px";
-    this.clickElement.style.top    = this.posY.toString() + "px";
+    this.clickElement.style.left   = this.posX().toString() + "px";
+    this.clickElement.style.top    = this.posY().toString() + "px";
+  },
+
+  posX: function(){
+    return this.attachTo.getBoundingClientRect().x;
+  },
+
+  posY: function(){
+    return this.attachTo.getBoundingClientRect().y;
   },
 
   setHeightAndWidth: function(){
@@ -25,11 +33,11 @@ ClickArea.prototype = {
   }
 };
 
-function ClickArea(posX, posY, areaWidth, areaHeight, clickMethod){
-  this.posX         = posX;
-  this.posY         = posY;
+function ClickArea(identifier, areaWidth, areaHeight, clickMethod){
+  this.identifier   = identifier;
   this.areaWidth    = areaWidth;
   this.areaHeight   = areaHeight;
+  this.attachTo     = document.getElementById(identifier);
   this.clickMethod  = clickMethod || function(){};
   this.clickElement = document.createElement("DIV");
 }
