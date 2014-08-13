@@ -4,9 +4,8 @@ var clickAreas = {
       id: "island-seashell",
       showWhen: null,
       note: "First shell where you can click on",
-      method: function(){
-        GameData.player.seashells += 1;
-      }
+      klass: "Stats",
+      method: "increaseSeashellStats"
     }
   ]
 }

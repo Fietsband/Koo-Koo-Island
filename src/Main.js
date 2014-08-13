@@ -22,7 +22,7 @@ Game.prototype = {
   },
 
   getOldGameData: function(){
-    GameData = JSON.parse(GameStorage.get(this.gid)) || {};
+    //GameData = JSON.parse(GameStorage.get(this.gid)) || {};
   },
 
   toggleAutoSave: function(){

@@ -1,12 +1,12 @@
 ClickArea.prototype = {
   attachClickHandler: function(){
-    var self = this;
-    this.clickElement.onclick = this.clickMethod;
+    this.clickElement.onclick = window[this.klass][this.clickMethod];
   }
 };
 
-function ClickArea(identifier, clickMethod){
+function ClickArea(identifier, klass, clickMethod){
   this.identifier   = identifier;
+  this.klass        = klass;
   this.clickMethod  = clickMethod || function(){};
   this.clickElement = document.getElementById(identifier);
   this.attachClickHandler();
