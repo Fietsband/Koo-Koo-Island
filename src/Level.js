@@ -3,8 +3,7 @@ Level.prototype = {
     var self = this;
     $.each(clickAreas[this.identifier], function(i){
       var area = clickAreas[self.identifier][i];
-      var clickArea = new ClickArea(area.id, area.width, area.height, area.method);
-      clickArea.append(self.identifier);
+      new ClickArea(area.id, area.method);
     });
   }
 }
