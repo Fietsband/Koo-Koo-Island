@@ -1,13 +1,18 @@
-var GameData = {}
+var GameData = {
+  settings: {}
+}
 
 Game.prototype = {
-  autoSave: function(){
-    var autoSaveInterval;
+  toggleAutoSaveInterval: function(){
     var self = this;
-    if(this.autoSaveEnabled){
-      autoSaveInterval = setInterval(function(){
+    if(GameData.settings.autoSaveEnabled){
+      this.autoSaveInterval = setInterval(function(){
         self.save();
+        console.log("auto saving");
       }, this.autoSaveTimeInterval);
+    }
+    else{
+      clearInterval(this.autoSaveInterval);
     }
   },
 
@@ -25,16 +30,23 @@ Game.prototype = {
     GameData = JSON.parse(GameStorage.get(this.gid)) || {};
   },
 
+  toggleAutoSave: function(){
+    GameData.settings.autoSaveEnabled = !GameData.settings.autoSaveEnabled;
+    this.toggleAutoSaveInterval();
+  },
+
+  autoSaveInterval: null,
   autoSaveTimeInterval: 5000
 }
 
 function Game(){
   if(GameStorage.canStore()){
+    GameData.settings.autoSaveEnabled = true;
+
     this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
-    this.autoSaveEnabled = true;
     this.storeGid();
     this.getOldGameData();
-    this.autoSave();
+    this.toggleAutoSaveInterval();
   }
   else{
     // display message that only modern browsers can play this game
