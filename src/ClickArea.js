@@ -33,17 +33,3 @@ function ClickArea(posX, posY, areaWidth, areaHeight, clickMethod){
   this.clickMethod  = clickMethod || function(){};
   this.clickElement = document.createElement("DIV");
 }
-
-var clickAreas = {
-  island: [
-    {
-      x: 214,
-      y: 207,
-      width: 12,
-      height: 12,
-      method: function(){
-        console.log("hoi");
-      }
-    }
-  ]
-}

@@ -1,7 +1,3 @@
-var GameData = {
-  settings: {}
-}
-
 Game.prototype = {
   toggleAutoSaveInterval: function(){
     var self = this;
