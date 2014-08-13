@@ -10,17 +10,29 @@ Game.prototype = {
   },
 
   save: function(){
+    GameStorage.store(this.gid, JSON.stringify(GameData));
+  },
 
+  storeGid: function(){
+    GameStorage.store("koo-koo-island-gid", this.gid);
   },
 
   autoSaveTimeInterval: 5000
 }
 
 function Game(){
-  this.gid = $.guid()
-  this.autoSaveEnabled = true;
-  this.autoSave();
+  if(GameStorage.canStore()){
+    this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
+    this.storeGid();
+    this.autoSaveEnabled = true;
+    this.autoSave();
+  }
+  else{
+    // display message that only modern browsers can play this game
+  }
 }
+
+GameData = {}
 
 $.domReady(function(){
   window.Game = new Game();
