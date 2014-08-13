@@ -20,3 +20,8 @@ body{
   bottom: 20px;
   right: 20px;
 }
+
+.click-area{
+  position: absolute;
+  cursor: pointer;
+}
