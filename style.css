@@ -14,3 +14,9 @@ body{
 .character .bottom{
   padding-left: 3px;
 }
+
+.controls{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
