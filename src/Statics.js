@@ -1,8 +1,8 @@
 var clickAreas = {
   island: [
     {
-      x: 214,
-      y: 207,
+      x: 201,
+      y: 195,
       width: 12,
       height: 12,
       method: function(){
