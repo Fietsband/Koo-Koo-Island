@@ -1,5 +1,6 @@
 $.domReady(function(){
   initializeAutoSaveButton();
+  initializeSaveButton();
 });
 
 function initializeAutoSaveButton(){
@@ -21,5 +22,12 @@ function getAutoSaveText(){
   }
   else{
     return "Auto save: off";
+  }
+}
+
+function initializeSaveButton(){
+  var saveButton = document.getElementById("save");
+  saveButton.onclick = function(){
+    window.Game.save();
   }
 }

@@ -8,7 +8,6 @@ Game.prototype = {
     if(GameData.settings.autoSaveEnabled){
       this.autoSaveInterval = setInterval(function(){
         self.save();
-        console.log("auto saving");
       }, this.autoSaveTimeInterval);
     }
     else{
