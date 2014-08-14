@@ -9,6 +9,7 @@ Stats.prototype = {
 
   addSeashells: function(amount){
     GameData.player.seashells += amount;
+    SeashellCallbacks.performCallback(GameData.player.seashells);
   },
 
   seashell: function(){

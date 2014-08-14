@@ -54,3 +54,8 @@ body{
 .popup#load-game{
 
 }
+
+.seller#fish{
+  display: none;
+  cursor: pointer;
+}
