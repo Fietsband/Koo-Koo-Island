@@ -12,8 +12,7 @@ Game.prototype = {
   },
 
   save: function(){
-    var saved = new Flash("saved");
-    saved.show();
+    new Flash("saved").show();
     GameStorage.store(this.gid, btoa(JSON.stringify(GameData)));
   },
 
@@ -24,7 +23,7 @@ Game.prototype = {
   },
 
   getOldGameData: function(){
-    //GameData = JSON.parse(GameStorage.get(this.gid)) || {};
+    //GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
   },
 
   toggleAutoSave: function(){
