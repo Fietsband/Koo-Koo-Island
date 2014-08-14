@@ -31,6 +31,7 @@ body{
   width: 50%;
 }
 
+.popup,
 .flash#saved,
 #stats #seashells,
 #stats #oysters{
@@ -44,4 +45,12 @@ body{
 .flash#saved{
   float: left;
   margin: 4px 10px 0 0;
+}
+
+.popup{
+  position: fixed;
+}
+
+.popup#load-game{
+
 }

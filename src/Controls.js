@@ -1,6 +1,7 @@
 $.domReady(function(){
   initializeAutoSaveButton();
   initializeSaveButton();
+  initializeLoadButton();
 });
 
 function initializeAutoSaveButton(){
@@ -10,6 +11,10 @@ function initializeAutoSaveButton(){
     window.Game.toggleAutoSave();
     changeAutoSaveButtonText(autoSaveButton);
   }
+}
+
+function  initializeLoadButton(){
+  var loadButton = document.getElementById("laad");
 }
 
 function changeAutoSaveButtonText(autoSaveButton){

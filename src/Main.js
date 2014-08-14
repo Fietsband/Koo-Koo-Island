@@ -22,6 +22,11 @@ Game.prototype = {
     }
   },
 
+  loadGame: function(gid, base64_string){
+    GameStorage.store(gid, base64_string);
+    GameData = JSON.parse(atob(GameStorage.get(gid)));
+  },
+
   getOldGameData: function(){
     //GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
   },
