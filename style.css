@@ -31,7 +31,17 @@ body{
   width: 50%;
 }
 
+.flash#saved,
 #stats #seashells,
 #stats #oysters{
   display: none;
+}
+
+.flash{
+  color: #AAAAAA;
+}
+
+.flash#saved{
+  float: left;
+  margin: 4px 10px 0 0;
 }

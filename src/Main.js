@@ -12,7 +12,9 @@ Game.prototype = {
   },
 
   save: function(){
-    GameStorage.store(this.gid, JSON.stringify(GameData));
+    var saved = new Flash("saved");
+    saved.show();
+    GameStorage.store(this.gid, btoa(JSON.stringify(GameData)));
   },
 
   storeGid: function(){
