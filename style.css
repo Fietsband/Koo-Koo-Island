@@ -31,10 +31,16 @@ body{
   width: 50%;
 }
 
+#stats{
+  height: 12px;
+}
+
 .popup,
 .flash#saved,
 #stats #seashells,
-#stats #oysters{
+#stats #oysters,
+.message-in-a-bottle,
+.seller#fish{
   display: none;
 }
 
@@ -49,13 +55,22 @@ body{
 
 .popup{
   position: fixed;
+  background-color: #ffffff;
+}
+
+.popup#message-in-a-bottle-popup{
+  width: 1000px;
+  top: 200px;
+  left: 50%;
+  margin-left: -500px;
+  height: 500px;
 }
 
 .popup#load-game{
 
 }
 
+.message-in-a-bottle,
 .seller#fish{
-  display: none;
   cursor: pointer;
 }

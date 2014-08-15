@@ -8,6 +8,7 @@
     <script language="javascript" src="src/helper/dollar.js"></script>
     <script language="javascript" src="src/helper/storage.js"></script>
     <script language="javascript" src="src/interaction/Flash.js"></script>
+    <script language="javascript" src="src/interaction/Popup.js"></script>
     <script language="javascript" src="src/stats/SeashellCallbacks.js"></script>
     <script language="javascript" src="src/Character.js"></script>
     <script language="javascript" src="src/Statics.js"></script>
@@ -40,8 +41,8 @@
                    / |/-/`'._\
                    |/ |=|
                       |_|
-                 ~`   |-| ~~      ~
-             ~~  ~~ __|=|__   ~~
+                 ~`   |-| ~~  <span class="message-in-a-bottle">]</span><span class="message-in-a-bottle-remove">&nbsp;</span>   ~
+             ~~  ~~ __|=|__  <span class="message-in-a-bottle">(<span class="message">|</span>)</span><span class="message-in-a-bottle-remove">&nbsp;&nbsp;</span>
            ~~   .-'`  |_|  ``""-._   ~/_~
             ~~.'      |=|         '-./_/ ~
          <span class="seller" id="fish">&gt;&lt;'&gt;</span><span id="fish-remove">&nbsp;&nbsp;&nbsp;&nbsp;</span> |      `"""`           /   ~
@@ -66,6 +67,26 @@
     <div class="popups">
       <div class="popup" id="map"></div>
       <div class="popup" id="fight"></div>
+      <div class="popup" id="message-in-a-bottle-popup">
+        <pre>
+           []
+          [||]
+          ||||
+          |  |
+          |  |
+         /  _ \
+         |(-_)|
+         |\  /|
+         ||  ||
+         ||  ||
+         ||  ||
+         |/  \|
+         |-..'|
+         `""""`
+        </pre>
+        <p>Found a message in a bottle!</p>
+        <button id="message-in-a-bottle-popup-close">Back to island</button>
+      </div>
     </div>
   </body>
 </html>

@@ -7,5 +7,6 @@ Character.prototype = {
 
 function Character(identifier){
   this.character = document.getElementById(identifier);
+  this.characterType = this.character.className;
   this.toBeRemovedSpan = document.getElementById(identifier + "-remove");
 }
