@@ -74,6 +74,7 @@ span#inventory{
   background-color: #ffffff;
 }
 
+.popup#inventory-popup,
 .popup#message-in-a-bottle-popup{
   width: 1000px;
   top: 200px;
@@ -88,5 +89,12 @@ span#inventory{
 
 .message-in-a-bottle,
 .seller#fish{
+  cursor: pointer;
+}
+
+#inventory-stash{
+  margin-bottom: 10px;
+}
+#inventory-stash a{
   cursor: pointer;
 }

@@ -12,7 +12,10 @@ SeashellCallbacks = {
   },
 
   showMessageInABottle: function(){
-    var map = new InventoryItem("map");
+    var map = new InventoryItem("A partial map of the world", "map", function(){
+      // show the map
+    });
+
     var messageInABottle = new Item("message-in-a-bottle", function(){
       var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
         undefined,
