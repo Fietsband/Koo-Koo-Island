@@ -5,15 +5,22 @@ SeashellCallbacks = {
         SeashellCallbacks.showFish();
       break;
 
-      case 100:
+      case 1:
         SeashellCallbacks.showMessageInABottle()
       break;
     }
   },
 
   showMessageInABottle: function(){
-    messageInABottle = new Item("message-in-a-bottle", function(){
-      new Popup("message-in-a-bottle-popup").show();
+    var messageInABottle = new Item("message-in-a-bottle", function(){
+      var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
+        undefined,
+        function(){
+          messageInABottle.clearOnClickMethod();
+        }
+      );
+
+      messageInABottlePopUp.show()
     });
     messageInABottle.add();
   },

@@ -14,6 +14,14 @@ Item.prototype = {
     });
   },
 
+  clearOnClickMethod: function(){
+    var self = this;
+    this.onClickMethod = function(){};
+    $.each(this.item, function(i){
+      self.item[i].style.cursor = "default";
+    });
+  },
+
   removeParts: function(){
     var self = this;
     $.each(this.removals, function(i){
