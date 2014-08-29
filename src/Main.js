@@ -46,6 +46,7 @@ function Game(){
 
     this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
     this.storeGid();
+    this.player = new Player();
     this.getOldGameData();
     this.toggleAutoSaveInterval();
   }

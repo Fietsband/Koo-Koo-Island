@@ -39,9 +39,25 @@ body{
 .flash#saved,
 #stats #seashells,
 #stats #oysters,
+#stats #open-inventory-button,
 .message-in-a-bottle,
 .seller#fish{
   display: none;
+}
+
+#stats span#seashells,
+#stats span#oysters,
+#stats span#inventory{
+  float: left;
+}
+
+#stats span#seashells,
+#stats span#oysters{
+  padding: 3px 0;
+}
+
+span#inventory{
+  margin-left: 10px;
 }
 
 .flash{

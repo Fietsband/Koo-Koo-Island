@@ -5,5 +5,5 @@ Player.prototype = {
 }
 
 function Player(){
-
+  this.inventory = new Inventory();
 }

@@ -2,7 +2,7 @@ Stats.prototype = {
   increaseSeashellStats: function(){
     var seaShell            = window.Stats.seashell();
     var seashellCount       = window.Stats.seashellCount();
-    seaShell.style.display  = "block";
+    seaShell.style.display  = "inline-block";
     window.Stats.addSeashells(1);
     seashellCount.innerHTML = GameData.player.seashells;
   },
