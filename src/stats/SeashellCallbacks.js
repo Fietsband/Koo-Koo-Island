@@ -52,21 +52,24 @@ SeashellCallbacks = {
 
         this.addBuyListeners();
       },
+
       click: function(){
         this.initialfishSellerPopUp.show();
       },
-      checkFishInventory: function(){
 
+      checkFishInventory: function(){
       },
+
       addBuyListeners: function(){
         var itemsForSale = document.querySelectorAll(".sell-items li");
         $.each(itemsForSale, function(i, item){
           item.onclick = function(){
-            console.log("click");
+            item.className
           }
         });
       },
-      buy: function(){
+
+      buy: function(item){
         console.log("buy stuff");
       }
     });
