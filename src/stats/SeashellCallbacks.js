@@ -13,7 +13,8 @@ SeashellCallbacks = {
 
   showMessageInABottle: function(){
     var map = new InventoryItem("A partial map of the world", "map", function(){
-      // show the map
+      var mapPopUp = new Popup("map-popup")
+      mapPopUp.show();
     });
 
     var messageInABottle = new Item("message-in-a-bottle", function(){

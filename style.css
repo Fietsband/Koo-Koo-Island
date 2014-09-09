@@ -74,6 +74,7 @@ span#inventory{
   background-color: #ffffff;
 }
 
+.popup,
 .popup#inventory-popup,
 .popup#message-in-a-bottle-popup{
   width: 1000px;
@@ -81,6 +82,10 @@ span#inventory{
   left: 50%;
   margin-left: -500px;
   height: 500px;
+}
+
+.popup#map-popup{
+  z-index: 2;
 }
 
 .popup#load-game{
