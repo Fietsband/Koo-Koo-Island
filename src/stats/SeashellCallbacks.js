@@ -1,11 +1,11 @@
 SeashellCallbacks = {
   performCallback: function(amount){
     switch(amount){
-      case 20:
+      case 1:
         SeashellCallbacks.showFish();
       break;
 
-      case 1:
+      case 20:
         SeashellCallbacks.showMessageInABottle()
       break;
     }
@@ -22,6 +22,7 @@ SeashellCallbacks = {
         undefined,
         function(){
           messageInABottle.clearOnClickMethod();
+          document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
           window.Game.player.inventory.addItem(map);
         }
       );
@@ -31,7 +32,44 @@ SeashellCallbacks = {
   },
 
   showFish: function(){
-    fish = new Character("fish");
+    var fish = new Character("fish", {
+      initialize: function(){
+        var self = this;
+        var fishBuyButton = document.getElementById("fish-seller-buy-button");
+        this.initialfishSellerPopUp = new Popup("fish-seller-popup");
+        this.fishBuyPopUp = new Popup("fish-seller-buy-popup",
+          function(){
+            self.checkFishInventory();
+          },
+          function(){
+            self.initialfishSellerPopUp.hide();
+          }
+        );
+
+        fishBuyButton.onclick = function(){
+          self.fishBuyPopUp.show();
+        }
+
+        this.addBuyListeners();
+      },
+      click: function(){
+        this.initialfishSellerPopUp.show();
+      },
+      checkFishInventory: function(){
+
+      },
+      addBuyListeners: function(){
+        var itemsForSale = document.querySelectorAll(".sell-items li");
+        $.each(itemsForSale, function(i, item){
+          item.onclick = function(){
+            console.log("click");
+          }
+        });
+      },
+      buy: function(){
+        console.log("buy stuff");
+      }
+    });
     fish.add();
   }
 };

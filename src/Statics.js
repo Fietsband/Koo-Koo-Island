@@ -27,3 +27,7 @@ var GameData = {
     }
   }
 }
+
+var sellPrices = {
+  wood: { value: 10, type: "seashells" }
+}

@@ -100,6 +100,12 @@ span#inventory{
 #inventory-stash{
   margin-bottom: 10px;
 }
+
+.sell-items li,
 #inventory-stash a{
   cursor: pointer;
+}
+
+.sell-items{
+  padding-left: 13px;
 }
