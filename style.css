@@ -39,6 +39,7 @@ body{
 .flash#saved,
 #stats #seashells,
 #stats #oysters,
+#stats #woods,
 #stats #open-inventory-button,
 .message-in-a-bottle,
 .seller#fish{
@@ -47,10 +48,12 @@ body{
 
 #stats span#seashells,
 #stats span#oysters,
+#stats span#woods,
 #stats span#inventory{
   float: left;
 }
 
+#stats span,
 #stats span#seashells,
 #stats span#oysters{
   padding: 3px 8px;
@@ -108,4 +111,9 @@ span#inventory{
 
 .sell-items{
   padding-left: 13px;
+}
+
+.sell-items li.disabled{
+  cursor: default;
+  color: #AAAAAA;
 }

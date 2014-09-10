@@ -10,6 +10,12 @@ Player.prototype = {
       var sellType = sellPrice.type.substring(0, sellPrice.type.length - 1);
       window.Stats.increaseStat(sellType, (sellPrice.value * -1));
     }
+  },
+
+  canBuyItem: function(item){
+    console.log(sellPrices[item], item);
+    var playerInventoryItemCount = GameData.player[sellPrices[item].type];
+    return playerInventoryItemCount >= sellPrices[item].value;
   }
 }
 

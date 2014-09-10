@@ -36,6 +36,7 @@ SeashellCallbacks = {
       initialize: function(){
         var self = this;
         var fishBuyButton = document.getElementById("fish-seller-buy-button");
+        this.itemsForSale = document.querySelectorAll(".sell-items li");
         this.initialfishSellerPopUp = new Popup("fish-seller-popup");
         this.fishBuyPopUp = new Popup("fish-seller-buy-popup",
           function(){
@@ -58,14 +59,24 @@ SeashellCallbacks = {
       },
 
       checkFishInventory: function(){
-        // do some checking whether the player can actually buy the stuff that the fish has (grey out the stuff which he can't buy);
+        $.each(this.itemsForSale, function(i, item){
+          var itemName = item.getAttribute("name");
+          if(Game.player.canBuyItem(itemName)){
+            item.classList.remove("disabled");
+          }
+          else{
+            item.classList.add("disabled");
+          }
+        });
       },
 
       addBuyListeners: function(){
-        var itemsForSale = document.querySelectorAll(".sell-items li");
-        $.each(itemsForSale, function(i, item){
+        var self = this;
+        $.each(this.itemsForSale, function(i, item){
           item.onclick = function(){
-            Game.player.buy(item.className);
+            var itemName = item.getAttribute("name")
+            Game.player.buy(itemName);
+            self.checkFishInventory();
           }
         });
       }
