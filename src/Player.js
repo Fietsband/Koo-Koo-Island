@@ -13,7 +13,6 @@ Player.prototype = {
   },
 
   canBuyItem: function(item){
-    console.log(sellPrices[item], item);
     var playerInventoryItemCount = GameData.player[sellPrices[item].type];
     return playerInventoryItemCount >= sellPrices[item].value;
   }
