@@ -58,6 +58,7 @@ SeashellCallbacks = {
       },
 
       checkFishInventory: function(){
+        // do some checking whether the player can actually buy the stuff that the fish has (grey out the stuff which he can't buy);
       },
 
       addBuyListeners: function(){
