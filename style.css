@@ -26,6 +26,10 @@ body{
   cursor: pointer;
 }
 
+.click-area.disabled{
+  cursor: default;
+}
+
 #game-levels #island{
   margin: 15% auto 0;
   width: 50%;
@@ -118,4 +122,8 @@ span#inventory{
 .sell-items li.disabled{
   cursor: default;
   color: #AAAAAA;
+}
+
+.character{
+  display: none;
 }
