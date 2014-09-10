@@ -3,8 +3,22 @@ ClickArea.prototype = {
     this.clickElement.onclick = this.clickAreaMethod.bind(this);
   },
 
+  removeClickHandler: function(){
+    this.clickElement.onclick = null;
+  },
+
   clickAreaMethod: function(){
     window[this.klass][this.clickMethod].apply(null, this.args)
+  },
+
+  enable: function(){
+    this.clickElement.classList.remove("disabled");
+    this.attachClickHandler();
+  },
+
+  disable: function(){
+    this.clickElement.classList.add("disabled");
+    this.removeClickHandler();
   }
 };
 
