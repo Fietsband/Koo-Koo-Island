@@ -1,28 +1,13 @@
 Stats.prototype = {
-  increaseSeashellStats: function(){
-    var seaShell            = window.Stats.seashell();
-    var seashellCount       = window.Stats.seashellsCount();
-    seaShell.style.display  = "inline-block";
-    window.Stats.addSeashells(1);
-    seashellCount.innerHTML = GameData.player.seashells;
-  },
-
-  increaseStat: function(type, amount){
-    var stat = window.Stats[type]();
-    var statCount = window.Stats[type + "sCount"]();
+  increaseStat: function(type, amount, callback){
+    var stat = document.getElementById(type + "s");
+    var statCount = document.getElementById(type + "-count");
     stat.style.display = "inline-block";
     window.Stats.add(type + "s", amount);
+    if(callback){
+      callback(GameData.player[type + "s"]);
+    }
     statCount.innerHTML = GameData.player[type + "s"];
-  },
-
-  addSeashells: function(amount){
-    if(amount > 0){
-      GameData.player.seashells += amount;
-      SeashellCallbacks.performCallback(GameData.player.seashells);
-    }
-    else{
-      GameData.player.seashells -= amount;
-    }
   },
 
   add: function(type, amount){
@@ -32,22 +17,6 @@ Stats.prototype = {
     else{
       GameData.player[type] -= amount;
     }
-  },
-
-  seashell: function(){
-    return document.getElementById("seashells");
-  },
-
-  seashellsCount: function(){
-    return document.getElementById("seashell-count");
-  },
-
-  oyster: function(){
-    return document.getElementById("oysters");
-  },
-
-  oystersCount: function(){
-    return document.getElementById("oyster-count");
   }
 };
 

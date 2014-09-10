@@ -5,7 +5,8 @@ var clickAreas = {
       showWhen: null,
       note: "First shell where you can click on",
       klass: "Stats",
-      method: "increaseSeashellStats"
+      method: "increaseStat",
+      args: ["seashell", 1, SeashellCallbacks.performCallback]
     }
   ]
 }
