@@ -7,6 +7,15 @@ var clickAreas = {
       klass: "Stats",
       method: "increaseStat",
       args: ["seashell", 1, Callbacks.seashell.performCallback]
+    },
+
+    {
+      id: "island-bridge",
+      showWhen: null,
+      note: "When you buy your first wood you can build a bridge to the other side",
+      klass: null,
+      method: null,
+      args: null
     }
   ]
 }
