@@ -57,4 +57,5 @@ function Game(){
 
 $.domReady(function(){
   window.Game = new Game();
+  window.Game.lonelyIslandLevel = new Level("island");
 });
