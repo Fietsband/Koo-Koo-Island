@@ -2,7 +2,6 @@ var clickAreas = {
   island: [
     {
       id: "island-seashell",
-      showWhen: null,
       note: "First shell where you can click on",
       klass: "Stats",
       method: "increaseStat",
@@ -11,7 +10,6 @@ var clickAreas = {
 
     {
       id: "island-bridge",
-      showWhen: null,
       note: "When you buy your first wood you can build a bridge to the other side",
       klass: null,
       method: null,
