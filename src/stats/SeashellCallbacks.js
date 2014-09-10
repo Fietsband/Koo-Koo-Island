@@ -68,10 +68,6 @@ SeashellCallbacks = {
             Game.player.buy(item.className);
           }
         });
-      },
-
-      buy: function(item){
-        console.log("buy stuff");
       }
     });
     fish.add();

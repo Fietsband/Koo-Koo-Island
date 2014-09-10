@@ -11,12 +11,7 @@ Stats.prototype = {
   },
 
   add: function(type, amount){
-    if(amount > 0){
-      GameData.player[type] += amount;
-    }
-    else{
-      GameData.player[type] -= amount;
-    }
+    GameData.player[type] += amount;
   }
 };
 
