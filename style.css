@@ -53,7 +53,7 @@ body{
 
 #stats span#seashells,
 #stats span#oysters{
-  padding: 3px 0;
+  padding: 3px 8px;
 }
 
 span#inventory{

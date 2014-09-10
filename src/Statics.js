@@ -17,7 +17,7 @@ var GameData = {
     mp:        0,
     seashells: 0,
     oysters:   0,
-    driftwood: 0,
+    wood:      0,
     armor:     null,
     weapon:    null,
     inventory: [],
@@ -29,5 +29,6 @@ var GameData = {
 }
 
 var sellPrices = {
-  wood: { value: 10, type: "seashells" }
+  oyster: { value: 10, type: "seashells" },
+  wood:   { value: 10, type: "oysters"}
 }

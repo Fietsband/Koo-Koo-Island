@@ -64,7 +64,7 @@ SeashellCallbacks = {
         var itemsForSale = document.querySelectorAll(".sell-items li");
         $.each(itemsForSale, function(i, item){
           item.onclick = function(){
-            item.className
+            Game.player.buy(item.className);
           }
         });
       },
