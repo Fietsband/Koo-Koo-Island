@@ -53,10 +53,12 @@ body{
   float: left;
 }
 
-#stats span,
-#stats span#seashells,
-#stats span#oysters{
+#stats span{
   padding: 3px 8px;
+}
+
+#stats span span{
+  padding: 3px 0;
 }
 
 span#inventory{

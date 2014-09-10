@@ -6,7 +6,7 @@ var clickAreas = {
       note: "First shell where you can click on",
       klass: "Stats",
       method: "increaseStat",
-      args: ["seashell", 1, SeashellCallbacks.performCallback]
+      args: ["seashell", 1, Callbacks.seashell.performCallback]
     }
   ]
 }
@@ -18,7 +18,7 @@ var GameData = {
     mp:        0,
     seashells: 0,
     oysters:   0,
-    wood:      0,
+    woods:     0,
     armor:     null,
     weapon:    null,
     inventory: [],
