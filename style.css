@@ -134,6 +134,11 @@ span#inventory{
 
 .popup#battle-sequence-popup .battle-sequence-interface ul li a{
   text-decoration: none;
+  color: black;
+}
+
+#battle-sequence-popup.popup .battle-sequence-interface.disabled ul li a{
+  color: #AAAAAA;
 }
 
 .popup#battle-sequence-popup .battle-sequence-interface ul li a span.keyboard-shortcut{
@@ -177,11 +182,15 @@ span#battle-big-shark,
   margin-bottom: 5px;
 }
 
-.bar .inner-bar{
+.bar div{
   height: 100%;
   position: absolute;
 }
 
-.attackbar .inner-bar{
+.attackbar .attack-left{
   background-color: #22ccff;
+}
+
+.healthbar .health-left{
+  background-color: #22CC22;
 }
