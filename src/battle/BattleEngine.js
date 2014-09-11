@@ -24,7 +24,31 @@ BattleEngine.prototype = {
   },
 
   addMenuOnKeyUpListeners: function(){
-    // add on key up listeners
+    var self = this;
+    document.onkeydown = function(e){
+      var e = e || window.event;
+      switch(e.keyCode){
+        case 65:
+          window.Game.player.attack(self.enemy);
+        break;
+
+        case 70:
+          window.currentBattle.battlePopup.hide();
+        break;
+
+        case 73:
+          // I code
+        break;
+
+        case 77:
+         // M code
+        break;
+
+        case 83:
+          // S code
+        break;
+      };
+    }
   },
 
   removePlayerAttackListeners: function(){
@@ -40,15 +64,31 @@ BattleEngine.prototype = {
   },
 
   removeMenuOnKeyUpListeners: function(){
-    // add on remove up listeners
+    document.onkeydown = null;
   },
+
+  enable: function(){
+    var self = this;
+    this.battleTimeout = setTimeout(function(){
+      self.battleInterface.classList.remove("disabled");
+      self.addPlayerAttackListeners();
+      clearTimeout(self.battleTimeout);
+    }, GameData.player.battle_timeout);
+  },
+
+  disable: function(){
+    clearTimeout(this.battleTimeout);
+    this.battleInterface.classList.add("disabled");
+    this.enable();
+  }
 }
 
 function BattleEngine(enemy){
-  this.enemyIdentifier = enemy;
+  this.enemy = enemy;
   this.battleInterface = document.querySelector("#battle-sequence-popup .battle-sequence-interface");
   this.attackButton = this.battleInterface.querySelector("#attack");
   this.skillButton = this.battleInterface.querySelector("#skill");
   this.magicButton = this.battleInterface.querySelector("#magic");
   this.itemsButton = this.battleInterface.querySelector("#items");
+  this.battleTimeout = null;
 }

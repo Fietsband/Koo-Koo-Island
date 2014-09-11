@@ -1,13 +1,22 @@
 Battle.prototype = {
   startBattle: function(){
     this.fillGraphics();
-    this.battleEngine.addPlayerAttackListeners();
     this.battlePopup.show();
+    this.battleEngine.enable();
+    this.player.updateHealthBar();
+    this.enemy.startAttacking();
+    window.currentBattle = this;
   },
 
   stopBattle: function(){
-    this.battleEngine.removePlayerAttackListeners();
+    this.pause();
     this.emptyGraphics();
+    window.currentBattle = null;
+  },
+
+  pause: function(){
+    this.battleEngine.removePlayerAttackListeners();
+    this.enemy.quitAttacking();
   },
 
   fillGraphics: function(){
@@ -28,6 +37,6 @@ Battle.prototype = {
 function Battle(enemy){
   this.player = window.Game.player;
   this.enemy = enemy;
-  this.battleEngine = new BattleEngine(enemy);
-  this.battlePopup = new Popup("battle-sequence-popup", undefined);
+  this.battleEngine = new BattleEngine(this.enemy);
+  this.battlePopup = new Popup("battle-sequence-popup", undefined, this.stopBattle.bind(this));
 }
