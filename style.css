@@ -115,6 +115,7 @@ span#inventory{
   margin-bottom: 10px;
 }
 
+span#battle-big-shark,
 .sell-items li,
 #inventory-stash a{
   cursor: pointer;
