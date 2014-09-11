@@ -39,6 +39,7 @@ body{
   height: 12px;
 }
 
+#game-character,
 .enemies,
 .popup,
 .flash#saved,
@@ -88,9 +89,7 @@ span#inventory{
   background-color: #ffffff;
 }
 
-.popup,
-.popup#inventory-popup,
-.popup#message-in-a-bottle-popup{
+.popup{
   width: 1000px;
   top: 200px;
   left: 50%;
@@ -100,6 +99,45 @@ span#inventory{
 
 .popup#map-popup{
   z-index: 2;
+}
+
+.popup#battle-sequence-popup .field{
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  height: 300px;
+}
+
+.popup#battle-sequence-popup .field .player{
+  position: absolute;
+  bottom: 0px;
+  left: 30px;
+}
+
+.popup#battle-sequence-popup .field .enemy{
+  position: absolute;
+  right: 0;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface{
+  clear: both;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface ul li{
+  list-style-type: none;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface ul{
+  padding-left: 0;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface ul li a{
+  text-decoration: none;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface ul li a span.keyboard-shortcut{
+  text-decoration: underline;
 }
 
 .popup#load-game{
@@ -128,8 +166,4 @@ span#battle-big-shark,
 .sell-items li.disabled{
   cursor: default;
   color: #AAAAAA;
-}
-
-.character{
-  display: none;
 }

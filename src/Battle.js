@@ -9,9 +9,12 @@ Battle.prototype = {
   },
 
   fillGraphics: function(){
-    var enemyGraphic = this.enemy.enemyPre.innerHTML;
-    var enemyPlaceholder = document.querySelector("#battle-sequence-popup .field .enemy #graphic");
+    var playerGraphic     = this.player.graphic.innerHTML;
+    var playerPlaceholder = document.querySelector("#battle-sequence-popup .field .player #graphic");
+    var enemyGraphic      = this.enemy.enemyPre.innerHTML;
+    var enemyPlaceholder  = document.querySelector("#battle-sequence-popup .field .enemy #graphic");
     enemyPlaceholder.innerHTML = enemyGraphic;
+    playerPlaceholder.innerHTML = playerGraphic;
   },
 
   emptyGraphics: function(){

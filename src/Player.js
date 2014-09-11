@@ -20,4 +20,5 @@ Player.prototype = {
 
 function Player(){
   this.inventory = new Inventory();
+  this.graphic = document.getElementById("game-character");
 }
