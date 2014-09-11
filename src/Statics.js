@@ -14,6 +14,14 @@ var clickAreas = {
       klass: null,
       method: null,
       args: null
+    },
+
+    {
+      id: "battle-big-shark",
+      note: "When something happens ?!",
+      klass: "BattleInitializer",
+      method: "start",
+      args: ["big-shark"]
     }
   ]
 }
