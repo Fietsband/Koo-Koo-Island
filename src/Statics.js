@@ -29,16 +29,18 @@ var clickAreas = {
 var GameData = {
   settings: {},
   player: {
-    hp:        20,
-    mp:        0,
-    seashells: 0,
-    oysters:   0,
-    woods:     0,
-    armor:     null,
-    weapon:    null,
-    inventory: [],
-    skills: [],
-    magic: []
+    hp:               20,
+    mp:               0,
+    attack_damage:    500,
+    battle_timeout:   5000,
+    seashells:        0,
+    oysters:          0,
+    woods:            0,
+    armor:            null,
+    weapon:           null,
+    inventory:        [],
+    skills:           [],
+    magic:            []
   }
 }
 
@@ -48,5 +50,23 @@ var sellPrices = {
 }
 
 var Enemies = {
+  'big-shark' : {
+    health: 9999,
+    attack_interval: 5500,
+    attacks: {
+      bite: {
+        damage: 1000,
+        probability: 20
+      },
 
+      laser: {
+        damage: 9999,
+        probability: 1
+      }
+    },
+    position: {
+      x: 460,
+      y: -85
+    }
+  }
 }
