@@ -15,6 +15,10 @@ Player.prototype = {
   canBuyItem: function(item){
     var playerInventoryItemCount = GameData.player[sellPrices[item].type];
     return playerInventoryItemCount >= sellPrices[item].value;
+  },
+
+  attack: function(enemy){
+    // perform attack on enemy
   }
 }
 

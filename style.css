@@ -167,3 +167,21 @@ span#battle-big-shark,
   cursor: default;
   color: #AAAAAA;
 }
+
+.bar{
+  width: 125px;
+  height: 7px;
+  display: block;
+  border: 1px solid #000;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.bar .inner-bar{
+  height: 100%;
+  position: absolute;
+}
+
+.attackbar .inner-bar{
+  background-color: #22ccff;
+}
