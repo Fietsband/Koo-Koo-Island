@@ -18,11 +18,57 @@ Player.prototype = {
   },
 
   attack: function(enemy){
-    // perform attack on enemy
+    var self = this;
+
+    move(this.battleGraphic)
+      .x(enemy.enemyInformation.position.x)
+      .y(enemy.enemyInformation.position.y)
+      .duration('0.4s')
+      .ease('in')
+      .end();
+
+    clearTimeout(this.clearMove);
+
+    this.clearMove = setTimeout(function(){
+      move(self.battleGraphic)
+        .x(0)
+        .duration('0.3s')
+        .ease('out')
+        .end(function(){
+          enemy.looseHealth(GameData.player.attack_damage);
+          window.currentBattle.battleEngine.disable();
+        });
+
+      clearTimeout(self.clearMove);
+    }, 500);
+  },
+
+  looseHealth: function(amount){
+    GameData.player.hp -= amount;
+    if(GameData.player.hp <= 0){
+      GameData.player.hp = 0;
+      window.currentBattle.pause();
+      setTimeout(function(){
+        window.currentBattle.battlePopup.hide();
+        GameData.player.hp = 1;
+      }, 2000);
+    }
+    this.updateHealthBar();
+  },
+
+  updateHealthBar: function(){
+    this.healthBar.style.width = this.currentHealth() + "%";
+  },
+
+  currentHealth: function(){
+    return (GameData.player.hp / this.startHealth) * 100;
   }
 }
 
 function Player(){
   this.inventory = new Inventory();
   this.graphic = document.getElementById("game-character");
+  this.battleGraphic = document.querySelector("#battle-sequence-popup .player #graphic");
+  this.healthBar = document.querySelector(".field .player .healthbar .health-left");
+  this.startHealth = GameData.player.hp;
 }
