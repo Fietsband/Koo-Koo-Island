@@ -1,6 +1,21 @@
 Battle.prototype = {
   startBattle: function(){
+    this.fillGraphics();
     this.battlePopup.show();
+  },
+
+  stopBattle: function(){
+    this.emptyGraphics();
+  },
+
+  fillGraphics: function(){
+    var enemyGraphic = this.enemy.enemyPre.innerHTML;
+    var enemyPlaceholder = document.querySelector("#battle-sequence-popup .field .enemy #graphic");
+    enemyPlaceholder.innerHTML = enemyGraphic;
+  },
+
+  emptyGraphics: function(){
+
   }
 }
 
@@ -12,8 +27,10 @@ function Battle(enemy){
 
 
 BattleInitializer.prototype = {
-  start: function(enemy){
-    console.log(enemy);
+  start: function(enemyName){
+    var enemy = new Enemy(enemyName)
+    var battle = new Battle(enemy);
+    battle.startBattle();
   }
 }
 

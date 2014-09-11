@@ -1,7 +1,6 @@
 Enemy.prototype = {
-
 }
 
-function Enemy(){
-
+function Enemy(identifier){
+  this.enemyPre = document.querySelector(".enemies #" + identifier);
 }
