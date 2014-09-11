@@ -37,10 +37,8 @@ var GameData = {
     armor:     null,
     weapon:    null,
     inventory: [],
-    skills: {
-      specials: [],
-      magic: []
-    }
+    skills: [],
+    magic: []
   }
 }
 
