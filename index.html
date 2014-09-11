@@ -21,6 +21,7 @@
     <script language="javascript" src="src/Item.js"></script>
     <script language="javascript" src="src/ClickArea.js"></script>
     <script language="javascript" src="src/Level.js"></script>
+    <script language="javascript" src="src/Battle.js"></script>
     <script language="javascript" src="src/Main.js"></script>
     <script language="javascript" src="src/Controls.js"></script>
   </head>
@@ -137,7 +138,7 @@
         <button id="inventory-popup-close">Back to island</button>
       </div>
       <!-- Battle Sequence -->
-      <div class="popup battle-sequence">
+      <div class="popup" id="battle-sequence-popup">
         <div class="battle-sequence-info-header">
         </div>
         <div class="field">
@@ -164,7 +165,7 @@
               <a id="magic" href="#"><span class="keyboard-shortcut">M</span>agic</a>
             </li>
             <li>
-              <a id="flea" href="#"><span class="keyboard-shortcut">F</span>lea</a>
+              <a id="battle-sequence-popup-close" href="#"><span class="keyboard-shortcut">F</span>lea</a>
             </li>
           </ul>
         </div>
