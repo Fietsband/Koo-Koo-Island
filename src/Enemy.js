@@ -35,6 +35,10 @@ Enemy.prototype = {
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
       this.enemyInformation.health = 0;
+      window.currentBattle.pause();
+      setTimeout(function(){
+        window.currentBattle.battlePopup.hide();
+      }, 2000);
     }
     this.updateHealthBar();
   },
