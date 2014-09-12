@@ -137,6 +137,11 @@ span#inventory{
   color: black;
 }
 
+.popup#battle-sequence-popup .battle-sequence-interface ul li a.hide{
+  display: none;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface ul li a.disabled,
 #battle-sequence-popup.popup .battle-sequence-interface.disabled ul li a{
   color: #AAAAAA;
 }
