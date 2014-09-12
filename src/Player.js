@@ -18,6 +18,7 @@ Player.prototype = {
   },
 
   attack: function(enemy){
+    window.currentBattle.battleEngine.disable();
     var self = this;
 
     move(this.battleGraphic)
@@ -36,7 +37,6 @@ Player.prototype = {
         .ease('out')
         .end(function(){
           enemy.looseHealth(GameData.player.attack_damage);
-          window.currentBattle.battleEngine.disable();
         });
 
       clearTimeout(self.clearMove);
