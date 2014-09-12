@@ -5,10 +5,11 @@ Flash.prototype = {
     var timeout = setTimeout(function(){
       self.message.style.display = "none";
       clearTimeout(timeout);
-    }, 2000);
+    }, this.time);
   }
 };
 
-function Flash(identifier){
+function Flash(identifier, time){
   this.message = document.getElementById(identifier);
+  this.time = time || 2000;
 }

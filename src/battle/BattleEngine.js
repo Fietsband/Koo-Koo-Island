@@ -2,6 +2,7 @@ BattleEngine.prototype = {
   addPlayerAttackListeners: function(){
     this.addMenuButtonOnClickListeners();
     this.addMenuOnKeyUpListeners();
+    this.battleInterface.classList.remove("disabled");
   },
 
   addMenuButtonOnClickListeners: function(){
@@ -61,6 +62,7 @@ BattleEngine.prototype = {
     this.skillButton.onclick = null;
     this.magicButton.onclick = null;
     this.itemsButton.onclick = null;
+    this.battleInterface.classList.add("disabled");
   },
 
   removeMenuOnKeyUpListeners: function(){
@@ -70,7 +72,6 @@ BattleEngine.prototype = {
   enable: function(){
     var self = this;
     this.battleTimeout = setTimeout(function(){
-      self.battleInterface.classList.remove("disabled");
       self.addPlayerAttackListeners();
       clearTimeout(self.battleTimeout);
     }, GameData.player.battle_timeout);
@@ -78,7 +79,7 @@ BattleEngine.prototype = {
 
   disable: function(){
     clearTimeout(this.battleTimeout);
-    this.battleInterface.classList.add("disabled");
+    this.removePlayerAttackListeners();
     this.enable();
   }
 }
