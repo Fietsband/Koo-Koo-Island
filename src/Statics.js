@@ -29,7 +29,7 @@ var clickAreas = {
 var GameData = {
   settings: {},
   player: {
-    hp:               20,
+    hp:               20000,
     mp:               0,
     attack_damage:    500,
     battle_timeout:   5000,
@@ -51,15 +51,18 @@ var sellPrices = {
 
 var Enemies = {
   'big-shark' : {
+    name: "Shark",
     health: 9999,
-    attack_interval: 5500,
+    attack_interval: 7500,
     attacks: {
       bite: {
+        name: "Bite",
         damage: 1000,
         probability: 20
       },
 
       laser: {
+        name: "Laser",
         damage: 9999,
         probability: 1
       }
