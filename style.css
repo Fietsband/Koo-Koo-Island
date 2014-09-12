@@ -194,3 +194,7 @@ span#battle-big-shark,
 .healthbar .health-left{
   background-color: #22CC22;
 }
+
+#battle-sequence-info-header{
+  height: 12px;
+}
