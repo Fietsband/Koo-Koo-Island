@@ -11,16 +11,22 @@ BattleEngine.prototype = {
       window.Game.player.attack(self.enemy);
     }
 
-    this.skillButton.onclick = function(){
-      // open skills menu
+    if(!this.skillButton.classList.contains("hide")){
+      this.skillButton.onclick = function(){
+        // open skills menu
+      }
     }
 
-    this.magicButton.onclick = function(){
-      // open magic menu
+    if(!this.magicButton.classList.contains("hide")){
+      this.magicButton.onclick = function(){
+        // open magic menu
+      }
     }
 
-    this.itemsButton.onclick = function(){
-      // open items menu
+    if(!this.itemsButton.classList.contains("disabled")){
+      this.itemsButton.onclick = function(){
+        // open items menu
+      }
     }
   },
 
@@ -38,15 +44,21 @@ BattleEngine.prototype = {
         break;
 
         case 73:
-          // I code
+          if(!this.itemsButton.classList.contains("disabled")){
+            // I code
+          }
         break;
 
         case 77:
-         // M code
+          if(!this.magicButton.classList.contains("hide")){
+            // M code
+          }
         break;
 
         case 83:
-          // S code
+          if(!this.skillButton.classList.contains("hide")){
+            // S code
+          }
         break;
       };
     }
@@ -81,6 +93,29 @@ BattleEngine.prototype = {
     clearTimeout(this.battleTimeout);
     this.removePlayerAttackListeners();
     this.enable();
+  },
+
+  showButtons: function(){
+    if(GameData.player.skills.length <= 0){
+      this.skillButton.classList.add("hide");
+    }
+    else{
+      this.skillButton.classList.remove("hide")
+    }
+
+    if(GameData.player.magic.length <= 0){
+      this.magicButton.classList.add("hide");
+    }
+    else{
+      this.magicButton.classList.remove("hide");
+    }
+
+    if(GameData.player.items.length <= 0){
+      this.itemsButton.classList.add("disabled");
+    }
+    else{
+      this.itemsButton.classList.remove("disabled");
+    }
   }
 }
 
@@ -92,4 +127,5 @@ function BattleEngine(enemy){
   this.magicButton = this.battleInterface.querySelector("#magic");
   this.itemsButton = this.battleInterface.querySelector("#items");
   this.battleTimeout = null;
+  this.showButtons();
 }
