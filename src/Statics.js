@@ -21,7 +21,7 @@ var clickAreas = {
       note: "When something happens ?!",
       klass: "BattleInitializer",
       method: "start",
-      args: ["big-shark"]
+      args: ["tiny-fish"]
     }
   ]
 }
@@ -57,14 +57,31 @@ var Enemies = {
     attack_interval: 7500,
     attacks: {
       bite: {
-        name: "Bite",
+        name: "bite",
         damage: 1000,
         probability: 20
       },
 
       laser: {
-        name: "Laser",
+        name: "laser",
         damage: 9999,
+        probability: 1
+      }
+    },
+    position: {
+      x: 460,
+      y: -85
+    }
+  },
+
+  'tiny-fish' : {
+    name: "Tiny Fish",
+    health: 10,
+    attack_interval: 7500,
+    attacks: {
+      bite: {
+        name: "bite",
+        damage: 1,
         probability: 1
       }
     },
