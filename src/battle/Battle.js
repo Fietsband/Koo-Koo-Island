@@ -3,7 +3,7 @@ Battle.prototype = {
     this.fillGraphics();
     this.battlePopup.show();
     this.battleEngine.enable();
-    this.player.updateHealthBar();
+    this.player.initiateFight();
     this.enemy.startAttacking();
     window.currentBattle = this;
   },
