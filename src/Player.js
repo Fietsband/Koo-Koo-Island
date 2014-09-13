@@ -60,10 +60,13 @@ Player.prototype = {
   initiateFight: function(){
     this.updateHealthBar();
     this.attackBar.resetBar();
+    this.totalHealth = document.querySelector(".field .player .health-stats .total-health");
+    this.totalHealth.innerHTML = this.startHealth;
   },
 
   updateHealthBar: function(){
     this.healthBar.style.width = this.currentHealth() + "%";
+    this.healthStats.innerHTML = GameData.player.hp;
   },
 
   currentHealth: function(){
@@ -76,6 +79,7 @@ function Player(){
   this.graphic = document.getElementById("game-character");
   this.battleGraphic = document.querySelector("#battle-sequence-popup .player #graphic");
   this.healthBar = document.querySelector(".field .player .healthbar .health-left");
+  this.healthStats = document.querySelector(".field .player .health-stats .health-stats-left");
   this.startHealth = GameData.player.hp;
   this.attackBar = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
 }
