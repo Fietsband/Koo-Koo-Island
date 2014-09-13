@@ -19,6 +19,8 @@ Player.prototype = {
 
   attack: function(enemy){
     window.currentBattle.battleEngine.disable();
+    window.currentBattle.infoHeader.update("You attacked");
+
     var self = this;
 
     move(this.battleGraphic)
