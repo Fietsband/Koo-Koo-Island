@@ -30,6 +30,7 @@ Player.prototype = {
 
     clearTimeout(this.clearMove);
 
+    this.attackBar.resetBar();
     this.clearMove = setTimeout(function(){
       move(self.battleGraphic)
         .x(0)
@@ -56,6 +57,11 @@ Player.prototype = {
     this.updateHealthBar();
   },
 
+  initiateFight: function(){
+    this.updateHealthBar();
+    this.attackBar.resetBar();
+  },
+
   updateHealthBar: function(){
     this.healthBar.style.width = this.currentHealth() + "%";
   },
@@ -71,4 +77,5 @@ function Player(){
   this.battleGraphic = document.querySelector("#battle-sequence-popup .player #graphic");
   this.healthBar = document.querySelector(".field .player .healthbar .health-left");
   this.startHealth = GameData.player.hp;
+  this.attackBar = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
 }

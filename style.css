@@ -101,6 +101,10 @@ span#inventory{
   z-index: 2;
 }
 
+.popup#battle-sequence-popup{
+  top: 50px;
+}
+
 .popup#battle-sequence-popup .field{
   display: block;
   position: relative;
@@ -193,7 +197,8 @@ span#battle-big-shark,
 }
 
 .attackbar .attack-left{
-  background-color: #22ccff;
+  background-color: #AAAAAA;
+  width: 0px;
 }
 
 .healthbar .health-left{

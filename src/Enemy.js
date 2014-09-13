@@ -1,6 +1,7 @@
 Enemy.prototype = {
   startAttacking: function(){
     var self = this;
+    this.attackHoldBar.resetBar();
     this.attackInterval = setInterval(function(){
       var toPerformAttack = self.pickAttack();
       self.attackWith(toPerformAttack);
@@ -25,6 +26,7 @@ Enemy.prototype = {
   attackWith: function(attack){
     window.currentBattle.infoHeader.update(this.enemyInformation.name + " attacked with " + attack.name);
     window.Game.player.looseHealth(attack.damage);
+    this.attackHoldBar.resetBar();
   },
 
   getEnemyStats: function(){
@@ -59,6 +61,7 @@ function Enemy(identifier, callbacks){
   this.healthBar          = document.querySelector(".field .enemy .healthbar .health-left");
   this.enemyInformation   = this.getEnemyStats();
   this.startHealth        = this.enemyInformation.health;
+  this.attackHoldBar      = new Bar(".field .enemy .attackbar .attack-left", this.enemyInformation.attack_interval);
   this.attackInterval     = null;
   this.updateHealthBar();
 }
