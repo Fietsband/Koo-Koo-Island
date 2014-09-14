@@ -24,8 +24,8 @@ Player.prototype = {
     var self = this;
 
     move(this.battleGraphic)
-      .x(enemy.enemyInformation.position.x)
-      .y(enemy.enemyInformation.position.y)
+      .x(enemy.enemyInformation.player_position.x)
+      .y(enemy.enemyInformation.player_position.y)
       .duration('0.4s')
       .ease('in')
       .end();
@@ -49,12 +49,14 @@ Player.prototype = {
   looseHealth: function(amount){
     GameData.player.hp -= amount;
     if(GameData.player.hp <= 0){
-      GameData.player.hp = 0;
-      window.currentBattle.pause();
-      setTimeout(function(){
-        window.currentBattle.battlePopup.hide();
-        GameData.player.hp = 1;
-      }, 2000);
+      window.currentBattle.endBattle(GameData.player.hp,
+        function(){
+          window.currentBattle.infoHeader.update("You lost!");
+        },
+        function(){
+          GameData.player.hp = 1;
+        }
+      );
     }
     this.updateHealthBar();
   },
@@ -73,15 +75,28 @@ Player.prototype = {
 
   currentHealth: function(){
     return (GameData.player.hp / this.startHealth) * 100;
+  },
+
+  getGraphic: function(){
+    return this.graphic.innerHTML;
+  },
+
+  spawn: function(){
+    this.playerPlaceholder = document.querySelector("#battle-sequence-popup .field .player #graphic");
+    this.playerPlaceholder.innerHTML = this.getGraphic();
+  },
+
+  unspawn: function(){
+    this.playerPlaceholder.innerHTML = "";
   }
 }
 
 function Player(){
-  this.inventory = new Inventory();
-  this.graphic = document.getElementById("game-character");
-  this.battleGraphic = document.querySelector("#battle-sequence-popup .player #graphic");
-  this.healthBar = document.querySelector(".field .player .healthbar .health-left");
-  this.healthStats = document.querySelector(".field .player .health-stats .health-stats-left");
-  this.startHealth = GameData.player.hp;
-  this.attackBar = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
+  this.inventory      = new Inventory();
+  this.graphic        = document.getElementById("game-character");
+  this.battleGraphic  = document.querySelector("#battle-sequence-popup .player #graphic");
+  this.healthBar      = document.querySelector(".field .player .healthbar .health-left");
+  this.healthStats    = document.querySelector(".field .player .health-stats .health-stats-left");
+  this.startHealth    = GameData.player.hp;
+  this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
 }
