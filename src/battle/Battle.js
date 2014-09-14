@@ -19,8 +19,9 @@ Battle.prototype = {
     this.enemy.quitAttacking();
   },
 
-  endBattle: function(characterHealth, pauseBattleCallback, endBattleCallback){
+  endBattle: function(characterHealth, pauseBattleCallback, endBattleCallback, endingTimeoutTime){
     var self = this;
+    this.endingTimeoutTime = endingTimeoutTime || 4000;
     characterHealth = 0;
     window.currentBattle.pause();
 
@@ -34,7 +35,7 @@ Battle.prototype = {
       if(endBattleCallback){
         endBattleCallback();
       }
-    }, 2000);
+    }, this.endingTimeoutTime);
   },
 
   fillGraphics: function(){
