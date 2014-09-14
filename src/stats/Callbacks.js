@@ -1,18 +1,26 @@
 Callbacks = {
   seashell: {
     performCallback: function(amount){
-      switch(amount){
-        case 1:
-          Callbacks.seashell.showFish();
-        break;
-
-        case 20:
-          Callbacks.seashell.showMessageInABottle()
-        break;
+      if(amount > 0 && !window.Game.checkProgressOn('show_fish')){
+        Callbacks.seashell.showFish();
+      }
+      else if(amount > 19 && !window.Game.checkProgressOn('show_bottle')){
+        Callbacks.seashell.showMessageInABottle()
+      }
+      else if(amount > 999 && !window.Game.checkProgressOn('show_shark')){
+        Callbacks.seashell.addShark();
       }
     },
 
+    addShark: function(){
+      GameData.progress.show_shark = 1;
+      $.each(document.querySelectorAll('span.big-shark-part'), function(i, sharkPart){
+        sharkPart.style.display = "block";
+      });
+    },
+
     showMessageInABottle: function(){
+      GameData.progress.show_bottle = 1;
       var map = new InventoryItem("A partial map of the world", "map", function(){
         var mapPopUp = new Popup("map-popup")
         mapPopUp.show();
@@ -33,6 +41,7 @@ Callbacks = {
     },
 
     showFish: function(){
+      GameData.progress.show_fish = 1;
       var fish = new Character("fish", {
         initialize: function(){
           var self = this;
@@ -92,6 +101,30 @@ Callbacks = {
 
   wood: {
     performCallback: function(amount){
+      if(amount > 0 && !window.Game.checkProgressOn('show_build_bridge_button')){
+        Callbacks.wood.showBuildBridgeButton();
+      }
+    },
+
+    showBuildBridgeButton: function(){
+      var islandBuildBrigeButton = document.querySelector('.island-bridge-popup #build-island-bridge');
+      var islandBridgePopup = new Popup('island-bridge-popup', function(){
+        if(GameData.player.woods >= 100 && !window.Game.checkProgressOn('enable_build_bridge_button')){
+          GameData.progress.enable_build_bridge_button = 1;
+          islandBuildBrigeButton.removeAttribute("disabled");
+          islandBuildBrigeButton.onclick = function(){
+            window.Stats.increaseStats('wood', -100);
+            // update map with ====
+            // make map place clickable
+          }
+        }
+      });
+
+      var islandBridgeButton = document.getElementById("island-bridge");
+      islandBridgeButton.classList.remove("disabled");
+      islandBridgeButton.onclick = function(){
+        islandBridgePopup.show();
+      }
     }
   }
 }
