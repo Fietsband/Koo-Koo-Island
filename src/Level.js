@@ -1,4 +1,8 @@
 Level.prototype = {
+  addToGame: function(){
+    this.setClickAreas();
+  },
+
   setClickAreas: function(){
     var self = this;
     $.each(window.clickAreas[this.identifier], function(i, area){
@@ -12,5 +16,4 @@ Level.prototype = {
 
 function Level(identifier){
   this.identifier = identifier;
-  this.setClickAreas();
 }
