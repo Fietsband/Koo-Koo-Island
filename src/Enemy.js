@@ -47,15 +47,11 @@ Enemy.prototype = {
 
   rewardPlayer: function(){
     var self = this;
-    if(this.enemyInformation.rewards['stats']){
-      new Rewarder('stats', this.enemyInformation.rewards).reward();
-    }
-
-    if(this.enemyInformation.rewards['items']){
-      $.each(Object.keys(this.enemyInformation.rewards['items']), function(j, item){
-
-      });
-    }
+    $.each(['stats', 'items'], function(i, rewardType){
+      if(self.enemyInformation.rewards[rewardType]){
+        new Rewarder(rewardType, this.enemyInformation.rewards).reward();
+      }
+    });
   },
 
   updateHealthBar: function(){
