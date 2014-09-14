@@ -205,6 +205,7 @@ span#battle-big-shark,
   background-color: #22CC22;
 }
 
+.enemy #health,
 .player #health{
   display: block;
   width: 250px;
