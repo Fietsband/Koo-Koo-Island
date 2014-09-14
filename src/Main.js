@@ -36,6 +36,10 @@ Game.prototype = {
     this.toggleAutoSaveInterval();
   },
 
+  checkProgressOn: function(part){
+    return GameData.progress[part] == 1;
+  },
+
   autoSaveInterval: null,
   autoSaveTimeInterval: 5000
 }
@@ -58,4 +62,5 @@ function Game(){
 $.domReady(function(){
   window.Game = new Game();
   window.Game.lonelyIslandLevel = new Level("island");
+  window.Game.lonelyIslandLevel.addToGame();
 });
