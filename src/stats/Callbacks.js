@@ -87,7 +87,7 @@ Callbacks = {
   },
 
   oyster: {
-    performCallback: function(){}
+    performCallback: function(amount){}
   },
 
   wood: {
