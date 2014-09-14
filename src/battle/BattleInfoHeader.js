@@ -6,7 +6,6 @@ BattleInfoHeader.prototype = {
       self.messageTimeout = setTimeout(function(){
         move(self.infoHeader).duration(200).set('opacity', 0).end(function(){
           self.infoHeader.innerHTML = "";
-
         });
         clearTimeout(self.messageTimeout);
       }, 2000);
