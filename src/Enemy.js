@@ -36,11 +36,26 @@ Enemy.prototype = {
   looseHealth: function(amount){
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
+      var self = this;
       window.currentBattle.endBattle(this.enemyInformation.health, function(){
-        window.currentBattle.infoHeader.update("You've beaten " + this.enemyInformation.name);
+        self.rewardPlayer();
+        window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);
       });
     }
     this.updateHealthBar();
+  },
+
+  rewardPlayer: function(){
+    var self = this;
+    if(this.enemyInformation.rewards['stats']){
+      new Rewarder('stats', this.enemyInformation.rewards).reward();
+    }
+
+    if(this.enemyInformation.rewards['items']){
+      $.each(Object.keys(this.enemyInformation.rewards['items']), function(j, item){
+
+      });
+    }
   },
 
   updateHealthBar: function(){
