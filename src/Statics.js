@@ -29,9 +29,9 @@ var clickAreas = {
 var GameData = {
   settings: {},
   player: {
-    hp:               20000,
+    hp:               20,
     mp:               0,
-    attack_damage:    500,
+    attack_damage:    2,
     battle_timeout:   5000,
     seashells:        0,
     oysters:          0,
@@ -68,9 +68,13 @@ var Enemies = {
         probability: 1
       }
     },
-    position: {
+    player_position: {
       x: 460,
       y: -85
+    },
+    position: {
+      x: 0,
+      y: 0
     }
   },
 
@@ -81,13 +85,17 @@ var Enemies = {
     attacks: {
       bite: {
         name: "bite",
-        damage: 1,
+        damage: 10,
         probability: 1
       }
     },
+    player_position: {
+      x: 660,
+      y: -30
+    },
     position: {
-      x: 460,
-      y: -85
+      x: 41,
+      y: 160
     }
   }
 }
