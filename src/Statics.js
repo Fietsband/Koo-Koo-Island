@@ -11,10 +11,7 @@ $.domReady(function(){
 
       {
         id: "island-bridge",
-        note: "When you buy your first wood you can build a bridge to the other side",
-        klass: null,
-        method: null,
-        args: null
+        note: "When you buy your first wood you can build a bridge to the other side"
       },
 
       {
