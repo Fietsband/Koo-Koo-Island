@@ -8,7 +8,12 @@ ClickArea.prototype = {
   },
 
   clickAreaMethod: function(){
-    window[this.klass][this.clickMethod].apply(null, this.args)
+    if(this.klass && this.clickMethod){
+      window[this.klass][this.clickMethod].apply(null, this.args)
+    }
+    else{
+      function empty(){};
+    }
   },
 
   enable: function(){
