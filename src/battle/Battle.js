@@ -19,18 +19,32 @@ Battle.prototype = {
     this.enemy.quitAttacking();
   },
 
+  endBattle: function(characterHealth, pauseBattleCallback, endBattleCallback){
+    var self = this;
+    characterHealth = 0;
+    window.currentBattle.pause();
+
+    if(pauseBattleCallback){
+      pauseBattleCallback();
+    }
+
+    self.endingTimeout = setTimeout(function(){
+      window.currentBattle.battlePopup.hide();
+      clearTimeout(self.endingTimeout);
+      if(endBattleCallback){
+        endBattleCallback();
+      }
+    }, 2000);
+  },
+
   fillGraphics: function(){
-    this.playerGraphic     = this.player.graphic.innerHTML;
-    this.playerPlaceholder = document.querySelector("#battle-sequence-popup .field .player #graphic");
-    this.enemyGraphic      = this.enemy.enemyPre.innerHTML;
-    this.enemyPlaceholder  = document.querySelector("#battle-sequence-popup .field .enemy #graphic");
-    this.enemyPlaceholder.innerHTML = this.enemyGraphic;
-    this.playerPlaceholder.innerHTML = this.playerGraphic;
+    this.enemy.spawn();
+    this.player.spawn();
   },
 
   emptyGraphics: function(){
-    this.enemyPlaceholder.innerHTML = "";
-    this.playerPlaceholder.innerHTML = "";
+    this.enemy.unspawn();
+    this.player.unspawn();
   }
 }
 
