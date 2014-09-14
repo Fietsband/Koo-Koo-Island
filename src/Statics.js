@@ -31,7 +31,7 @@ var GameData = {
   player: {
     hp:               20,
     mp:               0,
-    attack_damage:    2,
+    attack_damage:    10,
     battle_timeout:   5000,
     seashells:        0,
     oysters:          0,
@@ -75,6 +75,15 @@ var Enemies = {
     position: {
       x: 0,
       y: 0
+    },
+    rewards: {
+      stats: {
+        seashell: 150,
+        oyster: 20
+      },
+      items: {
+        sharklaser: 1
+      }
     }
   },
 
@@ -85,7 +94,7 @@ var Enemies = {
     attacks: {
       bite: {
         name: "bite",
-        damage: 10,
+        damage: 1,
         probability: 1
       }
     },
@@ -96,6 +105,11 @@ var Enemies = {
     position: {
       x: 41,
       y: 160
+    },
+    rewards: {
+      stats: {
+        seashell: 2
+      }
     }
   }
 }
