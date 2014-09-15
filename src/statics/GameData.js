@@ -7,7 +7,7 @@ var GameData = {
     battle_timeout:   5000,
     seashells:        0,
     oysters:          0,
-    woods:            100,
+    woods:            0,
     armor:            null,
     weapon:           null,
     inventory:        [],
