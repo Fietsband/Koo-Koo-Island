@@ -39,6 +39,7 @@ body{
   height: 12px;
 }
 
+#game-levels #squirrel-city,
 span.big-shark-part,
 #game-character,
 .enemies,
@@ -100,6 +101,10 @@ span#inventory{
 
 .popup#map-popup{
   z-index: 2;
+}
+
+.popup#map-popup .map-place.enabled{
+  cursor: pointer;
 }
 
 .popup#battle-sequence-popup{
