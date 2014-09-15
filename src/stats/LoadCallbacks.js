@@ -25,14 +25,20 @@ LoadCallbacks = {
   setup_inventory: function(){
     window.Game.player.inventory.checkInventory();
     $.each(window.GameData.player.inventory, function(i, inventoryItem){
-      window.Game.player.inventory.addItem(
-        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, null);
-      );
+      LoadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+      new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, Callbacks.seashell.showMapPopup).add();
     });
   },
 
   enable_build_bridge_button: function(){
     window.Game.gameMap.showBridge();
     window.Game.gameMap.enableSquirrelCity();
+  },
+
+  inventory: {
+    map_callback: function(){
+      window.Game.messageInABottle.clearOnClickMethod();
+      document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
+    }
   }
 }
