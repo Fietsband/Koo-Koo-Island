@@ -1,5 +1,4 @@
 #!/bin/sh
-
 YUI_PATH="helper/yuicompressor-2.4.8.jar"
 JAVASCRIPTS=(
   "vendor/json3.js"
@@ -18,6 +17,19 @@ JAVASCRIPTS=(
   "src/GameMap.js"
   "src/Graphic.js"
   "src/Inventory.js"
+  "src/InventoryItem.js"
+  "src/Player.js"
+  "src/Enemy.js"
+  "src/Item.js"
+  "src/battle/Rewarder.js"
+  "src/battle/BattleEngine.js"
+  "src/battle/BattleInfoHeader.js"
+  "src/battle/Battle.js"
+  "src/battle/BattleInitializer.js"
+  "src/ClickArea.js"
+  "src/Level.js"
+  "src/Main.js"
+  "src/Controls.js"
 )
 
 if [ -e application.js ]; then rm application.js; fi
