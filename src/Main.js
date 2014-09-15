@@ -51,6 +51,7 @@ function Game(){
     this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
     this.storeGid();
     this.player = new Player();
+    this.gameMap = new GameMap();
     this.getOldGameData();
     this.toggleAutoSaveInterval();
   }
@@ -61,6 +62,8 @@ function Game(){
 
 $.domReady(function(){
   window.Game = new Game();
-  window.Game.lonelyIslandLevel = new Level("island");
-  window.Game.lonelyIslandLevel.addToGame();
+  window.Game.levels = {};
+  window.Game.levels.lonelyIslandLevel = new Level("island");
+  window.Game.levels.squirrelCity      = new Level("squirrel-city");
+  window.Game.levels.lonelyIslandLevel.addToGame();
 });
