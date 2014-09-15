@@ -15,7 +15,7 @@ Callbacks = {
     addShark: function(){
       GameData.progress.show_shark = 1;
       $.each(document.querySelectorAll('span.big-shark-part'), function(i, sharkPart){
-        sharkPart.style.display = "block";
+        sharkPart.style.display = "inline-block";
       });
     },
 
