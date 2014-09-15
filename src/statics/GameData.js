@@ -17,6 +17,7 @@ var GameData = {
   },
 
   progress: {
+    show_inventory: 0,
     show_fish: 0,
     show_bottle: 0,
     show_shark: 0,
