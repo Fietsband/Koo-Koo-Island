@@ -1,6 +1,33 @@
 Level.prototype = {
   addToGame: function(){
+    this.unsetCurrentGame();
+    this.setCurrentGame();
+  },
+
+  setCurrentGame: function(){
+    this.showMap();
     this.setClickAreas();
+    window.currentLevel = this;
+  },
+
+  unsetCurrentGame: function(){
+    if(window.currentLevel){
+      window.currentLevel.hideMap();
+      window.currentLevel.removeClickAreas();
+      window.currentLevel = null;
+    }
+  },
+
+  showMap: function(){
+    this.levelDom.style.display = "block";
+  },
+
+  hideMap: function(){
+    this.levelDom.style.display = "none";
+  },
+
+  removeClickAreas: function(){
+    this.levelClickAreas = {};
   },
 
   setClickAreas: function(){
@@ -16,4 +43,5 @@ Level.prototype = {
 
 function Level(identifier){
   this.identifier = identifier;
+  this.levelDom = document.querySelector("#game-levels #" + identifier);
 }
