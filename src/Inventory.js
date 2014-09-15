@@ -10,12 +10,11 @@ Inventory.prototype = {
   },
 
   setupInventoryButton: function(){
-    var self = this;
     var inventoryButton = document.getElementById("open-inventory-button")
     inventoryButton.style.display = "block";
-    inventoryPopUp = new Popup("inventory-popup");
+    window.Game.inventoryPopUp = new Popup("inventory-popup");
     inventoryButton.onclick = function(){
-      inventoryPopUp.show();
+      window.Game.inventoryPopUp.show();
     }
   },
 

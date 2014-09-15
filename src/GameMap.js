@@ -9,6 +9,8 @@ GameMap.prototype = {
     squirrelCity.classList.add("enabled");
     squirrelCity.onclick = function(){
       window.Game.levels.squirrelCity.addToGame();
+      window.Game.mapPopUp.hide();
+      window.Game.inventoryPopUp.hide();
     }
   }
 }

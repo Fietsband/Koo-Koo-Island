@@ -21,10 +21,12 @@ Callbacks = {
 
     showMessageInABottle: function(){
       GameData.progress.show_bottle = 1;
-      var map = new InventoryItem("A partial map of the world", "map", function(){
-        var mapPopUp = new Popup("map-popup")
-        mapPopUp.show();
-      });
+      var map = new InventoryItem("A partial map of the world", "map",
+        function(){
+          window.Game.mapPopUp = new Popup("map-popup");
+          window.Game.mapPopUp.show();
+        }
+      );
 
       var messageInABottle = new Item("message-in-a-bottle", function(){
         var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
