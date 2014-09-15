@@ -22,7 +22,6 @@ Battle.prototype = {
   endBattle: function(characterHealth, pauseBattleCallback, endBattleCallback, endingTimeoutTime){
     var self = this;
     this.endingTimeoutTime = endingTimeoutTime || 4000;
-    characterHealth = 0;
     window.currentBattle.pause();
 
     if(pauseBattleCallback){

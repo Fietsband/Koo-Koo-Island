@@ -37,6 +37,7 @@ Enemy.prototype = {
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
       var self = this;
+      this.enemyInformation.health = 0;
       window.currentBattle.endBattle(this.enemyInformation.health, function(){
         self.rewardPlayer();
         window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);

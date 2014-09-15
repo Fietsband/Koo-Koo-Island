@@ -49,6 +49,7 @@ Player.prototype = {
   looseHealth: function(amount){
     GameData.player.hp -= amount;
     if(GameData.player.hp <= 0){
+      GameData.player.hp = 0;
       window.currentBattle.endBattle(GameData.player.hp,
         function(){
           window.currentBattle.infoHeader.update("You lost!");
