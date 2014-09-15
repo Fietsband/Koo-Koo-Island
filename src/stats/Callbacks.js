@@ -27,18 +27,18 @@ Callbacks = {
     showMessageInABottle: function(){
       GameData.progress.show_bottle = 1;
       var map = new InventoryItem("A partial map of the world", "map", Callbacks.seashell.showMapPopup);
-      var messageInABottle = new Item("message-in-a-bottle", function(){
+      window.Game.messageInABottle = new Item("message-in-a-bottle", function(){
         var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
           undefined,
           function(){
-            messageInABottle.clearOnClickMethod();
+            window.Game.messageInABottle.clearOnClickMethod();
             document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
             window.Game.player.inventory.addItem(map);
           }
         );
         messageInABottlePopUp.show()
       });
-      messageInABottle.add();
+      window.Game.messageInABottle.add();
     },
 
     showFish: function(){
