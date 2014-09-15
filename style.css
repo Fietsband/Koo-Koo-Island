@@ -30,7 +30,7 @@ body{
   cursor: default;
 }
 
-#game-levels #island{
+#game-levels div{
   margin: 15% auto 0;
   width: 50%;
 }
@@ -39,7 +39,7 @@ body{
   height: 12px;
 }
 
-#game-levels #squirrel-city,
+#game-levels #squirrel_city,
 span.big-shark-part,
 #game-character,
 .enemies,

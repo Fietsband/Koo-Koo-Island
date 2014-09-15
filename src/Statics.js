@@ -21,6 +21,8 @@ $.domReady(function(){
         method: "start",
         args: ["tiny-fish"]
       }
+    ],
+    squirrel_city: [
     ]
   }
 });
