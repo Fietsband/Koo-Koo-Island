@@ -107,18 +107,22 @@ Callbacks = {
     },
 
     showBuildBridgeButton: function(){
-      var islandBuildBrigeButton = document.querySelector('.island-bridge-popup #build-island-bridge');
-      var islandBridgePopup = new Popup('island-bridge-popup', function(){
-        if(GameData.player.woods >= 100 && !window.Game.checkProgressOn('enable_build_bridge_button')){
-          GameData.progress.enable_build_bridge_button = 1;
-          islandBuildBrigeButton.removeAttribute("disabled");
-          islandBuildBrigeButton.onclick = function(){
-            window.Stats.increaseStats('wood', -100);
-            // update map with ====
-            // make map place clickable
+      var islandBuildBrigeButton = document.querySelector('#island-bridge-popup #build-island-bridge');
+      var islandBridgePopup = new Popup('island-bridge-popup',
+        function(){
+          if(GameData.player.woods >= 100 && !window.Game.checkProgressOn('enable_build_bridge_button') && window.Game.checkProgressOn('show_bottle')){
+            GameData.progress.enable_build_bridge_button = 1;
+            islandBuildBrigeButton.removeAttribute("disabled");
+            islandBuildBrigeButton.onclick = function(){
+              window.Stats.increaseStat('wood', -100);
+              window.Game.gameMap.showBridge();
+              window.Game.gameMap.enableSquirrelCity();
+              islandBuildBrigeButton.setAttribute("disabled", "disabled");
+              islandBuildBrigeButton.onclick = null;
+            }
           }
         }
-      });
+      );
 
       var islandBridgeButton = document.getElementById("island-bridge");
       islandBridgeButton.classList.remove("disabled");
