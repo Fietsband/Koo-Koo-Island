@@ -49,7 +49,7 @@ Enemy.prototype = {
     var self = this;
     $.each(['stats', 'items'], function(i, rewardType){
       if(self.enemyInformation.rewards[rewardType]){
-        new Rewarder(rewardType, this.enemyInformation.rewards).reward();
+        new Rewarder(rewardType, self.enemyInformation.rewards).reward();
       }
     });
   },
