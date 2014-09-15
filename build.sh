@@ -10,6 +10,14 @@ JAVASCRIPTS=(
   "src/interaction/Bar.js"
   "src/stats/Callbacks.js"
   "src/Character.js"
+  "src/statics/ClickAreas.js"
+  "src/statics/GameData.js"
+  "src/statics/SellPrices.js"
+  "src/statics/Enemies.js"
+  "src/Stats.js"
+  "src/GameMap.js"
+  "src/Graphic.js"
+  "src/Inventory.js"
 )
 
 if [ -e application.js ]; then rm application.js; fi
