@@ -5,7 +5,7 @@ Callbacks = {
         Callbacks.seashell.showFish();
       }
       else if(amount > 19 && !window.Game.checkProgressOn('show_bottle')){
-        Callbacks.seashell.showMessageInABottle()
+        Callbacks.seashell.showMessageInABottle();
       }
       else if(amount > 999 && !window.Game.checkProgressOn('show_shark')){
         Callbacks.seashell.addShark();
@@ -19,15 +19,14 @@ Callbacks = {
       });
     },
 
+    showMapPopup: function(){
+      window.Game.mapPopUp = new Popup("map-popup");
+      window.Game.mapPopUp.show();
+    },
+
     showMessageInABottle: function(){
       GameData.progress.show_bottle = 1;
-      var map = new InventoryItem("A partial map of the world", "map",
-        function(){
-          window.Game.mapPopUp = new Popup("map-popup");
-          window.Game.mapPopUp.show();
-        }
-      );
-
+      var map = new InventoryItem("A partial map of the world", "map", Callbacks.seashell.showMapPopup);
       var messageInABottle = new Item("message-in-a-bottle", function(){
         var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
           undefined,

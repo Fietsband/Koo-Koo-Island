@@ -1,4 +1,20 @@
 Game.prototype = {
+  initialize: function(){
+    if(GameStorage.canStore()){
+      GameData.settings.autoSaveEnabled = true;
+
+      this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
+      this.storeGid();
+      this.player = new Player();
+      this.gameMap = new GameMap();
+      this.getOldGameData();
+      this.toggleAutoSaveInterval();
+    }
+    else{
+      // display message that only modern browsers can play this game
+    }
+  },
+
   toggleAutoSaveInterval: function(){
     var self = this;
     if(GameData.settings.autoSaveEnabled){
@@ -28,7 +44,27 @@ Game.prototype = {
   },
 
   getOldGameData: function(){
-    //GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
+    window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
+    this.toggleLoadCallbacks();
+  },
+
+  toggleLoadCallbacks: function(){
+    var self = this;
+    $.each(Object.keys(window.GameData.progress), function(i, progressItem){
+      if(self.checkProgressOn(progressItem)){
+        LoadCallbacks[progressItem]();
+      }
+    });
+
+    $.each(["wood", "seashell", "wood"], function(i, statType){
+      if(window.GameData.player[statType + "s"] > 0){
+        LoadCallbacks.show_stat(statType);
+      }
+    });
+
+    if(window.GameData.player.inventory.length > 0){
+      LoadCallbacks.setup_inventory();
+    }
   },
 
   toggleAutoSave: function(){
@@ -44,21 +80,7 @@ Game.prototype = {
   autoSaveTimeInterval: 5000
 }
 
-function Game(){
-  if(GameStorage.canStore()){
-    GameData.settings.autoSaveEnabled = true;
-
-    this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
-    this.storeGid();
-    this.player = new Player();
-    this.gameMap = new GameMap();
-    this.getOldGameData();
-    this.toggleAutoSaveInterval();
-  }
-  else{
-    // display message that only modern browsers can play this game
-  }
-}
+function Game(){}
 
 $.domReady(function(){
   window.Game = new Game();
@@ -66,4 +88,5 @@ $.domReady(function(){
   window.Game.levels.lonelyIslandLevel = new Level("island");
   window.Game.levels.squirrelCity      = new Level("squirrel_city");
   window.Game.levels.lonelyIslandLevel.addToGame();
+  window.Game.initialize();
 });
