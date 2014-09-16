@@ -117,7 +117,7 @@ Callbacks = {
             islandBuildBrigeButton.onclick = function(){
               window.Stats.increaseStat('wood', -100);
               window.Game.gameMap.showBridge();
-              window.Game.gameMap.enableSquirrelCity();
+              window.Game.gameMap.enableMapSpot("squirrel_city");
               islandBuildBrigeButton.setAttribute("disabled", "disabled");
               islandBuildBrigeButton.onclick = null;
             }

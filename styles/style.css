@@ -22,7 +22,6 @@ body{
 }
 
 .click-area{
-  position: absolute;
   cursor: pointer;
 }
 

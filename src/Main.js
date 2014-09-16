@@ -85,8 +85,8 @@ function Game(){}
 $.domReady(function(){
   window.Game = new Game();
   window.Game.levels = {};
-  window.Game.levels.lonelyIslandLevel = new Level("island");
-  window.Game.levels.squirrelCity      = new Level("squirrel_city");
-  window.Game.levels.lonelyIslandLevel.addToGame();
+  window.Game.levels.island         = new Level("island");
+  window.Game.levels.squirrel_city  = new Level("squirrel_city");
+  window.Game.levels.island.addToGame();
   window.Game.initialize();
 });

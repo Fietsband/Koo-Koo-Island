@@ -32,7 +32,7 @@ LoadCallbacks = {
 
   enable_build_bridge_button: function(){
     window.Game.gameMap.showBridge();
-    window.Game.gameMap.enableSquirrelCity();
+    window.Game.gameMap.enableMapSpot("squirrel_city");
   },
 
   inventory: {
