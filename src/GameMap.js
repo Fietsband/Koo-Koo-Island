@@ -4,14 +4,22 @@ GameMap.prototype = {
     mapBridge.innerHTML = "==";
   },
 
-  enableSquirrelCity: function(){
-    var squirrelCity = document.querySelector("#map-popup #squirrel-city.map-place");
-    squirrelCity.classList.add("enabled");
-    squirrelCity.onclick = function(){
-      window.Game.levels.squirrelCity.addToGame();
+  enableMapSpot: function(spot){
+    var mapSpot = document.querySelector("#map-popup #" + spot + ".map-place");
+    mapSpot.classList.add("enabled");
+    mapSpot.onclick = function(){
+      mapSpot.innerHTML = "X";
+      mapSpot.classList.remove("enabled");
+      window.Game.levels[spot].addToGame();
       window.Game.mapPopUp.hide();
       window.Game.inventoryPopUp.hide();
     }
+  },
+
+  disableMapSpot: function(spot){
+    var mapSpot = document.querySelector("#map-popup #" + spot + ".map-place");
+    mapSpot.classList.remove("enabled");
+    mapSpot.onclick = null;
   }
 }
 
