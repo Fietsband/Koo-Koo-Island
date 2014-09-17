@@ -7,22 +7,28 @@ ExperiencePoints = {
 ExperienceCallbacks = {
   increaseExperience: function(amount){
     GameData.player.experience += amount;
-    ExperienceCallbacks.callback();
+    ExperienceCallbacks.checkExperiencePoints();
   },
 
   increaseHitPoints: function(amount){
     GameData.player.hp += amount;
   },
 
-  callback: function(){
+  checkExperiencePoints: function(){
     var exp = GameData.player.experience;
-    console.log(Object.keys(ExperiencePoints));
-    // $.each(Object.keys(ExperiencePoints), function(i, experienceKey){
-    //   if(exp > parseInt(experienceKey)){
-    //     $.each(ExperiencePoints[experienceKey], function(j, callback){
-    //       ExperienceCallbacks[callback.callback_method](callback.amount);
-    //     });
-    //   }
-    // });
+    $.each(ExperienceCallbacks.experienceCallbacks, function(experienceKey){
+      if(exp > parseInt(experienceKey)){
+        $.each(ExperiencePoints[experienceKey], function(j, callback){
+          ExperienceCallbacks[callback.callback_method](callback.amount);
+        });
+      }
+    });
+  },
+
+  experienceCallbacks: function(){
+    var performableCallbacks = Object.keys(ExperiencePoints).filter(function(i){
+      return parseInt(i) > GameData.player.experience;
+    });
+    return performableCallbacks;
   }
 }
