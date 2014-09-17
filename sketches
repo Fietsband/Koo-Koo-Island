@@ -40,6 +40,12 @@ Basic stick
   /|\|
   / \
 
+Basic harpoon
+
+   o ^
+  /|\|
+  / \
+
 Frying pan
 
    o O
@@ -381,6 +387,12 @@ Some random house
 In the tree there's a squirrel he sell you any items from armor to weapons.
 He's kinda shy and he only accepts cold hard cash.
 
+When you click on the door, the squirell warns you that the house is haunted.
+
+You can have two options:
+> Ignore the little squirrel
+> Listen to the little squirrel
+
 Inside the house:
             _______________________________________
           /|                                 __\_||\
@@ -388,42 +400,126 @@ Inside the house:
         /  |     |  |  |                 __\_|    |  \
        /|  |     |-----|               __\_|      |
       / |  |     |  |  |             __\_|        |
-     /| |  |      - - -            __\_|    [0]   |
-      | /  |                     __\_|            |
-      |/   |_____________________\_|______________|
-          /           _ _ _ _ _ _ _ _              \
+     /| |  |___   - - -            __\_|    [0]   |
+      | / /___/|                 __\_|            |
+      |/  |.|.||_________________\_|______________|
+          |_|_|/      _ _ _ _ _ _ _ _              \
          /           /               |              \
         /           /                |               \
+
+If you click on the stairs you'll go up one level of the house.
+If you click on the tiny portret you'll get a notice that something weird is happening on a deserted place. (on the island ;))
+If you click on the counter you'll find 100 oysters
 
 Level #1
 
             _______________________________________
           /|                                 __\_||\
          / |                               __\_|  | \
-        /  |                             __\_|    |  \
-       /|  |                           __\_|      |
-      / |  |                         __\_|        |
-     /| |  |                       __\_|          |
-      | /  |                     __\_|            |
-      |/   |_____________________\_|______________|
+        /  |      ^                      __\_|    |  \
+       /|  |      |                    __\_| |    |
+      / |  |      |                  __\_|   |    |
+     /| |  |                       __\_|   ( | )  |
+      | /  |                     __\_|       |    |
+      |/   |_____________________\_|_________|____|
           /                                       \
          /  _____________                          \
         /  /|_          |                           \
 
+If you click on the stairs you'll go up one level.
+If you click on the hole (down the level). You'll go down one level
+You can open the stairs closet - there will be a monster in there. But it will
+only open with a key. (Key will be found somewhere else in the game).
+
+You can click on the harpoon that's on the wall. You'll get a simple harpoon.
+
+Only go to the roof if you have trained with enough fish (when you click on the simple portrait).
+
+                   _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ]~~
+           ~~   .-'`  |_|  ``( )-._  ~/_~
+            ~~.'      |=|         '-./_/ ~
+        ><'>  |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+
+
+
 Roof
-                          |_______|
+                          |*______|
                           |       |
-                          |  / \  |
+                          |  /|\  |
                           |/     \|
                          /         \
                        /             \
-                     /                 \
-                   /                     \
-                 /                         \
-               /                             \
-             /                                 \
-           /_____________________\_|_____________\
+                     /    +======+     \
+                   /      | '  ' |       \
+                 /        |' ()  |         \
+               /          | /''\ |           \
+             /            +------+             \
+           /_____________________________________\
           /                                       \
          /  _____________                          \
         /  /|_          |                           \
 
+
+On the roof there's a little star.
+And a giant portrait of the original owner.
+
+If you click on the star you'll get a magic ability (Fire). It'll help you in battle.
+
+Once you're upstairs. You won't be able to go down.
+The painting on the wall must start glowing in all sorts of colors.
+Then it will fight you. With the spear and the fire spell you won't make it.
+When you press flea. You'll be outside with the squirell
+
+The squirell will tell you: "told you so!"
+
+
+Enemy:
+
++======+
+| '  ' |
+|' ()  |
+| /''\ |
++------+
+
+HP: 100
+Attacks: Paint (5 damage) (probability: 1)
+         Water (10 damage) (probability: 8)
+         Smear (1 damage) (probability: 1)
+
+
+When you beat the enemy. You'll get the second part of the map.
+
+
+Map part II
+
+============================================
+||                     ~      .----------/
+||    ~     ~       '````````/
+||  ~   ~       ~  /```X```/
+||           ~  O=='``````.\
+||    ~           / `````````\
+||         ._/'\/`````O````````\
+||  . '\  '```Ò```````````````/
+||/     '/\/'\../\'\/'\/'\/\/
+||            \/
+||
+||
+
+The two places are:
+- Forest of protectors
+- Cliffhill Town
