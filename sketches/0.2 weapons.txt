@@ -1,0 +1,35 @@
+Weapons
+=======
+
+Basic stick
+
+   o
+  /|\|
+  / \
+
+Basic harpoon
+
+   o ^
+  /|\|
+  / \
+
+Frying pan
+
+   o O
+  /|\|
+  / \
+
+Stone
+   o
+  /|\.
+  / \
+
+Bow
+   o
+  /|\}
+  / \
+
+Gun
+   o
+  /|\.=
+  / \
