@@ -456,8 +456,61 @@ Only go to the roof if you have trained with enough fish (when you click on the 
 
 If you click upon ≋ then it will go to some underwater current
 
+~                       ~
+          ~
+                  >{ .}                           ~
+                                     ~
+    ~                    ~
+
+                ~                               ~
+
+                                 ~
 
 
+Sometimes fish appear at the surface.
+Click on them to fight.
+You'll receive experience for every battle.
+
+Experience callbacks
+EXP     |  GET:
+---------------------
+10      |  + 10 HP
+20      |  + 20 HP
+50
+100
+150
+200
+250
+500
+750
+1000
+1250
+1500
+1750
+2000
+2500
+3000
+3500
+4000
+4500
+5000
+5500
+6000
+6500
+7000
+7500
+8000
+8500
+9000
+9500
+10000
+12500
+15000
+17500
+20000
+
+100000
+1000000
 
 
 Roof
@@ -481,7 +534,7 @@ Roof
 On the roof there's a little star.
 And a giant portrait of the original owner.
 
-If you click on the star you'll get a magic ability (Fire). It'll help you in battle.
+If you click on the star you'll get a magic ability (Fire, +5mp). It'll help you in battle.
 
 Once you're upstairs. You won't be able to go down.
 The painting on the wall must start glowing in all sorts of colors.
