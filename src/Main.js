@@ -3,16 +3,32 @@ Game.prototype = {
     if(GameStorage.canStore()){
       GameData.settings.autoSaveEnabled = true;
 
-      this.gid = GameStorage.get("koo-koo-island-gid") || $.guid();
+      this.gid        = GameStorage.get("koo-koo-island-gid") || $.guid();
+      this.player     = new Player();
+      this.gameMap    = new GameMap();
+      this.setLevels();
+      this.setCallbacks();
       this.storeGid();
-      this.player = new Player();
-      this.gameMap = new GameMap();
       this.getOldGameData();
       this.toggleAutoSaveInterval();
     }
     else{
       // display message that only modern browsers can play this game
     }
+  },
+
+  setLevels: function(){
+    this.levels = {};
+    this.levels.island         = new Level("island");
+    this.levels.squirrel_city  = new Level("squirrel_city");
+  },
+
+  setCallbacks: function(){
+    this.callbacks = {};
+    this.callbacks.loadCallbacks = LoadCallbacks;
+    this.callbacks.experienceCallbacks = ExperienceCallbacks;
+    this.callbacks.statsCallbacks = StatsCallbacks;
+    LoadCallbacks = ExperienceCallbacks = StatsCallbacks = null;
   },
 
   toggleAutoSaveInterval: function(){
@@ -52,18 +68,18 @@ Game.prototype = {
     var self = this;
     $.each(Object.keys(window.GameData.progress), function(i, progressItem){
       if(self.checkProgressOn(progressItem)){
-        LoadCallbacks[progressItem]();
+        window.Game.callbacks.loadCallbacks[progressItem]();
       }
     });
 
     $.each(["wood", "seashell", "wood"], function(i, statType){
       if(window.GameData.player[statType + "s"] > 0){
-        LoadCallbacks.show_stat(statType);
+        window.Game.callbacks.loadCallbacks.show_stat(statType);
       }
     });
 
     if(window.GameData.player.inventory.length > 0){
-      LoadCallbacks.setup_inventory();
+      window.Game.callbacks.loadCallbacks.setup_inventory();
     }
   },
 
@@ -85,8 +101,5 @@ function Game(){}
 $.domReady(function(){
   window.Game = new Game();
   window.Game.initialize();
-  window.Game.levels = {};
-  window.Game.levels.island         = new Level("island");
-  window.Game.levels.squirrel_city  = new Level("squirrel_city");
   window.Game.levels.island.addToGame();
 });
