@@ -4,8 +4,8 @@ Stats.prototype = {
     var statCount = document.getElementById(type + "-count");
     stat.style.display = "inline-block";
     window.Stats.add(type + "s", amount);
-    if(Callbacks[type].performCallback){
-      Callbacks[type].performCallback(GameData.player[type + "s"]);
+    if(window.Game.callbacks.statsCallbacks[type].performCallback){
+      window.Game.callbacks.statsCallbacks[type].performCallback(GameData.player[type + "s"]);
     }
     statCount.innerHTML = GameData.player[type + "s"];
   },
