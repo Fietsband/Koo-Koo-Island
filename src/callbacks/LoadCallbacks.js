@@ -1,18 +1,18 @@
 LoadCallbacks = {
   show_fish: function(){
-    Callbacks.seashell.showFish();
+    window.Game.callbacks.statsCallbacks.seashell.showFish();
   },
 
   show_bottle: function(){
-    Callbacks.seashell.showMessageInABottle();
+    window.Game.callbacks.statsCallbacks.seashell.showMessageInABottle();
   },
 
   show_shark: function(){
-    Callbacks.seashell.addShark();
+    window.Game.callbacks.statsCallbacks.seashell.addShark();
   },
 
   show_build_bridge_button: function(){
-    Callbacks.wood.showBuildBridgeButton();
+    window.Game.callbacks.statsCallbacks.wood.showBuildBridgeButton();
   },
 
   show_stat: function(type){
@@ -25,8 +25,8 @@ LoadCallbacks = {
   setup_inventory: function(){
     window.Game.player.inventory.checkInventory();
     $.each(window.GameData.player.inventory, function(i, inventoryItem){
-      LoadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
-      new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, Callbacks.seashell.showMapPopup).add();
+      window.Game.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+      new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, window.Game.callbacks.statsCallbacks.seashell.showMapPopup).add();
     });
   },
 

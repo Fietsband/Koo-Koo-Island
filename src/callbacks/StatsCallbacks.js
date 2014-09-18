@@ -1,14 +1,14 @@
-Callbacks = {
+StatsCallbacks = {
   seashell: {
     performCallback: function(amount){
       if(amount > 0 && !window.Game.checkProgressOn('show_fish')){
-        Callbacks.seashell.showFish();
+        window.Game.callbacks.statsCallbacks.seashell.showFish();
       }
       else if(amount > 19 && !window.Game.checkProgressOn('show_bottle')){
-        Callbacks.seashell.showMessageInABottle();
+        window.Game.callbacks.statsCallbacks.seashell.showMessageInABottle();
       }
       else if(amount > 999 && !window.Game.checkProgressOn('show_shark')){
-        Callbacks.seashell.addShark();
+        window.Game.callbacks.statsCallbacks.seashell.addShark();
       }
     },
 
@@ -26,7 +26,7 @@ Callbacks = {
 
     showMessageInABottle: function(){
       GameData.progress.show_bottle = 1;
-      var map = new InventoryItem("A partial map of the world", "map", Callbacks.seashell.showMapPopup);
+      var map = new InventoryItem("A partial map of the world", "map", window.Game.callbacks.statsCallbacks.seashell.showMapPopup);
       window.Game.messageInABottle = new Item("message-in-a-bottle", function(){
         var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
           undefined,
@@ -103,7 +103,7 @@ Callbacks = {
   wood: {
     performCallback: function(amount){
       if(amount > 0 && !window.Game.checkProgressOn('show_build_bridge_button')){
-        Callbacks.wood.showBuildBridgeButton();
+        window.Game.callbacks.statsCallbacks.wood.showBuildBridgeButton();
       }
     },
 
