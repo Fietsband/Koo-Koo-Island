@@ -41,11 +41,17 @@ Level.prototype = {
     });
   },
 
+  setMapSpot: function(){
+    var mapIdentifier = this.mapSpot ? this.mapSpot : this.identifier;
+    return document.querySelector("#map-popup #" + mapIdentifier);
+  },
+
   levelClickAreas: {}
 }
 
-function Level(identifier){
+function Level(identifier, mapSpot){
   this.identifier = identifier;
+  this.mapSpot = mapSpot;
   this.levelDom = document.querySelector("#game-levels #" + identifier);
-  this.pointOnMap = document.querySelector("#map-popup #" + identifier);
+  this.mapSpot = this.setMapSpot();
 }
