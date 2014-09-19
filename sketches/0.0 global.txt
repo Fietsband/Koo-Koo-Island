@@ -70,3 +70,6 @@ The reward is a part of your story and a piece of the map.
 On the map three spots appear. One spot is called ?? you can't enter yet because your MP is too low. The other two are easily accessible. One place is called Tremeloe Town and the other place is Sideous Cave
 
 In tremeloe town, there are lots of people knowing you.
+
+--
+Global goal: go back to the boat, people know that it is somewhere but they have no specific details.
