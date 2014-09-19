@@ -10,6 +10,7 @@
     <script language="javascript" src="src/interaction/Flash.js"></script>
     <script language="javascript" src="src/interaction/Popup.js"></script>
     <script language="javascript" src="src/interaction/Bar.js"></script>
+    <script language="javascript" src="src/levels/SquirrelCity.js"></script>
     <script language="javascript" src="src/statics/ExperiencePoints.js"></script>
     <script language="javascript" src="src/callbacks/ExperienceCallbacks.js"></script>
     <script language="javascript" src="src/callbacks/StatsCallbacks.js"></script>
@@ -84,8 +85,60 @@
          /  \___/^\___\%&%%&&
 ~  /     |  | []   [] |%\Y&%'
   '      |  |   .-.   | ||
- /     ~~@._|@@_|||_@@| ||
+ /     ~~@._|@@_<span class="click-area" id="haunted-house-door">|||</span>_@@| ||
 /           `""") )"""`
+
+        </pre>
+      </div>
+      <div id="squirrel_city_first_level_house">
+        <pre>
+      _______________________________________
+     /|                                 __\_||\
+    / |      - - -                    __\_|  | \
+   /  |     |  |  |                 __\_|    |  \
+  /|  |     |-----|               __\_|      |
+ / |  |     |  |  |             __\_|        |
+/| |  |___   - - -            __\_|    [0]   |
+ | / /___/|                 __\_|            |
+ |/  |.|.||_________________\_|______________|
+     |_|_|/      _ _ _ _ _ _ _ _              \
+    /           /               |              \
+   /           /                |               \
+        </pre>
+      </div>
+      <div id="squirrel_city_second_level_house">
+        <pre>
+       _______________________________________
+     /|                                 __\_||\
+    / |                               __\_|  | \
+   /  |      ^                      __\_|    |  \
+  /|  |      |                    __\_| |    |
+ / |  |      |                  __\_|   |    |
+/| |  |                       __\_|   ( | )  |
+ | /  |                     __\_|       |    |
+ |/   |_____________________\_|_________|____|
+     /                                       \
+    /  _____________                          \
+   /  /|_          |                           \
+        </pre>
+      </div>
+      <div id="squirrel_city_attic_house">
+        <pre>
+                  |*______|
+                  |       |
+                  |  /|\  |
+                  |/     \|
+                 /         \
+               /             \
+             /    +======+     \
+           /      | '  ' |       \
+         /        |' ()  |         \
+       /          | /''\ |           \
+     /            +------+             \
+   /_____________________________________\
+  /                                       \
+ /  _____________                          \
+/  /|_          |                           \
 
         </pre>
       </div>
@@ -231,6 +284,12 @@
         </div>
       </div>
       <!-- End Battle Sequence -->
+      <div class="popup" id="squirrel-warning">
+        <strong>The squirrel in the tree is warning you</strong>
+        <p>This house is haunted. You shouldn't go in! But suite yourself..</p>
+        <button id="enter-the-house">Let's go!</button>
+        <button id="squirrel-warning-close">I'm scared</button>
+      </div>
       <div class="enemies">
         <pre id="tiny-fish">
 >{ .}

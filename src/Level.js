@@ -53,5 +53,5 @@ function Level(identifier, mapSpot){
   this.identifier = identifier;
   this.mapSpot = mapSpot;
   this.levelDom = document.querySelector("#game-levels #" + identifier);
-  this.mapSpot = this.setMapSpot();
+  this.pointOnMap = this.setMapSpot();
 }
