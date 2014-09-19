@@ -3,7 +3,7 @@ Koo-Koo-Island
 
 Stuck on an island you await the fish to guide you through an amazing adventure.
 
-* features *
+### Progress:
 
 - Attack sequence
 - Building Story Part I - Building a bridge to the world
