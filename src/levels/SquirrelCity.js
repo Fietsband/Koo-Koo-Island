@@ -5,6 +5,7 @@ SquirrelCity = {
     squirrelWarningPopup.show();
     entertheHouseButton.onclick = function(){
       window.Game.levels.squirrel_city_first_level.addToGame();
+      squirrelWarningPopup.hide();
     }
   }
 }
