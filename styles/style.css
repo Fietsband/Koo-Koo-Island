@@ -38,7 +38,11 @@ body{
   height: 12px;
 }
 
-#game-levels #squirrel_city,
+#game-levels div#island{
+  display: block;
+}
+
+#game-levels div,
 span.big-shark-part,
 #game-character,
 .enemies,
