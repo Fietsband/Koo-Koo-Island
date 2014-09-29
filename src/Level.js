@@ -7,7 +7,7 @@ Level.prototype = {
   setCurrentGame: function(){
     this.showMap();
     this.setClickAreas();
-    window.Game.gameMap.disableMapSpot(this.identifier);
+    window.Game.gameMap.disableMapSpot(this.mapSpot);
     window.currentLevel = this;
   },
 
@@ -16,7 +16,7 @@ Level.prototype = {
       window.currentLevel.hideMap();
       window.currentLevel.removeClickAreas();
       window.currentLevel.pointOnMap.innerHTML = "O";
-      window.Game.gameMap.enableMapSpot(window.currentLevel.identifier);
+      window.Game.gameMap.enableMapSpot(window.currentLevel.mapSpot);
       window.currentLevel = null;
     }
   },
@@ -51,7 +51,7 @@ Level.prototype = {
 
 function Level(identifier, mapSpot){
   this.identifier = identifier;
-  this.mapSpot = mapSpot;
+  this.mapSpot = mapSpot || identifier;
   this.levelDom = document.querySelector("#game-levels #" + identifier);
   this.pointOnMap = this.setMapSpot();
 }
