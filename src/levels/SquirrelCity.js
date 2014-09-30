@@ -7,5 +7,21 @@ SquirrelCity = {
       window.Game.levels.squirrel_city_first_level.addToGame();
       squirrelWarningPopup.hide();
     }
+  },
+
+  goToFirstLevel: function(){
+    window.Game.levels.squirrel_city_second_level.addToGame();
+  },
+
+  goToSecondLevel: function(){
+    window.Game.levels.squirrel_city_attic_level.addToGame();
+  },
+
+  goToGroundLevel: function(){
+    window.Game.levels.squirrel_city_first_level.addToGame();
+  },
+
+  goOutside: function(){
+    window.Game.levels.squirrel_city.addToGame();
   }
 }
