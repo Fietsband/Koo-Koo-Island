@@ -64,6 +64,13 @@ var clickAreas = {
       note: "go to ground level",
       klass: "SquirrelCity",
       method: "goToGroundLevel"
+    },
+
+    {
+      id: ".squirrel-city-spear-wall",
+      note: "grab spear on wall",
+      klass: "SquirrelCity",
+      method: "grabSpear"
     }
   ],
 

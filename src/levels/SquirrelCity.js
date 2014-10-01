@@ -23,5 +23,11 @@ SquirrelCity = {
 
   goOutside: function(){
     window.Game.levels.squirrel_city.addToGame();
+  },
+
+  grabSpear: function(){
+    var item = new Weapon();
+    window.Game.player.inventory.addItem(item);
+    window.Game.levels.squirrel_city_second_level.levelClickAreas[".squirrel-city-spear-wall"].disable();
   }
 }
