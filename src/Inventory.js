@@ -4,7 +4,7 @@ Inventory.prototype = {
   },
 
   checkInventory: function(){
-    if(GameData.player.inventory.length > 0){
+    if(GameData.player.inventory.items.length > 0){
       this.setupInventoryButton();
     }
   },
@@ -18,8 +18,8 @@ Inventory.prototype = {
     }
   },
 
-  addItem: function(item){
-    GameData.player.inventory.push(item);
+  addItem: function(scope, item){
+    GameData.player.inventory[scope].push(item);
     item.add();
     this.checkInventory();
   }
