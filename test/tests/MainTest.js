@@ -3,8 +3,12 @@ QUnit.test("0.0 game initialization", function(assert){
 });
 
 QUnit.test("0.1 game player initialization", function(assert){
-  assert.ok(window.Game.player, "Passed!");
-  assert.ok(window.Game.player.inventory, "Passed!");
+  assert.ok(window.Game.player, "There should be player attached to the game");
+  assert.ok(window.Game.player.inventory, "The player should have an inventory");
+  assert.equal(window.Game.player.inventory.getInventory().items.length, 0, "Passed!");
+  assert.ok(window.Game.player.inventory.getInventory().items, "Passed!");
+  assert.ok(window.Game.player.inventory.getInventory().weapons, "Passed!");
+  assert.ok(window.Game.player.inventory.getInventory().magic, "Passed!");
 });
 
 QUnit.test("0.2 game levels initialization", function(assert){
