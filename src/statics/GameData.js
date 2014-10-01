@@ -1,3 +1,4 @@
+var ENV = 'production';
 var GameData = {
   settings: {},
   player: {
@@ -11,22 +12,19 @@ var GameData = {
     woods:            0,
     armor:            null,
     weapon:           null,
-    inventory:        [
-      {
-        itemTitle: "A partial map of the world",
-        identifier: "map"
-      }
-    ],
-    skills:           [],
-    magic:            [],
-    items:            []
+    inventory:        {
+      weapons:          [],
+      skills:           [],
+      magic:            [],
+      items:            []
+    }
   },
 
   progress: {
-    show_fish: 1,
-    show_bottle: 1,
+    show_fish: 0,
+    show_bottle: 0,
     show_shark: 0,
-    show_build_bridge_button: 1,
-    enable_build_bridge_button: 1,
+    show_build_bridge_button: 0,
+    enable_build_bridge_button: 0,
   }
 }

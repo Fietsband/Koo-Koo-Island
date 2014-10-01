@@ -1,3 +1,4 @@
+var ENV = 'test';
 var GameData = {
   settings: {},
   player: {
