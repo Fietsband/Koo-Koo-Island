@@ -63,7 +63,9 @@ Game.prototype = {
   },
 
   getOldGameData: function(){
-    //window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
+    if(ENV == "production"){
+      window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
+    }
     this.toggleLoadCallbacks();
   },
 
