@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Koo Koo Island</title>
+    <link href="../styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="qunit-1.15.0.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="../vendor/json3.js"></script>
+    <script language="javascript" src="../src/helper/dollar.js"></script>
+    <script language="javascript" src="../src/helper/storage.js"></script>
+    <script language="javascript" src="../src/interaction/Flash.js"></script>
+    <script language="javascript" src="../src/interaction/Popup.js"></script>
+    <script language="javascript" src="../src/interaction/Bar.js"></script>
+    <script language="javascript" src="../src/levels/SquirrelCity.js"></script>
+    <script language="javascript" src="../src/statics/ExperiencePoints.js"></script>
+    <script language="javascript" src="../src/callbacks/ExperienceCallbacks.js"></script>
+    <script language="javascript" src="../src/callbacks/StatsCallbacks.js"></script>
+    <script language="javascript" src="../src/callbacks/LoadCallbacks.js"></script>
+    <script language="javascript" src="../src/Character.js"></script>
+    <script language="javascript" src="../src/statics/ClickAreas.js"></script>
+    <script language="javascript" src="../src/statics/GameData.js"></script>
+    <script language="javascript" src="../src/statics/SellPrices.js"></script>
+    <script language="javascript" src="../src/statics/Enemies.js"></script>
+    <script language="javascript" src="../src/Stats.js"></script>
+    <script language="javascript" src="../src/GameMap.js"></script>
+    <script language="javascript" src="../src/Graphic.js"></script>
+    <script language="javascript" src="../src/Inventory.js"></script>
+    <script language="javascript" src="../src/InventoryItem.js"></script>
+    <script language="javascript" src="../src/Player.js"></script>
+    <script language="javascript" src="../src/Enemy.js"></script>
+    <script language="javascript" src="../src/Item.js"></script>
+    <script language="javascript" src="../src/battle/Rewarder.js"></script>
+    <script language="javascript" src="../src/battle/BattleEngine.js"></script>
+    <script language="javascript" src="../src/battle/BattleInfoHeader.js"></script>
+    <script language="javascript" src="../src/battle/Battle.js"></script>
+    <script language="javascript" src="../src/battle/BattleInitializer.js"></script>
+    <script language="javascript" src="../src/ClickArea.js"></script>
+    <script language="javascript" src="../src/Level.js"></script>
+    <script language="javascript" src="../src/Main.js"></script>
+    <script language="javascript" src="../src/Controls.js"></script>
+    <!--<script language="javascript" src="../src/application.min.js"></script>-->
+    <script language="javascript" src="qunit-1.15.0.js"></script>
+    <script language="javascript" src="blanket.min.js"></script>
+  </head>
+  <body>
+    <script language="javascript" src="../vendor/move.min.js"></script>
+    <div id="stats">
+      <span id="seashells">
+        seashells: <span id="seashell-count">0</span>
+      </span>
+      <span id="oysters">
+        oysters: <span id="oyster-count">0</span>
+      </span>
+      <span id="woods">
+        wood: <span id="wood-count">0</span>
+      </span>
+      <span id="inventory">
+        <button id="open-inventory-button">inventory</button>
+      </span>
+    </div>
+    <div id="game-levels">
+      <div id="island">
+        <pre>                    _
+                   /_'. _
+                 _   \ / '-.
+                &lt; ``-.;),--'`                                                <span class="big-shark-part">~</span>
+                 '--. &lt;/()`--.                                     <span class="big-shark-part">~  ~  <span id="battle-big-shark">|\</span>   ~  ~</span>
+                   / |/-/`'._\                                         <span class="big-shark-part">~</span>
+                   |/ |=|
+                      |_|
+                 ~`   |-| ~~  <span class="message-in-a-bottle">]</span><span class="message-in-a-bottle-remove">&nbsp;</span>   ~
+             ~~  ~~ __|=|__  <span class="message-in-a-bottle">(<span class="message">|</span>)</span><span class="message-in-a-bottle-remove">&nbsp;&nbsp;</span>
+           ~~   .-'`  |_|  ``""-._   ~/_~
+            ~~.'      |=|         '-.<span class="click-area disabled" id="island-bridge">/_/</span> ~
+         <span class="seller" id="fish">&gt;&lt;'&gt;</span><span id="fish-remove">&nbsp;&nbsp;&nbsp;&nbsp;</span> |      `"""`           /   ~
+          ~   \                      | ~~
+               '-.__.--._  <span class="click-area" id="island-seashell">0</span>      .-'
+                    ~~   `--...-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~</pre>
+      </div>
+      <div id="squirrel_city">
+        <pre>
+
+              `'::.
+           _________H ,%%&%,
+  ~       /\     _   \%&&<span class="click-area" id="mysterious-squirrel">%%</span>&%
+         /  \___/^\___\%&%%&&
+~  /     |  | []   [] |%\Y&%'
+  '      |  |   .-.   | ||
+ /     ~~@._|@@_<span class="click-area" id="haunted-house-door">|||</span>_@@| ||
+/           `""") )"""`
+
+        </pre>
+      </div>
+      <div id="squirrel_city_first_level_house">
+        <pre>
+      _______________________________________
+     /|                                 __<span class="click-area">\_||\</span>
+    / |      - - -                    __\_|  | \
+   /  |     |  |  |                 __\_|    |  \
+  /|  |     |-----|               __\_|      |
+ / |  |     |  |  |             __\_|        |
+/| |  |___   - - -            __\_|    <span class="click-area">[0]</span>   |
+ | / /___/|                 __\_|            |
+ |/  |.|.||_________________\_|______________|
+     |_|_|/      _ _ _ _ _ _ _ _              \
+    /           <span class="click-area door">/               |</span>              \
+   /           <span class="click-area door">/                |</span>               \
+        </pre>
+      </div>
+      <div id="squirrel_city_second_level_house">
+        <pre>
+       _______________________________________
+     /|                                 __<span class="click-area">\_||\</span>
+    / |                               __\_|  | \
+   /  |      <span class="click-area">^</span>                      __\_|    |  \
+  /|  |      <span class="click-area">|</span>                    __\_| |    |
+ / |  |      <span class="click-area">|</span>                  __\_|   |    |
+/| |  |                       __\_|   <span class="click-area">(</span> | <span class="click-area">)</span>  |
+ | /  |                     __\_|       |    |
+ |/   |_____________________\_|_________|____|
+     /                                       \
+    /  _____________                          \
+   /  <span class="click-area">/|_          |</span>                           \
+        </pre>
+      </div>
+      <div id="squirrel_city_attic_house">
+        <pre>
+                  |*______|
+                  |       |
+                  |  /|\  |
+                  |/     \|
+                 /         \
+               /             \
+             /    +======+     \
+           /      | '  ' |       \
+         /        |' ()  |         \
+       /          | /''\ |           \
+     /            +------+             \
+   /_____________________________________\
+  /                                       \
+ /  _____________                          \
+/  <span class="click-area">/|_          |</span>                           \
+
+        </pre>
+      </div>
+    </div>
+    <div class="controls">
+      <span class="flash" id="saved">Saved!</span>
+      <button class="button" id="auto-save">Auto save: on</button>
+      <button class="button" id="save">Save game</button>
+      <button class="button" id="load">Load game</button>
+    </div>
+    <div class="popups">
+      <div class="popup" id="map-popup">
+        <pre>
+==============================
+||                           /
+||    ~     ~       '```````,
+||  ~   ~       ~  /```<span id="squirrel_city" class="map-place">O</span>```/
+||           ~  <span id="island" class="map-place">X</span><span class="map-bridge">&nbsp;&nbsp;</span>'``````.
+||                / \._`/
+||         ._/'\/
+||  . '\  '
+||/     '/
+||
+||
+||
+        </pre>
+        <div id="legend">
+          <p>Partial map of the world</p>
+          <p>x = where you are</p>
+          <p>O = places you can visit</p>
+        </div>
+        <button id="map-popup-close">Back</button>
+      </div>
+      <div class="popup" id="fight"></div>
+      <div class="popup" id="message-in-a-bottle-popup">
+        <pre>
+           []
+          [||]
+          ||||
+          |  |
+          |  |
+         /  _ \
+         |(-_)|
+         |\  /|
+         ||  ||
+         ||  ||
+         ||  ||
+         |/  \|
+         |-..'|
+         `""""`
+        </pre>
+        <p>Found a message in a bottle!</p>
+        <button id="message-in-a-bottle-popup-close">Back to island</button>
+      </div>
+      <div class="popup" id="fish-seller-popup">
+        <p>Hello friendly friend,</p>
+        <p>I'm selling stuff which I found in the ocean!</p>
+        <p>I only accept cold hard seashell cash.</p>
+        <button id="fish-seller-buy-button">Buy stuff</button>
+        <button id="fish-seller-popup-close">Back to island</button>
+      </div>
+      <div class="popup" id="fish-seller-buy-popup">
+        <ul class="sell-items">
+          <li name="oyster">Oyster (10 seashells)</li>
+          <li name="wood">Wood (20 seashells)</li>
+        </ul>
+        <button id="fish-seller-buy-popup-close">Back to island</button>
+      </div>
+      <!-- START Inventory Popup -->
+      <div class="popup" id="inventory-popup">
+        <p>YOUR INVENTORY</p>
+        <div id="inventory-stash">
+        </div>
+        <button id="inventory-popup-close">Back</button>
+      </div>
+      <!-- END Inventory Popup -->
+      <!-- START Island bridge popup -->
+      <div class="popup" id="island-bridge-popup">
+        <p>For 100 pieces of wood you can build a bridge to land!</p>
+        <button id="build-island-bridge" disabled="disabled">Build bridge</button>
+        <button id="island-bridge-popup-close">Back to island</button>
+      </div>
+      <!-- END Inventory Popup -->
+      <!-- Battle Sequence -->
+      <div class="popup" id="battle-sequence-popup">
+        <div id="battle-sequence-info-header">
+          &nbsp;
+        </div>
+        <div class="field">
+          <div class="player">
+            <pre id="graphic">
+            </pre>
+            <div id="health">
+              <div class="health-stats">
+                <span class="health-stats-left"></span>
+                /
+                <span class="total-health"></span> hp
+              </div>
+              <div class="healthbar bar">
+                <div class="health-left inner-bar"></div>
+              </div>
+            </div>
+            <div class="attackbar bar">
+              <div class="attack-left inner-bar"></div>
+            </div>
+          </div>
+          <div class="enemy">
+            <pre id="graphic">
+            </pre>
+            <div id="health">
+              <div class="health-stats">
+                <span class="health-stats-left"></span>
+                /
+                <span class="total-health"></span> hp
+              </div>
+              <div class="healthbar bar">
+                <div class="health-left inner-bar"></div>
+              </div>
+            </div>
+            <div class="attackbar bar">
+              <div class="attack-left"></div>
+            </div>
+          </div>
+        </div>
+        <div class="battle-sequence-interface disabled">
+          <ul class="battle-options">
+            <li>
+              <a id="attack" href="#"><span class="keyboard-shortcut">A</span>ttack</a>
+            </li>
+            <li>
+              <a id="skill" href="#"><span class="keyboard-shortcut">S</span>kill</a>
+            </li>
+            <li>
+              <a id="magic" href="#"><span class="keyboard-shortcut">M</span>agic</a>
+            </li>
+            <li>
+              <a id="items" href="#"><span class="keyboard-shortcut">I</span>tems</a>
+            </li>
+            <li>
+              <a id="battle-sequence-popup-close" href="#"><span class="keyboard-shortcut">F</span>lee</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Battle Sequence -->
+      <div class="popup" id="squirrel-warning">
+        <strong>The squirrel in the tree is warning you</strong>
+        <p>This house is haunted. You shouldn't go in! But suite yourself..</p>
+        <button id="enter-the-house">Let's go!</button>
+        <button id="squirrel-warning-close">I'm scared</button>
+      </div>
+      <div class="enemies">
+        <pre id="tiny-fish">
+>{ .}
+        </pre>
+        <pre id="tiny-fish-with-gun">
+>{ .}.=
+        </pre>
+        <pre id="big-fish">
+     }\
+   .'  \
+}\/    o\
+}/\   ) _}
+   `.  /
+     }/
+        </pre>
+        <pre id="big-shark">
+                                 ,-
+                               ,'::|
+        --==|==&lt;              /::::|
+            |               ,'::::o\                                      _..
+         ___|_.......-------,..::?88b                                  ,-' /
+ _.--"""". . . .      .   .  .  .  ""`-._                           ,-' .;'
+&lt;. - :::::o......  ...   . . .. . .  .  .""--._                  ,-'. .;'
+ `-._  ` `":`:`:`::||||:::::::::::::::::.:. .  ""--._ ,'|     ,-'.  .;'
+     """_=--       //'doo.. ````:`:`::::::::::.:.:.:. .`-`._-'.   .;'
+         ""--.__     P(       \               ` ``:`:``:::: .   .;'
+                "\""--.:-.     `.                             .:/
+                  \. /    `-._   `.""-----.,-..::(--"".\""`.  `:\
+                   `P         `-._ \          `-:\          `. `:\
+                                   ""            "            `-._)
+        </pre>
+      </div>
+      <div id="game-character">
+ o
+/|\
+/ \
+      </div>
+    </div>
+  </body>
+</html>
