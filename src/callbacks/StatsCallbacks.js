@@ -33,7 +33,7 @@ StatsCallbacks = {
           function(){
             window.Game.messageInABottle.clearOnClickMethod();
             document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
-            window.Game.player.inventory.addItem(map);
+            window.Game.player.inventory.addItem("items", map);
           }
         );
         messageInABottlePopUp.show()
