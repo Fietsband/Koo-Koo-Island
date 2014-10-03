@@ -32,7 +32,7 @@ Game.prototype = {
     this.callbacks.loadCallbacks = LoadCallbacks;
     this.callbacks.experienceCallbacks = ExperienceCallbacks;
     this.callbacks.statsCallbacks = StatsCallbacks;
-    LoadCallbacks = ExperienceCallbacks = StatsCallbacks = null;
+    delete LoadCallbacks, ExperienceCallbacks, StatsCallbacks;
   },
 
   toggleAutoSaveInterval: function(){
