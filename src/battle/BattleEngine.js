@@ -8,7 +8,7 @@ BattleEngine.prototype = {
   addMenuButtonOnClickListeners: function(){
     var self = this;
     this.attackButton.onclick = function(){
-      window.Game.player.attack(self.enemy);
+      window.currentGame.player.attack(self.enemy);
     }
 
     if(!this.skillButton.classList.contains("hide")){
@@ -36,7 +36,7 @@ BattleEngine.prototype = {
       var e = e || window.event;
       switch(e.keyCode){
         case 65:
-          window.Game.player.attack(self.enemy);
+          window.currentGame.player.attack(self.enemy);
         break;
 
         case 70:

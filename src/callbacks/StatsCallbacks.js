@@ -1,14 +1,14 @@
 StatsCallbacks = {
   seashell: {
     performCallback: function(amount){
-      if(amount > 0 && !window.Game.checkProgressOn('show_fish')){
-        window.Game.callbacks.statsCallbacks.seashell.showFish();
+      if(amount > 0 && !window.currentGame.checkProgressOn('show_fish')){
+        window.currentGame.callbacks.statsCallbacks.seashell.showFish();
       }
-      else if(amount > 19 && !window.Game.checkProgressOn('show_bottle')){
-        window.Game.callbacks.statsCallbacks.seashell.showMessageInABottle();
+      else if(amount > 19 && !window.currentGame.checkProgressOn('show_bottle')){
+        window.currentGame.callbacks.statsCallbacks.seashell.showMessageInABottle();
       }
-      else if(amount > 999 && !window.Game.checkProgressOn('show_shark')){
-        window.Game.callbacks.statsCallbacks.seashell.addShark();
+      else if(amount > 999 && !window.currentGame.checkProgressOn('show_shark')){
+        window.currentGame.callbacks.statsCallbacks.seashell.addShark();
       }
     },
 
@@ -20,25 +20,25 @@ StatsCallbacks = {
     },
 
     showMapPopup: function(){
-      window.Game.mapPopUp = new Popup("map-popup");
-      window.Game.mapPopUp.show();
+      window.currentGame.mapPopUp = new Popup("map-popup");
+      window.currentGame.mapPopUp.show();
     },
 
     showMessageInABottle: function(){
       GameData.progress.show_bottle = 1;
-      var map = new InventoryItem("A partial map of the world", "map", window.Game.callbacks.statsCallbacks.seashell.showMapPopup);
-      window.Game.messageInABottle = new Item("message-in-a-bottle", function(){
+      var map = new InventoryItem("A partial map of the world", "map", window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup);
+      window.currentGame.messageInABottle = new Item("message-in-a-bottle", function(){
         var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
           undefined,
           function(){
-            window.Game.messageInABottle.clearOnClickMethod();
+            window.currentGame.messageInABottle.clearOnClickMethod();
             document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
-            window.Game.player.inventory.addItem("items", map);
+            window.currentGame.player.inventory.addItem("items", map);
           }
         );
         messageInABottlePopUp.show()
       });
-      window.Game.messageInABottle.add();
+      window.currentGame.messageInABottle.add();
     },
 
     showFish: function(){
@@ -102,8 +102,8 @@ StatsCallbacks = {
 
   wood: {
     performCallback: function(amount){
-      if(amount > 0 && !window.Game.checkProgressOn('show_build_bridge_button')){
-        window.Game.callbacks.statsCallbacks.wood.showBuildBridgeButton();
+      if(amount > 0 && !window.currentGame.checkProgressOn('show_build_bridge_button')){
+        window.currentGame.callbacks.statsCallbacks.wood.showBuildBridgeButton();
       }
     },
 
@@ -111,13 +111,13 @@ StatsCallbacks = {
       var islandBuildBrigeButton = document.querySelector('#island-bridge-popup #build-island-bridge');
       var islandBridgePopup = new Popup('island-bridge-popup',
         function(){
-          if(GameData.player.woods >= 100 && !window.Game.checkProgressOn('enable_build_bridge_button') && window.Game.checkProgressOn('show_bottle')){
+          if(GameData.player.woods >= 100 && !window.currentGame.checkProgressOn('enable_build_bridge_button') && window.currentGame.checkProgressOn('show_bottle')){
             GameData.progress.enable_build_bridge_button = 1;
             islandBuildBrigeButton.removeAttribute("disabled");
             islandBuildBrigeButton.onclick = function(){
-              window.Stats.increaseStat('wood', -100);
-              window.Game.gameMap.showBridge();
-              window.Game.gameMap.enableMapSpot("squirrel_city");
+              window.currentStats.increaseStat('wood', -100);
+              window.currentGame.gameMap.showBridge();
+              window.currentGame.gameMap.enableMapSpot("squirrel_city");
               islandBuildBrigeButton.setAttribute("disabled", "disabled");
               islandBuildBrigeButton.onclick = null;
             }

@@ -10,9 +10,9 @@ GameMap.prototype = {
     mapSpot.onclick = function(){
       mapSpot.innerHTML = "X";
       mapSpot.classList.remove("enabled");
-      window.Game.levels[spot].addToGame();
-      window.Game.mapPopUp.hide();
-      window.Game.inventoryPopUp.hide();
+      window.currentGame.levels[spot].addToGame();
+      window.currentGame.mapPopUp.hide();
+      window.currentGame.inventoryPopUp.hide();
     }
   },
 

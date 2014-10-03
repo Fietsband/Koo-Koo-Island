@@ -25,7 +25,7 @@ Rewarder.prototype = {
   },
 
   statsRewardCallback: function(reward){
-    window.Stats.increaseStat(reward, this.rewards[reward]);
+    window.currentStats.increaseStat(reward, this.rewards[reward]);
   },
 
   itemsRewardCallback: function(){

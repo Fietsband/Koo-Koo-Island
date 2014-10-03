@@ -1,7 +1,7 @@
 $.domReady(function(){
-  window.Game = new Game();
-  window.Game.initialize();
-  window.Stats = new Stats();
+  window.currentGame = new Game();
+  window.currentGame.initialize();
+  window.currentStats = new Stats();
   initializeAutoSaveButton();
   initializeSaveButton();
   initializeLoadButton();

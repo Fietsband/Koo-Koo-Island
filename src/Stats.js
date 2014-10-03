@@ -3,9 +3,9 @@ Stats.prototype = {
     var stat = document.getElementById(type + "s");
     var statCount = document.getElementById(type + "-count");
     stat.style.display = "inline-block";
-    window.Stats.add(type + "s", amount);
-    if(window.Game.callbacks.statsCallbacks[type].performCallback){
-      window.Game.callbacks.statsCallbacks[type].performCallback(GameData.player[type + "s"]);
+    window.currentStats.add(type + "s", amount);
+    if(window.currentGame.callbacks.statsCallbacks[type].performCallback){
+      window.currentGame.callbacks.statsCallbacks[type].performCallback(GameData.player[type + "s"]);
     }
     statCount.innerHTML = GameData.player[type + "s"];
   },

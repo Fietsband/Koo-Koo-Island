@@ -1,18 +1,18 @@
 LoadCallbacks = {
   show_fish: function(){
-    window.Game.callbacks.statsCallbacks.seashell.showFish();
+    window.currentGame.callbacks.statsCallbacks.seashell.showFish();
   },
 
   show_bottle: function(){
-    window.Game.callbacks.statsCallbacks.seashell.showMessageInABottle();
+    window.currentGame.callbacks.statsCallbacks.seashell.showMessageInABottle();
   },
 
   show_shark: function(){
-    window.Game.callbacks.statsCallbacks.seashell.addShark();
+    window.currentGame.callbacks.statsCallbacks.seashell.addShark();
   },
 
   show_build_bridge_button: function(){
-    window.Game.callbacks.statsCallbacks.wood.showBuildBridgeButton();
+    window.currentGame.callbacks.statsCallbacks.wood.showBuildBridgeButton();
   },
 
   show_stat: function(type){
@@ -23,21 +23,24 @@ LoadCallbacks = {
   },
 
   setup_inventory: function(){
-    window.Game.player.inventory.checkInventory();
-    $.each(window.GameData.player.inventory, function(i, inventoryItem){
-      window.Game.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
-      new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, window.Game.callbacks.statsCallbacks.seashell.showMapPopup).add();
-    });
+    window.currentGame.player.inventory.checkInventory();
+    console.log(GameData.items);
+    for(var inventoryScope in window.GameData.player.inventory){
+      $.each(window.GameData.player.inventory[inventoryScope], function(i, inventoryItem){
+        window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup).add();
+      });
+    }
   },
 
   enable_build_bridge_button: function(){
-    window.Game.gameMap.showBridge();
-    window.Game.gameMap.enableMapSpot("squirrel_city");
+    window.currentGame.gameMap.showBridge();
+    window.currentGame.gameMap.enableMapSpot("squirrel_city");
   },
 
   inventory: {
     map_callback: function(){
-      window.Game.messageInABottle.clearOnClickMethod();
+      window.currentGame.messageInABottle.clearOnClickMethod();
       document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
     }
   }

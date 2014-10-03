@@ -1,6 +1,7 @@
 Game.prototype = {
   initialize: function(){
     if(GameStorage.canStore()){
+      console.log(GameData.player.inventory.items);
       GameData.settings.autoSaveEnabled = true;
 
       this.gid        = GameStorage.get("koo-koo-island-gid") || $.guid();
@@ -28,11 +29,14 @@ Game.prototype = {
   },
 
   setCallbacks: function(){
-    this.callbacks = {};
-    this.callbacks.loadCallbacks = LoadCallbacks;
-    this.callbacks.experienceCallbacks = ExperienceCallbacks;
-    this.callbacks.statsCallbacks = StatsCallbacks;
-    delete LoadCallbacks, ExperienceCallbacks, StatsCallbacks;
+    this.callbacks                      = {};
+    this.callbacks.loadCallbacks        = LoadCallbacks;
+    this.callbacks.experienceCallbacks  = ExperienceCallbacks;
+    this.callbacks.statsCallbacks       = StatsCallbacks;
+
+    if(ENV == "production"){
+      delete LoadCallbacks, ExperienceCallbacks, StatsCallbacks;
+    }
   },
 
   toggleAutoSaveInterval: function(){
@@ -66,8 +70,8 @@ Game.prototype = {
   getOldGameData: function(){
     if(ENV == "production"){
       window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
-      this.toggleLoadCallbacks();
     }
+    this.toggleLoadCallbacks();
   },
 
   toggleLoadCallbacks: function(){
@@ -84,7 +88,8 @@ Game.prototype = {
       }
     });
 
-    if(window.GameData.player.inventory.length > 0){
+    console.log(window.GameData.player.inventory.items);
+    if(self.player.inventory.hasSomethingInInventory()){
       self.callbacks.loadCallbacks.setup_inventory();
     }
   },

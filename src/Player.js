@@ -7,8 +7,8 @@ Player.prototype = {
     var sellPrice = sellPrices[item];
     if(GameData.player[sellPrice.type] >= sellPrice.value){
       var sellType = sellPrice.type.substring(0, sellPrice.type.length - 1);
-      window.Stats.increaseStat(item, 1);
-      window.Stats.increaseStat(sellType, (sellPrice.value * -1));
+      window.currentStats.increaseStat(item, 1);
+      window.currentStats.increaseStat(sellType, (sellPrice.value * -1));
     }
   },
 
