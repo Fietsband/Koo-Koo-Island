@@ -24,7 +24,6 @@ LoadCallbacks = {
 
   setup_inventory: function(){
     window.currentGame.player.inventory.checkInventory();
-    console.log(GameData.items);
     for(var inventoryScope in window.GameData.player.inventory){
       $.each(window.GameData.player.inventory[inventoryScope], function(i, inventoryItem){
         window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();

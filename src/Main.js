@@ -1,7 +1,6 @@
 Game.prototype = {
   initialize: function(){
     if(GameStorage.canStore()){
-      console.log(GameData.player.inventory.items);
       GameData.settings.autoSaveEnabled = true;
 
       this.gid        = GameStorage.get("koo-koo-island-gid") || $.guid();
@@ -88,7 +87,6 @@ Game.prototype = {
       }
     });
 
-    console.log(window.GameData.player.inventory.items);
     if(self.player.inventory.hasSomethingInInventory()){
       self.callbacks.loadCallbacks.setup_inventory();
     }
