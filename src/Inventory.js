@@ -5,10 +5,10 @@ Inventory.prototype = {
 
   hasSomethingInInventory: function(){
     var inventory = this.getInventory();
-    return (inventory.items.length > 0 ||
-           inventory.weapons.length > 0 ||
-           inventory.magic.length > 0 ||
-           inventory.skills.length > 0)
+    return (inventory.items.length   > 0 ||
+            inventory.weapons.length > 0 ||
+            inventory.magic.length   > 0 ||
+            inventory.skills.length  > 0)
   },
 
   checkInventory: function(){
