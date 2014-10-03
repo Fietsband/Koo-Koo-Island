@@ -28,7 +28,3 @@ QUnit.test("0.2 game levels initialization", function(assert){
 QUnit.test("0.3 stats should be initialized", function(assert){
   assert.ok(window.Stats, "Passed");
 });
-
-// QUnit.test("1.1 loading from existing data", function(assert){
-
-// })
