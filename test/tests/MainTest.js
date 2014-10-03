@@ -30,5 +30,6 @@ QUnit.test("loading data", function(assert){
 
   resetGame();
 
-  assert.ok(window.currentGame.player.inventory.getInventory().items[0].itemTitle, "map", "should add map to inventory");
+  assert.equal(window.currentGame.player.inventory.getInventory().items[0].itemTitle, "map", "should add map to inventory");
+  assert.equal(document.querySelector(".message-in-a-bottle .message").innerHTML, "&nbsp;", "should empty the bottle");
 })
