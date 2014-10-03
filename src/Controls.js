@@ -1,9 +1,3 @@
-$.domReady(function(){
-  initializeAutoSaveButton();
-  initializeSaveButton();
-  initializeLoadButton();
-});
-
 function initializeAutoSaveButton(){
   var autoSaveButton = document.getElementById("auto-save");
   changeAutoSaveButtonText(autoSaveButton);
