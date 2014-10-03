@@ -16,7 +16,3 @@ Stats.prototype = {
 };
 
 function Stats(){}
-
-$.domReady(function(){
-  window.Stats = new Stats();
-});
