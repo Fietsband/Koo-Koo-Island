@@ -20,9 +20,9 @@ You with advanced helmet and advanced armor:
 
 You with clown helmet and clown armor:
 
-  <0>
- /[*]\
-  / \
+ <0>
+/[*]\
+ / \
 
 You with geek helmet and geek armor:
 
