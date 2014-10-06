@@ -14,6 +14,7 @@ var GameData = {
     weapon:           null,
     inventory:        {
       weapons:          [],
+      armor:            [],
       skills:           [],
       magic:            [],
       items:            []

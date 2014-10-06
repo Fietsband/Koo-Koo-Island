@@ -7,6 +7,7 @@ Inventory.prototype = {
     var inventory = this.getInventory();
     return (inventory.items.length   > 0 ||
             inventory.weapons.length > 0 ||
+            inventory.armor.length   > 0 ||
             inventory.magic.length   > 0 ||
             inventory.skills.length  > 0)
   },
