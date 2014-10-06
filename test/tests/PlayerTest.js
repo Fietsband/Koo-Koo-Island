@@ -22,6 +22,7 @@ QUnit.test("get graphic", function(assert){
 });
 
 QUnit.test("adding a weapon to inventory", function(assert){
+  GameData.player.inventory.weapons = []
   p = new Player();
   i = new Weapon("spear");
   p.inventory.addItem("weapons", i);
