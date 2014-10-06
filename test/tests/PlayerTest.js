@@ -35,14 +35,16 @@ QUnit.test("setting a weapon to his hand", function(assert){
   p.inventory.addItem("weapons", i);
   p.setCurrentWeapon(i);
 
-  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load");
+  assert.equal(window.GameData.player.weapon.identifier, "spear");
+  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load with spear");
 });
 
 QUnit.test("setting an armor", function(assert){
   p = new Player();
   i = new Armor("clown");
-  p.inventory.addItem("weapons", i);
+  p.inventory.addItem("armor", i);
   p.setCurrentArmor(i);
 
-  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load");
+  assert.equal(window.GameData.player.armor.identifier, "clown");
+  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load with clown armor");
 });
