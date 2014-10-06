@@ -89,6 +89,14 @@ Player.prototype = {
 
   unspawn: function(){
     this.playerPlaceholder.innerHTML = "";
+  },
+
+  setCurrentWeapon: function(weapon){
+    window.GameData.player.weapon = weapon;
+  },
+
+  setCurrentArmor: function(armor){
+    window.GameData.player.armor = armor;
   }
 }
 
