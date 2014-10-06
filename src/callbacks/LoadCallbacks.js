@@ -26,7 +26,9 @@ LoadCallbacks = {
     window.currentGame.player.inventory.checkInventory();
     for(var inventoryScope in window.GameData.player.inventory){
       $.each(window.GameData.player.inventory[inventoryScope], function(i, inventoryItem){
-        window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+        if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]){
+          window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+        }
         new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup).add();
       });
     }
