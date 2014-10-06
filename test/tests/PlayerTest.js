@@ -28,3 +28,21 @@ QUnit.test("adding a weapon to inventory", function(assert){
 
   assert.equal(GameData.player.inventory.weapons.length, 1, "Should have one weapon in inventory");
 });
+
+QUnit.test("setting a weapon to his hand", function(assert){
+  p = new Player();
+  i = new Weapon("spear");
+  p.inventory.addItem("weapons", i);
+  p.setCurrentWeapon(i);
+
+  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load");
+});
+
+QUnit.test("setting an armor", function(assert){
+  p = new Player();
+  i = new Armor("clown");
+  p.inventory.addItem("weapons", i);
+  p.setCurrentArmor(i);
+
+  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load");
+});
