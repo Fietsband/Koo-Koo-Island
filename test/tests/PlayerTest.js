@@ -16,36 +16,39 @@ QUnit.test("buying an item", function(assert){
 });
 
 QUnit.test("get graphic", function(assert){
-  p = new Player();
+  p1 = new Player();
 
-  assert.equal(p.getGraphic().replace(/\s/g, ""), "o/|\\/\\", "player graphic should load");
+  assert.equal(p1.getGraphic(), " <span class=\"armor head\">o</span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load");
 });
 
 QUnit.test("adding a weapon to inventory", function(assert){
-  GameData.player.inventory.weapons = []
-  p = new Player();
+  GameData.player.inventory.weapons = [];
+  p2 = new Player();
+  p2.removeArmorAndWeapons();
   i = new Weapon("spear");
-  p.inventory.addItem("weapons", i);
+  p2.inventory.addItem("weapons", i);
 
   assert.equal(GameData.player.inventory.weapons.length, 1, "Should have one weapon in inventory");
 });
 
 QUnit.test("setting a weapon to his hand", function(assert){
-  p = new Player();
+  p3 = new Player();
+  p3.removeArmorAndWeapons();
   i = new Weapon("spear");
-  p.inventory.addItem("weapons", i);
-  p.setCurrentWeapon(i);
+  p3.inventory.addItem("weapons", i);
+  p3.setCurrentWeapon(i);
 
   assert.equal(window.GameData.player.weapon.identifier, "spear");
-  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load with spear");
+  assert.equal(p3.getGraphic(), " <span class=\"armor head\">o</span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
 });
 
 QUnit.test("setting an armor", function(assert){
-  p = new Player();
+  p4 = new Player();
+  p4.removeArmorAndWeapons();
   i = new Armor("clown");
-  p.inventory.addItem("armor", i);
-  p.setCurrentArmor(i);
+  p4.inventory.addItem("armor", i);
+  p4.setCurrentArmor(i);
 
   assert.equal(window.GameData.player.armor.identifier, "clown");
-  assert.equal(p.getGraphic().replace(/\s/g, ""), "", "player graphic should load with clown armor");
+  assert.equal(p4.getGraphic(), " <span class=\"armor head\"> &lt;0&gt;</span><span class=\"weapon\"></span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\"> / \\</span>\n", "player graphic should load with clown armor");
 });
