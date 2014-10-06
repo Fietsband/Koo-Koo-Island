@@ -13,6 +13,8 @@
     <script language="javascript" src="../src/interaction/Bar.js" data-cover></script>
     <script language="javascript" src="../src/levels/SquirrelCity.js" data-cover></script>
     <script language="javascript" src="../src/statics/ExperiencePoints.js" data-cover></script>
+    <script language="javascript" src="../src/statics/Armors.js" data-cover></script>
+    <script language="javascript" src="../src/statics/Weapons.js" data-cover></script>
     <script language="javascript" src="../src/callbacks/ExperienceCallbacks.js" data-cover></script>
     <script language="javascript" src="../src/callbacks/StatsCallbacks.js" data-cover></script>
     <script language="javascript" src="../src/callbacks/LoadCallbacks.js" data-cover></script>
@@ -325,22 +327,23 @@
         <button id="enter-the-house">Let's go!</button>
         <button id="squirrel-warning-close">I'm scared</button>
       </div>
-      <div class="enemies">
-        <pre id="tiny-fish">
+    </div>
+    <div class="enemies">
+      <pre id="tiny-fish">
 >{ .}
-        </pre>
-        <pre id="tiny-fish-with-gun">
+</pre>
+      <pre id="tiny-fish-with-gun">
 >{ .}.=
-        </pre>
-        <pre id="big-fish">
+</pre>
+      <pre id="big-fish">
      }\
    .'  \
 }\/    o\
 }/\   ) _}
    `.  /
      }/
-        </pre>
-        <pre id="big-shark">
+</pre>
+      <pre id="big-shark">
                                  ,-
                                ,'::|
         --==|==&lt;              /::::|
@@ -354,14 +357,12 @@
                 "\""--.:-.     `.                             .:/
                   \. /    `-._   `.""-----.,-..::(--"".\""`.  `:\
                    `P         `-._ \          `-:\          `. `:\
-                                   ""            "            `-._)
-        </pre>
-      </div>
-      <div id="game-character">
- o
-/|\
-/ \
-      </div>
+                                   ""            "            `-._)</pre>
     </div>
+    <pre id="game-character">
+ <span class="armor head">o</span><span class="weapon"></span>
+<span class="armor body">/|\</span><span class="weapon"></span>
+<span class="armor legs">/ \</span>
+</pre>
   </body>
 </html>
