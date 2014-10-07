@@ -26,7 +26,7 @@ JAVASCRIPTS=(
   "src/Enemy.js"
   "src/Item.js"
   "src/Weapon.js"
-  "src/Amor.js"
+  "src/Armor.js"
   "src/battle/Rewarder.js"
   "src/battle/BattleEngine.js"
   "src/battle/BattleInfoHeader.js"
