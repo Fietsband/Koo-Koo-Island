@@ -7,6 +7,7 @@ JAVASCRIPTS=(
   "src/interaction/Flash.js"
   "src/interaction/Popup.js"
   "src/interaction/Bar.js"
+  "src/levels/SquirrelCity.js"
   "src/statics/ExperiencePoints.js"
   "src/callbacks/ExperienceCallbacks.js"
   "src/callbacks/StatsCallbacks.js"
@@ -24,6 +25,8 @@ JAVASCRIPTS=(
   "src/Player.js"
   "src/Enemy.js"
   "src/Item.js"
+  "src/Weapon.js"
+  "src/Amor.js"
   "src/battle/Rewarder.js"
   "src/battle/BattleEngine.js"
   "src/battle/BattleInfoHeader.js"
@@ -33,6 +36,7 @@ JAVASCRIPTS=(
   "src/Level.js"
   "src/Main.js"
   "src/Controls.js"
+  "src/Boot.js"
 )
 
 if [ -e application.js ]; then rm application.js; fi
