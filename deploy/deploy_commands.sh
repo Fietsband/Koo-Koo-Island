@@ -7,6 +7,7 @@ git clone https://github.com/grdw/Koo-Koo-Island.git
 cd Koo-Koo-Island
 
 find src/ -type f | grep -v application.min.js | xargs rm
+rm development.html
 echo "> Removing source files"
 
 find src/ -type d -empty | xargs rm -rf
