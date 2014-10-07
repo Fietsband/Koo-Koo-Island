@@ -58,6 +58,7 @@ Game.prototype = {
   storeGid: function(){
     if(!GameStorage.keyExists("koo-koo-island-gid")){
       GameStorage.store("koo-koo-island-gid", this.gid);
+      this.save();
     }
   },
 
