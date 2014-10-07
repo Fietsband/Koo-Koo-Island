@@ -72,7 +72,7 @@ StatsCallbacks = {
         checkFishInventory: function(){
           $.each(this.itemsForSale, function(i, item){
             var itemName = item.getAttribute("name");
-            if(Game.player.canBuyItem(itemName)){
+            if(window.currentGame.player.canBuyItem(itemName)){
               item.classList.remove("disabled");
             }
             else{
@@ -86,7 +86,7 @@ StatsCallbacks = {
           $.each(this.itemsForSale, function(i, item){
             item.onclick = function(){
               var itemName = item.getAttribute("name")
-              Game.player.buy(itemName);
+              window.currentGame.player.buy(itemName);
               self.checkFishInventory();
             }
           });
