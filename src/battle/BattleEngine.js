@@ -96,21 +96,21 @@ BattleEngine.prototype = {
   },
 
   showButtons: function(){
-    if(GameData.player.skills.length <= 0){
+    if(GameData.player.inventory.skills.length <= 0){
       this.skillButton.classList.add("hide");
     }
     else{
       this.skillButton.classList.remove("hide")
     }
 
-    if(GameData.player.magic.length <= 0){
+    if(GameData.player.inventory.magic.length <= 0){
       this.magicButton.classList.add("hide");
     }
     else{
       this.magicButton.classList.remove("hide");
     }
 
-    if(GameData.player.items.length <= 0){
+    if(GameData.player.inventory.items.length <= 0){
       this.itemsButton.classList.add("disabled");
     }
     else{
