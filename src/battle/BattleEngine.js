@@ -120,12 +120,12 @@ BattleEngine.prototype = {
 }
 
 function BattleEngine(enemy){
-  this.enemy = enemy;
+  this.enemy           = enemy;
   this.battleInterface = document.querySelector("#battle-sequence-popup .battle-sequence-interface");
-  this.attackButton = this.battleInterface.querySelector("#attack");
-  this.skillButton = this.battleInterface.querySelector("#skill");
-  this.magicButton = this.battleInterface.querySelector("#magic");
-  this.itemsButton = this.battleInterface.querySelector("#items");
-  this.battleTimeout = null;
+  this.attackButton    = this.battleInterface.querySelector("#attack");
+  this.skillButton     = this.battleInterface.querySelector("#skill");
+  this.magicButton     = this.battleInterface.querySelector("#magic");
+  this.itemsButton     = this.battleInterface.querySelector("#items");
+  this.battleTimeout   = null;
   this.showButtons();
 }
