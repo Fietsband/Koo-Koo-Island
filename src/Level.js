@@ -15,7 +15,6 @@ Level.prototype = {
     if(window.currentLevel){
       window.currentLevel.hideMap();
       window.currentLevel.removeClickAreas();
-      window.currentLevel.pointOnMap.innerHTML = "O";
       window.currentGame.gameMap.enableMapSpot(window.currentLevel.mapSpot);
       window.currentLevel = null;
     }
@@ -42,8 +41,7 @@ Level.prototype = {
   },
 
   setMapSpot: function(){
-    var mapIdentifier = this.mapSpot ? this.mapSpot : this.identifier;
-    return document.querySelector("#map-popup #" + mapIdentifier);
+    return document.querySelector("#map-popup #" + this.mapSpot);
   },
 
   levelClickAreas: {}

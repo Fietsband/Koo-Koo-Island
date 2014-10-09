@@ -6,10 +6,9 @@ GameMap.prototype = {
 
   enableMapSpot: function(spot){
     var mapSpot = document.querySelector("#map-popup #" + spot + ".map-place");
+    mapSpot.innerHTML = "O";
     mapSpot.classList.add("enabled");
     mapSpot.onclick = function(){
-      mapSpot.innerHTML = "X";
-      mapSpot.classList.remove("enabled");
       window.currentGame.levels[spot].addToGame();
       window.currentGame.mapPopUp.hide();
       window.currentGame.inventoryPopUp.hide();
@@ -18,6 +17,7 @@ GameMap.prototype = {
 
   disableMapSpot: function(spot){
     var mapSpot = document.querySelector("#map-popup #" + spot + ".map-place");
+    mapSpot.innerHTML = "X";
     mapSpot.classList.remove("enabled");
     mapSpot.onclick = null;
   }
