@@ -18,7 +18,7 @@ var GameData = {
       skills:           [],
       magic:            [],
       items:            [{
-        itemTitle: "map",
+        itemTitle: "A partial map of the world",
         identifier: "map"
       }]
     }
