@@ -1,7 +1,9 @@
 InventoryItem.prototype = {
   add: function(){
     this.item = this.createItem();
-    document.getElementById("inventory-stash").appendChild(this.item);
+    document.getElementById("inventory-stash")
+      .querySelector("." + this.itemScope)
+      .appendChild(this.item);
   },
 
   createItem: function(){
@@ -12,8 +14,9 @@ InventoryItem.prototype = {
   }
 }
 
-function InventoryItem(itemTitle, identifier, onClickMethod){
+function InventoryItem(itemTitle, identifier, itemScope, onClickMethod){
   this.itemTitle = itemTitle;
   this.identifier = identifier;
+  this.itemScope  = itemScope;
   this.onClickMethod = onClickMethod;
 }

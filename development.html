@@ -212,12 +212,17 @@
       <!-- START Inventory Popup -->
       <div class="popup" id="inventory-popup">
         <p>YOUR INVENTORY</p>
-        <div>
+        <div id="inventory-menu">
           <a id="inventory-weapons-menu-item" href="#">Weapons</a>
+          <a id="inventory-armor-menu-item" href="#">Armor</a>
           <a id="inventory-magic-menu-item" href="#">Magic</a>
           <a id="inventory-items-menu-item" href="#">Items</a>
         </div>
         <div id="inventory-stash">
+          <div class="weapons"></div>
+          <div class="armor"></div>
+          <div class="magic"></div>
+          <div class="items"></div>
         </div>
         <button id="inventory-popup-close">Back</button>
       </div>
@@ -228,7 +233,7 @@
         <button id="build-island-bridge" disabled="disabled">Build bridge</button>
         <button id="island-bridge-popup-close">Back to island</button>
       </div>
-      <!-- END Inventory Popup -->
+      <!-- END Island bridge Popup -->
       <!-- Battle Sequence -->
       <div class="popup" id="battle-sequence-popup">
         <div id="battle-sequence-info-header">

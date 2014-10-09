@@ -29,7 +29,7 @@ LoadCallbacks = {
         if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]){
           window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
         }
-        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup).add();
+        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, inventoryScope, window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup).add();
       });
     }
   },
