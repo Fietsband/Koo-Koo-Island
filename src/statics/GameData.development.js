@@ -1,0 +1,34 @@
+var ENV = "development";
+var GameData = {
+  settings: {},
+  player: {
+    hp:               20,
+    mp:               0,
+    experience:       0,
+    attack_damage:    10,
+    battle_timeout:   5000,
+    seashells:        0,
+    oysters:          0,
+    woods:            100,
+    armor:            null,
+    weapon:           null,
+    inventory:        {
+      weapons:          [],
+      armor:            [],
+      skills:           [],
+      magic:            [],
+      items:            [{
+        itemTitle: "map",
+        identifier: "map"
+      }]
+    }
+  },
+
+  progress: {
+    show_fish: 1,
+    show_bottle: 1,
+    show_shark: 1,
+    show_build_bridge_button: 1,
+    enable_build_bridge_button: 1,
+  }
+}
