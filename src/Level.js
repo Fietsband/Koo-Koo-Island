@@ -51,7 +51,7 @@ Level.prototype = {
 
 function Level(identifier, mapSpot){
   this.identifier = identifier;
-  this.mapSpot = mapSpot || identifier;
-  this.levelDom = document.querySelector("#game-levels #" + identifier);
+  this.mapSpot    = mapSpot || identifier;
+  this.levelDom   = document.querySelector("#game-levels #" + identifier);
   this.pointOnMap = this.setMapSpot();
 }
