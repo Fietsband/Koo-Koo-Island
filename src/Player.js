@@ -7,8 +7,8 @@ Player.prototype = {
     var sellPrice = sellPrices[item];
     if(GameData.player[sellPrice.type] >= sellPrice.value){
       var sellType = sellPrice.type.substring(0, sellPrice.type.length - 1);
-      window.Stats.increaseStat(item, 1);
-      window.Stats.increaseStat(sellType, (sellPrice.value * -1));
+      window.currentStats.increaseStat(item, 1);
+      window.currentStats.increaseStat(sellType, (sellPrice.value * -1));
     }
   },
 
@@ -89,6 +89,37 @@ Player.prototype = {
 
   unspawn: function(){
     this.playerPlaceholder.innerHTML = "";
+  },
+
+  setCurrentWeapon: function(weapon){
+    window.GameData.player.weapon = weapon;
+    this.updateWeaponGraphics(weapon);
+  },
+
+  updateWeaponGraphics: function(weapon){
+    var weaponParts = this.graphic.querySelectorAll('.weapon');
+    $.each(window.Weapons[weapon.identifier].graphic, function(i, graphicPart){
+      weaponParts[i].innerHTML = graphicPart;
+    });
+  },
+
+  setCurrentArmor: function(armor){
+    window.GameData.player.armor = armor;
+    this.updateArmorGraphics(armor);
+  },
+
+  updateArmorGraphics: function(armor){
+    var armorParts = this.graphic.querySelectorAll('.armor');
+    $.each(window.Armors[armor.identifier].graphic, function(i, graphicPart){
+      armorParts[i].innerHTML = graphicPart;
+    });
+  },
+
+  removeArmorAndWeapons: function(){
+    this.updateArmorGraphics({identifier: "none"});
+    this.updateWeaponGraphics({identifier: "none"});
+    window.GameData.player.armor = null;
+    window.GameData.player.weapon = null;
   }
 }
 

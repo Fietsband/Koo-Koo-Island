@@ -3,7 +3,7 @@ var clickAreas = {
     {
       id: "#island-seashell",
       note: "First shell where you can click on",
-      klass: "Stats",
+      klass: "currentStats",
       method: "increaseStat",
       args: ["seashell", 1, StatsCallbacks.seashell.performCallback]
     },

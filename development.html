@@ -4,7 +4,42 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Koo Koo Island</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" src="src/application.min.js"></script>
+    <script language="javascript" src="vendor/json3.js"></script>
+    <script language="javascript" src="src/helper/dollar.js"></script>
+    <script language="javascript" src="src/helper/storage.js"></script>
+    <script language="javascript" src="src/interaction/Flash.js"></script>
+    <script language="javascript" src="src/interaction/Popup.js"></script>
+    <script language="javascript" src="src/interaction/Bar.js"></script>
+    <script language="javascript" src="src/levels/SquirrelCity.js"></script>
+    <script language="javascript" src="src/statics/ExperiencePoints.js"></script>
+    <script language="javascript" src="src/callbacks/ExperienceCallbacks.js"></script>
+    <script language="javascript" src="src/callbacks/StatsCallbacks.js"></script>
+    <script language="javascript" src="src/callbacks/LoadCallbacks.js"></script>
+    <script language="javascript" src="src/Character.js"></script>
+    <script language="javascript" src="src/statics/ClickAreas.js"></script>
+    <script language="javascript" src="src/statics/GameData.development.js"></script>
+    <script language="javascript" src="src/statics/SellPrices.js"></script>
+    <script language="javascript" src="src/statics/Enemies.js"></script>
+    <script language="javascript" src="src/Stats.js"></script>
+    <script language="javascript" src="src/GameMap.js"></script>
+    <script language="javascript" src="src/Graphic.js"></script>
+    <script language="javascript" src="src/Inventory.js"></script>
+    <script language="javascript" src="src/InventoryItem.js"></script>
+    <script language="javascript" src="src/Player.js"></script>
+    <script language="javascript" src="src/Enemy.js"></script>
+    <script language="javascript" src="src/Item.js"></script>
+    <script language="javascript" src="src/Weapon.js"></script>
+    <script language="javascript" src="src/Armor.js"></script>
+    <script language="javascript" src="src/battle/Rewarder.js"></script>
+    <script language="javascript" src="src/battle/BattleEngine.js"></script>
+    <script language="javascript" src="src/battle/BattleInfoHeader.js"></script>
+    <script language="javascript" src="src/battle/Battle.js"></script>
+    <script language="javascript" src="src/battle/BattleInitializer.js"></script>
+    <script language="javascript" src="src/ClickArea.js"></script>
+    <script language="javascript" src="src/Level.js"></script>
+    <script language="javascript" src="src/Main.js"></script>
+    <script language="javascript" src="src/Controls.js"></script>
+    <script language="javascript" src="src/Boot.js"></script>
   </head>
   <body>
     <script language="javascript" src="vendor/move.min.js"></script>
@@ -60,7 +95,7 @@
       <div id="squirrel_city_first_level_house">
         <pre>
       _______________________________________
-     /|                                 __<span class="click-area" id="squirrel-city-goto-first-level">\_||\</span>
+     /|                                 __<span class="click-area">\_||\</span>
     / |      - - -                    __\_|  | \
    /  |     |  |  |                 __\_|    |  \
   /|  |     |-----|               __\_|      |
@@ -69,27 +104,27 @@
  | / /___/|                 __\_|            |
  |/  |.|.||_________________\_|______________|
      |_|_|/      _ _ _ _ _ _ _ _              \
-    /           <span class="click-area door-squirrel-city-house">/               |</span>              \
-   /           <span class="click-area door-squirrel-city-house">/                |</span>               \
+    /           <span class="click-area door">/               |</span>              \
+   /           <span class="click-area door">/                |</span>               \
         </pre>
       </div>
       <div id="squirrel_city_second_level_house">
         <pre>
        _______________________________________
-     /|                                 __<span class="click-area" id="squirrel-city-goto-second-level">\_||\</span>
+     /|                                 __<span class="click-area">\_||\</span>
     / |                               __\_|  | \
-   /  |      <span class="click-area squirrel-city-spear-wall">^</span>                      __\_|    |  \
-  /|  |      <span class="click-area squirrel-city-spear-wall">|</span>                    __\_| |    |
- / |  |      <span class="click-area squirrel-city-spear-wall">|</span>                  __\_|   |    |
+   /  |      <span class="click-area">^</span>                      __\_|    |  \
+  /|  |      <span class="click-area">|</span>                    __\_| |    |
+ / |  |      <span class="click-area">|</span>                  __\_|   |    |
 /| |  |                       __\_|   <span class="click-area">(</span> | <span class="click-area">)</span>  |
  | /  |                     __\_|       |    |
  |/   |_____________________\_|_________|____|
      /                                       \
     /  _____________                          \
-   /  <span class="click-area" id="squirrel-city-goto-ground-level">/|_          |</span>                           \
+   /  <span class="click-area">/|_          |</span>                           \
         </pre>
       </div>
-      <div id="squirrel_city_attic_level_house">
+      <div id="squirrel_city_attic_house">
         <pre>
                   |*______|
                   |       |
@@ -105,7 +140,7 @@
    /_____________________________________\
   /                                       \
  /  _____________                          \
-/  <span class="click-area" id="squirrel-city-goto-first-level-back">/|_          |</span>                           \
+/  <span class="click-area">/|_          |</span>                           \
 
         </pre>
       </div>

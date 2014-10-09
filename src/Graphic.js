@@ -10,8 +10,3 @@ Graphic.prototype = {
 function Graphic(asciiString){
   this.asciiString = asciiString.join("\n");
 }
-
-$.domReady(function(){
-  island = new Graphic([
-  ])
-});

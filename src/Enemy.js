@@ -25,7 +25,7 @@ Enemy.prototype = {
 
   attackWith: function(attack){
     window.currentBattle.infoHeader.update(this.enemyInformation.name + " attacked with " + attack.name);
-    window.Game.player.looseHealth(attack.damage);
+    window.currentGame.player.looseHealth(attack.damage);
     this.attackHoldBar.resetBar();
   },
 

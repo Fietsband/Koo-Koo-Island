@@ -1,4 +1,4 @@
-var ENV = 'production';
+var ENV = 'test';
 var GameData = {
   settings: {},
   player: {
@@ -22,10 +22,10 @@ var GameData = {
   },
 
   progress: {
-    show_fish: 0,
-    show_bottle: 0,
+    show_fish: 1,
+    show_bottle: 1,
     show_shark: 0,
-    show_build_bridge_button: 0,
-    enable_build_bridge_button: 0,
+    show_build_bridge_button: 1,
+    enable_build_bridge_button: 1,
   }
 }

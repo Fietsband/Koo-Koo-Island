@@ -1,4 +1,4 @@
-var ENV = 'production';
+var ENV = "development";
 var GameData = {
   settings: {},
   player: {
@@ -9,7 +9,7 @@ var GameData = {
     battle_timeout:   5000,
     seashells:        0,
     oysters:          0,
-    woods:            0,
+    woods:            100,
     armor:            null,
     weapon:           null,
     inventory:        {
@@ -17,15 +17,18 @@ var GameData = {
       armor:            [],
       skills:           [],
       magic:            [],
-      items:            []
+      items:            [{
+        itemTitle: "map",
+        identifier: "map"
+      }]
     }
   },
 
   progress: {
-    show_fish: 0,
-    show_bottle: 0,
-    show_shark: 0,
-    show_build_bridge_button: 0,
-    enable_build_bridge_button: 0,
+    show_fish: 1,
+    show_bottle: 1,
+    show_shark: 1,
+    show_build_bridge_button: 1,
+    enable_build_bridge_button: 1,
   }
 }

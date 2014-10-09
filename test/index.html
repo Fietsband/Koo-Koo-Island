@@ -3,11 +3,81 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Koo Koo Island</title>
-    <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" src="src/application.min.js"></script>
+    <link href="../styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/qunit-1.15.0.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="../vendor/json3.js"></script>
+    <script language="javascript" src="../src/helper/dollar.js"></script>
+    <script language="javascript" src="../src/helper/storage.js"></script>
+    <script language="javascript" src="../src/interaction/Flash.js"></script>
+    <script language="javascript" src="../src/interaction/Popup.js"></script>
+    <script language="javascript" src="../src/interaction/Bar.js"></script>
+    <script language="javascript" src="../src/levels/SquirrelCity.js"></script>
+    <script language="javascript" src="../src/statics/ExperiencePoints.js"></script>
+    <script language="javascript" src="../src/statics/Armors.js"></script>
+    <script language="javascript" src="../src/statics/Weapons.js"></script>
+    <script language="javascript" src="../src/callbacks/ExperienceCallbacks.js"></script>
+    <script language="javascript" src="../src/callbacks/StatsCallbacks.js"></script>
+    <script language="javascript" src="../src/callbacks/LoadCallbacks.js"></script>
+    <script language="javascript" src="../src/Character.js"></script>
+    <script language="javascript" src="../src/statics/ClickAreas.js"></script>
+    <script language="javascript" src="GameTestData.js"></script>
+    <script language="javascript" src="../src/statics/SellPrices.js"></script>
+    <script language="javascript" src="../src/statics/Enemies.js"></script>
+    <script language="javascript" src="../src/Stats.js"></script>
+    <script language="javascript" src="../src/GameMap.js"></script>
+    <script language="javascript" src="../src/Graphic.js"></script>
+    <script language="javascript" src="../src/Inventory.js"></script>
+    <script language="javascript" src="../src/InventoryItem.js"></script>
+    <script language="javascript" src="../src/Player.js"></script>
+    <script language="javascript" src="../src/Enemy.js"></script>
+    <script language="javascript" src="../src/Item.js"></script>
+    <script language="javascript" src="../src/Weapon.js"></script>
+    <script language="javascript" src="../src/Armor.js"></script>
+    <script language="javascript" src="../src/battle/Rewarder.js"></script>
+    <script language="javascript" src="../src/battle/BattleEngine.js"></script>
+    <script language="javascript" src="../src/battle/BattleInfoHeader.js"></script>
+    <script language="javascript" src="../src/battle/Battle.js"></script>
+    <script language="javascript" src="../src/battle/BattleInitializer.js"></script>
+    <script language="javascript" src="../src/ClickArea.js"></script>
+    <script language="javascript" src="../src/Level.js"></script>
+    <script language="javascript" src="../src/Main.js"></script>
+    <script language="javascript" src="../src/Controls.js"></script>
+    <script language="javascript" src="Boot.js"></script>
+    <!--<script language="javascript" src="../src/application.min.js"></script>-->
   </head>
   <body>
-    <script language="javascript" src="vendor/move.min.js"></script>
+    <!-- Testing part -->
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script language="javascript" src="../vendor/qunit-1.15.0.js"></script>
+    <script language="javascript" src="tests/helper/dollarTest.js"></script>
+    <script language="javascript" src="tests/helper/storageTest.js"></script>
+    <script language="javascript" src="tests/levels/SquirrelCityTest.js"></script>
+    <script language="javascript" src="tests/callbacks/ExperienceCallbacksTest.js"></script>
+    <script language="javascript" src="tests/callbacks/StatsCallbacksTest.js"></script>
+    <script language="javascript" src="tests/callbacks/LoadCallbacksTest.js"></script>
+    <script language="javascript" src="tests/CharacterTest.js"></script>
+    <script language="javascript" src="tests/StatsTest.js"></script>
+    <script language="javascript" src="tests/GameMapTest.js"></script>
+    <script language="javascript" src="tests/GraphicTest.js"></script>
+    <script language="javascript" src="tests/InventoryTest.js"></script>
+    <script language="javascript" src="tests/InventoryItemTest.js"></script>
+    <script language="javascript" src="tests/PlayerTest.js"></script>
+    <script language="javascript" src="tests/EnemyTest.js"></script>
+    <script language="javascript" src="tests/ItemTest.js"></script>
+    <script language="javascript" src="tests/WeaponTest.js"></script>
+    <script language="javascript" src="tests/battle/RewarderTest.js"></script>
+    <script language="javascript" src="tests/battle/BattleEngineTest.js"></script>
+    <script language="javascript" src="tests/battle/BattleInfoHeaderTest.js"></script>
+    <script language="javascript" src="tests/battle/BattleTest.js"></script>
+    <script language="javascript" src="tests/battle/BattleInitializerTest.js"></script>
+    <script language="javascript" src="tests/ClickAreaTest.js"></script>
+    <script language="javascript" src="tests/LevelTest.js"></script>
+    <script language="javascript" src="tests/MainTest.js"></script>
+
+    <script language="javascript" src="../vendor/move.min.js"></script>
+    <!-- End testing part -->
+
     <div id="stats">
       <span id="seashells">
         seashells: <span id="seashell-count">0</span>
@@ -60,7 +130,7 @@
       <div id="squirrel_city_first_level_house">
         <pre>
       _______________________________________
-     /|                                 __<span class="click-area" id="squirrel-city-goto-first-level">\_||\</span>
+     /|                                 __<span class="click-area">\_||\</span>
     / |      - - -                    __\_|  | \
    /  |     |  |  |                 __\_|    |  \
   /|  |     |-----|               __\_|      |
@@ -69,27 +139,27 @@
  | / /___/|                 __\_|            |
  |/  |.|.||_________________\_|______________|
      |_|_|/      _ _ _ _ _ _ _ _              \
-    /           <span class="click-area door-squirrel-city-house">/               |</span>              \
-   /           <span class="click-area door-squirrel-city-house">/                |</span>               \
+    /           <span class="click-area door">/               |</span>              \
+   /           <span class="click-area door">/                |</span>               \
         </pre>
       </div>
       <div id="squirrel_city_second_level_house">
         <pre>
        _______________________________________
-     /|                                 __<span class="click-area" id="squirrel-city-goto-second-level">\_||\</span>
+     /|                                 __<span class="click-area">\_||\</span>
     / |                               __\_|  | \
-   /  |      <span class="click-area squirrel-city-spear-wall">^</span>                      __\_|    |  \
-  /|  |      <span class="click-area squirrel-city-spear-wall">|</span>                    __\_| |    |
- / |  |      <span class="click-area squirrel-city-spear-wall">|</span>                  __\_|   |    |
+   /  |      <span class="click-area">^</span>                      __\_|    |  \
+  /|  |      <span class="click-area">|</span>                    __\_| |    |
+ / |  |      <span class="click-area">|</span>                  __\_|   |    |
 /| |  |                       __\_|   <span class="click-area">(</span> | <span class="click-area">)</span>  |
  | /  |                     __\_|       |    |
  |/   |_____________________\_|_________|____|
      /                                       \
     /  _____________                          \
-   /  <span class="click-area" id="squirrel-city-goto-ground-level">/|_          |</span>                           \
+   /  <span class="click-area">/|_          |</span>                           \
         </pre>
       </div>
-      <div id="squirrel_city_attic_level_house">
+      <div id="squirrel_city_attic_house">
         <pre>
                   |*______|
                   |       |
@@ -105,7 +175,7 @@
    /_____________________________________\
   /                                       \
  /  _____________                          \
-/  <span class="click-area" id="squirrel-city-goto-first-level-back">/|_          |</span>                           \
+/  <span class="click-area">/|_          |</span>                           \
 
         </pre>
       </div>
@@ -177,11 +247,6 @@
       <!-- START Inventory Popup -->
       <div class="popup" id="inventory-popup">
         <p>YOUR INVENTORY</p>
-        <div>
-          <a id="inventory-weapons-menu-item" href="#">Weapons</a>
-          <a id="inventory-magic-menu-item" href="#">Magic</a>
-          <a id="inventory-items-menu-item" href="#">Items</a>
-        </div>
         <div id="inventory-stash">
         </div>
         <button id="inventory-popup-close">Back</button>
@@ -262,22 +327,23 @@
         <button id="enter-the-house">Let's go!</button>
         <button id="squirrel-warning-close">I'm scared</button>
       </div>
-      <div class="enemies">
-        <pre id="tiny-fish">
+    </div>
+    <div class="enemies">
+      <pre id="tiny-fish">
 >{ .}
-        </pre>
-        <pre id="tiny-fish-with-gun">
+</pre>
+      <pre id="tiny-fish-with-gun">
 >{ .}.=
-        </pre>
-        <pre id="big-fish">
+</pre>
+      <pre id="big-fish">
      }\
    .'  \
 }\/    o\
 }/\   ) _}
    `.  /
      }/
-        </pre>
-        <pre id="big-shark">
+</pre>
+      <pre id="big-shark">
                                  ,-
                                ,'::|
         --==|==&lt;              /::::|
@@ -291,14 +357,12 @@
                 "\""--.:-.     `.                             .:/
                   \. /    `-._   `.""-----.,-..::(--"".\""`.  `:\
                    `P         `-._ \          `-:\          `. `:\
-                                   ""            "            `-._)
-        </pre>
-      </div>
-      <pre id="game-character">
+                                   ""            "            `-._)</pre>
+    </div>
+    <pre id="game-character">
  <span class="armor head">o</span><span class="weapon"></span>
 <span class="armor body">/|\</span><span class="weapon"></span>
 <span class="armor legs">/ \</span>
-      </pre>
-    </div>
+</pre>
   </body>
 </html>

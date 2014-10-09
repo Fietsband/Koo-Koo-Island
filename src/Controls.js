@@ -1,14 +1,8 @@
-$.domReady(function(){
-  initializeAutoSaveButton();
-  initializeSaveButton();
-  initializeLoadButton();
-});
-
 function initializeAutoSaveButton(){
   var autoSaveButton = document.getElementById("auto-save");
   changeAutoSaveButtonText(autoSaveButton);
   autoSaveButton.onclick = function(){
-    window.Game.toggleAutoSave();
+    window.currentGame.toggleAutoSave();
     changeAutoSaveButtonText(autoSaveButton);
   }
 }
@@ -33,6 +27,6 @@ function getAutoSaveText(){
 function initializeSaveButton(){
   var saveButton = document.getElementById("save");
   saveButton.onclick = function(){
-    window.Game.save();
+    window.currentGame.save();
   }
 }

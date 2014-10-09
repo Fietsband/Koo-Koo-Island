@@ -49,7 +49,7 @@ Battle.prototype = {
 }
 
 function Battle(enemy){
-  this.player = window.Game.player;
+  this.player = window.currentGame.player;
   this.enemy = enemy;
   this.battleEngine = new BattleEngine(this.enemy);
   this.infoHeader = new BattleInfoHeader();

@@ -24,14 +24,18 @@ Game.prototype = {
     this.levels.squirrel_city_first_level  = new Level("squirrel_city_first_level_house", "squirrel_city");
     this.levels.squirrel_city_second_level = new Level("squirrel_city_second_level_house", "squirrel_city");
     this.levels.squirrel_city_attic_level  = new Level("squirrel_city_attic_level_house", "squirrel_city");
+    this.levels.island.addToGame();
   },
 
   setCallbacks: function(){
-    this.callbacks = {};
-    this.callbacks.loadCallbacks = LoadCallbacks;
-    this.callbacks.experienceCallbacks = ExperienceCallbacks;
-    this.callbacks.statsCallbacks = StatsCallbacks;
-    LoadCallbacks = ExperienceCallbacks = StatsCallbacks = null;
+    this.callbacks                      = {};
+    this.callbacks.loadCallbacks        = LoadCallbacks;
+    this.callbacks.experienceCallbacks  = ExperienceCallbacks;
+    this.callbacks.statsCallbacks       = StatsCallbacks;
+
+    if(ENV == "production"){
+      delete LoadCallbacks, ExperienceCallbacks, StatsCallbacks;
+    }
   },
 
   toggleAutoSaveInterval: function(){
@@ -54,6 +58,7 @@ Game.prototype = {
   storeGid: function(){
     if(!GameStorage.keyExists("koo-koo-island-gid")){
       GameStorage.store("koo-koo-island-gid", this.gid);
+      this.save();
     }
   },
 
@@ -63,7 +68,9 @@ Game.prototype = {
   },
 
   getOldGameData: function(){
-    //window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
+    if(ENV == "production"){
+      window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
+    }
     this.toggleLoadCallbacks();
   },
 
@@ -71,18 +78,18 @@ Game.prototype = {
     var self = this;
     $.each(Object.keys(window.GameData.progress), function(i, progressItem){
       if(self.checkProgressOn(progressItem)){
-        window.Game.callbacks.loadCallbacks[progressItem]();
+        self.callbacks.loadCallbacks[progressItem]();
       }
     });
 
     $.each(["wood", "seashell", "wood"], function(i, statType){
       if(window.GameData.player[statType + "s"] > 0){
-        window.Game.callbacks.loadCallbacks.show_stat(statType);
+        self.callbacks.loadCallbacks.show_stat(statType);
       }
     });
 
-    if(window.GameData.player.inventory.length > 0){
-      window.Game.callbacks.loadCallbacks.setup_inventory();
+    if(self.player.inventory.hasSomethingInInventory()){
+      self.callbacks.loadCallbacks.setup_inventory();
     }
   },
 
@@ -100,9 +107,3 @@ Game.prototype = {
 }
 
 function Game(){}
-
-$.domReady(function(){
-  window.Game = new Game();
-  window.Game.initialize();
-  window.Game.levels.island.addToGame();
-});

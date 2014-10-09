@@ -8,7 +8,7 @@ BattleEngine.prototype = {
   addMenuButtonOnClickListeners: function(){
     var self = this;
     this.attackButton.onclick = function(){
-      window.Game.player.attack(self.enemy);
+      window.currentGame.player.attack(self.enemy);
     }
 
     if(!this.skillButton.classList.contains("hide")){
@@ -36,7 +36,7 @@ BattleEngine.prototype = {
       var e = e || window.event;
       switch(e.keyCode){
         case 65:
-          window.Game.player.attack(self.enemy);
+          window.currentGame.player.attack(self.enemy);
         break;
 
         case 70:
@@ -96,21 +96,21 @@ BattleEngine.prototype = {
   },
 
   showButtons: function(){
-    if(GameData.player.skills.length <= 0){
+    if(GameData.player.inventory.skills.length <= 0){
       this.skillButton.classList.add("hide");
     }
     else{
       this.skillButton.classList.remove("hide")
     }
 
-    if(GameData.player.magic.length <= 0){
+    if(GameData.player.inventory.magic.length <= 0){
       this.magicButton.classList.add("hide");
     }
     else{
       this.magicButton.classList.remove("hide");
     }
 
-    if(GameData.player.items.length <= 0){
+    if(GameData.player.inventory.items.length <= 0){
       this.itemsButton.classList.add("disabled");
     }
     else{
@@ -120,12 +120,12 @@ BattleEngine.prototype = {
 }
 
 function BattleEngine(enemy){
-  this.enemy = enemy;
+  this.enemy           = enemy;
   this.battleInterface = document.querySelector("#battle-sequence-popup .battle-sequence-interface");
-  this.attackButton = this.battleInterface.querySelector("#attack");
-  this.skillButton = this.battleInterface.querySelector("#skill");
-  this.magicButton = this.battleInterface.querySelector("#magic");
-  this.itemsButton = this.battleInterface.querySelector("#items");
-  this.battleTimeout = null;
+  this.attackButton    = this.battleInterface.querySelector("#attack");
+  this.skillButton     = this.battleInterface.querySelector("#skill");
+  this.magicButton     = this.battleInterface.querySelector("#magic");
+  this.itemsButton     = this.battleInterface.querySelector("#items");
+  this.battleTimeout   = null;
   this.showButtons();
 }
