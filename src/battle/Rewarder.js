@@ -3,7 +3,9 @@ Rewarder.prototype = {
     var self = this;
     $.each(this.rewardedItems(), function(i, reward){
       self[self.typeOfReward + "RewardCallback"](reward);
-      self.setBattleMessage(reward);
+      if(ENV == "production"){
+        self.setBattleMessage(reward);
+      }
     });
   },
 
@@ -12,7 +14,7 @@ Rewarder.prototype = {
     self.messageTimeout = setTimeout(function(){
       window.currentBattle.infoHeader.update(self.rewardMessage(reward));
       clearTimeout(self.messageTimeout);
-    }, 2000)
+    }, 2000);
   },
 
   rewardMessage: function(reward){
