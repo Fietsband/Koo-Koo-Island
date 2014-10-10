@@ -91,6 +91,8 @@ Game.prototype = {
     if(self.player.inventory.hasSomethingInInventory()){
       self.callbacks.loadCallbacks.setup_inventory();
     }
+
+    self.callbacks.loadCallbacks.setup_player();
   },
 
   toggleAutoSave: function(){

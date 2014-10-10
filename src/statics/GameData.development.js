@@ -10,8 +10,14 @@ var GameData = {
     seashells:        0,
     oysters:          0,
     woods:            100,
-    armor:            null,
-    weapon:           null,
+    armor:            {
+      itemTitle: "Test armor",
+      identifier: "clown"
+    },
+    weapon:           {
+      itemTitle: "Spear",
+      identifier: "spear"
+    },
     inventory:        {
       weapons:          [{
         itemTitle: "Spear",

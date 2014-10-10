@@ -23,6 +23,7 @@ Inventory.prototype = {
     inventoryButton.style.display = "block";
     window.currentGame.inventoryPopUp = new Popup("inventory-popup");
     this.applyInventoryClickHandlers();
+    this.applyInventorySelectBoxListeners();
     inventoryButton.onclick = function(){
       window.currentGame.inventoryPopUp.show();
     }
@@ -33,6 +34,18 @@ Inventory.prototype = {
     document.querySelector("#inventory-menu #inventory-armor-menu-item").onclick = this.showInventoryMenuItem.bind(this, "armor");
     document.querySelector("#inventory-menu #inventory-magic-menu-item").onclick = this.showInventoryMenuItem.bind(this, "magic");
     document.querySelector("#inventory-menu #inventory-items-menu-item").onclick = this.showInventoryMenuItem.bind(this, "items");
+  },
+
+  applyInventorySelectBoxListeners: function(){
+    document.querySelector("#inventory-stash #select-weapons select").onchange = function(){
+      this.selected = true;
+      window.currentGame.player.setCurrentWeapon(new Weapon(this.value));
+    }
+
+    document.querySelector("#inventory-stash #select-armor select").onchange = function(){
+      this.selected = true;
+      window.currentGame.player.setCurrentArmor(new Armor(this.value));
+    }
   },
 
   showInventoryMenuItem: function(scope){

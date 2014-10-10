@@ -15,14 +15,14 @@ InventoryItem.prototype = {
   createWeapons: function(){
     var pTag = document.createElement("option");
     pTag.innerHTML = this.itemTitle;
-    pTag.onclick = this.onClickMethod;
+    pTag.value = this.identifier;
     return pTag;
   },
 
   createArmor: function(){
     var pTag = document.createElement("option");
     pTag.innerHTML = this.itemTitle;
-    pTag.onclick = this.onClickMethod;
+    pTag.value = this.identifier;
     return pTag;
   },
 

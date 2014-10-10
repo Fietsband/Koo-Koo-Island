@@ -34,6 +34,20 @@ LoadCallbacks = {
     }
   },
 
+  setup_player: function(){
+    if(window.GameData.player.armor){
+      window.currentGame.player.setCurrentArmor(
+        new Armor(window.GameData.player.armor.identifier)
+      );
+    }
+
+    if(window.GameData.player.weapon){
+      window.currentGame.player.setCurrentWeapon(
+        new Armor(window.GameData.player.weapon.identifier)
+      );
+    }
+  },
+
   enable_build_bridge_button: function(){
     window.currentGame.gameMap.showBridge();
     window.currentGame.gameMap.enableMapSpot("squirrel_city");
