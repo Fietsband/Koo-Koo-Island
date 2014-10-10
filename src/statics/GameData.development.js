@@ -13,8 +13,14 @@ var GameData = {
     armor:            null,
     weapon:           null,
     inventory:        {
-      weapons:          [],
-      armor:            [],
+      weapons:          [{
+        itemTitle: "Spear",
+        identifier: "spear"
+      }],
+      armor:            [{
+        itemTitle: "Test armor",
+        identifier: "clown"
+      }],
       skills:           [],
       magic:            [],
       items:            [{

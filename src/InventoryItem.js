@@ -1,16 +1,49 @@
 InventoryItem.prototype = {
   add: function(){
-    this.item = this.createItem();
-    document.getElementById("inventory-stash")
-      .querySelector("." + this.itemScope)
+    this.item = this["create" + $.titleize(this.itemScope)]();
+    document.querySelector("#inventory-stash ." + this.appendItemScope())
       .appendChild(this.item);
   },
 
-  createItem: function(){
+  createItems: function(){
     var pTag = document.createElement("a");
     pTag.innerHTML = this.itemTitle;
     pTag.onclick = this.onClickMethod;
     return pTag;
+  },
+
+  createWeapons: function(){
+    var pTag = document.createElement("option");
+    pTag.innerHTML = this.itemTitle;
+    pTag.onclick = this.onClickMethod;
+    return pTag;
+  },
+
+  createArmor: function(){
+    var pTag = document.createElement("option");
+    pTag.innerHTML = this.itemTitle;
+    pTag.onclick = this.onClickMethod;
+    return pTag;
+  },
+
+  createMagic: function(){
+
+  },
+
+  appendItemScope: function(){
+    switch(this.itemScope){
+      case "weapons":
+        return this.itemScope + " .available-weapons #select-weapons select";
+      break;
+
+      case "armor":
+        return this.itemScope + " .available-armor #select-armor select";
+      break;
+
+      default:
+        return this.itemScope;
+      break;
+    }
   }
 }
 

@@ -19,12 +19,28 @@ Inventory.prototype = {
   },
 
   setupInventoryButton: function(){
-    var inventoryButton = document.getElementById("open-inventory-button")
+    var inventoryButton = document.getElementById("open-inventory-button");
     inventoryButton.style.display = "block";
     window.currentGame.inventoryPopUp = new Popup("inventory-popup");
+    this.applyInventoryClickHandlers();
     inventoryButton.onclick = function(){
       window.currentGame.inventoryPopUp.show();
     }
+  },
+
+  applyInventoryClickHandlers: function(){
+    document.querySelector("#inventory-menu #inventory-weapons-menu-item").onclick = this.showInventoryMenuItem.bind(this, "weapons");
+    document.querySelector("#inventory-menu #inventory-armor-menu-item").onclick = this.showInventoryMenuItem.bind(this, "armor");
+    document.querySelector("#inventory-menu #inventory-magic-menu-item").onclick = this.showInventoryMenuItem.bind(this, "magic");
+    document.querySelector("#inventory-menu #inventory-items-menu-item").onclick = this.showInventoryMenuItem.bind(this, "items");
+  },
+
+  showInventoryMenuItem: function(scope){
+    $.each(document.querySelectorAll("#inventory-stash .stash"), function(i, menu){
+      menu.style.display = "none";
+    });
+
+    document.querySelector("#inventory-stash ." + scope).style.display = "block";
   },
 
   addItem: function(scope, item){

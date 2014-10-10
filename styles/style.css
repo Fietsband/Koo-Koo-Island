@@ -231,5 +231,16 @@ span#battle-big-shark,
 }
 
 #inventory-menu a{
+  text-decoration: underline;
+  color: black;
+}
 
+#inventory-menu a:hover{
+  color: black;
+}
+
+#inventory-stash .weapons,
+#inventory-stash .armor,
+#inventory-stash .magic{
+  display: none;
 }

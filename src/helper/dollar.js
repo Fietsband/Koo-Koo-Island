@@ -18,5 +18,9 @@ $ = {
 
   guid: function() {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  },
+
+  titleize: function(string){
+    return string.charAt(0).toUpperCase() + string.substr(1).toLowerCase();
   }
 }
