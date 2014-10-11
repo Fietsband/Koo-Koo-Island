@@ -12,6 +12,7 @@ QUnit.test("player should be able to select skills", function(assert){
   var battleEngine = new BattleEngine(enemy);
 
   assert.ok(!battleEngine.skillButton.classList.contains("hide"), "skill button should be enabled");
+  GameData.player.inventory.skills = [];
 });
 
 QUnit.test("player should be able to select magic", function(assert){
@@ -21,6 +22,7 @@ QUnit.test("player should be able to select magic", function(assert){
   var battleEngine = new BattleEngine(enemy);
 
   assert.ok(!battleEngine.magicButton.classList.contains("hide"), "magic button should be enabled");
+  GameData.player.inventory.magic = [];
 });
 
 QUnit.test("player should be able to select items", function(assert){

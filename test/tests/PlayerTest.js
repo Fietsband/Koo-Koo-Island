@@ -18,7 +18,7 @@ QUnit.test("buying an item", function(assert){
 QUnit.test("get graphic", function(assert){
   p1 = new Player();
 
-  assert.equal(p1.getGraphic(), " <span class=\"armor head\">o</span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load");
+  assert.equal(p1.getGraphic(), "<span class=\"armor head\"> o  </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load");
 });
 
 QUnit.test("adding a weapon to inventory", function(assert){
@@ -39,7 +39,7 @@ QUnit.test("setting a weapon to his hand", function(assert){
   p3.setCurrentWeapon(i);
 
   assert.equal(window.GameData.player.weapon.identifier, "spear");
-  assert.equal(p3.getGraphic(), " <span class=\"armor head\">o</span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
+  assert.equal(p3.getGraphic(), "<span class=\"armor head\"> o  </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
 });
 
 QUnit.test("setting an armor", function(assert){
@@ -50,5 +50,5 @@ QUnit.test("setting an armor", function(assert){
   p4.setCurrentArmor(i);
 
   assert.equal(window.GameData.player.armor.identifier, "clown");
-  assert.equal(p4.getGraphic(), " <span class=\"armor head\"> &lt;0&gt;</span><span class=\"weapon\"></span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\"> / \\</span>\n", "player graphic should load with clown armor");
+  assert.equal(p4.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\"> / \\</span>\n", "player graphic should load with clown armor");
 });
