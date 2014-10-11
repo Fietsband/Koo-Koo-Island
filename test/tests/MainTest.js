@@ -32,4 +32,17 @@ QUnit.test("loading data", function(assert){
 
   assert.equal(window.currentGame.player.inventory.getInventory().items[0].itemTitle, "map", "should add map to inventory");
   assert.equal(document.querySelector(".message-in-a-bottle .message").innerHTML, "&nbsp;", "should empty the bottle");
-})
+
+  window.currentGame.player.removeArmorAndWeapons();
+});
+
+
+QUnit.test("setting current weapon and armor", function(assert){
+  GameData.player.armor = {identifier: "clown"};
+  GameData.player.weapon = {identifier: "spear"};
+
+  resetGame();
+
+  assert.equal(window.currentGame.player.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
+  window.currentGame.player.removeArmorAndWeapons();
+});
