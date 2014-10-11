@@ -76,8 +76,6 @@
     <script language="javascript" src="tests/MainTest.js"></script>
 
     <script language="javascript" src="../vendor/move.min.js"></script>
-    <!-- End testing part -->
-
     <div id="stats">
       <span id="seashells">
         seashells: <span id="seashell-count">0</span>
@@ -130,7 +128,7 @@
       <div id="squirrel_city_first_level_house">
         <pre>
       _______________________________________
-     /|                                 __<span class="click-area">\_||\</span>
+     /|                                 __<span class="click-area" id="squirrel-city-goto-first-level">\_||\</span>
     / |      - - -                    __\_|  | \
    /  |     |  |  |                 __\_|    |  \
   /|  |     |-----|               __\_|      |
@@ -139,27 +137,27 @@
  | / /___/|                 __\_|            |
  |/  |.|.||_________________\_|______________|
      |_|_|/      _ _ _ _ _ _ _ _              \
-    /           <span class="click-area door">/               |</span>              \
-   /           <span class="click-area door">/                |</span>               \
+    /           <span class="click-area door-squirrel-city-house">/               |</span>              \
+   /           <span class="click-area door-squirrel-city-house">/                |</span>               \
         </pre>
       </div>
       <div id="squirrel_city_second_level_house">
         <pre>
        _______________________________________
-     /|                                 __<span class="click-area">\_||\</span>
+     /|                                 __<span class="click-area" id="squirrel-city-goto-second-level">\_||\</span>
     / |                               __\_|  | \
-   /  |      <span class="click-area">^</span>                      __\_|    |  \
-  /|  |      <span class="click-area">|</span>                    __\_| |    |
- / |  |      <span class="click-area">|</span>                  __\_|   |    |
+   /  |      <span class="click-area squirrel-city-spear-wall">^</span>                      __\_|    |  \
+  /|  |      <span class="click-area squirrel-city-spear-wall">|</span>                    __\_| |    |
+ / |  |      <span class="click-area squirrel-city-spear-wall">|</span>                  __\_|   |    |
 /| |  |                       __\_|   <span class="click-area">(</span> | <span class="click-area">)</span>  |
  | /  |                     __\_|       |    |
  |/   |_____________________\_|_________|____|
      /                                       \
     /  _____________                          \
-   /  <span class="click-area">/|_          |</span>                           \
+   /  <span class="click-area" id="squirrel-city-goto-ground-level">/|_          |</span>                           \
         </pre>
       </div>
-      <div id="squirrel_city_attic_house">
+      <div id="squirrel_city_attic_level_house">
         <pre>
                   |*______|
                   |       |
@@ -175,7 +173,7 @@
    /_____________________________________\
   /                                       \
  /  _____________                          \
-/  <span class="click-area">/|_          |</span>                           \
+/  <span class="click-area" id="squirrel-city-goto-first-level-back">/|_          |</span>                           \
 
         </pre>
       </div>
@@ -247,7 +245,35 @@
       <!-- START Inventory Popup -->
       <div class="popup" id="inventory-popup">
         <p>YOUR INVENTORY</p>
+        <div id="inventory-menu">
+          <a id="inventory-weapons-menu-item" href="#">Weapons</a>
+          <a id="inventory-armor-menu-item" href="#">Armor</a>
+          <a id="inventory-magic-menu-item" href="#">Magic</a>
+          <a id="inventory-items-menu-item" href="#">Items</a>
+        </div>
         <div id="inventory-stash">
+          <div class="stash weapons">
+            <div class="current-weapon"></div>
+            <div class="available-weapons">
+              <form id="select-weapons">
+                <select>
+                  <option value="none"></option>
+                </select>
+              </form>
+            </div>
+          </div>
+          <div class="stash armor">
+            <div class="current-armor"></div>
+            <div class="available-armor">
+              <form id="select-armor">
+                <select>
+                  <option value="none"></option>
+                </select>
+              </form>
+            </div>
+          </div>
+          <div class="stash magic"></div>
+          <div class="stash items"></div>
         </div>
         <button id="inventory-popup-close">Back</button>
       </div>
@@ -258,7 +284,7 @@
         <button id="build-island-bridge" disabled="disabled">Build bridge</button>
         <button id="island-bridge-popup-close">Back to island</button>
       </div>
-      <!-- END Inventory Popup -->
+      <!-- END Island bridge Popup -->
       <!-- Battle Sequence -->
       <div class="popup" id="battle-sequence-popup">
         <div id="battle-sequence-info-header">
@@ -327,23 +353,22 @@
         <button id="enter-the-house">Let's go!</button>
         <button id="squirrel-warning-close">I'm scared</button>
       </div>
-    </div>
-    <div class="enemies">
-      <pre id="tiny-fish">
+      <div class="enemies">
+        <pre id="tiny-fish">
 >{ .}
-</pre>
-      <pre id="tiny-fish-with-gun">
+        </pre>
+        <pre id="tiny-fish-with-gun">
 >{ .}.=
-</pre>
-      <pre id="big-fish">
+        </pre>
+        <pre id="big-fish">
      }\
    .'  \
 }\/    o\
 }/\   ) _}
    `.  /
      }/
-</pre>
-      <pre id="big-shark">
+        </pre>
+        <pre id="big-shark">
                                  ,-
                                ,'::|
         --==|==&lt;              /::::|
@@ -357,12 +382,14 @@
                 "\""--.:-.     `.                             .:/
                   \. /    `-._   `.""-----.,-..::(--"".\""`.  `:\
                    `P         `-._ \          `-:\          `. `:\
-                                   ""            "            `-._)</pre>
-    </div>
-    <pre id="game-character">
- <span class="armor head">o</span><span class="weapon"></span>
+                                   ""            "            `-._)
+        </pre>
+      </div>
+      <pre id="game-character">
+<span class="armor head"> o  </span><span class="weapon"></span>
 <span class="armor body">/|\</span><span class="weapon"></span>
 <span class="armor legs">/ \</span>
 </pre>
+    </div>
   </body>
 </html>
