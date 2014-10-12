@@ -115,11 +115,28 @@ Player.prototype = {
     });
   },
 
+  loadCurrentArmor: function(){
+    if(window.GameData.player.armor){
+      window.currentGame.player.inventory.setSelectedArmor(
+        window.GameData.player.armor.identifier
+      );
+    }
+  },
+
+  loadCurrentWeapon: function(){
+    if(window.GameData.player.weapon){
+      window.currentGame.player.inventory.setSelectedWeapon(
+        window.GameData.player.weapon.identifier
+      );
+    }
+  },
+
   removeArmorAndWeapons: function(){
     this.updateArmorGraphics({identifier: "none"});
     this.updateWeaponGraphics({identifier: "none"});
     window.GameData.player.armor = null;
     window.GameData.player.weapon = null;
+    this.inventory.empty();
   }
 }
 
