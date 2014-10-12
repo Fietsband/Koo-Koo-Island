@@ -24,6 +24,18 @@ You with clown helmet and clown armor:
 /[*]\
  / \
 
+_________________
+|      { }      |
+|      /*\      |
+|     /_*_\     |
+|    <('.')>    |
+|    /[>.<]\    |
+|   C [___] D   |
+|    /  Y  \    |
+|   _\__|__/_   |
+|  (___/ \___)  |
+|_______________|
+
 You with geek helmet and geek armor:
 
   {0}
