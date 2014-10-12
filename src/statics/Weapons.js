@@ -1,9 +1,31 @@
 window.Weapons = {
   spear: {
-    graphic: ['^', '|']
+    graphic: ['^', '|'],
+    large_graphic: [
+      '               ',
+      '       ^       ',
+      '       ^       ',
+      '       |       ',
+      '       |       ',
+      '       |       ',
+      '      /|       ',
+      '       ^       ',
+      '       |       '
+    ]
   },
 
   none: {
-    graphic: ['', '']
+    graphic: ['', ''],
+    large_graphic: [
+      '               ',
+      '               ',
+      '               ',
+      '               ',
+      '               ',
+      '               ',
+      '               ',
+      '               ',
+      '               '
+    ]
   }
 }
