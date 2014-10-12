@@ -17,6 +17,7 @@ QUnit.test("buying an item", function(assert){
 
 QUnit.test("get graphic", function(assert){
   p1 = new Player();
+  p1.removeArmorAndWeapons();
 
   assert.equal(p1.getGraphic(), "<span class=\"armor head\"> o  </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load");
 });
@@ -40,6 +41,7 @@ QUnit.test("setting a weapon to his hand", function(assert){
 
   assert.equal(window.GameData.player.weapon.identifier, "spear");
   assert.equal(p3.getGraphic(), "<span class=\"armor head\"> o  </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
+  assert.ok(document.querySelector("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
 });
 
 QUnit.test("setting an armor", function(assert){
@@ -51,4 +53,5 @@ QUnit.test("setting an armor", function(assert){
 
   assert.equal(window.GameData.player.armor.identifier, "clown");
   assert.equal(p4.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\"> / \\</span>\n", "player graphic should load with clown armor");
+  assert.ok(document.querySelector("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
 });

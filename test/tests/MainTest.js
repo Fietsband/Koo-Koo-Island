@@ -40,9 +40,13 @@ QUnit.test("loading data", function(assert){
 QUnit.test("setting current weapon and armor", function(assert){
   GameData.player.armor = {identifier: "clown"};
   GameData.player.weapon = {identifier: "spear"};
+  GameData.player.inventory.armor.push({identifier: "clown", itemTitle: "clown armor"});
+  GameData.player.inventory.weapons.push({identifier: "spear", itemTitle: "A small spear"});
 
   resetGame();
 
   assert.equal(window.currentGame.player.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
+  assert.ok(document.querySelector("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
+  assert.ok(document.querySelector("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
   window.currentGame.player.removeArmorAndWeapons();
 });
