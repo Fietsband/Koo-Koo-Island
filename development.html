@@ -10,6 +10,7 @@
     <script language="javascript" src="src/interaction/Flash.js"></script>
     <script language="javascript" src="src/interaction/Popup.js"></script>
     <script language="javascript" src="src/interaction/Bar.js"></script>
+    <script language="javascript" src="src/levels/LonelyIsland.js"></script>
     <script language="javascript" src="src/levels/SquirrelCity.js"></script>
     <script language="javascript" src="src/statics/ExperiencePoints.js"></script>
     <script language="javascript" src="src/callbacks/ExperienceCallbacks.js"></script>
@@ -241,17 +242,17 @@
             <div class="left weapons">
               WEAPON
               <pre class="weapon-preview">
-__________________
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|________________|
+_________________
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|<span class="w-part">               </span>|
+|_______________|
               </pre>
               <form id="select-weapons">
                 <select>
@@ -262,17 +263,17 @@ __________________
             <div class="left armor">
               ARMOR
               <pre class="armor-preview">
-__________________
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|                |
-|________________|
+_________________
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|<span class="a-part">               </span>|
+|_______________|
               </pre>
               <form id="select-armor">
                 <select>
@@ -282,10 +283,12 @@ __________________
             </div>
           </div>
           <div class="bottom">
-            SPELLS
-            <div class="stash magic"></div>
-            ITEMS
-            <div class="stash items"></div>
+            <div class="stash magic disabled">
+              <p>SPELLS</p>
+            </div>
+            <div class="stash items">
+              <p>ITEMS</p>
+            </div>
           </div>
         </div>
         <button id="inventory-popup-close">Back</button>
