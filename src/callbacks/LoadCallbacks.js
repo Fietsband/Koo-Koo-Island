@@ -29,23 +29,14 @@ LoadCallbacks = {
         if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]){
           window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
         }
-        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, inventoryScope, window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup).add();
+        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, inventoryScope, window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_click_handler"]).add();
       });
     }
   },
 
   setup_player: function(){
-    if(window.GameData.player.armor){
-      window.currentGame.player.setCurrentArmor(
-        new Armor(window.GameData.player.armor.identifier)
-      );
-    }
-
-    if(window.GameData.player.weapon){
-      window.currentGame.player.setCurrentWeapon(
-        new Armor(window.GameData.player.weapon.identifier)
-      );
-    }
+    window.currentGame.player.loadCurrentArmor();
+    window.currentGame.player.loadCurrentWeapon();
   },
 
   enable_build_bridge_button: function(){
@@ -57,6 +48,10 @@ LoadCallbacks = {
     map_callback: function(){
       window.currentGame.messageInABottle.clearOnClickMethod();
       document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
+    },
+
+    map_click_handler: function(){
+      window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup;
     }
   }
 }
