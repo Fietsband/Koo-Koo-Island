@@ -101,6 +101,7 @@ Player.prototype = {
     $.each(window.Weapons[weapon.identifier].graphic, function(i, graphicPart){
       weaponParts[i].innerHTML = graphicPart;
     });
+    this.inventory.updateGraphicalWeaponPreview(weapon.identifier);
   },
 
   setCurrentArmor: function(armor){
@@ -113,21 +114,18 @@ Player.prototype = {
     $.each(window.Armors[armor.identifier].graphic, function(i, graphicPart){
       armorParts[i].innerHTML = graphicPart;
     });
+    this.inventory.updateGraphicalArmorPreview(armor.identifier);
   },
 
   loadCurrentArmor: function(){
     if(window.GameData.player.armor){
-      window.currentGame.player.inventory.setSelectedArmor(
-        window.GameData.player.armor.identifier
-      );
+      this.inventory.setSelectedArmor(window.GameData.player.armor.identifier);
     }
   },
 
   loadCurrentWeapon: function(){
     if(window.GameData.player.weapon){
-      window.currentGame.player.inventory.setSelectedWeapon(
-        window.GameData.player.weapon.identifier
-      );
+      this.inventory.setSelectedWeapon(window.GameData.player.weapon.identifier);
     }
   },
 
