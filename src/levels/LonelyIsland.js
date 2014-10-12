@@ -106,5 +106,13 @@ window.LonelyIsland = {
     GameData.progress.hide_seashell = 1;
     window.currentGame.levels.island.levelClickAreas["#island-seashell"].disable();
     document.querySelector("#game-levels #island #island-seashell").innerHTML = "&nbsp;";
+  },
+
+  enableWhirlpool: function(){
+    var whirlpool = document.querySelector("#game-levels #island #island-whirlpool");
+    whirlpool.style.display = "inline";
+    whirlpool.onclick = function(){
+      window.currentGame.levels.underwater_shack.addToGame();
+    };
   }
 }
