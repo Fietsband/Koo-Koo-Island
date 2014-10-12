@@ -3,11 +3,11 @@ body{
   font-size: 12px;
 }
 
-.disabled{
+div.disabled{
   display: none;
 }
 
-.enabled{
+div.enabled{
   display: block;
 }
 
