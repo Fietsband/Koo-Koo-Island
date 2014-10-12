@@ -5,7 +5,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 
 ### Progress:
 
-### General
+#### General
 - M Load game popup
 - M Loading game
 - C Level module's scoping upon currentGame.levels.<x>
