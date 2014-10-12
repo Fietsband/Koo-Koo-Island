@@ -29,20 +29,34 @@ Inventory.prototype = {
   },
 
   applyInventorySelectBoxListeners: function(){
-    this.weaponSelectBox.onchange = this.setSelectedWeapon.bind(this, this.weaponSelectBox.value);
-    this.armorSelectBox.onchange =  this.setSelectedArmor.bind(this, this.armorSelectBox.value);
+    this.weaponSelectBox.onchange = this.setSelectedWeapon.bind(this);
+    this.armorSelectBox.onchange =  this.setSelectedArmor.bind(this);
   },
 
-  setSelectedWeapon: function(identifier){
-    var identifier = identifier || "none";
-    this.weaponSelectBox.querySelector("option[value="+ identifier +"]").selected = true;
+  setSelectedWeapon: function(id){
+    var identifier = (typeof(id) == "string") ? id : id.target.value;;
+    $.setSelectBoxSelected(this.weaponSelectBox, identifier);
     window.currentGame.player.setCurrentWeapon(new Weapon(identifier));
   },
 
-  setSelectedArmor: function(identifier){
-    var identifier = identifier || "none";
-    this.armorSelectBox.querySelector("option[value="+ identifier +"]").selected = true;
+  setSelectedArmor: function(id){
+    var identifier = (typeof(id) == "string") ? id : id.target.value;
+    $.setSelectBoxSelected(this.armorSelectBox, identifier);
     window.currentGame.player.setCurrentArmor(new Armor(identifier));
+  },
+
+  updateGraphicalWeaponPreview: function(identifier){
+    var weaponParts = document.querySelectorAll("#inventory-stash .weapons .weapon-preview span");
+    $.each(window.Weapons[identifier].large_graphic, function(i, graphicPart){
+      weaponParts[i].innerHTML = graphicPart;
+    });
+  },
+
+  updateGraphicalArmorPreview: function(identifier){
+    var armorParts = document.querySelectorAll("#inventory-stash .armor .armor-preview span");
+    $.each(window.Armors[identifier].large_graphic, function(i, graphicPart){
+      armorParts[i].innerHTML = graphicPart;
+    });
   },
 
   addItem: function(scope, item){
