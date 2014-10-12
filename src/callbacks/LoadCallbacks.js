@@ -15,6 +15,10 @@ LoadCallbacks = {
     window.LonelyIsland.showBuildBridgeButton();
   },
 
+  hide_seashell: function(){
+    window.LonelyIsland.disableSeashell();
+  },
+
   show_stat: function(type){
     var stat_elem = document.getElementById(type + "s");
     var statCount = document.getElementById(type + "-count");

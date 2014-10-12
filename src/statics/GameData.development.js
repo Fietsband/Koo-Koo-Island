@@ -7,7 +7,7 @@ var GameData = {
     experience:       0,
     attack_damage:    10,
     battle_timeout:   5000,
-    seashells:        0,
+    seashells:        199,
     oysters:          0,
     woods:            100,
     armor:            {
@@ -42,5 +42,6 @@ var GameData = {
     show_shark: 1,
     show_build_bridge_button: 1,
     enable_build_bridge_button: 1,
+    hide_seashell: 0
   }
 }
