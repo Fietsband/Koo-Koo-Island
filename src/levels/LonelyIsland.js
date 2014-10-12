@@ -100,5 +100,11 @@ window.LonelyIsland = {
     islandBridgeButton.onclick = function(){
       islandBridgePopup.show();
     }
+  },
+
+  disableSeashell: function(){
+    GameData.progress.hide_seashell = 1;
+    window.currentGame.levels.island.levelClickAreas["#island-seashell"].disable();
+    document.querySelector("#game-levels #island #island-seashell").innerHTML = "&nbsp;";
   }
 }
