@@ -1,7 +1,9 @@
-Level design
-============
+Story Part I - The Lonely Island
+================================
 
-Je zit op een eiland (je kan op de schelp klikken - per klik +1) - bij 20 schelpen verschijnt een vis.
+You are stuck on an island. There isn't much to do. There's only a silly shell where you can click on.
+When you keep clicking on the shell your seashell count will increase by 1.
+When it reaches 20, a fish will appear.
 
 
                     _
@@ -23,7 +25,7 @@ Je zit op een eiland (je kan op de schelp klikken - per klik +1) - bij 20 schelp
             ~~         ~          ~
                    ~~         ~~     ~
 
-Na 20 schelpen verschijnt er een vis (daarvan kun je oesters kopen en drijfhout)
+After 20 clicks a fish will appear. From the fish you can buy oysters + wood.
 
                     _
                    /_'. _
@@ -44,17 +46,14 @@ Na 20 schelpen verschijnt er een vis (daarvan kun je oesters kopen en drijfhout)
             ~~         ~          ~
                    ~~         ~~     ~
 
-Van drijfhout kun je een brug bouwen.
-Van oesters kun je skills upgraden etc.
+If you buy wood you are able to build a bridge.
+Oysters won't help much for now but will in the future.
 
-Bij deze vis kun je shit kopen
 - wreckage (5 seashells)
 - oysters  (10 seashells)
 
-Bij 100 shells verschijnt er flessenpost met daarop een kaart.
-De kaart is magisch en er kunnen verschillend delen unlocked worden (op deze map).
-
-Je hebt een map (kaart). Die krijg je via flessenpost op je eiland
+At 100 shells a map will appear. The map you get is magical and will show you that there is another spot.
+The spot on the map you can't reach for now because the bridge isn't finished yet.
 
 
                     _
@@ -76,7 +75,7 @@ Je hebt een map (kaart). Die krijg je via flessenpost op je eiland
             ~~         ~          ~
                    ~~         ~~     ~
 
-Als je op de fles klikt:
+When you click on the bottle:
 
          []
         [||]
@@ -122,7 +121,7 @@ Oysters: x
 [ Save ] [ Auto-save: on ]
 
 
-Als je op [ map ] klikt dan:
+When you click on the map:
 
 ==============================
 ||                           /
@@ -137,7 +136,7 @@ Als je op [ map ] klikt dan:
 ||
 ||
 
-Legenda:
+Legend:
 
 X: where you are now
 O: place
@@ -146,7 +145,7 @@ O: place
 
 The rest of the map is still torn.
 
-Als je op het 2de rondje klikt zie je: Can't go there yet.
+The other dot on the map is still disabled.
 
 
 Seashells: x
@@ -174,10 +173,48 @@ Oysters: x
 
 [ Save ] [ Auto-save: on ]
 
-Als je genoeg hout hebt gekocht (100 stukken) -
-dan kun je een brug bouwen naar de 2de O op de kaart.
+After 200 pieces of seashells the magical seashell will dissappear.
 
---
+A whirlpool will appear which will take you to underwater shack.
+
+                   _
+                   /_'. _
+                 _   \ / '-.
+                < ``-.;),--'`
+                 '--.</()`--.
+                   / |/-/`'._\
+                   |/ |=|            ≋
+                      |_|
+                 ~`   |-| ~~      ~
+             ~~  ~~ __|=|__   ]~~
+           ~~   .-'`  |_|  ``( )-._  ~/_~
+            ~~.'      |=|         '-./_/ ~
+        ><'>  |      `"""`           \/   ~
+          ~   \                      | ~~
+               '-.__.--._         .-'
+                    ~~   `--.o.-'`    ~~
+            ~~         ~          ~
+                   ~~         ~~     ~
+
+If you click upon ≋ then it will go to some underwater current
+
+~                       ~
+          ~
+                  >{ .}                           ~
+                                     ~
+    ~                    ~
+
+                ~                               ~
+
+                                 ~
+
+
+Sometimes fish appear at the surface.
+Click on them to fight.
+You'll receive experience for every battle.
+
+When you have bought enough wood (100 pieces) -
+You can build a bridge to Squirrel House
 
 Map:
 
