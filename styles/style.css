@@ -37,6 +37,10 @@ div.enabled{
   cursor: default;
 }
 
+.click-area.hidden{
+  display: none;
+}
+
 #game-levels div{
   margin: 15% auto 0;
   width: 50%;
