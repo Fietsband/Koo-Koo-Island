@@ -7,6 +7,7 @@ Level.prototype = {
   setCurrentGame: function(){
     this.showMap();
     this.setClickAreas();
+    this.performInitialize();
     window.currentGame.gameMap.disableMapSpot(this.mapSpot);
     window.currentLevel = this;
   },
@@ -45,12 +46,28 @@ Level.prototype = {
     return document.querySelector("#map-popup #" + this.mapSpot);
   },
 
+  setLevelModule: function(){
+    if(window.Levels[this.identifier]){
+      return window[window.Levels[this.identifier]];
+    }
+    else{
+      return {};
+    }
+  },
+
+  performInitialize: function(){
+    if(this.levelModule && this.levelModule["initialize"]){
+      this.levelModule["initialize"]();
+    }
+  },
+
   levelClickAreas: {}
 }
 
 function Level(identifier, mapSpot){
-  this.identifier = identifier;
-  this.mapSpot    = mapSpot || identifier;
-  this.levelDom   = document.querySelector("#game-levels #" + identifier);
-  this.pointOnMap = this.setMapSpot();
+  this.identifier  = identifier;
+  this.mapSpot     = mapSpot || identifier;
+  this.levelDom    = document.querySelector("#game-levels #" + identifier);
+  this.pointOnMap  = this.setMapSpot();
+  this.levelModule = this.setLevelModule();
 }

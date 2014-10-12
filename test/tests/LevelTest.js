@@ -18,3 +18,7 @@ QUnit.test("setting current sub level", function(assert){
   assert.equal(window.currentGame.levels.squirrel_city.pointOnMap.innerHTML, "X", "Should set squirrel city spot as X");
   assert.equal(window.currentGame.levels.island.pointOnMap.innerHTML, "O", "Should set island as O");
 });
+
+QUnit.test("triggering intialize method", function(assert){
+  window.currentGame.levels.underwater_shack.addToGame();
+});
