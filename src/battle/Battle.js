@@ -12,6 +12,7 @@ Battle.prototype = {
     this.pause();
     this.emptyGraphics();
     window.currentBattle = null;
+    delete window.currentBattle;
   },
 
   pause: function(){
