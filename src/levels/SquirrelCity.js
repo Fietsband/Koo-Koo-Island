@@ -1,4 +1,4 @@
-SquirrelCity = {
+window.SquirrelCity = {
   openDoor: function(){
     var entertheHouseButton = document.querySelector("#squirrel-warning button#enter-the-house");
     var squirrelWarningPopup = new Popup("squirrel-warning");
