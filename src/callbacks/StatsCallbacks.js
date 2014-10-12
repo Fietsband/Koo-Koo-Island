@@ -7,6 +7,9 @@ StatsCallbacks = {
       else if(amount > 19 && !window.currentGame.checkProgressOn('show_bottle')){
         window.LonelyIsland.showMessageInABottle();
       }
+      else if(amount > 199 && !window.currentGame.checkProgressOn('hide_seashell')){
+        window.LonelyIsland.disableSeashell();
+      }
       else if(amount > 999 && !window.currentGame.checkProgressOn('show_shark')){
         window.LonelyIsland.addShark();
       }
