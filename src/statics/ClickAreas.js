@@ -22,6 +22,9 @@ var clickAreas = {
     }
   ],
 
+  underwater_shack: [
+  ],
+
   squirrel_city: [
     {
       id: "#mysterious-squirrel",
