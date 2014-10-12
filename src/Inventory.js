@@ -22,46 +22,47 @@ Inventory.prototype = {
     var inventoryButton = document.getElementById("open-inventory-button");
     inventoryButton.style.display = "block";
     window.currentGame.inventoryPopUp = new Popup("inventory-popup");
-    this.applyInventoryClickHandlers();
     this.applyInventorySelectBoxListeners();
     inventoryButton.onclick = function(){
       window.currentGame.inventoryPopUp.show();
     }
   },
 
-  applyInventoryClickHandlers: function(){
-    document.querySelector("#inventory-menu #inventory-weapons-menu-item").onclick = this.showInventoryMenuItem.bind(this, "weapons");
-    document.querySelector("#inventory-menu #inventory-armor-menu-item").onclick = this.showInventoryMenuItem.bind(this, "armor");
-    document.querySelector("#inventory-menu #inventory-magic-menu-item").onclick = this.showInventoryMenuItem.bind(this, "magic");
-    document.querySelector("#inventory-menu #inventory-items-menu-item").onclick = this.showInventoryMenuItem.bind(this, "items");
-  },
-
   applyInventorySelectBoxListeners: function(){
-    document.querySelector("#inventory-stash #select-weapons select").onchange = function(){
-      this.selected = true;
-      window.currentGame.player.setCurrentWeapon(new Weapon(this.value));
-    }
-
-    document.querySelector("#inventory-stash #select-armor select").onchange = function(){
-      this.selected = true;
-      window.currentGame.player.setCurrentArmor(new Armor(this.value));
-    }
+    this.weaponSelectBox.onchange = this.setSelectedWeapon.bind(this, this.weaponSelectBox.value);
+    this.armorSelectBox.onchange =  this.setSelectedArmor.bind(this, this.armorSelectBox.value);
   },
 
-  showInventoryMenuItem: function(scope){
-    $.each(document.querySelectorAll("#inventory-stash .stash"), function(i, menu){
-      menu.style.display = "none";
-    });
+  setSelectedWeapon: function(identifier){
+    var identifier = identifier || "none";
+    this.weaponSelectBox.querySelector("option[value="+ identifier +"]").selected = true;
+    window.currentGame.player.setCurrentWeapon(new Weapon(identifier));
+  },
 
-    document.querySelector("#inventory-stash ." + scope).style.display = "block";
+  setSelectedArmor: function(identifier){
+    var identifier = identifier || "none";
+    this.armorSelectBox.querySelector("option[value="+ identifier +"]").selected = true;
+    window.currentGame.player.setCurrentArmor(new Armor(identifier));
   },
 
   addItem: function(scope, item){
     GameData.player.inventory[scope].push(item);
     item.add();
     this.checkInventory();
+  },
+
+  empty: function(){
+    GameData.player.inventory.items   = [];
+    GameData.player.inventory.weapons = [];
+    GameData.player.inventory.armor   = [];
+    GameData.player.inventory.magic   = [];
+    GameData.player.inventory.skills  = [];
+    this.weaponSelectBox.innerHTML    = "";
+    this.armorSelectBox.innerHTML     = "";
   }
 }
 
 function Inventory(){
+  this.weaponSelectBox = document.querySelector("#inventory-stash #select-weapons select");
+  this.armorSelectBox = document.querySelector("#inventory-stash #select-armor select");
 }
