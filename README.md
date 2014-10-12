@@ -26,10 +26,10 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Initiate boss fight with the painting in the attic
 
 #### Done
-- ~~ Setting up basic underwater shack code ~~
-- ~~ Design + implementing player menu ~~
-- ~~ Setting player weapon + armor ~~
-- ~~ Adding deploy shell scripts for future reference ~~
+- ~~Setting up basic underwater shack code~~
+- ~~Design + implementing player menu~~
+- ~~Setting player weapon + armor~~
+- ~~Adding deploy shell scripts for future reference~~
 
 ### Technological goal
 
