@@ -198,6 +198,7 @@ span#battle-big-shark,
 .sell-items li.disabled{
   cursor: default;
   color: #AAAAAA;
+  display: list-item;
 }
 
 .bar{
