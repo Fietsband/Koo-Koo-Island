@@ -17,6 +17,7 @@ Level.prototype = {
       window.currentLevel.removeClickAreas();
       window.currentGame.gameMap.enableMapSpot(window.currentLevel.mapSpot);
       window.currentLevel = null;
+      delete window.currentLevel;
     }
   },
 
