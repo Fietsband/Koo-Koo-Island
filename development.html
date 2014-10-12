@@ -214,26 +214,66 @@
       <!-- START Inventory Popup -->
       <div class="popup" id="inventory-popup">
         <p>YOUR INVENTORY</p>
-        <div id="inventory-menu">
-          <a id="inventory-weapons-menu-item" href="#">Weapons</a>
-          <a id="inventory-armor-menu-item" href="#">Armor</a>
-          <a id="inventory-magic-menu-item" href="#">Magic</a>
-          <a id="inventory-items-menu-item" href="#">Items</a>
-        </div>
         <div id="inventory-stash">
-          <div class="stash weapons">
-            <div class="current-weapon"></div>
-            <div class="available-weapons">
+          <div class="top">
+            <div id="health">
+              <div class="health-stats">
+                <span class="health-stats-left"></span>
+                /
+                <span class="total-health"></span> hp
+              </div>
+              <div class="healthbar bar">
+                <div class="health-left inner-bar"></div>
+              </div>
+            </div>
+            <div id="magic" class="disabled">
+              <div class="magic-stats">
+                <span class="magic-stats-left"></span>
+                /
+                <span class="total-magic"></span> mp
+              </div>
+              <div class="magicbar bar">
+                <div class="magic-left inner-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="center">
+            <div class="left weapons">
+              WEAPON
+              <pre class="weapon-preview">
+__________________
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|________________|
+              </pre>
               <form id="select-weapons">
                 <select>
                   <option value="none"></option>
                 </select>
               </form>
             </div>
-          </div>
-          <div class="stash armor">
-            <div class="current-armor"></div>
-            <div class="available-armor">
+            <div class="left armor">
+              ARMOR
+              <pre class="armor-preview">
+__________________
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|                |
+|________________|
+              </pre>
               <form id="select-armor">
                 <select>
                   <option value="none"></option>
@@ -241,8 +281,12 @@
               </form>
             </div>
           </div>
-          <div class="stash magic"></div>
-          <div class="stash items"></div>
+          <div class="bottom">
+            SPELLS
+            <div class="stash magic"></div>
+            ITEMS
+            <div class="stash items"></div>
+          </div>
         </div>
         <button id="inventory-popup-close">Back</button>
       </div>
