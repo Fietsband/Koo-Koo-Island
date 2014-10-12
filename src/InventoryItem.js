@@ -33,11 +33,11 @@ InventoryItem.prototype = {
   appendItemScope: function(){
     switch(this.itemScope){
       case "weapons":
-        return this.itemScope + " .available-weapons #select-weapons select";
+        return this.itemScope + " #select-weapons select";
       break;
 
       case "armor":
-        return this.itemScope + " .available-armor #select-armor select";
+        return this.itemScope + " #select-armor select";
       break;
 
       default:
