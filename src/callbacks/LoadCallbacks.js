@@ -1,18 +1,18 @@
 LoadCallbacks = {
   show_fish: function(){
-    window.currentGame.callbacks.statsCallbacks.seashell.showFish();
+    window.LonelyIsland.showFish();
   },
 
   show_bottle: function(){
-    window.currentGame.callbacks.statsCallbacks.seashell.showMessageInABottle();
+    window.LonelyIsland.showMessageInABottle();
   },
 
   show_shark: function(){
-    window.currentGame.callbacks.statsCallbacks.seashell.addShark();
+    window.LonelyIsland.addShark();
   },
 
   show_build_bridge_button: function(){
-    window.currentGame.callbacks.statsCallbacks.wood.showBuildBridgeButton();
+    window.LonelyIsland.showBuildBridgeButton();
   },
 
   show_stat: function(type){
