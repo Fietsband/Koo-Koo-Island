@@ -48,5 +48,7 @@ QUnit.test("setting current weapon and armor", function(assert){
   assert.equal(window.currentGame.player.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
   assert.ok(document.querySelector("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
   assert.ok(document.querySelector("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
+  assert.equal(document.querySelectorAll("#inventory-stash .weapons .weapon-preview span")[1].innerHTML, "       ^       ", "Should have a spear");
+  assert.equal(document.querySelectorAll("#inventory-stash .armor .armor-preview span")[1].innerHTML,    "      /*\\      ", "Should be a clown suite");
   window.currentGame.player.removeArmorAndWeapons();
 });
