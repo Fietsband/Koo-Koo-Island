@@ -39,10 +39,7 @@ var Enemies = {
 
     ending_callback: function(){
       GameData.progress.beaten_shark = 1;
-      $.each(document.querySelectorAll("#island .shark-part"), function(i, sharkPart){
-        sharkPart.style.display = "none";
-        sharkPart.onclick = null;
-      });
+      window.LonelyIsland.removeShark();
     }
   },
 
