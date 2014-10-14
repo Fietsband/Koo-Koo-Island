@@ -9,14 +9,21 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Load game popup
 - M Loading game
 - M Adding experience points for every battle.
-- C Level module's scoping upon currentGame.levels.<x>
+- C Level module's scoping upon currentGame.levels.\<x\>
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
+
+### Player
+- M Adding potions to restore health
+- M Adding damage reduction percentage for armor
+- M Adding attack strength for chosen weapon
 
 #### Island
 - M Adding underwater shack level
 - M Making it possible to spawn fish from left to right and right to left
 - M Initiate in multiple battles
 - M Making it possible to build the bridge for 100 wood
+- C Cleaning up levels/LonelyIsland.js
+- C Moving showBridge method from the GameMap to LonelyIsland
 
 #### Squirrel House
 - M Adding progress for squirrel house
