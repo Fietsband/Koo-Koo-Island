@@ -26,7 +26,7 @@ QUnit.test("0.3 stats should be initialized", function(assert){
   assert.ok(window.currentStats, "Passed");
 });
 
-QUnit.test("loading data", function(assert){
+QUnit.test("loading current data", function(assert){
   GameData.player.inventory.items.push({itemTitle: "map", identifier: "map"});
 
   resetGame();
