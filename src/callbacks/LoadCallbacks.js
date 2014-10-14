@@ -19,6 +19,10 @@ LoadCallbacks = {
     window.LonelyIsland.disableSeashell();
   },
 
+  beaten_shark: function(){
+    window.LonelyIsland.removeShark();
+  },
+
   show_stat: function(type){
     var stat_elem = document.getElementById(type + "s");
     var statCount = document.getElementById(type + "-count");

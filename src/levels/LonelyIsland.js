@@ -6,6 +6,12 @@ window.LonelyIsland = {
     });
   },
 
+  removeShark: function(){
+    $.each(document.querySelectorAll('span.big-shark-part'), function(i, sharkPart){
+      sharkPart.style.display = "none";
+    });
+  },
+
   showMessageInABottle: function(){
     GameData.progress.show_bottle = 1;
     var map = new InventoryItem("A partial map of the world", "map", "items", window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup);

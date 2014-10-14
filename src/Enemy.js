@@ -64,6 +64,10 @@ Enemy.prototype = {
     return (this.enemyInformation.health / this.startHealth) * 100;
   },
 
+  resetHealth: function(){
+    this.enemyInformation.health = this.startHealth;
+  },
+
   getGraphic: function(){
     return this.enemyPre.innerHTML;
   },
