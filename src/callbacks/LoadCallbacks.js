@@ -19,6 +19,10 @@ LoadCallbacks = {
     window.LonelyIsland.disableSeashell();
   },
 
+  beaten_shark: function(){
+    window.LonelyIsland.removeShark();
+  },
+
   show_stat: function(type){
     var stat_elem = document.getElementById(type + "s");
     var statCount = document.getElementById(type + "-count");
@@ -33,7 +37,13 @@ LoadCallbacks = {
         if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]){
           window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
         }
-        new InventoryItem(inventoryItem.itemTitle, inventoryItem.identifier, inventoryScope, window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_click_handler"]).add();
+
+        new InventoryItem(
+          inventoryItem.itemTitle,
+          inventoryItem.identifier,
+          inventoryScope,
+          window.currentGame.callbacks.loadCallbacks.inventory.click(inventoryItem.identifier)
+        ).add();
       });
     }
   },
@@ -49,13 +59,22 @@ LoadCallbacks = {
   },
 
   inventory: {
+    click: function(identifier){
+      if(window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]){
+        return window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]();
+      }
+      else{
+        return null;
+      }
+    },
+
     map_callback: function(){
       window.currentGame.messageInABottle.clearOnClickMethod();
       document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
     },
 
     map_click_handler: function(){
-      window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup;
+      return window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup;
     }
   }
 }

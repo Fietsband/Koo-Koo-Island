@@ -3,11 +3,11 @@ body{
   font-size: 12px;
 }
 
-div.disabled{
+div.click-area.disabled{
   display: none;
 }
 
-div.enabled{
+div.click-area.enabled{
   display: block;
 }
 
@@ -114,8 +114,14 @@ span#inventory{
   height: 500px;
 }
 
+.popup#inventory-popup{
+  top: 50px;
+}
+
 .popup#map-popup{
   z-index: 2;
+  top: 50px;
+  padding-top: 150px;
 }
 
 .popup#map-popup .map-place.enabled{

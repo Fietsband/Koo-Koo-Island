@@ -16,14 +16,17 @@ var Enemies = {
         probability: 1
       }
     },
+
     player_position: {
       x: 460,
       y: -85
     },
+
     position: {
       x: 0,
       y: 0
     },
+
     rewards: {
       stats: {
         seashell: 150,
@@ -32,6 +35,11 @@ var Enemies = {
       items: {
         sharklaser: 1
       }
+    },
+
+    ending_callback: function(){
+      GameData.progress.beaten_shark = 1;
+      window.LonelyIsland.removeShark();
     }
   },
 
