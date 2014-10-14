@@ -18,7 +18,7 @@ var clickAreas = {
       note: "When something happens ?!",
       klass: "BattleInitializer",
       method: "start",
-      args: ["tiny-fish"]
+      args: ["big-shark"]
     }
   ],
 
