@@ -276,3 +276,8 @@ span#battle-big-shark,
   margin-bottom: 5px;
   display: table;
 }
+
+#load-game-form{
+  width: 400px;
+  height: 100px;
+}

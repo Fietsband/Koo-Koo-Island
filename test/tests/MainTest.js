@@ -53,3 +53,9 @@ QUnit.test("setting current weapon and armor", function(assert){
   assert.equal(document.querySelectorAll("#inventory-stash .armor .armor-preview span")[1].innerHTML,    "      /*\\      ", "Should be a clown suite");
   window.currentGame.player.removeArmorAndWeapons();
 });
+
+QUnit.test("grabbing current saved game", function(assert){
+  resetGame();
+
+  assert.equal(window.currentGame.getCurrentGame().substr(0,5), "eyJzZ", "should match");
+});

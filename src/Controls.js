@@ -7,8 +7,20 @@ function initializeAutoSaveButton(){
   }
 }
 
-function  initializeLoadButton(){
-  var loadButton = document.getElementById("laad");
+function initializeLoadButton(){
+  var loadButton = document.querySelector("button#load");
+  var loadPopup = new Popup("load-game-popup", initializeLoadPopupButtons, disableLoadPopupButtons);
+  loadButton.onclick = function(){
+    loadPopup.show();
+  }
+}
+
+function initializeLoadPopupButtons(){
+  // init
+}
+
+function disableLoadPopupButtons(){
+ // remove
 }
 
 function changeAutoSaveButtonText(autoSaveButton){
