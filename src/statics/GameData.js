@@ -27,6 +27,7 @@ var GameData = {
     show_shark: 0,
     show_build_bridge_button: 0,
     enable_build_bridge_button: 0,
-    hide_seashell: 0
+    hide_seashell: 0,
+    beaten_shark: 0
   }
 }
