@@ -63,6 +63,14 @@ Player.prototype = {
     this.updateHealthBar();
   },
 
+  increaseHealth: function(amount){
+    GameData.player.hp[0] += amount;
+    if(GameData.player.hp[0] >= GameData.player.hp[1]){
+      GameData.player.hp[0] = GameData.player.hp[1];
+    }
+    this.updateHealthBar();
+  },
+
   initiateFight: function(){
     this.updateHealthBar();
     this.attackBar.resetBar();
