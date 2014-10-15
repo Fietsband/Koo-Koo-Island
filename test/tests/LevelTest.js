@@ -21,4 +21,6 @@ QUnit.test("setting current sub level", function(assert){
 
 QUnit.test("triggering intialize method", function(assert){
   window.currentGame.levels.underwater_shack.addToGame();
+
+  assert.ok(document.querySelector("#island-whirlpool-2").onclick !== null, "should have a method applied");
 });
