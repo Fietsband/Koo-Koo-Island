@@ -9,9 +9,9 @@ ExperienceCallbacks = {
   },
 
   checkExperiencePoints: function(){
-    var exp = GameData.player.experience;
     $.each(window.currentGame.callbacks.experienceCallbacks.experienceCallbacks(), function(i, experienceKey){
-      if(exp > parseInt(experienceKey) && GameData.player.experience_rewards.indexOf(experienceKey) === -1){
+      if(GameData.player.experience > parseInt(experienceKey) &&
+        GameData.player.experience_rewards.indexOf(experienceKey) === -1){
         window.currentGame.callbacks.experienceCallbacks.experiencePointReward(experienceKey);
       }
     });
