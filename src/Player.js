@@ -52,7 +52,6 @@ Player.prototype = {
       GameData.player.hp[0] = 0;
       window.currentBattle.endBattle(GameData.player.hp[0],
         function(){
-          window.currentBattle.enemy.resetHealth();
           window.currentBattle.infoHeader.update("You lost!");
         },
         function(){
