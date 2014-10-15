@@ -39,14 +39,18 @@ Controls.prototype = {
 
   load: {
     initializeLoadPopupButtons: function(){
+      var self = this;
       this.getCurrentSaveGame.onclick = function(){
         var gameData = window.currentGame.getCurrentGame();
-        this.loadGameForm.innerHTML = gameData;
+        self.loadGameForm.innerHTML = gameData;
       }
 
       this.loadGameButton.onclick = function(){
-        var loadedGameData = this.loadGameForm.innerHTML;
-        window.currentGame.loadGame(loadedGameData);
+        var loadPrompt = confirm("Are you sure you want to load this game?");
+        if(loadPrompt){
+          window.currentGame.loadGame(self.loadGameForm.value);
+          window.location.reload();
+        }
       }
     },
 
@@ -64,7 +68,7 @@ function Controls(){
   this.loadButton         = document.querySelector("button#load");
   this.getCurrentSaveGame = document.getElementById("get-current-game");
   this.loadGameButton     = document.getElementById("load-current-game");
-  this.loadGameForm       = document.getElementById("load-game-form");
+  this.loadGameForm       = document.querySelector("textarea#load-game-form");
 }
 
 window.enableControls = (function(){
