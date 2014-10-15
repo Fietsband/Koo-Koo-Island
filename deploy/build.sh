@@ -1,5 +1,5 @@
 #!/bin/sh
-YUI_PATH="helper/yuicompressor-2.4.8.jar"
+YUI_PATH="vendor/yuicompressor-2.4.8.jar"
 JAVASCRIPTS=(
   "vendor/json3.js"
   "src/helper/dollar.js"
