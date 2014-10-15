@@ -63,10 +63,9 @@ Game.prototype = {
     }
   },
 
-  loadGame: function(gid, base64_string){
-    GameStorage.store("koo-koo-island-gid", gid);
-    GameStorage.store(gid, base64_string);
-    window.GameData = JSON.parse(atob(GameStorage.get(gid)));
+  loadGame: function(base64_string){
+    GameStorage.store(this.gid, base64_string);
+    window.GameData = JSON.parse(atob(GameStorage.get(this.gid)));
     this.toggleLoadCallbacks();
   },
 
