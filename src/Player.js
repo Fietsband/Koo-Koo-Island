@@ -71,11 +71,23 @@ Player.prototype = {
     this.updateHealthBar();
   },
 
+  increaseMagic: function(amount){
+    GameData.player.mp[0] += amount;
+    if(GameData.player.mp[0] >= GameData.player.mp[1]){
+      GameData.player.mp[0] = GameData.player.mp[1];
+    }
+    this.updateMagicBar();
+  },
+
   initiateFight: function(){
     this.updateHealthBar();
     this.attackBar.resetBar();
     this.totalHealth = document.querySelector(".field .player .health-stats .total-health");
     this.totalHealth.innerHTML = this.startHealth;
+  },
+
+  updateMagicBar: function(){
+    // tba
   },
 
   updateHealthBar: function(){
