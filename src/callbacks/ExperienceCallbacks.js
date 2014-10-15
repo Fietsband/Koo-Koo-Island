@@ -5,7 +5,7 @@ ExperienceCallbacks = {
   },
 
   increaseHitPoints: function(amount){
-    GameData.player.hp += amount;
+    GameData.player.hp[1] += amount;
   },
 
   checkExperiencePoints: function(){

@@ -2,8 +2,8 @@ var ENV = 'production';
 var GameData = {
   settings: {},
   player: {
-    hp:               20,
-    mp:               0,
+    hp:               [0, 20],
+    mp:               [0, 0],
     experience:       0,
     attack_damage:    10,
     battle_timeout:   5000,

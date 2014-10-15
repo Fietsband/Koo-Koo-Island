@@ -47,16 +47,16 @@ Player.prototype = {
   },
 
   looseHealth: function(amount){
-    GameData.player.hp -= amount;
-    if(GameData.player.hp <= 0){
-      GameData.player.hp = 0;
-      window.currentBattle.endBattle(GameData.player.hp,
+    GameData.player.hp[0] -= amount;
+    if(GameData.player.hp[0] <= 0){
+      GameData.player.hp[0] = 0;
+      window.currentBattle.endBattle(GameData.player.hp[0],
         function(){
           window.currentBattle.enemy.resetHealth();
           window.currentBattle.infoHeader.update("You lost!");
         },
         function(){
-          GameData.player.hp = 1;
+          GameData.player.hp[0] = 1;
         }
       );
     }
@@ -72,11 +72,11 @@ Player.prototype = {
 
   updateHealthBar: function(){
     this.healthBar.style.width = this.currentHealth() + "%";
-    this.healthStats.innerHTML = GameData.player.hp;
+    this.healthStats.innerHTML = GameData.player.hp[0];
   },
 
   currentHealth: function(){
-    return (GameData.player.hp / this.startHealth) * 100;
+    return (GameData.player.hp[0] / GameData.player.hp[1]) * 100;
   },
 
   getGraphic: function(){
@@ -145,6 +145,5 @@ function Player(){
   this.battleGraphic  = document.querySelector("#battle-sequence-popup .player #graphic");
   this.healthBar      = document.querySelector(".field .player .healthbar .health-left");
   this.healthStats    = document.querySelector(".field .player .health-stats .health-stats-left");
-  this.startHealth    = GameData.player.hp;
   this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
 }

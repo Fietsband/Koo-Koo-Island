@@ -4,5 +4,5 @@ QUnit.test("rewarding the player when beating an enemy", function(assert){
 
   assert.equal(window.GameData.player.seashells, 2, "increase seashells");
   assert.equal(window.GameData.player.experience, 10, "increase experience with 10");
-  assert.equal(window.GameData.player.hp, 30, "increase experience with 10");
+  assert.equal(window.GameData.player.hp[1], 30, "increase experience with 10");
 });
