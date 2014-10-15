@@ -277,6 +277,10 @@ span#battle-big-shark,
   display: table;
 }
 
+#inventory-stash .disabled{
+  display: none;
+}
+
 #load-game-form{
   width: 400px;
   height: 100px;
