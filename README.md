@@ -10,7 +10,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 
 ### Player
-- M Adding potions to restore health
 - M Adding damage reduction percentage for armor
 - M Adding attack strength for chosen weapon
 
@@ -30,6 +29,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Initiate boss fight with the painting in the attic
 
 #### Done
+- ~~Adding potions to restore health~~
 - ~~Adding experience points for every battle.~~
 - ~~Load game popup~~
 - ~~Loading game~~
