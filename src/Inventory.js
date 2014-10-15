@@ -16,12 +16,17 @@ Inventory.prototype = {
     if(GameData.player.inventory.items.length > 0){
       this.setupInventoryButton();
     }
+    if(GameData.player.mp[1] > 0){
+      this.inventoryDom.querySelector("#magic").classList.remove("disabled");
+    }
+    this.healthBar.update(GameData.player.hp[0]);
+    this.magicBar.update(GameData.player.mp[0]);
   },
 
   setupInventoryButton: function(){
     var inventoryButton = document.getElementById("open-inventory-button");
     inventoryButton.style.display = "block";
-    window.currentGame.inventoryPopUp = new Popup("inventory-popup");
+    window.currentGame.inventoryPopUp = new Popup("inventory-popup", this.checkInventory.bind(this));
     this.applyInventorySelectBoxListeners();
     inventoryButton.onclick = function(){
       window.currentGame.inventoryPopUp.show();
@@ -77,6 +82,11 @@ Inventory.prototype = {
 }
 
 function Inventory(){
+  this.inventoryDom    = document.querySelector("#inventory-stash");
   this.weaponSelectBox = document.querySelector("#inventory-stash #select-weapons select");
-  this.armorSelectBox = document.querySelector("#inventory-stash #select-armor select");
+  this.armorSelectBox  = document.querySelector("#inventory-stash #select-armor select");
+  this.healthBar       = new StatBar("#inventory-stash #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
+  this.magicBar        = new StatBar("#inventory-stash #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
+  this.healthBar.initialize(GameData.player.hp[0], GameData.player.hp[1]);
+  this.magicBar.initialize(GameData.player.mp[0], GameData.player.mp[1]);
 }

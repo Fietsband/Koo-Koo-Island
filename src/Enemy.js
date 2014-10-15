@@ -43,7 +43,7 @@ Enemy.prototype = {
         window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);
       });
     }
-    this.updateHealthBar();
+    this.healthBar.update(this.enemyInformation.health);
   },
 
   rewardPlayer: function(){
@@ -53,19 +53,6 @@ Enemy.prototype = {
         new Rewarder(rewardType, self.enemyInformation.rewards).reward();
       }
     });
-  },
-
-  updateHealthBar: function(){
-    this.healthBar.style.width = this.currentHealth() + "%";
-    this.healthStats.innerHTML = this.enemyInformation.health;
-  },
-
-  currentHealth: function(){
-    return (this.enemyInformation.health / this.startHealth) * 100;
-  },
-
-  resetHealth: function(){
-    this.enemyInformation.health = this.startHealth;
   },
 
   getGraphic: function(){
@@ -97,13 +84,9 @@ function Enemy(identifier, callbacks){
   this.identifier             = identifier;
   this.callbacks              = callbacks;
   this.enemyPre               = document.querySelector(".enemies #" + identifier);
-  this.healthBar              = document.querySelector(".field .enemy .healthbar .health-left");
-  this.healthStats            = document.querySelector(".field .enemy .health-stats .health-stats-left");
-  this.totalHealth            = document.querySelector(".field .enemy .health-stats .total-health");
   this.enemyInformation       = this.getEnemyStats();
-  this.startHealth            = this.enemyInformation.health;
-  this.totalHealth.innerHTML  = this.startHealth;
   this.attackHoldBar          = new Bar(".field .enemy .attackbar .attack-left", this.enemyInformation.attack_interval);
+  this.healthBar              = new StatBar(".field .enemy", ".health-stats .health-stats-left", ".health-stats .total-health", ".healthbar .health-left");
   this.attackInterval         = null;
-  this.updateHealthBar();
+  this.healthBar.initialize(this.enemyInformation.health, this.enemyInformation.health);
 }

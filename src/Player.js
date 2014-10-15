@@ -60,7 +60,7 @@ Player.prototype = {
         }
       );
     }
-    this.updateHealthBar();
+    this.healthBar.update(GameData.player.hp[0]);
   },
 
   increaseHealth: function(amount){
@@ -68,7 +68,7 @@ Player.prototype = {
     if(GameData.player.hp[0] >= GameData.player.hp[1]){
       GameData.player.hp[0] = GameData.player.hp[1];
     }
-    this.updateHealthBar();
+    this.healthBar.update(GameData.player.hp[0]);
   },
 
   increaseMagic: function(amount){
@@ -76,27 +76,14 @@ Player.prototype = {
     if(GameData.player.mp[0] >= GameData.player.mp[1]){
       GameData.player.mp[0] = GameData.player.mp[1];
     }
-    this.updateMagicBar();
+    // update magic bar
   },
 
   initiateFight: function(){
-    this.updateHealthBar();
+    this.healthBar.update(GameData.player.hp[0]);
     this.attackBar.resetBar();
     this.totalHealth = document.querySelector(".field .player .health-stats .total-health");
-    this.totalHealth.innerHTML = this.startHealth;
-  },
-
-  updateMagicBar: function(){
-    // tba
-  },
-
-  updateHealthBar: function(){
-    this.healthBar.style.width = this.currentHealth() + "%";
-    this.healthStats.innerHTML = GameData.player.hp[0];
-  },
-
-  currentHealth: function(){
-    return (GameData.player.hp[0] / GameData.player.hp[1]) * 100;
+    this.totalHealth.innerHTML = GameData.player.hp[1];
   },
 
   getGraphic: function(){
@@ -166,4 +153,7 @@ function Player(){
   this.healthBar      = document.querySelector(".field .player .healthbar .health-left");
   this.healthStats    = document.querySelector(".field .player .health-stats .health-stats-left");
   this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
+  this.healthBar      = new StatBar(".player #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
+  //this.magicBar       = new StatBar(".player #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
+  this.healthBar.initialize(GameData.player.hp[0], GameData.player.hp[1]);
 }
