@@ -6,7 +6,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 ### Progress:
 
 #### General
-- M Adding experience points for every battle.
 - C Level module's scoping upon currentGame.levels.\<x\>
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 
@@ -31,6 +30,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Initiate boss fight with the painting in the attic
 
 #### Done
+- ~~Adding experience points for every battle.~~
 - ~~Load game popup~~
 - ~~Loading game~~
 - ~~Setting up basic underwater shack code~~
