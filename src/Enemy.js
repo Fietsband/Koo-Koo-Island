@@ -48,7 +48,7 @@ Enemy.prototype = {
 
   rewardPlayer: function(){
     var self = this;
-    $.each(['stats', 'items'], function(i, rewardType){
+    $.each(['experience', 'stats', 'items'], function(i, rewardType){
       if(self.enemyInformation.rewards[rewardType]){
         new Rewarder(rewardType, self.enemyInformation.rewards).reward();
       }

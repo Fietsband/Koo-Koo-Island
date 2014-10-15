@@ -18,7 +18,8 @@ var GameData = {
       skills:           [],
       magic:            [],
       items:            []
-    }
+    },
+    experience_rewards: []
   },
 
   progress: {

@@ -33,7 +33,8 @@ var GameData = {
         itemTitle: "A partial map of the world",
         identifier: "map"
       }]
-    }
+    },
+    experience_rewards: []
   },
 
   progress: {

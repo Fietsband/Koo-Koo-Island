@@ -28,6 +28,9 @@ var Enemies = {
     },
 
     rewards: {
+      experience: {
+        amount: 1000
+      },
       stats: {
         seashell: 150,
         oyster: 20
@@ -63,6 +66,9 @@ var Enemies = {
       y: 160
     },
     rewards: {
+      experience: {
+        amount: 10
+      },
       stats: {
         seashell: 2
       }

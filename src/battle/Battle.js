@@ -50,9 +50,9 @@ Battle.prototype = {
 }
 
 function Battle(enemy){
-  this.player = window.currentGame.player;
-  this.enemy = enemy;
+  this.player       = window.currentGame.player;
+  this.enemy        = enemy;
   this.battleEngine = new BattleEngine(this.enemy);
-  this.infoHeader = new BattleInfoHeader();
-  this.battlePopup = new Popup("battle-sequence-popup", undefined, this.stopBattle.bind(this));
+  this.infoHeader   = new BattleInfoHeader();
+  this.battlePopup  = new Popup("battle-sequence-popup", undefined, this.stopBattle.bind(this));
 }
