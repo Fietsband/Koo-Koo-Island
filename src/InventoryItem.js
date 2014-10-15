@@ -48,8 +48,8 @@ InventoryItem.prototype = {
 }
 
 function InventoryItem(itemTitle, identifier, itemScope, onClickMethod){
-  this.itemTitle = itemTitle;
-  this.identifier = identifier;
-  this.itemScope  = itemScope;
+  this.itemTitle     = itemTitle;
+  this.identifier    = identifier;
+  this.itemScope     = itemScope;
   this.onClickMethod = onClickMethod;
 }
