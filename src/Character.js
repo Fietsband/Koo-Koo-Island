@@ -29,8 +29,8 @@ Character.prototype = {
 };
 
 function Character(identifier, methods){
-  this.character = dom.findId(identifier);
-  this.characterType = this.character.className;
+  this.character       = dom.findId(identifier);
+  this.characterType   = this.character.className;
   this.toBeRemovedSpan = dom.findId(identifier + "-remove");
-  this.methods = methods;
+  this.methods         = methods;
 }
