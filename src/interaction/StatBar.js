@@ -19,7 +19,7 @@ StatBar.prototype = {
 };
 
 function StatBar(barScope, currentAmount, total, innerBar){
-  this.barScope       = document.querySelector(barScope);
+  this.barScope       = dom.find(barScope);
   this.currentAmount  = this.barScope.querySelector(currentAmount);
   this.total          = this.barScope.querySelector(total);
   this.innerBar       = this.barScope.querySelector(innerBar);

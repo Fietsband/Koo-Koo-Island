@@ -1,7 +1,7 @@
 InventoryItem.prototype = {
   add: function(){
     this.item = this["create" + $.titleize(this.itemScope)]();
-    document.querySelector("#inventory-stash ." + this.appendItemScope())
+    dom.find("#inventory-stash ." + this.appendItemScope())
       .appendChild(this.item);
   },
 

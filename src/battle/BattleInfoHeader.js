@@ -19,5 +19,5 @@ BattleInfoHeader.prototype = {
 }
 
 function BattleInfoHeader(){
-  this.infoHeader = document.getElementById("battle-sequence-info-header");
+  this.infoHeader = dom.findId("battle-sequence-info-header");
 }

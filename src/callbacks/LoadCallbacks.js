@@ -24,8 +24,8 @@ LoadCallbacks = {
   },
 
   show_stat: function(type){
-    var stat_elem = document.getElementById(type + "s");
-    var statCount = document.getElementById(type + "-count");
+    var stat_elem = dom.findId(type + "s");
+    var statCount = dom.findId(type + "-count");
     stat_elem.style.display = "inline-block";
     statCount.innerHTML = GameData.player[type + "s"];
   },
@@ -70,7 +70,7 @@ LoadCallbacks = {
 
     map_callback: function(){
       window.currentGame.messageInABottle.clearOnClickMethod();
-      document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
+      dom.find(".message-in-a-bottle .message").innerHTML = "&nbsp;";
     },
 
     map_click_handler: function(){

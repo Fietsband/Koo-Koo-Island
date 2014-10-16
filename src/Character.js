@@ -29,8 +29,8 @@ Character.prototype = {
 };
 
 function Character(identifier, methods){
-  this.character = document.getElementById(identifier);
+  this.character = dom.findId(identifier);
   this.characterType = this.character.className;
-  this.toBeRemovedSpan = document.getElementById(identifier + "-remove");
+  this.toBeRemovedSpan = dom.findId(identifier + "-remove");
   this.methods = methods;
 }

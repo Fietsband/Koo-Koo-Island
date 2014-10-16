@@ -1,7 +1,7 @@
 Stats.prototype = {
   increaseStat: function(type, amount){
-    var stat = document.getElementById(type + "s");
-    var statCount = document.getElementById(type + "-count");
+    var stat      = dom.findId(type + "s");
+    var statCount = dom.findId(type + "-count");
     stat.style.display = "inline-block";
     window.currentStats.add(type + "s", amount);
     if(window.currentGame.callbacks.statsCallbacks[type].performCallback){
