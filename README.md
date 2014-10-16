@@ -12,6 +12,14 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 ### Player
 - M Adding damage reduction percentage for armor
 - M Adding attack strength for chosen weapon
+- M Adding item rewards callback
+- M Adding skill attacks
+- M Adding magic attacks
+- M Able to use items in battle
+- C Adding animations for magic attacks
+- C Adding animations for enemy
+- C Rewriting part of battle engine - make it 'message event based'. Push event to stack; call event till end.
+- W Scoping all animations in separate animations folder
 
 #### Island
 - M Adding underwater shack level
