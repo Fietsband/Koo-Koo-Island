@@ -36,25 +36,25 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Figuring out what will be on the small portrait on the wall
 - M Initiate boss fight with the painting in the attic
 
-### Cliffhill town Part I
+#### Cliffhill town Part I
 
-### Forest of protectors
+#### Forest of protectors
 
-### Temeloe Town
+#### Temeloe Town
 
-### Sideous cave
+#### Sideous cave
 
-### The boat
+#### The boat
 
-### Cliffhill town Part II
+#### Cliffhill town Part II
 
-### Secret base Part I
+#### Secret base Part I
 
-### Secret base Part II
+#### Secret base Part II
 
-### Secret base Part III
+#### Secret base Part III
 
-### Secret base Part IV
+#### Secret base Part IV
 
 #### Done
 - ~~Adding potions to restore health~~
