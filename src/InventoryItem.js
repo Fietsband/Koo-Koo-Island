@@ -9,7 +9,7 @@ InventoryItem.prototype = {
     var pTag       = document.createElement("a");
     pTag.id        = this.identifier;
     pTag.innerHTML = this.itemOptions.title;
-    pTag.onclick   = this.onClickMethod;
+    pTag.onclick   = this.itemOptions.use;
     return pTag;
   },
 
@@ -53,9 +53,8 @@ InventoryItem.prototype = {
   }
 }
 
-function InventoryItem(identifier, itemScope, onClickMethod){
+function InventoryItem(identifier, itemScope){
   this.identifier    = identifier;
   this.itemScope     = itemScope;
-  this.onClickMethod = onClickMethod;
   this.itemOptions   = this.getItemOptions();
 }

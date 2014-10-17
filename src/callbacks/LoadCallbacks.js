@@ -38,11 +38,7 @@ LoadCallbacks = {
           window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
         }
 
-        new InventoryItem(
-          inventoryItem.identifier,
-          inventoryScope,
-          window.currentGame.callbacks.loadCallbacks.inventory.click(inventoryItem.identifier)
-        ).add();
+        new InventoryItem(inventoryItem.identifier, inventoryScope).add();
       });
     }
   },
@@ -58,25 +54,9 @@ LoadCallbacks = {
   },
 
   inventory: {
-    click: function(identifier){
-      if(Object.keys(window.Items).indexOf(identifier) !== -1){
-        return window.Items[identifier].use;
-      }
-      else if(window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]){
-        return window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]();
-      }
-      else{
-        return null;
-      }
-    },
-
     map_callback: function(){
       window.currentGame.messageInABottle.clearOnClickMethod();
       dom.find(".message-in-a-bottle .message").innerHTML = "&nbsp;";
-    },
-
-    map_click_handler: function(){
-      return window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup;
     }
   }
 }
