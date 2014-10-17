@@ -2,7 +2,7 @@ var ENV = "development";
 var GameData = {
   settings: {},
   player: {
-    hp:               [20, 20],
+    hp:               [2, 20],
     mp:               [0, 0],
     experience:       0,
     attack_damage:    10,
@@ -32,6 +32,10 @@ var GameData = {
       items:            [{
         itemTitle: "A partial map of the world",
         identifier: "map"
+      },
+      {
+        itemTitle: "Potion",
+        identifier: "potion"
       }]
     },
     experience_rewards: []

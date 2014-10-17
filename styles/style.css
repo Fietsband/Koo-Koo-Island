@@ -201,6 +201,10 @@ span#battle-big-shark,
   cursor: pointer;
 }
 
+#inventory-stash a{
+  display: block;
+}
+
 .sell-items{
   padding-left: 13px;
 }

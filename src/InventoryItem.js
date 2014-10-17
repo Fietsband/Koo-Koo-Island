@@ -7,6 +7,7 @@ InventoryItem.prototype = {
 
   createItems: function(){
     var pTag = document.createElement("a");
+    pTag.id = this.identifier;
     pTag.innerHTML = this.itemTitle;
     pTag.onclick = this.onClickMethod;
     return pTag;

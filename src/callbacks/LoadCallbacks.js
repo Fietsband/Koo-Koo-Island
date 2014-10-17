@@ -60,7 +60,10 @@ LoadCallbacks = {
 
   inventory: {
     click: function(identifier){
-      if(window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]){
+      if(Object.keys(window.Items).indexOf(identifier) !== -1){
+        return window.Items[identifier].use;
+      }
+      else if(window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]){
         return window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]();
       }
       else{

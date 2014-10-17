@@ -68,6 +68,7 @@ Player.prototype = {
       GameData.player.hp[0] = GameData.player.hp[1];
     }
     this.healthBar.update(GameData.player.hp[0]);
+    this.inventory.healthBar.update(GameData.player.hp[0])
   },
 
   increaseMagic: function(amount){
