@@ -234,6 +234,10 @@ span#battle-big-shark,
   background-color: #22CC22;
 }
 
+.magicbar .magic-left{
+  background-color: #22CCCC;
+}
+
 .enemy #health,
 .player #health{
   display: block;
