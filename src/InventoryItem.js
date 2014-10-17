@@ -6,24 +6,24 @@ InventoryItem.prototype = {
   },
 
   createItems: function(){
-    var pTag = document.createElement("a");
-    pTag.id = this.identifier;
+    var pTag       = document.createElement("a");
+    pTag.id        = this.identifier;
     pTag.innerHTML = this.itemTitle;
-    pTag.onclick = this.onClickMethod;
+    pTag.onclick   = this.onClickMethod;
     return pTag;
   },
 
   createWeapons: function(){
-    var pTag = document.createElement("option");
+    var pTag       = document.createElement("option");
     pTag.innerHTML = this.itemTitle;
-    pTag.value = this.identifier;
+    pTag.value     = this.identifier;
     return pTag;
   },
 
   createArmor: function(){
-    var pTag = document.createElement("option");
+    var pTag       = document.createElement("option");
     pTag.innerHTML = this.itemTitle;
-    pTag.value = this.identifier;
+    pTag.value     = this.identifier;
     return pTag;
   },
 
