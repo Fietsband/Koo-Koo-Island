@@ -88,7 +88,7 @@ Game.prototype = {
       }
     });
 
-    $.each(["wood", "seashell", "wood"], function(i, statType){
+    $.each(["seashell", "oyster", "wood"], function(i, statType){
       if(window.GameData.player[statType + "s"] > 0){
         self.callbacks.loadCallbacks.show_stat(statType);
       }
