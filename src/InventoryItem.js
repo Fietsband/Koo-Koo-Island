@@ -9,6 +9,7 @@ InventoryItem.prototype = {
     var pTag       = document.createElement("a");
     pTag.id        = this.identifier;
     pTag.innerHTML = this.itemOptions.title;
+    pTag.title     = this.itemOptions.description;
     pTag.onclick   = this.itemOptions.use;
     return pTag;
   },
@@ -16,6 +17,7 @@ InventoryItem.prototype = {
   createWeapons: function(){
     var pTag       = document.createElement("option");
     pTag.innerHTML = this.itemOptions.title;
+    pTag.title     = this.itemOptions.description;
     pTag.value     = this.identifier;
     return pTag;
   },
@@ -23,6 +25,7 @@ InventoryItem.prototype = {
   createArmors: function(){
     var pTag       = document.createElement("option");
     pTag.innerHTML = this.itemOptions.title;
+    pTag.title     = this.itemOptions.description;
     pTag.value     = this.identifier;
     return pTag;
   },
