@@ -30,4 +30,4 @@ $ = {
     });
     selectBox.querySelector("option[value="+ optionValue +"]").selected = true;
   }
-}
+};

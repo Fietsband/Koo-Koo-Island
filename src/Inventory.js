@@ -24,7 +24,7 @@ Inventory.prototype = {
   },
 
   setupInventoryButton: function(){
-    var inventoryButton = document.getElementById("open-inventory-button");
+    var inventoryButton = dom.findId("open-inventory-button");
     inventoryButton.style.display = "block";
     window.currentGame.inventoryPopUp = new Popup("inventory-popup", this.checkInventory.bind(this));
     this.applyInventorySelectBoxListeners();
@@ -51,14 +51,14 @@ Inventory.prototype = {
   },
 
   updateGraphicalWeaponPreview: function(identifier){
-    var weaponParts = document.querySelectorAll("#inventory-stash .weapons .weapon-preview span");
+    var weaponParts = dom.find("#inventory-stash .weapons .weapon-preview span", true);
     $.each(window.Weapons[identifier].large_graphic, function(i, graphicPart){
       weaponParts[i].innerHTML = graphicPart;
     });
   },
 
   updateGraphicalArmorPreview: function(identifier){
-    var armorParts = document.querySelectorAll("#inventory-stash .armor .armor-preview span");
+    var armorParts = dom.find("#inventory-stash .armor .armor-preview span", true);
     $.each(window.Armors[identifier].large_graphic, function(i, graphicPart){
       armorParts[i].innerHTML = graphicPart;
     });
@@ -82,9 +82,9 @@ Inventory.prototype = {
 }
 
 function Inventory(){
-  this.inventoryDom    = document.querySelector("#inventory-stash");
-  this.weaponSelectBox = document.querySelector("#inventory-stash #select-weapons select");
-  this.armorSelectBox  = document.querySelector("#inventory-stash #select-armor select");
+  this.inventoryDom    = dom.find("#inventory-stash");
+  this.weaponSelectBox = dom.find("#inventory-stash #select-weapons select");
+  this.armorSelectBox  = dom.find("#inventory-stash #select-armor select");
   this.healthBar       = new StatBar("#inventory-stash #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
   this.magicBar        = new StatBar("#inventory-stash #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
   this.healthBar.initialize(GameData.player.hp[0], GameData.player.hp[1]);

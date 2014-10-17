@@ -43,7 +43,7 @@ Level.prototype = {
   },
 
   setMapSpot: function(){
-    return document.querySelector("#map-popup #" + this.mapSpot);
+    return dom.find("#map-popup #" + this.mapSpot);
   },
 
   setLevelModule: function(){
@@ -67,7 +67,7 @@ Level.prototype = {
 function Level(identifier, mapSpot){
   this.identifier  = identifier;
   this.mapSpot     = mapSpot || identifier;
-  this.levelDom    = document.querySelector("#game-levels #" + identifier);
+  this.levelDom    = dom.find("#game-levels #" + identifier);
   this.pointOnMap  = this.setMapSpot();
   this.levelModule = this.setLevelModule();
 }

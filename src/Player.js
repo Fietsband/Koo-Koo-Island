@@ -82,7 +82,7 @@ Player.prototype = {
   initiateFight: function(){
     this.healthBar.update(GameData.player.hp[0]);
     this.attackBar.resetBar();
-    this.totalHealth = document.querySelector(".field .player .health-stats .total-health");
+    this.totalHealth = dom.find(".field .player .health-stats .total-health");
     this.totalHealth.innerHTML = GameData.player.hp[1];
   },
 
@@ -91,7 +91,7 @@ Player.prototype = {
   },
 
   spawn: function(){
-    this.playerPlaceholder = document.querySelector("#battle-sequence-popup .field .player #graphic");
+    this.playerPlaceholder = dom.find("#battle-sequence-popup .field .player #graphic");
     this.playerPlaceholder.innerHTML = this.getGraphic();
   },
 
@@ -148,10 +148,10 @@ Player.prototype = {
 
 function Player(){
   this.inventory      = new Inventory();
-  this.graphic        = document.getElementById("game-character");
-  this.battleGraphic  = document.querySelector("#battle-sequence-popup .player #graphic");
-  this.healthBar      = document.querySelector(".field .player .healthbar .health-left");
-  this.healthStats    = document.querySelector(".field .player .health-stats .health-stats-left");
+  this.graphic        = dom.findId("game-character");
+  this.battleGraphic  = dom.find("#battle-sequence-popup .player #graphic");
+  this.healthBar      = dom.find(".field .player .healthbar .health-left");
+  this.healthStats    = dom.find(".field .player .health-stats .health-stats-left");
   this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
   this.healthBar      = new StatBar(".player #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
   //this.magicBar       = new StatBar(".player #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");

@@ -32,7 +32,7 @@ QUnit.test("loading current data", function(assert){
   resetGame();
 
   assert.equal(window.currentGame.player.inventory.getInventory().items[0].itemTitle, "map", "should add map to inventory");
-  assert.equal(document.querySelector(".message-in-a-bottle .message").innerHTML, "&nbsp;", "should empty the bottle");
+  assert.equal(dom.find(".message-in-a-bottle .message").innerHTML, "&nbsp;", "should empty the bottle");
 
   window.currentGame.player.removeArmorAndWeapons();
 });
@@ -47,8 +47,8 @@ QUnit.test("setting current weapon and armor", function(assert){
   resetGame();
 
   assert.equal(window.currentGame.player.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
-  assert.ok(document.querySelector("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
-  assert.ok(document.querySelector("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
+  assert.ok(dom.find("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
+  assert.ok(dom.find("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
   assert.equal(document.querySelectorAll("#inventory-stash .weapons .weapon-preview span")[1].innerHTML, "       ^       ", "Should have a spear");
   assert.equal(document.querySelectorAll("#inventory-stash .armor .armor-preview span")[1].innerHTML,    "      /*\\      ", "Should be a clown suite");
   window.currentGame.player.removeArmorAndWeapons();

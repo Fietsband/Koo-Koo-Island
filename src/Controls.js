@@ -63,12 +63,12 @@ Controls.prototype = {
 }
 
 function Controls(){
-  this.saveButton         = document.getElementById("save");
-  this.autoSaveButton     = document.getElementById("auto-save");
-  this.loadButton         = document.querySelector("button#load");
-  this.getCurrentSaveGame = document.getElementById("get-current-game");
-  this.loadGameButton     = document.getElementById("load-current-game");
-  this.loadGameForm       = document.querySelector("textarea#load-game-form");
+  this.saveButton         = dom.findId("save");
+  this.autoSaveButton     = dom.findId("auto-save");
+  this.loadButton         = dom.find("button#load");
+  this.getCurrentSaveGame = dom.findId("get-current-game");
+  this.loadGameButton     = dom.findId("load-current-game");
+  this.loadGameForm       = dom.find("textarea#load-game-form");
 }
 
 window.enableControls = (function(){

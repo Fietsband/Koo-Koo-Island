@@ -121,7 +121,7 @@ BattleEngine.prototype = {
 
 function BattleEngine(enemy){
   this.enemy           = enemy;
-  this.battleInterface = document.querySelector("#battle-sequence-popup .battle-sequence-interface");
+  this.battleInterface = dom.find("#battle-sequence-popup .battle-sequence-interface");
   this.attackButton    = this.battleInterface.querySelector("#attack");
   this.skillButton     = this.battleInterface.querySelector("#skill");
   this.magicButton     = this.battleInterface.querySelector("#magic");

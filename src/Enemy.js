@@ -60,12 +60,12 @@ Enemy.prototype = {
   },
 
   setGraphicToBattleField: function(){
-    this.enemyPlaceholder  = document.querySelector("#battle-sequence-popup .field .enemy #graphic");
+    this.enemyPlaceholder  = dom.find("#battle-sequence-popup .field .enemy #graphic");
     this.enemyPlaceholder.innerHTML = this.getGraphic();
   },
 
   setPosition: function(){
-    this.enemyPosition = document.querySelector("#battle-sequence-popup .field .enemy");
+    this.enemyPosition = dom.find("#battle-sequence-popup .field .enemy");
     this.enemyPosition.style.top = this.enemyInformation.position.y + "px";
     this.enemyPosition.style.right = this.enemyInformation.position.x + "px";
   },
@@ -83,7 +83,7 @@ Enemy.prototype = {
 function Enemy(identifier, callbacks){
   this.identifier             = identifier;
   this.callbacks              = callbacks;
-  this.enemyPre               = document.querySelector(".enemies #" + identifier);
+  this.enemyPre               = dom.find(".enemies #" + identifier);
   this.enemyInformation       = this.getEnemyStats();
   this.attackHoldBar          = new Bar(".field .enemy .attackbar .attack-left", this.enemyInformation.attack_interval);
   this.healthBar              = new StatBar(".field .enemy", ".health-stats .health-stats-left", ".health-stats .total-health", ".healthbar .health-left");
