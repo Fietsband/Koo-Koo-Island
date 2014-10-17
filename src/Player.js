@@ -127,13 +127,13 @@ Player.prototype = {
 
   loadCurrentArmor: function(){
     if(window.GameData.player.armor){
-      this.inventory.setSelectedArmor(window.GameData.player.armor.identifier);
+      this.inventory.setSelectedArmor(window.GameData.player.armor);
     }
   },
 
   loadCurrentWeapon: function(){
     if(window.GameData.player.weapon){
-      this.inventory.setSelectedWeapon(window.GameData.player.weapon.identifier);
+      this.inventory.setSelectedWeapon(window.GameData.player.weapon);
     }
   },
 
