@@ -14,7 +14,7 @@ window.LonelyIsland = {
 
   showMessageInABottle: function(){
     GameData.progress.show_bottle = 1;
-    var map = new InventoryItem("A partial map of the world", "map", "items", window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup);
+    var map = new InventoryItem("map", "items", window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup);
     window.currentGame.messageInABottle = new Item("message-in-a-bottle", function(){
       var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
         undefined,

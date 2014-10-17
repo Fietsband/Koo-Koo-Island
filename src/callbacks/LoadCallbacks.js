@@ -39,7 +39,6 @@ LoadCallbacks = {
         }
 
         new InventoryItem(
-          inventoryItem.itemTitle,
           inventoryItem.identifier,
           inventoryScope,
           window.currentGame.callbacks.loadCallbacks.inventory.click(inventoryItem.identifier)

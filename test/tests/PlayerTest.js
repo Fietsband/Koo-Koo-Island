@@ -48,10 +48,10 @@ QUnit.test("setting an armor", function(assert){
   p4 = new Player();
   p4.removeArmorAndWeapons();
   i = new Armor("clown");
-  p4.inventory.addItem("armor", i);
+  p4.inventory.addItem("armors", i);
   p4.setCurrentArmor(i);
 
   assert.equal(window.GameData.player.armor.identifier, "clown");
   assert.equal(p4.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\"> / \\</span>\n", "player graphic should load with clown armor");
-  assert.ok(dom.find("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
+  assert.ok(dom.find("#inventory-stash .armors select option[value='clown']").selected, "should be selected");
 });

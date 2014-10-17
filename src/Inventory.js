@@ -7,7 +7,7 @@ Inventory.prototype = {
     var inventory = this.getInventory();
     return (inventory.items.length   > 0 ||
             inventory.weapons.length > 0 ||
-            inventory.armor.length   > 0 ||
+            inventory.armors.length  > 0 ||
             inventory.magic.length   > 0 ||
             inventory.skills.length  > 0)
   },
@@ -58,7 +58,7 @@ Inventory.prototype = {
   },
 
   updateGraphicalArmorPreview: function(identifier){
-    var armorParts = dom.find("#inventory-stash .armor .armor-preview span", true);
+    var armorParts = dom.find("#inventory-stash .armors .armor-preview span", true);
     $.each(window.Armors[identifier].large_graphic, function(i, graphicPart){
       armorParts[i].innerHTML = graphicPart;
     });

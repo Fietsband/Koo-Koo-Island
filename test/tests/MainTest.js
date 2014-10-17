@@ -41,16 +41,16 @@ QUnit.test("loading current data", function(assert){
 QUnit.test("setting current weapon and armor", function(assert){
   GameData.player.armor = {identifier: "clown"};
   GameData.player.weapon = {identifier: "spear"};
-  GameData.player.inventory.armor.push({identifier: "clown", itemTitle: "clown armor"});
+  GameData.player.inventory.armors.push({identifier: "clown", itemTitle: "clown armor"});
   GameData.player.inventory.weapons.push({identifier: "spear", itemTitle: "A small spear"});
 
   resetGame();
 
   assert.equal(window.currentGame.player.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
-  assert.ok(dom.find("#inventory-stash .armor select option[value='clown']").selected, "should be selected");
+  assert.ok(dom.find("#inventory-stash .armors select option[value='clown']").selected, "should be selected");
   assert.ok(dom.find("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
   assert.equal(document.querySelectorAll("#inventory-stash .weapons .weapon-preview span")[1].innerHTML, "       ^       ", "Should have a spear");
-  assert.equal(document.querySelectorAll("#inventory-stash .armor .armor-preview span")[1].innerHTML,    "      /*\\      ", "Should be a clown suite");
+  assert.equal(document.querySelectorAll("#inventory-stash .armors .armor-preview span")[1].innerHTML,    "      /*\\      ", "Should be a clown suite");
   window.currentGame.player.removeArmorAndWeapons();
 });
 

@@ -8,21 +8,21 @@ InventoryItem.prototype = {
   createItems: function(){
     var pTag       = document.createElement("a");
     pTag.id        = this.identifier;
-    pTag.innerHTML = this.itemTitle;
+    pTag.innerHTML = this.itemOptions.title;
     pTag.onclick   = this.onClickMethod;
     return pTag;
   },
 
   createWeapons: function(){
     var pTag       = document.createElement("option");
-    pTag.innerHTML = this.itemTitle;
+    pTag.innerHTML = this.itemOptions.title;
     pTag.value     = this.identifier;
     return pTag;
   },
 
-  createArmor: function(){
+  createArmors: function(){
     var pTag       = document.createElement("option");
-    pTag.innerHTML = this.itemTitle;
+    pTag.innerHTML = this.itemOptions.title;
     pTag.value     = this.identifier;
     return pTag;
   },
@@ -37,20 +37,25 @@ InventoryItem.prototype = {
         return this.itemScope + " #select-weapons select";
       break;
 
-      case "armor":
+      case "armors":
         return this.itemScope + " #select-armor select";
       break;
 
-      default:
+      case "items":
         return this.itemScope;
       break;
     }
+  },
+
+  getItemOptions: function(){
+    var scope = $.titleize(this.itemScope);
+    return window[scope][this.identifier];
   }
 }
 
-function InventoryItem(itemTitle, identifier, itemScope, onClickMethod){
-  this.itemTitle     = itemTitle;
+function InventoryItem(identifier, itemScope, onClickMethod){
   this.identifier    = identifier;
   this.itemScope     = itemScope;
   this.onClickMethod = onClickMethod;
+  this.itemOptions   = this.getItemOptions();
 }

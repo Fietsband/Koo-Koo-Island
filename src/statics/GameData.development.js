@@ -23,7 +23,7 @@ var GameData = {
         itemTitle: "Spear",
         identifier: "spear"
       }],
-      armor:            [{
+      armors:           [{
         itemTitle: "Test armor",
         identifier: "clown"
       }],

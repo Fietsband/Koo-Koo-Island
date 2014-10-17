@@ -33,5 +33,9 @@ window.Items = {
       window.currentGame.player.increaseHealth(GameData.player.hp[1]);
       window.currentGame.player.increaseMagic(GameData.player.mp[1]);
     }
+  },
+
+  map: {
+
   }
 };
