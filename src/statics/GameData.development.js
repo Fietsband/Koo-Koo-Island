@@ -10,33 +10,14 @@ var GameData = {
     seashells:        199,
     oysters:          0,
     woods:            100,
-    armor:            {
-      itemTitle: "Test armor",
-      identifier: "clown"
-    },
-    weapon:           {
-      itemTitle: "Spear",
-      identifier: "spear"
-    },
+    armor:            "clown",
+    weapon:           "spear",
     inventory:        {
-      weapons:          [{
-        itemTitle: "Spear",
-        identifier: "spear"
-      }],
-      armors:           [{
-        itemTitle: "Test armor",
-        identifier: "clown"
-      }],
+      weapons:          ["spear"],
+      armors:           ["clown"],
       skills:           [],
       magic:            [],
-      items:            [{
-        itemTitle: "A partial map of the world",
-        identifier: "map"
-      },
-      {
-        itemTitle: "Potion",
-        identifier: "potion"
-      }]
+      items:            ["map", "potion"]
     },
     experience_rewards: []
   },

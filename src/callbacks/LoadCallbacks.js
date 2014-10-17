@@ -34,11 +34,11 @@ LoadCallbacks = {
     window.currentGame.player.inventory.checkInventory();
     for(var inventoryScope in window.GameData.player.inventory){
       $.each(window.GameData.player.inventory[inventoryScope], function(i, inventoryItem){
-        if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]){
-          window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+        if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem + "_callback"]){
+          window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem + "_callback"]();
         }
 
-        new InventoryItem(inventoryItem.identifier, inventoryScope).add();
+        new InventoryItem(inventoryItem, inventoryScope).add();
       });
     }
   },

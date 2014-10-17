@@ -65,7 +65,7 @@ Inventory.prototype = {
   },
 
   addItem: function(scope, item){
-    GameData.player.inventory[scope].push(item);
+    GameData.player.inventory[scope].push(item.identifier);
     item.add();
     this.checkInventory();
   },

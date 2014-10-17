@@ -27,11 +27,11 @@ QUnit.test("0.3 stats should be initialized", function(assert){
 });
 
 QUnit.test("loading current data", function(assert){
-  GameData.player.inventory.items.push({itemTitle: "map", identifier: "map"});
+  GameData.player.inventory.items.push("map");
 
   resetGame();
 
-  assert.equal(window.currentGame.player.inventory.getInventory().items[0].itemTitle, "map", "should add map to inventory");
+  assert.equal(window.currentGame.player.inventory.getInventory().items[0], "map", "should add map to inventory");
   assert.equal(dom.find(".message-in-a-bottle .message").innerHTML, "&nbsp;", "should empty the bottle");
 
   window.currentGame.player.removeArmorAndWeapons();
@@ -41,8 +41,8 @@ QUnit.test("loading current data", function(assert){
 QUnit.test("setting current weapon and armor", function(assert){
   GameData.player.armor = {identifier: "clown"};
   GameData.player.weapon = {identifier: "spear"};
-  GameData.player.inventory.armors.push({identifier: "clown", itemTitle: "clown armor"});
-  GameData.player.inventory.weapons.push({identifier: "spear", itemTitle: "A small spear"});
+  GameData.player.inventory.armors.push("clown");
+  GameData.player.inventory.weapons.push("spear");
 
   resetGame();
 
