@@ -16,7 +16,6 @@ ClickArea.prototype = {
       clickPart.classList.add("disabled");
       clickPart.onclick = null;
     });
-    this.removeClickHandler();
   },
 
   applyMethodToclickParts: function(method){
