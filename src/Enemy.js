@@ -1,11 +1,11 @@
 Enemy.prototype = {
-  // startAttacking: function(){
-  //   this.attackHoldBar.resetBar();
-  //   this.attackInterval = setInterval(
-  //     this.attack.bind(this),
-  //     this.enemyInformation.attack_interval
-  //   );
-  // },
+  startAttacking: function(){
+    this.attackHoldBar.resetBar();
+    this.attackInterval = setInterval(
+      this.attack.bind(this),
+      this.enemyInformation.attack_interval
+    );
+  },
 
   attack: function(){
     // var toPerformAttack = this.pickAttack();
@@ -17,9 +17,9 @@ Enemy.prototype = {
     });
   },
 
-  // quitAttacking: function(){
-  //   clearInterval(this.attackInterval);
-  // },
+  quitAttacking: function(){
+    clearInterval(this.attackInterval);
+  },
 
   pickAttack: function(){
     var attacks = [];
@@ -42,18 +42,22 @@ Enemy.prototype = {
     return Enemies[this.identifier];
   },
 
-  // looseHealth: function(amount){
-  //   this.enemyInformation.health -= amount;
-  //   if(this.enemyInformation.health <= 0){
-  //     var self = this;
-  //     this.enemyInformation.health = 0;
-  //     window.currentBattle.endBattle(this.enemyInformation.health, function(){
-  //       self.rewardPlayer();
-  //       window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);
-  //     });
-  //   }
-  //   this.healthBar.update(this.enemyInformation.health);
-  // },
+  looseHealth: function(amount){
+    this.enemyInformation.health -= amount;
+    if(this.enemyInformation.health <= 0){
+      this.enemyInformation.health = 0;
+
+      window.currentBattle.eventEngine.add({
+        perform:   this.rewardPlayer.bind(this),
+        eventTime: 5000
+      });
+
+      window.currentBattle.eventEngine.add({
+        type: "end"
+      });
+    }
+    this.healthBar.update(this.enemyInformation.health);
+  },
 
   rewardPlayer: function(){
     var self = this;

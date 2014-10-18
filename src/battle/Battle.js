@@ -11,21 +11,30 @@ Battle.prototype = {
   },
 
   initialize: function(){
+    window.currentGame.player.healthBar.update(GameData.player.hp[0]);
+    //this.enemy.startAttacking();
     this.graphic.fill.bind(this)();
+    this.controls.enable.bind(this)();
+    this.battlePopup.show();
   },
 
   clear: function(){
+    this.enemy.quitAttacking();
     this.graphic.unfill.bind(this)();
+    this.controls.disable.bind(this)();
     this.eventEngine.clear();
   },
 
   controls: {
     enable: function(){
-
+      window.currentGame.player.attackBar.resetBar();
+      // window.currentGame.player.attackBar.resetBar(
+      //   this.battleControls.enable.bind(this.battleControls)
+      // );
     },
 
     disable: function(){
-
+      this.battleControls.removePlayerAttackListeners();
     }
   },
 
@@ -40,30 +49,6 @@ Battle.prototype = {
       window.currentGame.player.unspawn();
     }
   }
-
-//   playerInitialize: function(){
-//     window.currentGame.player.healthBar.update(GameData.player.hp[0]);
-//     this.resetAttackPlayer();
-//   },
-
-//   resetAttackPlayer: function(){
-//     window.currentGame.player.attackBar.resetBar(
-//       this.battleEngine.enable.bind(this.battleEngine)
-//     )
-//   },
-
-//   enemyInitialize: function(){
-//     this.enemy.startAttacking();
-//   },
-
-//   pause: function(){
-//     this.battleEngine.removePlayerAttackListeners();
-//     this.enemy.quitAttacking();
-//   },
-
-//   endBattle: function(){
-//     window.currentBattle.battlePopup.hide();
-//   }
 }
 
 function Battle(enemy){

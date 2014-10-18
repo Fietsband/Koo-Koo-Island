@@ -8,11 +8,12 @@ Bar.prototype = {
   },
 
   resetBar: function(callback){
-    this.setCallback(callback);
     move(this.bar)
         .duration(0)
-        .set('width', "0px").end();
+        .set('width', "0px")
+        .end();
 
+    this.setCallback(callback);
     this.fillBar();
   },
 

@@ -10,19 +10,21 @@ BattleEventEngine.prototype = {
   performEvents: function(){
     var self = this;
     $.each(this.events, function(i, event){
-      self.eventTimeout = setTimeout(
-        self.callEvent(i, event).bind(self),
-        event.timeOut
-      );
+      self.events.shift();
+      self.eventTimeout = setTimeout(function(){
+        self.callEvent(i, event);
+      }, (event.timeOut || 0));
     });
   },
 
   invoke: function(){
     $.each(this.events, this.callEvent.bind(this));
+    this.clear();
   },
 
   callEvent: function(i, event){
-    this.events.shift();
+    if(event.type)    window.Events[event.type].invoke();
+    if(event.perform) event.perform();
     clearTimeout(this.eventTimeout);
   }
 };
