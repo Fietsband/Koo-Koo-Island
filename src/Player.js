@@ -18,49 +18,46 @@ Player.prototype = {
   },
 
   attack: function(enemy){
-    window.currentBattle.battleEngine.disable();
-    window.currentBattle.infoHeader.update("You attacked");
+    window.currentBattle.eventEngine.add({});
+  //   window.currentBattle.battleEngine.disable();
+  //   window.currentBattle.infoHeader.update("You attacked");
 
-    var self = this;
+  //   var self = this;
 
-    move(this.battleGraphic)
-      .x(enemy.enemyInformation.player_position.x)
-      .y(enemy.enemyInformation.player_position.y)
-      .duration('0.4s')
-      .ease('in')
-      .end();
+  //   move(this.battleGraphic)
+  //     .x(enemy.enemyInformation.player_position.x)
+  //     .y(enemy.enemyInformation.player_position.y)
+  //     .duration('0.4s')
+  //     .ease('in')
+  //     .end(window.currentBattle.resetAttackPlayer.bind(window.currentBattle));
 
-    clearTimeout(this.clearMove);
+  //   clearTimeout(this.clearMove);
 
-    this.attackBar.resetBar();
-    this.clearMove = setTimeout(function(){
-      move(self.battleGraphic)
-        .x(0)
-        .duration('0.3s')
-        .ease('out')
-        .end(function(){
-          enemy.looseHealth(GameData.player.attack_damage);
-        });
+  //   this.clearMove = setTimeout(function(){
+  //     move(self.battleGraphic)
+  //       .x(0)
+  //       .duration('0.3s')
+  //       .ease('out')
+  //       .end(function(){
+  //         enemy.looseHealth(GameData.player.attack_damage);
+  //       });
 
-      clearTimeout(self.clearMove);
-    }, 500);
+  //     clearTimeout(self.clearMove);
+  //   }, 500);
   },
 
-  looseHealth: function(amount){
-    GameData.player.hp[0] -= amount;
-    if(GameData.player.hp[0] <= 0){
-      GameData.player.hp[0] = 0;
-      window.currentBattle.endBattle(GameData.player.hp[0],
-        function(){
-          window.currentBattle.infoHeader.update("You lost!");
-        },
-        function(){
-          GameData.player.hp[0] = 1;
-        }
-      );
-    }
-    this.healthBar.update(GameData.player.hp[0]);
-  },
+  // looseHealth: function(amount){
+  //   GameData.player.hp[0] -= amount;
+  //   if(GameData.player.hp[0] <= 0){
+  //     GameData.player.hp[0] = 0;
+  //     window.currentBattle.addEvent({
+  //       playEvent: window.currentBattle.endBattle.bind(window.currentBattle),
+  //       message:   "You lost",
+  //       eventTime: 2000
+  //     });
+  //   }
+  //   this.healthBar.update(GameData.player.hp[0]);
+  // },
 
   increaseHealth: function(amount){
     GameData.player.hp[0] += amount;
@@ -77,13 +74,6 @@ Player.prototype = {
       GameData.player.mp[0] = GameData.player.mp[1];
     }
     // update magic bar
-  },
-
-  initiateFight: function(){
-    this.healthBar.update(GameData.player.hp[0]);
-    this.attackBar.resetBar();
-    this.totalHealth = dom.find(".field .player .health-stats .total-health");
-    this.totalHealth.innerHTML = GameData.player.hp[1];
   },
 
   getGraphic: function(){

@@ -1,16 +1,25 @@
 Enemy.prototype = {
-  startAttacking: function(){
-    var self = this;
-    this.attackHoldBar.resetBar();
-    this.attackInterval = setInterval(function(){
-      var toPerformAttack = self.pickAttack();
-      self.attackWith(toPerformAttack);
-    }, this.enemyInformation.attack_interval);
+  // startAttacking: function(){
+  //   this.attackHoldBar.resetBar();
+  //   this.attackInterval = setInterval(
+  //     this.attack.bind(this),
+  //     this.enemyInformation.attack_interval
+  //   );
+  // },
+
+  attack: function(){
+    // var toPerformAttack = this.pickAttack();
+    // var attachMethod    = this.attackWith(toPerformAttack);
+    window.currentBattle.eventEngine.add({
+      // message: (this.enemyInformation.name + " attacked with " + toPerformAttack.name),
+      // playEvent: attachMethod,
+      // eventTime: 2000
+    });
   },
 
-  quitAttacking: function(){
-    clearInterval(this.attackInterval);
-  },
+  // quitAttacking: function(){
+  //   clearInterval(this.attackInterval);
+  // },
 
   pickAttack: function(){
     var attacks = [];
@@ -24,27 +33,27 @@ Enemy.prototype = {
   },
 
   attackWith: function(attack){
-    window.currentBattle.infoHeader.update(this.enemyInformation.name + " attacked with " + attack.name);
-    window.currentGame.player.looseHealth(attack.damage);
-    this.attackHoldBar.resetBar();
+    // window.currentBattle.infoHeader.update();
+    // window.currentGame.player.looseHealth(attack.damage);
+    // this.attackHoldBar.resetBar();
   },
 
   getEnemyStats: function(){
     return Enemies[this.identifier];
   },
 
-  looseHealth: function(amount){
-    this.enemyInformation.health -= amount;
-    if(this.enemyInformation.health <= 0){
-      var self = this;
-      this.enemyInformation.health = 0;
-      window.currentBattle.endBattle(this.enemyInformation.health, function(){
-        self.rewardPlayer();
-        window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);
-      });
-    }
-    this.healthBar.update(this.enemyInformation.health);
-  },
+  // looseHealth: function(amount){
+  //   this.enemyInformation.health -= amount;
+  //   if(this.enemyInformation.health <= 0){
+  //     var self = this;
+  //     this.enemyInformation.health = 0;
+  //     window.currentBattle.endBattle(this.enemyInformation.health, function(){
+  //       self.rewardPlayer();
+  //       window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);
+  //     });
+  //   }
+  //   this.healthBar.update(this.enemyInformation.health);
+  // },
 
   rewardPlayer: function(){
     var self = this;

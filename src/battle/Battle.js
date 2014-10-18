@@ -1,58 +1,75 @@
 Battle.prototype = {
-  startBattle: function(){
-    this.fillGraphics();
-    this.battlePopup.show();
-    this.battleEngine.enable();
-    this.player.initiateFight();
-    this.enemy.startAttacking();
+  start: function(){
+    this.initialize();
     window.currentBattle = this;
   },
 
-  stopBattle: function(){
-    this.pause();
-    this.emptyGraphics();
+  stop: function(){
+    this.clear();
     window.currentBattle = null;
     delete window.currentBattle;
   },
 
-  pause: function(){
-    this.battleEngine.removePlayerAttackListeners();
-    this.enemy.quitAttacking();
+  initialize: function(){
+    this.graphic.fill.bind(this)();
   },
 
-  endBattle: function(characterHealth, pauseBattleCallback, endBattleCallback, endingTimeoutTime){
-    var self = this;
-    this.endingTimeoutTime = endingTimeoutTime || 4000;
-    window.currentBattle.pause();
+  clear: function(){
+    this.graphic.unfill.bind(this)();
+    this.eventEngine.clear();
+  },
 
-    if(pauseBattleCallback){
-      pauseBattleCallback();
+  controls: {
+    enable: function(){
+
+    },
+
+    disable: function(){
+
     }
-
-    self.endingTimeout = setTimeout(function(){
-      window.currentBattle.battlePopup.hide();
-      clearTimeout(self.endingTimeout);
-      if(endBattleCallback){
-        endBattleCallback();
-      }
-    }, this.endingTimeoutTime);
   },
 
-  fillGraphics: function(){
-    this.enemy.spawn();
-    this.player.spawn();
-  },
+  graphic: {
+    fill: function(){
+      this.enemy.spawn();
+      window.currentGame.player.spawn();
+    },
 
-  emptyGraphics: function(){
-    this.enemy.unspawn();
-    this.player.unspawn();
+    unfill: function(){
+      this.enemy.unspawn();
+      window.currentGame.player.unspawn();
+    }
   }
+
+//   playerInitialize: function(){
+//     window.currentGame.player.healthBar.update(GameData.player.hp[0]);
+//     this.resetAttackPlayer();
+//   },
+
+//   resetAttackPlayer: function(){
+//     window.currentGame.player.attackBar.resetBar(
+//       this.battleEngine.enable.bind(this.battleEngine)
+//     )
+//   },
+
+//   enemyInitialize: function(){
+//     this.enemy.startAttacking();
+//   },
+
+//   pause: function(){
+//     this.battleEngine.removePlayerAttackListeners();
+//     this.enemy.quitAttacking();
+//   },
+
+//   endBattle: function(){
+//     window.currentBattle.battlePopup.hide();
+//   }
 }
 
 function Battle(enemy){
-  this.player       = window.currentGame.player;
-  this.enemy        = enemy;
-  this.battleEngine = new BattleEngine(this.enemy);
-  this.infoHeader   = new BattleInfoHeader();
-  this.battlePopup  = new Popup("battle-sequence-popup", undefined, this.stopBattle.bind(this));
+  this.enemy          = enemy;
+  this.battleControls = new BattleControls(this.enemy);
+  this.infoHeader     = new BattleInfoHeader();
+  this.eventEngine    = new BattleEventEngine();
+  this.battlePopup    = new Popup("battle-sequence-popup", undefined, this.stop.bind(this));
 }

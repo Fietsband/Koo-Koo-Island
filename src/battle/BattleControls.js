@@ -1,4 +1,4 @@
-BattleEngine.prototype = {
+BattleControls.prototype = {
   addPlayerAttackListeners: function(){
     this.addMenuButtonOnClickListeners();
     this.addMenuOnKeyUpListeners();
@@ -82,17 +82,11 @@ BattleEngine.prototype = {
   },
 
   enable: function(){
-    var self = this;
-    this.battleTimeout = setTimeout(function(){
-      self.addPlayerAttackListeners();
-      clearTimeout(self.battleTimeout);
-    }, GameData.player.battle_timeout);
+    this.addPlayerAttackListeners();
   },
 
   disable: function(){
-    clearTimeout(this.battleTimeout);
     this.removePlayerAttackListeners();
-    this.enable();
   },
 
   showButtons: function(){
@@ -119,7 +113,7 @@ BattleEngine.prototype = {
   }
 }
 
-function BattleEngine(enemy){
+function BattleControls(enemy){
   this.enemy           = enemy;
   this.battleInterface = dom.find("#battle-sequence-popup .battle-sequence-interface");
   this.attackButton    = this.battleInterface.querySelector("#attack");
