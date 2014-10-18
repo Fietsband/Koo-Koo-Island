@@ -39,8 +39,8 @@ QUnit.test("loading current data", function(assert){
 
 
 QUnit.test("setting current weapon and armor", function(assert){
-  GameData.player.armor = {identifier: "clown"};
-  GameData.player.weapon = {identifier: "spear"};
+  GameData.player.armor = "clown";
+  GameData.player.weapon = "spear";
   GameData.player.inventory.armors.push("clown");
   GameData.player.inventory.weapons.push("spear");
 
