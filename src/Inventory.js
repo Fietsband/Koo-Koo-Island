@@ -39,13 +39,13 @@ Inventory.prototype = {
   },
 
   setSelectedWeapon: function(id){
-    var identifier = (typeof(id) == "string") ? id : id.target.value;;
+    var identifier = (id.identifier) ? id.identifier : id.target.value;;
     $.setSelectBoxSelected(this.weaponSelectBox, identifier);
     window.currentGame.player.setCurrentWeapon(new Weapon(identifier));
   },
 
   setSelectedArmor: function(id){
-    var identifier = (typeof(id) == "string") ? id : id.target.value;
+    var identifier = (id.identifier) ? id.identifier : id.target.value;
     $.setSelectBoxSelected(this.armorSelectBox, identifier);
     window.currentGame.player.setCurrentArmor(new Armor(identifier));
   },
