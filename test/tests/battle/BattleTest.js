@@ -30,15 +30,6 @@ QUnit.test("should start a new battle", function(assert){
   var battle = new Battle(enemy);
   battle.start();
 
-  assert.ok(window.currentBattle.infoHeader, "current battle info header should be there");
-  battle.battlePopup.hide();
-});
-
-QUnit.test("should start a new battle", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
-
   assert.ok(window.currentBattle.battlePopup, "current battle popup should be there");
   battle.battlePopup.hide();
 });
