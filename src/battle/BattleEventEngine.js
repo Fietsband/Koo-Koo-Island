@@ -1,6 +1,7 @@
 BattleEventEngine.prototype = {
   add: function(event){
     this.events.push(event);
+    this.performEvents();
   },
 
   clear: function(){
