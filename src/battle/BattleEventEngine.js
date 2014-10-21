@@ -30,7 +30,6 @@ BattleEventEngine.prototype = {
   },
 
   callEvent: function(i, event){
-    console.log(event);
     if(event.type)    window.Events[event.type].invoke();
     if(event.perform) event.perform();
     if(event.message) this.infoHeader.update(event.message);
