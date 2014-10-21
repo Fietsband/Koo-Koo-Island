@@ -8,12 +8,14 @@ Enemy.prototype = {
   },
 
   attack: function(){
-    // var toPerformAttack = this.pickAttack();
-    // var attachMethod    = this.attackWith(toPerformAttack);
+    var toPerformAttack = this.pickAttack();
+    var self = this;
     window.currentBattle.eventEngine.add({
-      // message: (this.enemyInformation.name + " attacked with " + toPerformAttack.name),
-      // playEvent: attachMethod,
-      // eventTime: 2000
+      message: (this.enemyInformation.name + " attacked with " + toPerformAttack.name),
+      perform: function(){
+        self.attackWith(toPerformAttack);
+      },
+      eventTime: 2000
     });
   },
 
@@ -33,9 +35,8 @@ Enemy.prototype = {
   },
 
   attackWith: function(attack){
-    // window.currentBattle.infoHeader.update();
-    // window.currentGame.player.looseHealth(attack.damage);
-    // this.attackHoldBar.resetBar();
+    window.currentGame.player.looseHealth(attack.damage);
+    this.attackHoldBar.resetBar();
   },
 
   getEnemyStats: function(){

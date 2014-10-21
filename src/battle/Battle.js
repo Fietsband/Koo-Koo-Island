@@ -12,10 +12,10 @@ Battle.prototype = {
 
   initialize: function(){
     window.currentGame.player.healthBar.update(GameData.player.hp[0]);
-    //this.enemy.startAttacking();
     this.graphic.fill.bind(this)();
-    this.controls.enable.bind(this)();
     this.battlePopup.show();
+    this.controls.enable.bind(this)();
+    this.enemy.startAttacking();
   },
 
   clear: function(){
@@ -27,10 +27,9 @@ Battle.prototype = {
 
   controls: {
     enable: function(){
-      window.currentGame.player.attackBar.resetBar();
-      // window.currentGame.player.attackBar.resetBar(
-      //   this.battleControls.enable.bind(this.battleControls)
-      // );
+      window.currentGame.player.attackBar.resetBar(
+        this.battleControls.enable.bind(this.battleControls)
+      );
     },
 
     disable: function(){
@@ -54,7 +53,6 @@ Battle.prototype = {
 function Battle(enemy){
   this.enemy          = enemy;
   this.battleControls = new BattleControls(this.enemy);
-  this.infoHeader     = new BattleInfoHeader();
   this.eventEngine    = new BattleEventEngine();
   this.battlePopup    = new Popup("battle-sequence-popup", undefined, this.stop.bind(this));
 }

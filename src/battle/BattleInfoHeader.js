@@ -1,20 +1,42 @@
 BattleInfoHeader.prototype = {
   update: function(text){
-    var self = this;
     this.infoHeader.innerHTML = text;
-    move(self.infoHeader).set('opacity', 1).duration(0).end(function(){
-      self.messageTimeout = setTimeout(function(){
-        move(self.infoHeader).duration(200).set('opacity', 0).end(function(){
-          self.infoHeader.innerHTML = "";
-        });
-        clearTimeout(self.messageTimeout);
-      }, 2000);
-    });
+    this.showText();
+  },
+
+  showText: function(){
+    clearTimeout(this.messageTimeout);
+    move(this.infoHeader)
+      .set('opacity', 1)
+      .duration(0)
+      .end(this.endMessageCallback.bind(this));
+  },
+
+  endMessageCallback: function(){
+    var self = this;
+    this.messageTimeout = setTimeout(function(){
+      self.hide();
+    }, 2000);
+  },
+
+  hide: function(){
+    move(this.infoHeader)
+        .duration(200)
+        .set('opacity', 0)
+        .end(self.clear);
+    clearTimeout(this.messageTimeout);
+  },
+
+  clear: function(){
+    this.infoHeader.innerHTML = "";
   },
 
   reset: function(){
     clearTimeout(this.messageTimeout);
-    move(this.infoHeader).set('opacity', 1).duration(0).end();
+    move(this.infoHeader)
+      .set('opacity', 1)
+      .duration(0)
+      .end();
   }
 }
 

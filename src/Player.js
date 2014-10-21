@@ -19,33 +19,10 @@ Player.prototype = {
 
   attack: function(enemy){
     window.currentBattle.eventEngine.add({
-
+      type:    "player_battle_move",
+      message: "You attacked",
+      perform: window.Animations.Attack.play
     });
-  //   window.currentBattle.battleEngine.disable();
-  //   window.currentBattle.infoHeader.update("You attacked");
-
-  //   var self = this;
-
-  //   move(this.battleGraphic)
-  //     .x(enemy.enemyInformation.player_position.x)
-  //     .y(enemy.enemyInformation.player_position.y)
-  //     .duration('0.4s')
-  //     .ease('in')
-  //     .end(window.currentBattle.resetAttackPlayer.bind(window.currentBattle));
-
-  //   clearTimeout(this.clearMove);
-
-  //   this.clearMove = setTimeout(function(){
-  //     move(self.battleGraphic)
-  //       .x(0)
-  //       .duration('0.3s')
-  //       .ease('out')
-  //       .end(function(){
-  //         enemy.looseHealth(GameData.player.attack_damage);
-  //       });
-
-  //     clearTimeout(self.clearMove);
-  //   }, 500);
   },
 
   looseHealth: function(amount){
@@ -53,7 +30,12 @@ Player.prototype = {
     if(GameData.player.hp[0] <= 0){
       GameData.player.hp[0] = 0;
       window.currentBattle.eventEngine.add({
-        type: "end"
+        message: "You lost",
+        timeOut: 2000
+      });
+      window.currentBattle.eventEngine.add({
+        type: "end",
+        timeOut: 4000
       });
     }
     this.healthBar.update(GameData.player.hp[0]);
