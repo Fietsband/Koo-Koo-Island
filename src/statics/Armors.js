@@ -1,8 +1,8 @@
 Armors = {
   clown: {
     title: "Clown armor",
-    description: "Clown armor",
-    damage_reduction: 20,
+    description: "Clown armor - reduces 20% of damage",
+    damage_reduction: 0.2,
     graphic: ["\<0\> ", "/[*]\\", " / \\"],
     large_graphic: [
       '      { }      ',
