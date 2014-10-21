@@ -78,10 +78,10 @@ Player.prototype = {
 
   updateWeaponGraphics: function(weapon){
     var weaponParts = this.graphic.querySelectorAll('.weapon');
-    $.each(window.Weapons[weapon.identifier].graphic, function(i, graphicPart){
+    $.each(window.Weapons[weapon].graphic, function(i, graphicPart){
       weaponParts[i].innerHTML = graphicPart;
     });
-    this.inventory.updateGraphicalWeaponPreview(weapon.identifier);
+    this.inventory.updateGraphicalWeaponPreview(weapon);
   },
 
   setCurrentArmor: function(armor){
@@ -89,12 +89,20 @@ Player.prototype = {
     this.updateArmorGraphics(armor);
   },
 
+  armor: function(){
+    return window.Armors[window.GameData.player.armor];
+  },
+
+  weapon: function(){
+    return window.Armors[window.GameData.player.weapon];
+  },
+
   updateArmorGraphics: function(armor){
     var armorParts = this.graphic.querySelectorAll('.armor');
-    $.each(window.Armors[armor.identifier].graphic, function(i, graphicPart){
+    $.each(window.Armors[armor].graphic, function(i, graphicPart){
       armorParts[i].innerHTML = graphicPart;
     });
-    this.inventory.updateGraphicalArmorPreview(armor.identifier);
+    this.inventory.updateGraphicalArmorPreview(armor);
   },
 
   loadCurrentArmor: function(){
@@ -110,8 +118,8 @@ Player.prototype = {
   },
 
   removeArmorAndWeapons: function(){
-    this.updateArmorGraphics({identifier: "none"});
-    this.updateWeaponGraphics({identifier: "none"});
+    this.updateArmorGraphics("none");
+    this.updateWeaponGraphics("none");
     window.GameData.player.armor = null;
     window.GameData.player.weapon = null;
     this.inventory.empty();
