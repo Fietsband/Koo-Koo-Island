@@ -41,13 +41,13 @@ Inventory.prototype = {
   setSelectedWeapon: function(id){
     var identifier = typeof(id) == "string" ? id : id.target.value;;
     $.setSelectBoxSelected(this.weaponSelectBox, identifier);
-    window.currentGame.player.setCurrentWeapon(new Weapon(identifier));
+    window.currentGame.player.setCurrentWeapon(identifier);
   },
 
   setSelectedArmor: function(id){
     var identifier = typeof(id) == "string" ? id : id.target.value;
     $.setSelectBoxSelected(this.armorSelectBox, identifier);
-    window.currentGame.player.setCurrentArmor(new Armor(identifier));
+    window.currentGame.player.setCurrentArmor(identifier);
   },
 
   updateGraphicalWeaponPreview: function(identifier){
