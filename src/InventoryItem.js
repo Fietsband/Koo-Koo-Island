@@ -1,28 +1,32 @@
 InventoryItem.prototype = {
   add: function(){
     this.item = this["create" + $.titleize(this.itemScope)]();
-    document.querySelector("#inventory-stash ." + this.appendItemScope())
+    dom.find("#inventory-stash ." + this.appendItemScope())
       .appendChild(this.item);
   },
 
   createItems: function(){
-    var pTag = document.createElement("a");
-    pTag.innerHTML = this.itemTitle;
-    pTag.onclick = this.onClickMethod;
+    var pTag       = document.createElement("a");
+    pTag.id        = this.identifier;
+    pTag.innerHTML = this.itemOptions.title;
+    pTag.title     = this.itemOptions.description;
+    pTag.onclick   = this.itemOptions.use;
     return pTag;
   },
 
   createWeapons: function(){
-    var pTag = document.createElement("option");
-    pTag.innerHTML = this.itemTitle;
-    pTag.value = this.identifier;
+    var pTag       = document.createElement("option");
+    pTag.innerHTML = this.itemOptions.title;
+    pTag.title     = this.itemOptions.description;
+    pTag.value     = this.identifier;
     return pTag;
   },
 
-  createArmor: function(){
-    var pTag = document.createElement("option");
-    pTag.innerHTML = this.itemTitle;
-    pTag.value = this.identifier;
+  createArmors: function(){
+    var pTag       = document.createElement("option");
+    pTag.innerHTML = this.itemOptions.title;
+    pTag.title     = this.itemOptions.description;
+    pTag.value     = this.identifier;
     return pTag;
   },
 
@@ -36,20 +40,24 @@ InventoryItem.prototype = {
         return this.itemScope + " #select-weapons select";
       break;
 
-      case "armor":
+      case "armors":
         return this.itemScope + " #select-armor select";
       break;
 
-      default:
+      case "items":
         return this.itemScope;
       break;
     }
+  },
+
+  getItemOptions: function(){
+    var scope = $.titleize(this.itemScope);
+    return window[scope][this.identifier];
   }
 }
 
-function InventoryItem(itemTitle, identifier, itemScope, onClickMethod){
-  this.itemTitle = itemTitle;
-  this.identifier = identifier;
-  this.itemScope  = itemScope;
-  this.onClickMethod = onClickMethod;
+function InventoryItem(identifier, itemScope){
+  this.identifier    = identifier;
+  this.itemScope     = itemScope;
+  this.itemOptions   = this.getItemOptions();
 }

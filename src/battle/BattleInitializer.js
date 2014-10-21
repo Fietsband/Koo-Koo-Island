@@ -2,7 +2,9 @@ BattleInitializer.prototype = {
   start: function(enemyName){
     var enemy = new Enemy(enemyName)
     this.battle = new Battle(enemy);
-    this.battle.startBattle();
+    if(battle.canBattle()){
+      this.battle.start();
+    }
   }
 }
 

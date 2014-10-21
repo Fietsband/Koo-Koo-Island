@@ -34,6 +34,10 @@ Rewarder.prototype = {
 
   },
 
+  experienceRewardCallback: function(reward){
+    window.currentGame.callbacks.experienceCallbacks.increaseExperience(this.rewards[reward]);
+  },
+
   rewardedItems: function(){
     return Object.keys(this.rewards);
   }
@@ -41,5 +45,5 @@ Rewarder.prototype = {
 
 function Rewarder(typeOfReward, rewards){
   this.typeOfReward = typeOfReward;
-  this.rewards = rewards[typeOfReward];
+  this.rewards      = rewards[typeOfReward];
 }

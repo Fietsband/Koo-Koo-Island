@@ -1,38 +1,21 @@
 ClickArea.prototype = {
-  attachClickHandler: function(){
-    var self = this;
-    this.applyMethodToclickParts(function(i, clickPart){
-      clickPart.onclick = self.clickAreaMethod.bind(self);
-    })
-  },
-
-  removeClickHandler: function(){
-    this.applyMethodToclickParts(function(i, clickPart){
-      clickPart.onclick = null;
-    });
-  },
-
   clickAreaMethod: function(){
-    if(this.klass && this.clickMethod){
-      window[this.klass][this.clickMethod].apply(null, this.args)
-    }
-    else{
-      function empty(){};
-    }
+    window[this.klass][this.clickMethod].apply(null, this.args);
   },
 
   enable: function(){
+    var self = this;
     this.applyMethodToclickParts(function(i, clickPart){
       clickPart.classList.remove("disabled");
+      clickPart.onclick = self.clickAreaMethod.bind(self);
     });
-    this.attachClickHandler();
   },
 
   disable: function(){
     this.applyMethodToclickParts(function(i, clickPart){
       clickPart.classList.add("disabled");
+      clickPart.onclick = null;
     });
-    this.removeClickHandler();
   },
 
   applyMethodToclickParts: function(method){
@@ -45,6 +28,6 @@ function ClickArea(identifier, klass, clickMethod, args){
   this.klass        = klass;
   this.clickMethod  = clickMethod || function(){};
   this.args         = args;
-  this.clickElement = document.querySelectorAll(identifier);
-  this.attachClickHandler();
+  this.clickElement = dom.find(identifier, true);
+  this.enable();
 }

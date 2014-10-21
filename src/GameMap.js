@@ -1,11 +1,11 @@
 GameMap.prototype = {
   showBridge: function(){
-    var mapBridge = document.querySelector("#map-popup .map-bridge");
+    var mapBridge = dom.find("#map-popup .map-bridge");
     mapBridge.innerHTML = "==";
   },
 
   enableMapSpot: function(spot){
-    var mapSpot = document.querySelector("#map-popup #" + spot + ".map-place");
+    var mapSpot = dom.find("#map-popup #" + spot + ".map-place");
     mapSpot.innerHTML = "O";
     mapSpot.classList.add("enabled");
     mapSpot.onclick = function(){
@@ -16,7 +16,7 @@ GameMap.prototype = {
   },
 
   disableMapSpot: function(spot){
-    var mapSpot = document.querySelector("#map-popup #" + spot + ".map-place");
+    var mapSpot = dom.find("#map-popup #" + spot + ".map-place");
     mapSpot.innerHTML = "X";
     mapSpot.classList.remove("enabled");
     mapSpot.onclick = null;

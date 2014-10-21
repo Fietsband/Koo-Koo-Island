@@ -6,10 +6,14 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <script language="javascript" src="vendor/json3.js"></script>
     <script language="javascript" src="src/helper/dollar.js"></script>
+    <script language="javascript" src="src/helper/dom.js"></script>
     <script language="javascript" src="src/helper/storage.js"></script>
+    <script language="javascript" src="src/animations/Animations.js"></script>
+    <script language="javascript" src="src/animations/Attack.js"></script>
     <script language="javascript" src="src/interaction/Flash.js"></script>
     <script language="javascript" src="src/interaction/Popup.js"></script>
     <script language="javascript" src="src/interaction/Bar.js"></script>
+    <script language="javascript" src="src/interaction/StatBar.js"></script>
     <script language="javascript" src="src/levels/LonelyIsland.js"></script>
     <script language="javascript" src="src/levels/UnderwaterShack.js"></script>
     <script language="javascript" src="src/levels/SquirrelCity.js"></script>
@@ -25,6 +29,7 @@
     <script language="javascript" src="src/statics/Enemies.js"></script>
     <script language="javascript" src="src/statics/Weapons.js"></script>
     <script language="javascript" src="src/statics/Armors.js"></script>
+    <script language="javascript" src="src/statics/Items.js"></script>
     <script language="javascript" src="src/Stats.js"></script>
     <script language="javascript" src="src/GameMap.js"></script>
     <script language="javascript" src="src/Graphic.js"></script>
@@ -36,7 +41,9 @@
     <script language="javascript" src="src/Weapon.js"></script>
     <script language="javascript" src="src/Armor.js"></script>
     <script language="javascript" src="src/battle/Rewarder.js"></script>
-    <script language="javascript" src="src/battle/BattleEngine.js"></script>
+    <script language="javascript" src="src/battle/events/Events.js"></script>
+    <script language="javascript" src="src/battle/BattleEventEngine.js"></script>
+    <script language="javascript" src="src/battle/BattleControls.js"></script>
     <script language="javascript" src="src/battle/BattleInfoHeader.js"></script>
     <script language="javascript" src="src/battle/Battle.js"></script>
     <script language="javascript" src="src/battle/BattleInitializer.js"></script>
@@ -85,7 +92,7 @@
       </div>
       <div id="underwater_shack">
       <pre>
- ~                         ~
+ ~                         ~                       <span class="click-area" id="island-whirlpool-2">≋</span>
             ~                                                        ~
       ~                 ~                        ~                           ~
                                      ~
@@ -282,7 +289,7 @@ _________________
                 </select>
               </form>
             </div>
-            <div class="left armor">
+            <div class="left armors">
               ARMOR
               <pre class="armor-preview">
 _________________
@@ -323,6 +330,22 @@ _________________
         <button id="island-bridge-popup-close">Back to island</button>
       </div>
       <!-- END Island bridge Popup -->
+      <!-- LOAD GAME POPUP -->
+      <div class="popup" id="load-game-popup">
+        <div>LOAD GAME</div>
+        <div class="explanation">
+          When you want to load the game into another machine press the 'get' method on the current machine.<br/>
+          Copy the text and save it somewhere. Load it with the load button.
+        </div>
+        <div>
+          <div id="current-saved-game"></div>
+          <textarea id="load-game-form"></textarea>
+        </div>
+        <button id="get-current-game">Get</button>
+        <button id="load-current-game">Load</button>
+        <button id="load-game-popup-close">Close</button>
+      </div>
+      <!-- END LOAD GAME POPUP -->
       <!-- Battle Sequence -->
       <div class="popup" id="battle-sequence-popup">
         <div id="battle-sequence-info-header">

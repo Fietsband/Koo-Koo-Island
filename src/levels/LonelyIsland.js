@@ -14,13 +14,13 @@ window.LonelyIsland = {
 
   showMessageInABottle: function(){
     GameData.progress.show_bottle = 1;
-    var map = new InventoryItem("A partial map of the world", "map", "items", window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup);
+    var map = new InventoryItem("map", "items");
     window.currentGame.messageInABottle = new Item("message-in-a-bottle", function(){
       var messageInABottlePopUp = new Popup("message-in-a-bottle-popup",
         undefined,
         function(){
           window.currentGame.messageInABottle.clearOnClickMethod();
-          document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
+          dom.find(".message-in-a-bottle .message").innerHTML = "&nbsp;";
           window.currentGame.player.inventory.addItem("items", map);
         }
       );
@@ -34,7 +34,7 @@ window.LonelyIsland = {
     var fish = new Character("fish", {
       initialize: function(){
         var self = this;
-        var fishBuyButton = document.getElementById("fish-seller-buy-button");
+        var fishBuyButton = dom.findId("fish-seller-buy-button");
         this.itemsForSale = document.querySelectorAll(".sell-items li");
         this.initialfishSellerPopUp = new Popup("fish-seller-popup");
         this.fishBuyPopUp = new Popup("fish-seller-buy-popup",
@@ -85,7 +85,7 @@ window.LonelyIsland = {
 
   showBuildBridgeButton: function(){
     var islandBridgePopup = new Popup('island-bridge-popup', window.LonelyIsland.enableBuildBridgeButton);
-    var islandBridgeButton = document.getElementById("island-bridge");
+    var islandBridgeButton = dom.findId("island-bridge");
     islandBridgeButton.classList.remove("disabled");
     islandBridgeButton.onclick = function(){
       islandBridgePopup.show();
@@ -94,7 +94,7 @@ window.LonelyIsland = {
 
   enableBuildBridgeButton: function(){
     if(GameData.player.woods >= 100 && !window.currentGame.checkProgressOn('enable_build_bridge_button') && window.currentGame.checkProgressOn('show_bottle')){
-      var islandBuildBrigeButton = document.querySelector('#island-bridge-popup #build-island-bridge');
+      var islandBuildBrigeButton = dom.find('#island-bridge-popup #build-island-bridge');
       GameData.progress.enable_build_bridge_button = 1;
       islandBuildBrigeButton.removeAttribute("disabled");
       islandBuildBrigeButton.onclick = function(){
@@ -109,13 +109,14 @@ window.LonelyIsland = {
 
   disableSeashell: function(){
     GameData.progress.hide_seashell = 1;
+    window.currentGame.levels.island.setClickAreas();
     window.currentGame.levels.island.levelClickAreas["#island-seashell"].disable();
-    document.querySelector("#game-levels #island #island-seashell").innerHTML = "&nbsp;";
+    dom.find("#game-levels #island #island-seashell").innerHTML = "&nbsp;";
     window.LonelyIsland.enableWhirlpool();
   },
 
   enableWhirlpool: function(){
-    var whirlpool = document.querySelector("#game-levels #island #island-whirlpool");
+    var whirlpool = dom.find("#game-levels #island #island-whirlpool");
     whirlpool.style.display = "inline";
     whirlpool.onclick = function(){
       window.currentGame.levels.underwater_shack.addToGame();

@@ -23,6 +23,10 @@ var clickAreas = {
   ],
 
   underwater_shack: [
+    {
+      id: "#island-whirlpool",
+      note: "when you click on it you go back to the island"
+    }
   ],
 
   squirrel_city: [

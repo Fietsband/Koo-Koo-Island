@@ -201,6 +201,10 @@ span#battle-big-shark,
   cursor: pointer;
 }
 
+#inventory-stash a{
+  display: block;
+}
+
 .sell-items{
   padding-left: 13px;
 }
@@ -232,6 +236,10 @@ span#battle-big-shark,
 
 .healthbar .health-left{
   background-color: #22CC22;
+}
+
+.magicbar .magic-left{
+  background-color: #22CCCC;
 }
 
 .enemy #health,
@@ -275,4 +283,13 @@ span#battle-big-shark,
 #inventory-stash .center{
   margin-bottom: 5px;
   display: table;
+}
+
+#inventory-stash .disabled{
+  display: none;
+}
+
+#load-game-form{
+  width: 400px;
+  height: 100px;
 }

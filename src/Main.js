@@ -53,7 +53,7 @@ Game.prototype = {
 
   save: function(){
     new Flash("saved").show();
-    GameStorage.store(this.gid, btoa(JSON.stringify(GameData)));
+    GameStorage.store(this.gid, this.getCurrentGame());
   },
 
   storeGid: function(){
@@ -63,9 +63,10 @@ Game.prototype = {
     }
   },
 
-  loadGame: function(gid, base64_string){
-    GameStorage.store(gid, base64_string);
-    GameData = JSON.parse(atob(GameStorage.get(gid)));
+  loadGame: function(base64_string){
+    GameStorage.store(this.gid, base64_string);
+    window.GameData = JSON.parse(atob(GameStorage.get(this.gid)));
+    this.toggleLoadCallbacks();
   },
 
   getOldGameData: function(){
@@ -73,6 +74,10 @@ Game.prototype = {
       window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
     }
     this.toggleLoadCallbacks();
+  },
+
+  getCurrentGame: function(){
+    return btoa(JSON.stringify(window.GameData));
   },
 
   toggleLoadCallbacks: function(){
@@ -83,7 +88,7 @@ Game.prototype = {
       }
     });
 
-    $.each(["wood", "seashell", "wood"], function(i, statType){
+    $.each(["seashell", "oyster", "wood"], function(i, statType){
       if(window.GameData.player[statType + "s"] > 0){
         self.callbacks.loadCallbacks.show_stat(statType);
       }

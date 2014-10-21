@@ -2,38 +2,24 @@ var ENV = "development";
 var GameData = {
   settings: {},
   player: {
-    hp:               20,
-    mp:               0,
+    hp:               [2, 20],
+    mp:               [0, 0],
     experience:       0,
     attack_damage:    10,
     battle_timeout:   5000,
     seashells:        199,
     oysters:          0,
     woods:            100,
-    armor:            {
-      itemTitle: "Test armor",
-      identifier: "clown"
-    },
-    weapon:           {
-      itemTitle: "Spear",
-      identifier: "spear"
-    },
+    armor:            "clown",
+    weapon:           "spear",
     inventory:        {
-      weapons:          [{
-        itemTitle: "Spear",
-        identifier: "spear"
-      }],
-      armor:            [{
-        itemTitle: "Test armor",
-        identifier: "clown"
-      }],
+      weapons:          ["spear"],
+      armors:           ["clown"],
       skills:           [],
       magic:            [],
-      items:            [{
-        itemTitle: "A partial map of the world",
-        identifier: "map"
-      }]
-    }
+      items:            ["map", "potion"]
+    },
+    experience_rewards: []
   },
 
   progress: {

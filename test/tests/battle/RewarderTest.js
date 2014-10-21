@@ -1,4 +1,5 @@
 QUnit.test("should reward player", function(assert){
+  window.currentBattle = null;
   GameData.player.seashells = 0;
   GameData.player.oysters = 0;
 

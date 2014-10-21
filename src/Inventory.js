@@ -7,7 +7,7 @@ Inventory.prototype = {
     var inventory = this.getInventory();
     return (inventory.items.length   > 0 ||
             inventory.weapons.length > 0 ||
-            inventory.armor.length   > 0 ||
+            inventory.armors.length  > 0 ||
             inventory.magic.length   > 0 ||
             inventory.skills.length  > 0)
   },
@@ -16,12 +16,17 @@ Inventory.prototype = {
     if(GameData.player.inventory.items.length > 0){
       this.setupInventoryButton();
     }
+    if(GameData.player.mp[1] > 0){
+      this.inventoryDom.querySelector("#magic").classList.remove("disabled");
+    }
+    this.healthBar.update(GameData.player.hp[0]);
+    this.magicBar.update(GameData.player.mp[0]);
   },
 
   setupInventoryButton: function(){
-    var inventoryButton = document.getElementById("open-inventory-button");
+    var inventoryButton = dom.findId("open-inventory-button");
     inventoryButton.style.display = "block";
-    window.currentGame.inventoryPopUp = new Popup("inventory-popup");
+    window.currentGame.inventoryPopUp = new Popup("inventory-popup", this.checkInventory.bind(this));
     this.applyInventorySelectBoxListeners();
     inventoryButton.onclick = function(){
       window.currentGame.inventoryPopUp.show();
@@ -34,33 +39,33 @@ Inventory.prototype = {
   },
 
   setSelectedWeapon: function(id){
-    var identifier = (typeof(id) == "string") ? id : id.target.value;;
+    var identifier = typeof(id) == "string" ? id : id.target.value;;
     $.setSelectBoxSelected(this.weaponSelectBox, identifier);
-    window.currentGame.player.setCurrentWeapon(new Weapon(identifier));
+    window.currentGame.player.setCurrentWeapon(identifier);
   },
 
   setSelectedArmor: function(id){
-    var identifier = (typeof(id) == "string") ? id : id.target.value;
+    var identifier = typeof(id) == "string" ? id : id.target.value;
     $.setSelectBoxSelected(this.armorSelectBox, identifier);
-    window.currentGame.player.setCurrentArmor(new Armor(identifier));
+    window.currentGame.player.setCurrentArmor(identifier);
   },
 
   updateGraphicalWeaponPreview: function(identifier){
-    var weaponParts = document.querySelectorAll("#inventory-stash .weapons .weapon-preview span");
+    var weaponParts = dom.find("#inventory-stash .weapons .weapon-preview span", true);
     $.each(window.Weapons[identifier].large_graphic, function(i, graphicPart){
       weaponParts[i].innerHTML = graphicPart;
     });
   },
 
   updateGraphicalArmorPreview: function(identifier){
-    var armorParts = document.querySelectorAll("#inventory-stash .armor .armor-preview span");
+    var armorParts = dom.find("#inventory-stash .armors .armor-preview span", true);
     $.each(window.Armors[identifier].large_graphic, function(i, graphicPart){
       armorParts[i].innerHTML = graphicPart;
     });
   },
 
   addItem: function(scope, item){
-    GameData.player.inventory[scope].push(item);
+    GameData.player.inventory[scope].push(item.identifier);
     item.add();
     this.checkInventory();
   },
@@ -77,6 +82,11 @@ Inventory.prototype = {
 }
 
 function Inventory(){
-  this.weaponSelectBox = document.querySelector("#inventory-stash #select-weapons select");
-  this.armorSelectBox = document.querySelector("#inventory-stash #select-armor select");
+  this.inventoryDom    = dom.find("#inventory-stash");
+  this.weaponSelectBox = dom.find("#inventory-stash #select-weapons select");
+  this.armorSelectBox  = dom.find("#inventory-stash #select-armor select");
+  this.healthBar       = new StatBar("#inventory-stash #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
+  this.magicBar        = new StatBar("#inventory-stash #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
+  this.healthBar.initialize(GameData.player.hp[0], GameData.player.hp[1]);
+  this.magicBar.initialize(GameData.player.mp[0], GameData.player.mp[1]);
 }

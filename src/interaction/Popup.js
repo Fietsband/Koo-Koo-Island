@@ -18,8 +18,8 @@ Popup.prototype = {
 };
 
 function Popup(identifier, openCallback, closeCallback){
-  this.popup = document.getElementById(identifier);
-  this.closeButton = document.getElementById(identifier + "-close");
+  this.popup = dom.findId(identifier);
+  this.closeButton = dom.findId(identifier + "-close");
   this.openCallback = openCallback || function(){};
   this.closeCallback = closeCallback || function(){};
   this.addCloseListener();

@@ -10,6 +10,6 @@ Flash.prototype = {
 };
 
 function Flash(identifier, time){
-  this.message = document.getElementById(identifier);
+  this.message = dom.findId(identifier);
   this.time = time || 2000;
 }

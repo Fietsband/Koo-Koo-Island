@@ -1,11 +1,22 @@
 Enemy.prototype = {
   startAttacking: function(){
-    var self = this;
     this.attackHoldBar.resetBar();
-    this.attackInterval = setInterval(function(){
-      var toPerformAttack = self.pickAttack();
-      self.attackWith(toPerformAttack);
-    }, this.enemyInformation.attack_interval);
+    this.attackInterval = setInterval(
+      this.attack.bind(this),
+      this.enemyInformation.attack_interval
+    );
+  },
+
+  attack: function(){
+    var toPerformAttack = this.pickAttack();
+    var self = this;
+    window.currentBattle.eventEngine.add({
+      message: (this.enemyInformation.name + " attacked with " + toPerformAttack.name),
+      perform: function(){
+        self.attackWith(toPerformAttack);
+      },
+      eventTime: 2000
+    });
   },
 
   quitAttacking: function(){
@@ -24,9 +35,13 @@ Enemy.prototype = {
   },
 
   attackWith: function(attack){
-    window.currentBattle.infoHeader.update(this.enemyInformation.name + " attacked with " + attack.name);
-    window.currentGame.player.looseHealth(attack.damage);
+    window.currentGame.player.looseHealth(this.calculateAttackDamage(attack));
     this.attackHoldBar.resetBar();
+  },
+
+  calculateAttackDamage: function(attack){
+    return (attack.damage -
+      (attack.damage * window.currentGame.player.armor().damage_reduction));
   },
 
   getEnemyStats: function(){
@@ -36,36 +51,27 @@ Enemy.prototype = {
   looseHealth: function(amount){
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
-      var self = this;
       this.enemyInformation.health = 0;
-      window.currentBattle.endBattle(this.enemyInformation.health, function(){
-        self.rewardPlayer();
-        window.currentBattle.infoHeader.update("You've beaten " + self.enemyInformation.name);
+
+      window.currentBattle.eventEngine.add({
+        perform:   this.rewardPlayer.bind(this),
+        eventTime: 5000
+      });
+
+      window.currentBattle.eventEngine.add({
+        type: "end"
       });
     }
-    this.updateHealthBar();
+    this.healthBar.update(this.enemyInformation.health);
   },
 
   rewardPlayer: function(){
     var self = this;
-    $.each(['stats', 'items'], function(i, rewardType){
+    $.each(['experience', 'stats', 'items'], function(i, rewardType){
       if(self.enemyInformation.rewards[rewardType]){
         new Rewarder(rewardType, self.enemyInformation.rewards).reward();
       }
     });
-  },
-
-  updateHealthBar: function(){
-    this.healthBar.style.width = this.currentHealth() + "%";
-    this.healthStats.innerHTML = this.enemyInformation.health;
-  },
-
-  currentHealth: function(){
-    return (this.enemyInformation.health / this.startHealth) * 100;
-  },
-
-  resetHealth: function(){
-    this.enemyInformation.health = this.startHealth;
   },
 
   getGraphic: function(){
@@ -73,12 +79,12 @@ Enemy.prototype = {
   },
 
   setGraphicToBattleField: function(){
-    this.enemyPlaceholder  = document.querySelector("#battle-sequence-popup .field .enemy #graphic");
+    this.enemyPlaceholder  = dom.find("#battle-sequence-popup .field .enemy #graphic");
     this.enemyPlaceholder.innerHTML = this.getGraphic();
   },
 
   setPosition: function(){
-    this.enemyPosition = document.querySelector("#battle-sequence-popup .field .enemy");
+    this.enemyPosition = dom.find("#battle-sequence-popup .field .enemy");
     this.enemyPosition.style.top = this.enemyInformation.position.y + "px";
     this.enemyPosition.style.right = this.enemyInformation.position.x + "px";
   },
@@ -96,14 +102,10 @@ Enemy.prototype = {
 function Enemy(identifier, callbacks){
   this.identifier             = identifier;
   this.callbacks              = callbacks;
-  this.enemyPre               = document.querySelector(".enemies #" + identifier);
-  this.healthBar              = document.querySelector(".field .enemy .healthbar .health-left");
-  this.healthStats            = document.querySelector(".field .enemy .health-stats .health-stats-left");
-  this.totalHealth            = document.querySelector(".field .enemy .health-stats .total-health");
+  this.enemyPre               = dom.find(".enemies #" + identifier);
   this.enemyInformation       = this.getEnemyStats();
-  this.startHealth            = this.enemyInformation.health;
-  this.totalHealth.innerHTML  = this.startHealth;
   this.attackHoldBar          = new Bar(".field .enemy .attackbar .attack-left", this.enemyInformation.attack_interval);
+  this.healthBar              = new StatBar(".field .enemy", ".health-stats .health-stats-left", ".health-stats .total-health", ".healthbar .health-left");
   this.attackInterval         = null;
-  this.updateHealthBar();
+  this.healthBar.initialize(this.enemyInformation.health, this.enemyInformation.health);
 }

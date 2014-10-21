@@ -18,65 +18,44 @@ Player.prototype = {
   },
 
   attack: function(enemy){
-    window.currentBattle.battleEngine.disable();
-    window.currentBattle.infoHeader.update("You attacked");
-
-    var self = this;
-
-    move(this.battleGraphic)
-      .x(enemy.enemyInformation.player_position.x)
-      .y(enemy.enemyInformation.player_position.y)
-      .duration('0.4s')
-      .ease('in')
-      .end();
-
-    clearTimeout(this.clearMove);
-
-    this.attackBar.resetBar();
-    this.clearMove = setTimeout(function(){
-      move(self.battleGraphic)
-        .x(0)
-        .duration('0.3s')
-        .ease('out')
-        .end(function(){
-          enemy.looseHealth(GameData.player.attack_damage);
-        });
-
-      clearTimeout(self.clearMove);
-    }, 500);
+    window.currentBattle.eventEngine.add({
+      type:    "player_battle_move",
+      message: "You attacked",
+      perform: window.Animations.Attack.play
+    });
   },
 
   looseHealth: function(amount){
-    GameData.player.hp -= amount;
-    if(GameData.player.hp <= 0){
-      GameData.player.hp = 0;
-      window.currentBattle.endBattle(GameData.player.hp,
-        function(){
-          window.currentBattle.enemy.resetHealth();
-          window.currentBattle.infoHeader.update("You lost!");
-        },
-        function(){
-          GameData.player.hp = 1;
-        }
-      );
+    GameData.player.hp[0] -= amount;
+    if(GameData.player.hp[0] <= 0){
+      GameData.player.hp[0] = 0;
+      window.currentBattle.eventEngine.add({
+        message: "You lost",
+        timeOut: 2000
+      });
+      window.currentBattle.eventEngine.add({
+        type: "end",
+        timeOut: 4000
+      });
     }
-    this.updateHealthBar();
+    this.healthBar.update(GameData.player.hp[0]);
   },
 
-  initiateFight: function(){
-    this.updateHealthBar();
-    this.attackBar.resetBar();
-    this.totalHealth = document.querySelector(".field .player .health-stats .total-health");
-    this.totalHealth.innerHTML = this.startHealth;
+  increaseHealth: function(amount){
+    GameData.player.hp[0] += amount;
+    if(GameData.player.hp[0] >= GameData.player.hp[1]){
+      GameData.player.hp[0] = GameData.player.hp[1];
+    }
+    this.healthBar.update(GameData.player.hp[0]);
+    this.inventory.healthBar.update(GameData.player.hp[0])
   },
 
-  updateHealthBar: function(){
-    this.healthBar.style.width = this.currentHealth() + "%";
-    this.healthStats.innerHTML = GameData.player.hp;
-  },
-
-  currentHealth: function(){
-    return (GameData.player.hp / this.startHealth) * 100;
+  increaseMagic: function(amount){
+    GameData.player.mp[0] += amount;
+    if(GameData.player.mp[0] >= GameData.player.mp[1]){
+      GameData.player.mp[0] = GameData.player.mp[1];
+    }
+    // update magic bar
   },
 
   getGraphic: function(){
@@ -84,7 +63,7 @@ Player.prototype = {
   },
 
   spawn: function(){
-    this.playerPlaceholder = document.querySelector("#battle-sequence-popup .field .player #graphic");
+    this.playerPlaceholder = dom.find("#battle-sequence-popup .field .player #graphic");
     this.playerPlaceholder.innerHTML = this.getGraphic();
   },
 
@@ -99,10 +78,10 @@ Player.prototype = {
 
   updateWeaponGraphics: function(weapon){
     var weaponParts = this.graphic.querySelectorAll('.weapon');
-    $.each(window.Weapons[weapon.identifier].graphic, function(i, graphicPart){
+    $.each(window.Weapons[weapon].graphic, function(i, graphicPart){
       weaponParts[i].innerHTML = graphicPart;
     });
-    this.inventory.updateGraphicalWeaponPreview(weapon.identifier);
+    this.inventory.updateGraphicalWeaponPreview(weapon);
   },
 
   setCurrentArmor: function(armor){
@@ -110,29 +89,37 @@ Player.prototype = {
     this.updateArmorGraphics(armor);
   },
 
+  armor: function(){
+    return window.Armors[window.GameData.player.armor];
+  },
+
+  weapon: function(){
+    return window.Armors[window.GameData.player.weapon];
+  },
+
   updateArmorGraphics: function(armor){
     var armorParts = this.graphic.querySelectorAll('.armor');
-    $.each(window.Armors[armor.identifier].graphic, function(i, graphicPart){
+    $.each(window.Armors[armor].graphic, function(i, graphicPart){
       armorParts[i].innerHTML = graphicPart;
     });
-    this.inventory.updateGraphicalArmorPreview(armor.identifier);
+    this.inventory.updateGraphicalArmorPreview(armor);
   },
 
   loadCurrentArmor: function(){
     if(window.GameData.player.armor){
-      this.inventory.setSelectedArmor(window.GameData.player.armor.identifier);
+      this.inventory.setSelectedArmor(window.GameData.player.armor);
     }
   },
 
   loadCurrentWeapon: function(){
     if(window.GameData.player.weapon){
-      this.inventory.setSelectedWeapon(window.GameData.player.weapon.identifier);
+      this.inventory.setSelectedWeapon(window.GameData.player.weapon);
     }
   },
 
   removeArmorAndWeapons: function(){
-    this.updateArmorGraphics({identifier: "none"});
-    this.updateWeaponGraphics({identifier: "none"});
+    this.updateArmorGraphics("none");
+    this.updateWeaponGraphics("none");
     window.GameData.player.armor = null;
     window.GameData.player.weapon = null;
     this.inventory.empty();
@@ -141,10 +128,12 @@ Player.prototype = {
 
 function Player(){
   this.inventory      = new Inventory();
-  this.graphic        = document.getElementById("game-character");
-  this.battleGraphic  = document.querySelector("#battle-sequence-popup .player #graphic");
-  this.healthBar      = document.querySelector(".field .player .healthbar .health-left");
-  this.healthStats    = document.querySelector(".field .player .health-stats .health-stats-left");
-  this.startHealth    = GameData.player.hp;
+  this.graphic        = dom.findId("game-character");
+  this.battleGraphic  = dom.find("#battle-sequence-popup .player #graphic");
+  this.healthBar      = dom.find(".field .player .healthbar .health-left");
+  this.healthStats    = dom.find(".field .player .health-stats .health-stats-left");
   this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
+  this.healthBar      = new StatBar(".player #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
+  //this.magicBar       = new StatBar(".player #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
+  this.healthBar.initialize(GameData.player.hp[0], GameData.player.hp[1]);
 }

@@ -24,8 +24,8 @@ LoadCallbacks = {
   },
 
   show_stat: function(type){
-    var stat_elem = document.getElementById(type + "s");
-    var statCount = document.getElementById(type + "-count");
+    var stat_elem = dom.findId(type + "s");
+    var statCount = dom.findId(type + "-count");
     stat_elem.style.display = "inline-block";
     statCount.innerHTML = GameData.player[type + "s"];
   },
@@ -34,16 +34,11 @@ LoadCallbacks = {
     window.currentGame.player.inventory.checkInventory();
     for(var inventoryScope in window.GameData.player.inventory){
       $.each(window.GameData.player.inventory[inventoryScope], function(i, inventoryItem){
-        if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]){
-          window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem.identifier + "_callback"]();
+        if(window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem + "_callback"]){
+          window.currentGame.callbacks.loadCallbacks.inventory[inventoryItem + "_callback"]();
         }
 
-        new InventoryItem(
-          inventoryItem.itemTitle,
-          inventoryItem.identifier,
-          inventoryScope,
-          window.currentGame.callbacks.loadCallbacks.inventory.click(inventoryItem.identifier)
-        ).add();
+        new InventoryItem(inventoryItem, inventoryScope).add();
       });
     }
   },
@@ -59,22 +54,9 @@ LoadCallbacks = {
   },
 
   inventory: {
-    click: function(identifier){
-      if(window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]){
-        return window.currentGame.callbacks.loadCallbacks.inventory[identifier + "_click_handler"]();
-      }
-      else{
-        return null;
-      }
-    },
-
     map_callback: function(){
       window.currentGame.messageInABottle.clearOnClickMethod();
-      document.querySelector(".message-in-a-bottle .message").innerHTML = "&nbsp;";
-    },
-
-    map_click_handler: function(){
-      return window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup;
+      dom.find(".message-in-a-bottle .message").innerHTML = "&nbsp;";
     }
   }
 }

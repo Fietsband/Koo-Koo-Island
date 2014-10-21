@@ -31,7 +31,7 @@ Item.prototype = {
 }
 
 function Item(identifier, onClickMethod){
-  this.item = document.getElementsByClassName(identifier);
-  this.removals = document.getElementsByClassName(identifier+"-remove");
+  this.item = dom.findClass(identifier);
+  this.removals = dom.findClass(identifier+"-remove");
   this.onClickMethod = onClickMethod;
 }
