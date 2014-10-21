@@ -25,6 +25,10 @@ Battle.prototype = {
     this.eventEngine.clear();
   },
 
+  canBattle: function(){
+    return window.GameData.player.hp[0] > 0;
+  },
+
   controls: {
     enable: function(){
       window.currentGame.player.attackBar.resetBar(

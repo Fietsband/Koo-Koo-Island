@@ -33,6 +33,7 @@ BattleInfoHeader.prototype = {
 
   reset: function(){
     clearTimeout(this.messageTimeout);
+    this.clear();
     move(this.infoHeader)
       .set('opacity', 1)
       .duration(0)
