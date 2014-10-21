@@ -35,8 +35,13 @@ Enemy.prototype = {
   },
 
   attackWith: function(attack){
-    window.currentGame.player.looseHealth(attack.damage);
+    window.currentGame.player.looseHealth(this.calculateAttackDamage(attack));
     this.attackHoldBar.resetBar();
+  },
+
+  calculateAttackDamage: function(attack){
+    return (attack.damage -
+      (attack.damage * window.currentGame.player.armor().damage_reduction));
   },
 
   getEnemyStats: function(){
