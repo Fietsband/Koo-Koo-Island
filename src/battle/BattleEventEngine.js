@@ -1,7 +1,7 @@
 BattleEventEngine.prototype = {
   add: function(event){
     this.events.push(event);
-    if(!ENV == "test"){
+    if(!(ENV === "test")){
       this.invokeWithTimeout();
     }
   },
