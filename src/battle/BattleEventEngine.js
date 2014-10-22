@@ -1,7 +1,7 @@
 BattleEventEngine.prototype = {
   add: function(event){
     this.events.push(event);
-    if(!(ENV === "test")){
+    if(!(ENV === "test") && !this.inEventLoop){
       this.invokeWithTimeout();
     }
   },
@@ -15,24 +15,17 @@ BattleEventEngine.prototype = {
     var event = this.events[0];
     if(event){
       var self = this;
+      this.inEventLoop = true;
       this.eventTimeout = setTimeout(function(){
         self.events.shift();
         self.callEvent(null, event);
         self.invokeWithTimeout();
-      }, self.totalEventTime());
+      }, (event.timeOut || 0));
     }
     else{
+      this.inEventLoop = false;
       clearTimeout(this.eventTimeout);
     }
-  },
-
-  totalEventTime: function(){
-    var totalTime = 0;
-    $.each(this.events, function(i, event){
-      totalTime += (event.timeOut || 0);
-    });
-    console.log(totalTime);
-    return totalTime;
   },
 
   invoke: function(){
@@ -52,4 +45,5 @@ function BattleEventEngine(){
   this.events = [];
   this.infoHeader   = new BattleInfoHeader();
   this.eventTimeout = null;
+  this.inEvent      = false;
 };
