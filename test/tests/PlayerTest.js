@@ -42,6 +42,7 @@ QUnit.test("setting a weapon to his hand", function(assert){
   assert.equal(window.GameData.player.weapon, "spear");
   assert.equal(p3.getGraphic(), "<span class=\"armor head\"> o  </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
   assert.ok(dom.find("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
+  assert.equal(p3.calculateDamage(), 12, "should increase damage dealt with 20%");
 });
 
 QUnit.test("setting an armor", function(assert){

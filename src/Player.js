@@ -25,6 +25,10 @@ Player.prototype = {
     });
   },
 
+  calculateDamage: function(){
+    return GameData.player.attack_damage * this.weapon().damage;
+  },
+
   looseHealth: function(amount){
     GameData.player.hp[0] -= amount;
     if(GameData.player.hp[0] <= 0){
@@ -94,7 +98,7 @@ Player.prototype = {
   },
 
   weapon: function(){
-    return window.Armors[window.GameData.player.weapon];
+    return window.Weapons[window.GameData.player.weapon];
   },
 
   updateArmorGraphics: function(armor){
