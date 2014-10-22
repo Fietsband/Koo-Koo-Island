@@ -12,7 +12,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C disable attack buttons when dead
 
 ### Player
-- M Adding attack strength for chosen weapon
 - M Adding item rewards callback
 - M Adding skill attacks
 - M Adding magic attacks
@@ -56,6 +55,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Adding attack strength for chosen weapon~~
 - ~~Scoping all animations in separate animations folder~~
 - ~~Rewriting part of battle engine - make it 'message event based'. Push event to stack; call event till end.~~
 - ~~Adding damage reduction percentage for armor~~
