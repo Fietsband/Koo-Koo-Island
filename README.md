@@ -20,9 +20,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Adding animations for enemy
 
 #### Island
-- M Adding underwater shack level
-- M Making it possible to spawn fish from left to right and right to left
-- M Initiate in multiple battles
+- M Initiate in fights with different enemies than tiny fish
 - M Making it possible to build the bridge for 100 wood
 - C Cleaning up levels/LonelyIsland.js
 - C Moving showBridge method from the GameMap to LonelyIsland
@@ -55,6 +53,8 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Adding underwater shack level~~
+- ~~Making it possible to spawn fish from left to right and right to left~~
 - ~~Adding attack strength for chosen weapon~~
 - ~~Scoping all animations in separate animations folder~~
 - ~~Rewriting part of battle engine - make it 'message event based'. Push event to stack; call event till end.~~
