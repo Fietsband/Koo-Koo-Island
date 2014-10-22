@@ -16,6 +16,7 @@ Battle.prototype = {
     this.battlePopup.show();
     this.controls.enable.bind(this)();
     this.enemy.startAttacking();
+    this.startCallback();
   },
 
   clear: function(){
@@ -23,6 +24,7 @@ Battle.prototype = {
     this.graphic.unfill.bind(this)();
     this.controls.disable.bind(this)();
     this.eventEngine.clear();
+    this.endCallback();
   },
 
   canBattle: function(){
@@ -54,8 +56,10 @@ Battle.prototype = {
   }
 }
 
-function Battle(enemy){
+function Battle(enemy, startCallback, endCallback){
   this.enemy          = enemy;
+  this.startCallback  = startCallback || function(){};
+  this.endCallback    = endCallback || function(){};
   this.battleControls = new BattleControls(this.enemy);
   this.eventEngine    = new BattleEventEngine();
   this.battlePopup    = new Popup("battle-sequence-popup", undefined, this.stop.bind(this));

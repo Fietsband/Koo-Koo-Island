@@ -52,14 +52,12 @@ Enemy.prototype = {
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
       this.enemyInformation.health = 0;
+      this.rewardPlayer();
+      this.quitAttacking();
 
       window.currentBattle.eventEngine.add({
-        perform:   this.rewardPlayer.bind(this),
-        eventTime: 5000
-      });
-
-      window.currentBattle.eventEngine.add({
-        type: "end"
+        type: "end",
+        timeOut: 5000
       });
     }
     this.healthBar.update(this.enemyInformation.health);

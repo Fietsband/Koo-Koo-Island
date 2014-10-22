@@ -19,11 +19,20 @@ BattleEventEngine.prototype = {
         self.events.shift();
         self.callEvent(null, event);
         self.invokeWithTimeout();
-      }, (event.timeOut || 0));
+      }, self.totalEventTime());
     }
     else{
       clearTimeout(this.eventTimeout);
     }
+  },
+
+  totalEventTime: function(){
+    var totalTime = 0;
+    $.each(this.events, function(i, event){
+      totalTime += (event.timeOut || 0);
+    });
+    console.log(totalTime);
+    return totalTime;
   },
 
   invoke: function(){
@@ -35,6 +44,7 @@ BattleEventEngine.prototype = {
     if(event.type)    window.Events[event.type].invoke();
     if(event.perform) event.perform();
     if(event.message) this.infoHeader.update(event.message);
+    console.log(event);
     clearTimeout(this.eventTimeout);
   }
 };

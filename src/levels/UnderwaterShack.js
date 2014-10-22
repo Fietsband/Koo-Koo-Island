@@ -22,10 +22,21 @@ window.UnderwaterShack = {
   },
 
   fish: function(){
+    var self        = this;
     var fish        = dom.find(".enemies #tiny-fish").cloneNode(true);
     fish.className  = "us-tiny-fish";
     fish.id         = "fish-" + this.fishCount();
     fish.style.top  = (Math.round(Math.random() * 400) + 90) + "px";
+    fish.onclick    = function(){
+      window.BattleInitializer.start("tiny-fish",
+        function(){
+          self.destroy();
+        },
+        function(){
+          self.spawnFish();
+        }
+      );
+    }
     return fish;
   },
 
@@ -37,10 +48,14 @@ window.UnderwaterShack = {
     return Math.round(Math.random() * 7000) + 1000;
   },
 
-  destroy: function(){
-    clearInterval(this.fishSpawnInterval);
+  destroyFish: function(){
     $.each(dom.find(".us-tiny-fish", true), function(i, fish){
       fish.remove();
     });
+  },
+
+  destroy: function(){
+    clearInterval(this.fishSpawnInterval);
+    this.destroyFish();
   }
 };
