@@ -44,7 +44,6 @@ BattleEventEngine.prototype = {
     if(event.type)    window.Events[event.type].invoke();
     if(event.perform) event.perform();
     if(event.message) this.infoHeader.update(event.message);
-    console.log(event);
     clearTimeout(this.eventTimeout);
   }
 };
