@@ -9,6 +9,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Level module's scoping upon currentGame.levels.\<x\>
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
+- C disable attack buttons when dead
 
 ### Player
 - M Adding attack strength for chosen weapon
