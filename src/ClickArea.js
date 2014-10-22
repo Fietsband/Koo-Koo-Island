@@ -1,6 +1,11 @@
 ClickArea.prototype = {
   clickAreaMethod: function(){
-    window[this.klass][this.clickMethod].apply(null, this.args);
+    if(typeof(this.clickMethod) == "string"){
+      window[this.klass][this.clickMethod].apply(null, this.args);
+    }
+    else{
+      this.clickMethod();
+    }
   },
 
   enable: function(){

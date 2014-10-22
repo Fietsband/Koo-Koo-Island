@@ -293,3 +293,9 @@ span#battle-big-shark,
   width: 400px;
   height: 100px;
 }
+
+#game-levels #underwater_shack .us-tiny-fish{
+  display: block;
+  position: fixed;
+  left: -100px;
+}

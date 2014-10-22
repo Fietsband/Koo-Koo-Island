@@ -19,6 +19,15 @@ var clickAreas = {
       klass: "BattleInitializer",
       method: "start",
       args: ["big-shark"]
+    },
+
+    {
+      id: "#island-whirlpool",
+      note: "When the magical seashell is gone",
+      klass: "UnderwaterShack",
+      method: function(){
+        window.currentGame.levels.underwater_shack.addToGame();
+      }
     }
   ],
 
