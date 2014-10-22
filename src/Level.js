@@ -66,7 +66,7 @@ Level.prototype = {
     if(this.levelModule && this.levelModule["destroy"]){
       this.levelModule["destroy"]();
     }
-  }
+  },
 
   levelClickAreas: {}
 }
