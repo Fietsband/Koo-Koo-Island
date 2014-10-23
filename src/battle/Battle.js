@@ -11,7 +11,7 @@ Battle.prototype = {
   },
 
   initialize: function(){
-    window.currentGame.player.healthBar.update(GameData.player.hp[0]);
+    window.currentGame.player.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
     this.graphic.fill.bind(this)();
     this.battlePopup.show();
     this.controls.enable.bind(this)();
