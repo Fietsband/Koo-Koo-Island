@@ -308,7 +308,7 @@ span#battle-big-shark,
   overflow: hidden;
 }
 
-#game-levels #underwater_shack .us-tiny-fish{
+#game-levels #underwater_shack .us-fish{
   display: block;
   position: fixed;
   left: -100px;
