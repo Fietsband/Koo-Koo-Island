@@ -45,5 +45,5 @@ function BattleEventEngine(){
   this.events = [];
   this.infoHeader   = new BattleInfoHeader();
   this.eventTimeout = null;
-  this.inEvent      = false;
+  this.inEventLoop  = false;
 };

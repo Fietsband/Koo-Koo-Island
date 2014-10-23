@@ -63,6 +63,14 @@ Enemy.prototype = {
     this.healthBar.update(this.enemyInformation.health);
   },
 
+  rememberTotalHealth: function(){
+    this.totalHealth = this.enemyInformation.health;
+  },
+
+  restoreHealth: function(){
+    this.enemyInformation.health = this.totalHealth;
+  },
+
   rewardPlayer: function(){
     var self = this;
     $.each(['experience', 'stats', 'items'], function(i, rewardType){
@@ -89,6 +97,7 @@ Enemy.prototype = {
 
   spawn: function(){
     this.setPosition();
+    this.rememberTotalHealth();
     this.setGraphicToBattleField();
   },
 

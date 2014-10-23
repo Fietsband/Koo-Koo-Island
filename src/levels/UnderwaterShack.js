@@ -22,21 +22,15 @@ window.UnderwaterShack = {
   },
 
   fish: function(){
-    var self        = this;
     var fish        = dom.find(".enemies #tiny-fish").cloneNode(true);
     fish.className  = "us-tiny-fish";
     fish.id         = "fish-" + this.fishCount();
     fish.style.top  = (Math.round(Math.random() * 400) + 90) + "px";
-    fish.onclick    = function(){
-      window.BattleInitializer.start("tiny-fish",
-        function(){
-          self.destroy();
-        },
-        function(){
-          self.spawnFish();
-        }
-      );
-    }
+    fish.onclick    = window.BattleInitializer.start.bind(this,
+      "tiny-fish",
+      this.destroy.bind(this),
+      this.spawnFish.bind(this)
+    );
     return fish;
   },
 

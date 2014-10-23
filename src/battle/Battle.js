@@ -20,10 +20,10 @@ Battle.prototype = {
   },
 
   clear: function(){
-    this.enemy.quitAttacking();
     this.graphic.unfill.bind(this)();
     this.controls.disable.bind(this)();
     this.eventEngine.clear();
+    this.enemy.restoreHealth();
     this.endCallback();
   },
 
