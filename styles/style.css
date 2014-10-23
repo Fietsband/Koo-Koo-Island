@@ -119,22 +119,22 @@ span#inventory{
   position: relative;
 }
 
-.popup#inventory-popup{
-  top: 50px;
+.popup#map-popup .inner
+.popup#inventory-popup .inner{
+  margin-top: 50px;
+}
+
+.popup#battle-sequence-popup .inner{
+  margin-top: 50px;
 }
 
 .popup#map-popup{
   z-index: 2;
   top: 50px;
-  padding-top: 150px;
 }
 
 .popup#map-popup .map-place.enabled{
   cursor: pointer;
-}
-
-.popup#battle-sequence-popup{
-  top: 50px;
 }
 
 .popup#battle-sequence-popup .field{
