@@ -23,6 +23,7 @@ Battle.prototype = {
     this.graphic.unfill.bind(this)();
     this.controls.disable.bind(this)();
     this.eventEngine.clear();
+    this.enemy.quitAttacking();
     this.enemy.restoreHealth();
     this.endCallback();
   },
