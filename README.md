@@ -26,7 +26,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 
 #### Squirrel House
 - M Adding progress for squirrel house
-- M Grabbing spear of wall progress item
 - M Figuring out what is in the closet
 - M Figuring out what will be on the small portrait on the wall
 - M Initiate boss fight with the painting in the attic
@@ -52,6 +51,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Grabbing spear of wall progress item~~
 - ~~Initiate in fights with different enemies than tiny fish~~
 - ~~Making it possible to build the bridge for 100 wood~~
 - ~~Adding underwater shack level~~
