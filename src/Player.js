@@ -42,7 +42,7 @@ Player.prototype = {
         timeOut: 4000
       });
     }
-    this.healthBar.update(GameData.player.hp[0]);
+    this.healthBar.update(Math.round(GameData.player.hp[0]));
   },
 
   increaseHealth: function(amount){
