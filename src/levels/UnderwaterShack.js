@@ -1,4 +1,8 @@
 window.UnderwaterShack = {
+  FISHES: [{name: "tiny-fish", probability: 5},
+           {name: "tiny-fish-with-gun", probability: 2},
+           {name: "big-fish", probability: 1}],
+
   initialize: function(){
     var whirlpoolArea = dom.find("#island-whirlpool-2");
     whirlpoolArea.onclick = function(){
@@ -12,7 +16,7 @@ window.UnderwaterShack = {
     this.fishSpawnInterval = setInterval(
       function(){
         if(self.fishCount() <= 5){
-          var fish = self.fish();
+          var fish = self.buildFish();
           dom.findId("underwater_shack").appendChild(fish);
           window.Animations.FishSpawner.spawn(fish);
         }
@@ -21,21 +25,33 @@ window.UnderwaterShack = {
     );
   },
 
-  fish: function(){
-    var fish        = dom.find(".enemies #tiny-fish").cloneNode(true);
-    fish.className  = "us-tiny-fish";
+  buildFish: function(){
+    var fishType    = this.pickFish().name;
+    var fish        = dom.find(".enemies #" + fishType).cloneNode(true);
+    fish.className  = "us-fish";
     fish.id         = "fish-" + this.fishCount();
-    fish.style.top  = (Math.round(Math.random() * 400) + 90) + "px";
+    fish.style.top  = (Math.round(Math.random() * 370) + 90) + "px";
     fish.onclick    = window.BattleInitializer.start.bind(this,
-      "tiny-fish",
-      this.destroy.bind(this),
+      fishType,
+      null,
       this.spawnFish.bind(this)
     );
     return fish;
   },
 
+  pickFish: function(){
+    var fishes = [];
+    for(var i = 0; i < this.FISHES.length; i++){
+      for(var j = 0; j < this.FISHES[i].probability; j++){
+        fishes.push(this.FISHES[i]);
+      }
+    }
+    picked_fish = Math.round(Math.random() * (fishes.length - 1));
+    return fishes[picked_fish];
+  },
+
   fishCount: function(){
-    return dom.find(".us-tiny-fish", true).length;
+    return dom.find(".us-fish", true).length;
   },
 
   calculateIntervalNumber: function(){
@@ -43,7 +59,7 @@ window.UnderwaterShack = {
   },
 
   destroyFish: function(){
-    $.each(dom.find(".us-tiny-fish", true), function(i, fish){
+    $.each(dom.find(".us-fish", true), function(i, fish){
       fish.remove();
     });
   },

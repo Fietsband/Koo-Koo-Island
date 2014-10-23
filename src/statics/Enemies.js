@@ -73,5 +73,77 @@ var Enemies = {
         seashell: 2
       }
     }
+  },
+
+  'tiny-fish-with-gun' : {
+    name: "Tiny Fish With Gun",
+    health: 20,
+    attack_interval: 7500,
+    attacks: {
+      bite: {
+        name: "bite",
+        damage: 1,
+        probability: 3
+      },
+
+      shoot: {
+        name: "shoot",
+        damage: 5,
+        probability: 1
+      }
+    },
+    player_position: {
+      x: 660,
+      y: -30
+    },
+    position: {
+      x: 41,
+      y: 160
+    },
+    rewards: {
+      experience: {
+        amount: 10
+      },
+      stats: {
+        seashell: 2,
+        wood: 5
+      }
+    }
+  },
+
+  'big-fish' : {
+    name: "Big Fish",
+    health: 50,
+    attack_interval: 10500,
+    attacks: {
+      bite: {
+        name: "bite",
+        damage: 1,
+        probability: 3
+      },
+
+      stomp: {
+        name: "stomp",
+        damage: 10,
+        probability: 1
+      }
+    },
+    player_position: {
+      x: 660,
+      y: -10
+    },
+    position: {
+      x: 41,
+      y: 90
+    },
+    rewards: {
+      experience: {
+        amount: 10
+      },
+      stats: {
+        seashell: 5,
+        wood: 10
+      }
+    }
   }
 }
