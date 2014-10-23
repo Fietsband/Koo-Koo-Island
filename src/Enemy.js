@@ -114,5 +114,5 @@ function Enemy(identifier, callbacks){
   this.attackHoldBar          = new Bar(".field .enemy .attackbar .attack-left", this.enemyInformation.attack_interval);
   this.healthBar              = new StatBar(".field .enemy", ".health-stats .health-stats-left", ".health-stats .total-health", ".healthbar .health-left");
   this.attackInterval         = null;
-  this.healthBar.initialize(this.enemyInformation.health, this.enemyInformation.health);
+  this.healthBar.set(this.enemyInformation.health, this.enemyInformation.health);
 }

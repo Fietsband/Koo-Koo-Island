@@ -5,7 +5,7 @@ StatBar.prototype = {
     this.innerBar.style.width    = this.calculatePercentage() + "%";
   },
 
-  initialize: function(currentStatAmount, totalStatAmount){
+  set: function(currentStatAmount, totalStatAmount){
     this.currentStatAmount       = currentStatAmount;
     this.totalStatAmount         = totalStatAmount;
     this.currentAmount.innerHTML = currentStatAmount;

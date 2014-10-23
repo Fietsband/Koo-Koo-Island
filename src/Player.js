@@ -50,8 +50,8 @@ Player.prototype = {
     if(GameData.player.hp[0] >= GameData.player.hp[1]){
       GameData.player.hp[0] = GameData.player.hp[1];
     }
-    this.healthBar.update(GameData.player.hp[0]);
-    this.inventory.healthBar.update(GameData.player.hp[0])
+    this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
+    this.inventory.healthBar.set(GameData.player.hp[0], GameData.player.hp[1])
   },
 
   increaseMagic: function(amount){
@@ -139,5 +139,5 @@ function Player(){
   this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
   this.healthBar      = new StatBar(".player #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
   //this.magicBar       = new StatBar(".player #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
-  this.healthBar.initialize(GameData.player.hp[0], GameData.player.hp[1]);
+  this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
 }

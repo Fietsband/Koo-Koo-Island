@@ -11,10 +11,10 @@ Rewarder.prototype = {
   setBattleMessage: function(reward){
     var self = this;
     window.currentBattle.eventEngine.add({
-      perform: self[self.typeOfReward + "RewardCallback"].bind(self, reward),
       message: self.rewardMessage(reward),
       timeOut: 2000
     });
+    this[this.typeOfReward + "RewardCallback"](reward);
   },
 
   rewardMessage: function(reward){
