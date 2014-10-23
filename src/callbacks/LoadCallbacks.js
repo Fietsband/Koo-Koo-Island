@@ -27,6 +27,22 @@ LoadCallbacks = {
     window.SquirrelCity.disableSpear();
   },
 
+  squirrel_house_small_painting: function(){
+
+  },
+
+  squirrel_house_closet: function(){
+
+  },
+
+  squirrel_house_boss_fight: function(){
+
+  },
+
+  squirrel_house_chimney: function(){
+
+  },
+
   show_stat: function(type){
     var stat_elem = dom.findId(type + "s");
     var statCount = dom.findId(type + "-count");
