@@ -10,6 +10,8 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C disable attack buttons when dead
+- W making timeout in battle between end - reward a litte faster
+- C scoping click methods in a different folder (Level.js)
 
 ### Player
 - M Adding item rewards callback
