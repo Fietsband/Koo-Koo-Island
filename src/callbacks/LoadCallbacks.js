@@ -23,6 +23,10 @@ LoadCallbacks = {
     window.LonelyIsland.removeShark();
   },
 
+  squirrel_house_spear: function(){
+    window.SquirrelCity.disableSpear();
+  },
+
   show_stat: function(type){
     var stat_elem = dom.findId(type + "s");
     var statCount = dom.findId(type + "-count");

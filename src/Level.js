@@ -38,7 +38,7 @@ Level.prototype = {
   setClickAreas: function(){
     var self = this;
     $.each(window.clickAreas[this.identifier], function(i, area){
-      var levelClickArea = new ClickArea(area.id, area.klass, area.method, area.args);
+      var levelClickArea = new ClickArea(area.id, area.klass, area.method, area.args, area.isDisabled);
       self.levelClickAreas[area.id] = levelClickArea;
     });
   },

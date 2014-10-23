@@ -26,11 +26,19 @@ window.SquirrelCity = {
   },
 
   grabSpear: function(){
-    var item = new Weapon("spear");
-    window.currentGame.player.inventory.addItem("weapons", item);
-    window.currentGame.levels.squirrel_city_second_level.levelClickAreas[".squirrel-city-spear-wall"].disable();
+    if(!window.currentGame.checkProgressOn("squirrel_house_spear")){
+      GameData.progress.squirrel_house_spear = 1;
+      var item = new Weapon("spear");
+      window.currentGame.player.inventory.addItem("weapons", item);
+      window.SquirrelCity.disableSpear();
+    }
+  },
+
+  disableSpear: function(){
     $.each(document.querySelectorAll(".squirrel-city-spear-wall"), function(i, spearPart){
       spearPart.innerHTML = "&nbsp;";
+      spearPart.classList.add("disabled");
+      spearPart.onclick = null;
     });
   }
 }

@@ -9,11 +9,13 @@ ClickArea.prototype = {
   },
 
   enable: function(){
-    var self = this;
-    this.applyMethodToclickParts(function(i, clickPart){
-      clickPart.classList.remove("disabled");
-      clickPart.onclick = self.clickAreaMethod.bind(self);
-    });
+    if(!this.isDisabled()){
+      var self = this;
+      this.applyMethodToclickParts(function(i, clickPart){
+        clickPart.classList.remove("disabled");
+        clickPart.onclick = self.clickAreaMethod.bind(self);
+      });
+    }
   },
 
   disable: function(){
@@ -28,11 +30,12 @@ ClickArea.prototype = {
   }
 };
 
-function ClickArea(identifier, klass, clickMethod, args){
+function ClickArea(identifier, klass, clickMethod, args, isDisabled){
   this.identifier   = identifier;
   this.klass        = klass;
   this.clickMethod  = clickMethod || function(){};
   this.args         = args;
+  this.isDisabled   = isDisabled || function(){ return false };
   this.clickElement = dom.find(identifier, true);
   this.enable();
 }

@@ -86,7 +86,10 @@ var clickAreas = {
       id: ".squirrel-city-spear-wall",
       note: "grab spear on wall",
       klass: "SquirrelCity",
-      method: "grabSpear"
+      method: "grabSpear",
+      isDisabled: function(){
+        return window.currentGame.checkProgressOn('squirrel_house_spear');
+      }
     }
   ],
 
