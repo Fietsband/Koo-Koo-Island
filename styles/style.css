@@ -119,7 +119,7 @@ span#inventory{
   position: relative;
 }
 
-.popup#map-popup .inner
+.popup#map-popup .inner,
 .popup#inventory-popup .inner{
   margin-top: 50px;
 }
