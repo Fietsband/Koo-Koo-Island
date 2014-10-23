@@ -30,7 +30,7 @@ Player.prototype = {
   },
 
   looseHealth: function(amount){
-    GameData.player.hp[0] -= amount;
+    GameData.player.hp[0] -= Math.round(amount);
     if(GameData.player.hp[0] <= 0){
       GameData.player.hp[0] = 0;
       window.currentBattle.eventEngine.add({
@@ -42,7 +42,7 @@ Player.prototype = {
         timeOut: 4000
       });
     }
-    this.healthBar.update(Math.round(GameData.player.hp[0]));
+    this.healthBar.update(GameData.player.hp[0]);
   },
 
   increaseHealth: function(amount){
