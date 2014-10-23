@@ -24,6 +24,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Making it possible to build the bridge for 100 wood
 - C Cleaning up levels/LonelyIsland.js
 - C Moving showBridge method from the GameMap to LonelyIsland
+- C Updating graphics of underwater shack (make it fullscreen + more underwater chareteristics)
 
 #### Squirrel House
 - M Adding progress for squirrel house
