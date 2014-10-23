@@ -203,7 +203,8 @@
     </div>
     <div class="popups">
       <div class="popup" id="map-popup">
-        <pre>
+        <div class="inner">
+          <pre>
 ==============================
 ||                           /
 ||    ~     ~       '```````,
@@ -216,17 +217,19 @@
 ||
 ||
 ||
-        </pre>
-        <div id="legend">
-          <p>Partial map of the world</p>
-          <p>x = where you are</p>
-          <p>O = places you can visit</p>
+          </pre>
+          <div id="legend">
+            <p>Partial map of the world</p>
+            <p>x = where you are</p>
+            <p>O = places you can visit</p>
+          </div>
+          <button id="map-popup-close">Back</button>
         </div>
-        <button id="map-popup-close">Back</button>
       </div>
-      <div class="popup" id="fight"></div>
+      <!-- begin message in a bottle -->
       <div class="popup" id="message-in-a-bottle-popup">
-        <pre>
+        <div class="inner">
+          <pre>
            []
           [||]
           ||||
@@ -241,54 +244,65 @@
          |/  \|
          |-..'|
          `""""`
-        </pre>
-        <p>Found a message in a bottle!</p>
-        <button id="message-in-a-bottle-popup-close">Back to island</button>
+          </pre>
+          <p>Found a message in a bottle!</p>
+          <button id="message-in-a-bottle-popup-close">Back to island</button>
+        </div>
       </div>
+      <!-- end message in a bottle -->
+      <!-- begin fish seller -->
       <div class="popup" id="fish-seller-popup">
-        <p>Hello friendly friend,</p>
-        <p>I'm selling stuff which I found in the ocean!</p>
-        <p>I only accept cold hard seashell cash.</p>
-        <button id="fish-seller-buy-button">Buy stuff</button>
-        <button id="fish-seller-popup-close">Back to island</button>
+        <div class="inner">
+          <p>Hello friendly friend,</p>
+          <p>I'm selling stuff which I found in the ocean!</p>
+          <p>I only accept cold hard seashell cash.</p>
+          <button id="fish-seller-buy-button">Buy stuff</button>
+          <button id="fish-seller-popup-close">Back to island</button>
+        </div>
       </div>
+      <!-- end fish seller -->
+      <!-- begin fish seller buy -->
       <div class="popup" id="fish-seller-buy-popup">
-        <ul class="sell-items">
-          <li name="oyster">Oyster (10 seashells)</li>
-          <li name="wood">Wood (20 seashells)</li>
-        </ul>
-        <button id="fish-seller-buy-popup-close">Back to island</button>
+        <div class="inner">
+          <ul class="sell-items">
+            <li name="oyster">Oyster (10 seashells)</li>
+            <li name="wood">Wood (20 seashells)</li>
+          </ul>
+          <button id="fish-seller-buy-popup-close">Back to island</button>
+        </div>
       </div>
+      <!-- end fish seller buy -->
       <!-- START Inventory Popup -->
       <div class="popup" id="inventory-popup">
-        <p>YOUR INVENTORY</p>
-        <div id="inventory-stash">
-          <div class="top">
-            <div id="health">
-              <div class="health-stats">
-                <span class="health-stats-left"></span>
-                /
-                <span class="total-health"></span> hp
+        <div class="inner">
+          <p>YOUR INVENTORY</p>
+          <div id="inventory-stash">
+            <div class="top">
+              <div id="health">
+                <div class="health-stats">
+                  <span class="health-stats-left"></span>
+                  /
+                  <span class="total-health"></span> hp
+                </div>
+                <div class="healthbar bar">
+                  <div class="health-left inner-bar"></div>
+                </div>
               </div>
-              <div class="healthbar bar">
-                <div class="health-left inner-bar"></div>
+              <div id="magic" class="disabled">
+                <div class="magic-stats">
+                  <span class="magic-stats-left"></span>
+                  /
+                  <span class="total-magic"></span> mp
+                </div>
+                <div class="magicbar bar">
+                  <div class="magic-left inner-bar"></div>
+                </div>
               </div>
             </div>
-            <div id="magic" class="disabled">
-              <div class="magic-stats">
-                <span class="magic-stats-left"></span>
-                /
-                <span class="total-magic"></span> mp
-              </div>
-              <div class="magicbar bar">
-                <div class="magic-left inner-bar"></div>
-              </div>
-            </div>
-          </div>
-          <div class="center">
-            <div class="left weapons">
-              WEAPON
-              <pre class="weapon-preview">
+            <div class="center">
+              <div class="left weapons">
+                WEAPON
+                <pre class="weapon-preview">
 _________________
 |<span class="w-part">               </span>|
 |<span class="w-part">               </span>|
@@ -300,16 +314,16 @@ _________________
 |<span class="w-part">               </span>|
 |<span class="w-part">               </span>|
 |_______________|
-              </pre>
-              <form id="select-weapons">
-                <select>
-                  <option value="none"></option>
-                </select>
-              </form>
-            </div>
-            <div class="left armors">
-              ARMOR
-              <pre class="armor-preview">
+                </pre>
+                <form id="select-weapons">
+                  <select>
+                    <option value="none"></option>
+                  </select>
+                </form>
+              </div>
+              <div class="left armors">
+                ARMOR
+                <pre class="armor-preview">
 _________________
 |<span class="a-part">               </span>|
 |<span class="a-part">               </span>|
@@ -321,117 +335,128 @@ _________________
 |<span class="a-part">               </span>|
 |<span class="a-part">               </span>|
 |_______________|
-              </pre>
-              <form id="select-armor">
-                <select>
-                  <option value="none"></option>
-                </select>
-              </form>
+                </pre>
+                <form id="select-armor">
+                  <select>
+                    <option value="none"></option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="stash magic disabled">
+                <p>SPELLS</p>
+              </div>
+              <div class="stash items">
+                <p>ITEMS</p>
+              </div>
             </div>
           </div>
-          <div class="bottom">
-            <div class="stash magic disabled">
-              <p>SPELLS</p>
-            </div>
-            <div class="stash items">
-              <p>ITEMS</p>
-            </div>
-          </div>
+          <button id="inventory-popup-close">Back</button>
         </div>
-        <button id="inventory-popup-close">Back</button>
       </div>
       <!-- END Inventory Popup -->
       <!-- START Island bridge popup -->
       <div class="popup" id="island-bridge-popup">
-        <p>For 100 pieces of wood you can build a bridge to land!</p>
-        <button id="build-island-bridge" disabled="disabled">Build bridge</button>
-        <button id="island-bridge-popup-close">Back to island</button>
+        <div class="inner">
+          <p>For 100 pieces of wood you can build a bridge to land!</p>
+          <button id="build-island-bridge" disabled="disabled">Build bridge</button>
+          <button id="island-bridge-popup-close">Back to island</button>
+        </div>
       </div>
       <!-- END Island bridge Popup -->
       <!-- LOAD GAME POPUP -->
       <div class="popup" id="load-game-popup">
-        <div>LOAD GAME</div>
-        <div class="explanation">
-          When you want to load the game into another machine press the 'get' method on the current machine.<br/>
-          Copy the text and save it somewhere. Load it with the load button.
+        <div class="inner">
+          <div>LOAD GAME</div>
+          <div class="explanation">
+            When you want to load the game into another machine press the 'get' method on the current machine.<br/>
+            Copy the text and save it somewhere. Load it with the load button.
+          </div>
+          <div>
+            <div id="current-saved-game"></div>
+            <textarea id="load-game-form"></textarea>
+          </div>
+          <button id="get-current-game">Get</button>
+          <button id="load-current-game">Load</button>
+          <button id="load-game-popup-close">Close</button>
         </div>
-        <div>
-          <div id="current-saved-game"></div>
-          <textarea id="load-game-form"></textarea>
-        </div>
-        <button id="get-current-game">Get</button>
-        <button id="load-current-game">Load</button>
-        <button id="load-game-popup-close">Close</button>
       </div>
       <!-- END LOAD GAME POPUP -->
       <!-- Battle Sequence -->
       <div class="popup" id="battle-sequence-popup">
-        <div id="battle-sequence-info-header">
-          &nbsp;
-        </div>
-        <div class="field">
-          <div class="player">
-            <pre id="graphic">
-            </pre>
-            <div id="health">
-              <div class="health-stats">
-                <span class="health-stats-left"></span>
-                /
-                <span class="total-health"></span> hp
+        <div class="inner">
+          <div id="battle-sequence-info-header">
+            &nbsp;
+          </div>
+          <div class="field">
+            <div class="player">
+              <pre id="graphic">
+              </pre>
+              <div id="health">
+                <div class="health-stats">
+                  <span class="health-stats-left"></span>
+                  /
+                  <span class="total-health"></span> hp
+                </div>
+                <div class="healthbar bar">
+                  <div class="health-left inner-bar"></div>
+                </div>
               </div>
-              <div class="healthbar bar">
-                <div class="health-left inner-bar"></div>
+              <div class="attackbar bar">
+                <div class="attack-left inner-bar"></div>
               </div>
             </div>
-            <div class="attackbar bar">
-              <div class="attack-left inner-bar"></div>
+            <div class="enemy">
+              <pre id="graphic">
+              </pre>
+              <div id="health">
+                <div class="health-stats">
+                  <span class="health-stats-left"></span>
+                  /
+                  <span class="total-health"></span> hp
+                </div>
+                <div class="healthbar bar">
+                  <div class="health-left inner-bar"></div>
+                </div>
+              </div>
+              <div class="attackbar bar">
+                <div class="attack-left"></div>
+              </div>
             </div>
           </div>
-          <div class="enemy">
-            <pre id="graphic">
-            </pre>
-            <div id="health">
-              <div class="health-stats">
-                <span class="health-stats-left"></span>
-                /
-                <span class="total-health"></span> hp
-              </div>
-              <div class="healthbar bar">
-                <div class="health-left inner-bar"></div>
-              </div>
-            </div>
-            <div class="attackbar bar">
-              <div class="attack-left"></div>
-            </div>
+          <div class="battle-sequence-interface disabled">
+            <ul class="battle-options">
+              <li>
+                <a id="attack" href="#"><span class="keyboard-shortcut">A</span>ttack</a>
+              </li>
+              <li>
+                <a id="skill" href="#"><span class="keyboard-shortcut">S</span>kill</a>
+              </li>
+              <li>
+                <a id="magic" href="#"><span class="keyboard-shortcut">M</span>agic</a>
+              </li>
+              <li>
+                <a id="items" href="#"><span class="keyboard-shortcut">I</span>tems</a>
+              </li>
+              <li>
+                <a id="battle-sequence-popup-close" href="#"><span class="keyboard-shortcut">F</span>lee</a>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="battle-sequence-interface disabled">
-          <ul class="battle-options">
-            <li>
-              <a id="attack" href="#"><span class="keyboard-shortcut">A</span>ttack</a>
-            </li>
-            <li>
-              <a id="skill" href="#"><span class="keyboard-shortcut">S</span>kill</a>
-            </li>
-            <li>
-              <a id="magic" href="#"><span class="keyboard-shortcut">M</span>agic</a>
-            </li>
-            <li>
-              <a id="items" href="#"><span class="keyboard-shortcut">I</span>tems</a>
-            </li>
-            <li>
-              <a id="battle-sequence-popup-close" href="#"><span class="keyboard-shortcut">F</span>lee</a>
-            </li>
-          </ul>
         </div>
       </div>
       <!-- End Battle Sequence -->
+      <!-- Squirrel house warning -->
       <div class="popup" id="squirrel-warning">
-        <strong>The squirrel in the tree is warning you</strong>
-        <p>This house is haunted. You shouldn't go in! But suite yourself..</p>
-        <button id="enter-the-house">Let's go!</button>
-        <button id="squirrel-warning-close">I'm scared</button>
+        <div class="inner">
+          <strong>The squirrel in the tree is warning you</strong>
+          <p>This house is haunted. You shouldn't go in! But suite yourself..</p>
+          <button id="enter-the-house">Let's go!</button>
+          <button id="squirrel-warning-close">I'm scared</button>
+        </div>
       </div>
+      <!-- End Squirrel house warning -->
       <div class="enemies">
         <pre id="tiny-fish">
 >{ .}

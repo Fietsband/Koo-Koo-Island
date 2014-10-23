@@ -104,14 +104,19 @@ span#inventory{
 .popup{
   position: fixed;
   background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
-.popup{
+.popup div.inner{
   width: 1000px;
-  top: 200px;
-  left: 50%;
-  margin-left: -500px;
+  margin-left: 500px;
+  margin-top: 200px;
   height: 500px;
+  position: relative;
 }
 
 .popup#inventory-popup{
