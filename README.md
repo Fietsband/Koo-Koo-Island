@@ -9,9 +9,9 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Level module's scoping upon currentGame.levels.\<x\>
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
+- C disable attack buttons when dead
 
 ### Player
-- M Adding attack strength for chosen weapon
 - M Adding item rewards callback
 - M Adding skill attacks
 - M Adding magic attacks
@@ -20,12 +20,9 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Adding animations for enemy
 
 #### Island
-- M Adding underwater shack level
-- M Making it possible to spawn fish from left to right and right to left
-- M Initiate in multiple battles
-- M Making it possible to build the bridge for 100 wood
 - C Cleaning up levels/LonelyIsland.js
 - C Moving showBridge method from the GameMap to LonelyIsland
+- C Updating graphics of underwater shack (make it fullscreen + more underwater chareteristics)
 
 #### Squirrel House
 - M Adding progress for squirrel house
@@ -55,6 +52,11 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Initiate in fights with different enemies than tiny fish~~
+- ~~Making it possible to build the bridge for 100 wood~~
+- ~~Adding underwater shack level~~
+- ~~Making it possible to spawn fish from left to right and right to left~~
+- ~~Adding attack strength for chosen weapon~~
 - ~~Scoping all animations in separate animations folder~~
 - ~~Rewriting part of battle engine - make it 'message event based'. Push event to stack; call event till end.~~
 - ~~Adding damage reduction percentage for armor~~

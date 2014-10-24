@@ -2,7 +2,7 @@ window.Weapons = {
   spear: {
     title: "Spear",
     description: "Basic spear",
-    damage: 20,
+    damage: 1.2,
     graphic: ['^', '|'],
     large_graphic: [
       '               ',
@@ -20,7 +20,7 @@ window.Weapons = {
   none: {
     title: "",
     description: "",
-    damage: 0,
+    damage: 1.0,
     graphic: ['', ''],
     large_graphic: [
       '               ',

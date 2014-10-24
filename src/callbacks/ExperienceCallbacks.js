@@ -20,7 +20,11 @@ ExperienceCallbacks = {
   experiencePointReward: function(experienceKey){
     GameData.player.experience_rewards.push(experienceKey);
     $.each(ExperiencePoints[experienceKey], function(j, callback){
-      window.currentGame.callbacks.experienceCallbacks[callback.callback_method](callback.amount);
+      window.currentBattle.eventEngine.add({
+        perform: window.currentGame.callbacks.experienceCallbacks[callback.callback_method](callback.amount),
+        message: "You leveled up!",
+        timeOut: 2000
+      });
     });
   },
 

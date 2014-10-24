@@ -16,6 +16,7 @@ Level.prototype = {
     if(window.currentLevel){
       window.currentLevel.hideMap();
       window.currentLevel.removeClickAreas();
+      window.currentLevel.destroy();
       window.currentGame.gameMap.enableMapSpot(window.currentLevel.mapSpot);
       window.currentLevel = null;
       delete window.currentLevel;
@@ -58,6 +59,12 @@ Level.prototype = {
   performInitialize: function(){
     if(this.levelModule && this.levelModule["initialize"]){
       this.levelModule["initialize"]();
+    }
+  },
+
+  destroy: function(){
+    if(this.levelModule && this.levelModule["destroy"]){
+      this.levelModule["destroy"]();
     }
   },
 

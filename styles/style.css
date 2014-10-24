@@ -104,32 +104,37 @@ span#inventory{
 .popup{
   position: fixed;
   background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  top: 30px;
+  left: 0;
+  overflow: hidden;
 }
 
-.popup{
+.popup div.inner{
   width: 1000px;
-  top: 200px;
-  left: 50%;
-  margin-left: -500px;
+  margin-left: 500px;
+  margin-top: 200px;
   height: 500px;
+  position: relative;
 }
 
-.popup#inventory-popup{
-  top: 50px;
+.popup#map-popup .inner
+.popup#inventory-popup .inner{
+  margin-top: 50px;
+}
+
+.popup#battle-sequence-popup .inner{
+  margin-top: 50px;
 }
 
 .popup#map-popup{
   z-index: 2;
   top: 50px;
-  padding-top: 150px;
 }
 
 .popup#map-popup .map-place.enabled{
   cursor: pointer;
-}
-
-.popup#battle-sequence-popup{
-  top: 50px;
 }
 
 .popup#battle-sequence-popup .field{
@@ -292,4 +297,19 @@ span#battle-big-shark,
 #load-game-form{
   width: 400px;
   height: 100px;
+}
+
+#game-levels div#underwater_shack{
+  width: 98%;
+  margin-top: 100px;
+}
+
+#game-levels div#underwater_shack pre{
+  overflow: hidden;
+}
+
+#game-levels #underwater_shack .us-fish{
+  display: block;
+  position: fixed;
+  left: -100px;
 }

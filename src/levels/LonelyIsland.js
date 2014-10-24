@@ -118,8 +118,5 @@ window.LonelyIsland = {
   enableWhirlpool: function(){
     var whirlpool = dom.find("#game-levels #island #island-whirlpool");
     whirlpool.style.display = "inline";
-    whirlpool.onclick = function(){
-      window.currentGame.levels.underwater_shack.addToGame();
-    };
   }
 }

@@ -11,18 +11,21 @@ Battle.prototype = {
   },
 
   initialize: function(){
-    window.currentGame.player.healthBar.update(GameData.player.hp[0]);
+    window.currentGame.player.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
     this.graphic.fill.bind(this)();
     this.battlePopup.show();
     this.controls.enable.bind(this)();
     this.enemy.startAttacking();
+    this.startCallback();
   },
 
   clear: function(){
-    this.enemy.quitAttacking();
     this.graphic.unfill.bind(this)();
     this.controls.disable.bind(this)();
     this.eventEngine.clear();
+    this.enemy.quitAttacking();
+    this.enemy.restoreHealth();
+    this.endCallback();
   },
 
   canBattle: function(){
@@ -54,8 +57,10 @@ Battle.prototype = {
   }
 }
 
-function Battle(enemy){
+function Battle(enemy, startCallback, endCallback){
   this.enemy          = enemy;
+  this.startCallback  = startCallback || function(){};
+  this.endCallback    = endCallback || function(){};
   this.battleControls = new BattleControls(this.enemy);
   this.eventEngine    = new BattleEventEngine();
   this.battlePopup    = new Popup("battle-sequence-popup", undefined, this.stop.bind(this));

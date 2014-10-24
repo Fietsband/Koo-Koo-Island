@@ -1,7 +1,9 @@
 BattleEventEngine.prototype = {
   add: function(event){
     this.events.push(event);
-    this.invokeWithTimeout();
+    if(!(ENV === "test") && !this.inEventLoop){
+      this.invokeWithTimeout();
+    }
   },
 
   clear: function(){
@@ -13,6 +15,7 @@ BattleEventEngine.prototype = {
     var event = this.events[0];
     if(event){
       var self = this;
+      this.inEventLoop = true;
       this.eventTimeout = setTimeout(function(){
         self.events.shift();
         self.callEvent(null, event);
@@ -20,6 +23,7 @@ BattleEventEngine.prototype = {
       }, (event.timeOut || 0));
     }
     else{
+      this.inEventLoop = false;
       clearTimeout(this.eventTimeout);
     }
   },
@@ -41,4 +45,5 @@ function BattleEventEngine(){
   this.events = [];
   this.infoHeader   = new BattleInfoHeader();
   this.eventTimeout = null;
+  this.inEventLoop  = false;
 };

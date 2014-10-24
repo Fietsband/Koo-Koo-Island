@@ -52,17 +52,23 @@ Enemy.prototype = {
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
       this.enemyInformation.health = 0;
+      this.rewardPlayer();
+      this.quitAttacking();
 
       window.currentBattle.eventEngine.add({
-        perform:   this.rewardPlayer.bind(this),
-        eventTime: 5000
-      });
-
-      window.currentBattle.eventEngine.add({
-        type: "end"
+        type: "end",
+        timeOut: 5000
       });
     }
     this.healthBar.update(this.enemyInformation.health);
+  },
+
+  rememberTotalHealth: function(){
+    this.totalHealth = this.enemyInformation.health;
+  },
+
+  restoreHealth: function(){
+    this.enemyInformation.health = this.totalHealth;
   },
 
   rewardPlayer: function(){
@@ -91,6 +97,7 @@ Enemy.prototype = {
 
   spawn: function(){
     this.setPosition();
+    this.rememberTotalHealth();
     this.setGraphicToBattleField();
   },
 
@@ -107,5 +114,5 @@ function Enemy(identifier, callbacks){
   this.attackHoldBar          = new Bar(".field .enemy .attackbar .attack-left", this.enemyInformation.attack_interval);
   this.healthBar              = new StatBar(".field .enemy", ".health-stats .health-stats-left", ".health-stats .total-health", ".healthbar .health-left");
   this.attackInterval         = null;
-  this.healthBar.initialize(this.enemyInformation.health, this.enemyInformation.health);
+  this.healthBar.set(this.enemyInformation.health, this.enemyInformation.health);
 }

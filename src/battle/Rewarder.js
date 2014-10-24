@@ -2,8 +2,7 @@ Rewarder.prototype = {
   reward: function(){
     var self = this;
     $.each(this.rewardedItems(), function(i, reward){
-      self[self.typeOfReward + "RewardCallback"](reward);
-      if(ENV == "production" || ENV == "development"){
+      if(!(ENV == "test")){
         self.setBattleMessage(reward);
       }
     });
@@ -11,18 +10,25 @@ Rewarder.prototype = {
 
   setBattleMessage: function(reward){
     var self = this;
-    self.messageTimeout = setTimeout(function(){
-      window.currentBattle.infoHeader.update(self.rewardMessage(reward));
-      clearTimeout(self.messageTimeout);
-    }, 2000);
+    window.currentBattle.eventEngine.add({
+      message: self.rewardMessage(reward),
+      timeOut: 2000
+    });
+    this[this.typeOfReward + "RewardCallback"](reward);
   },
 
   rewardMessage: function(reward){
     var message = "You get ";
-    message += this.rewards[reward] + " " + reward;
-    if(this.rewards[reward] > 1){
-      message += "s";
+    if(this.typeOfReward == "stats" || this.typeOfReward == "items"){
+      message += this.rewards[reward] + " " + reward;
+      if(this.rewards[reward] > 1){
+        message += "s";
+      }
     }
+    else{
+      message += this.rewards[reward] + " experience";
+    }
+
     return message;
   },
 
