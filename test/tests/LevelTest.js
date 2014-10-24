@@ -24,3 +24,15 @@ QUnit.test("triggering intialize method", function(assert){
 
   assert.ok(dom.find("#island-whirlpool-2").onclick !== null, "should have a method applied");
 });
+
+QUnit.test("setting onclick methods", function(assert){
+  window.currentGame.levels.island.addToGame();
+
+  assert.ok(window.currentLevel.clickAreas.length > 0, "should have more than 1 click area");
+});
+
+QUnit.test("setting onclick methods", function(assert){
+  window.currentGame.levels.island.addToGame();
+
+  assert.ok(dom.findId("island-seashell").onclick !== null, "should have more than 1 click area");
+});

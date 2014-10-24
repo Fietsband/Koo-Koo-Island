@@ -8,3 +8,10 @@ QUnit.test("looping through an array", function(assert){
     assert.equal(j, 1, "should be 1");
   });
 });
+
+QUnit.test("constantize string", function(assert){
+  assert.equal($.constantize("#test-test"), "TestTest", "should constantize correctly");
+  assert.equal($.constantize(".test-test"), "TestTest", "should constantize correctly");
+  assert.equal($.constantize(".test_test"), "TestTest", "should constantize correctly");
+  assert.equal($.constantize("hello_test"), "HelloTest", "should constantize correctly");
+});

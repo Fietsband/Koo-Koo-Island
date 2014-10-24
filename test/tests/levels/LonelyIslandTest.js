@@ -6,7 +6,7 @@ QUnit.test("disable seashell", function(assert){
   assert.equal(GameData.progress.hide_seashell, 1, 'should hide seashell to 1');
 });
 
-QUnit.test("enabling whirpool", function(assert){
+QUnit.test("enabling lonely island whirlpool", function(assert){
   window.LonelyIsland.enableWhirlpool();
 
   assert.ok(dom.find("#game-levels #island #island-whirlpool").onclick !== null, "should have a click handler");
