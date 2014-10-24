@@ -24,6 +24,20 @@ $ = {
     return string.charAt(0).toUpperCase() + string.substr(1).toLowerCase();
   },
 
+  methodize: function(string){
+    var result = string.split(/\-|\_/).map(function(i){
+      return $.titleize(i);
+    });
+    return result.join('').replace(/\#|\./, "");
+  },
+
+  constantize: function(string){
+    var result = string.replace(/\#|\./, "").split(/\-|\_/).map(function(i){
+      return $.titleize(i);
+    });
+    return result.join('');
+  },
+
   setSelectBoxSelected: function(selectBox, optionValue){
     $.each(selectBox.querySelectorAll("option"), function(i, option){
       option.selected = false;
