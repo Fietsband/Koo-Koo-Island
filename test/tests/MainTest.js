@@ -46,7 +46,7 @@ QUnit.test("setting current weapon and armor", function(assert){
 
   resetGame();
 
-  assert.equal(window.currentGame.player.getGraphic(), "<span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
+  assert.equal(window.currentGame.player.getGraphic(), " <span class=\"armor head\">&lt;0&gt; </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/[*]\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\"> / \\</span>\n", "it should render correct graphic");
   assert.ok(dom.find("#inventory-stash .armors select option[value='clown']").selected, "should be selected");
   assert.ok(dom.find("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
   assert.equal(document.querySelectorAll("#inventory-stash .weapons .weapon-preview span")[1].innerHTML, "       ^       ", "Should have a spear");

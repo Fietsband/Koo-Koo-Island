@@ -42,7 +42,7 @@ QUnit.test("should fill the graphics with the user", function(assert){
 
   var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
 
-  assert.equal(playerGraphic, "<span class=\"armor head\"> o  </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "current graphic of player should be there");
+  assert.equal(playerGraphic, " <span class=\"armor head\"> o  </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "current graphic of player should be there");
   battle.battlePopup.hide();
 });
 
@@ -53,7 +53,7 @@ QUnit.test("should fill the graphics with the enemy", function(assert){
 
   var enemyGraphic = dom.find("#battle-sequence-popup .field .enemy #graphic").innerHTML;
 
-  assert.equal(enemyGraphic, "&gt;{ .}\n", "current enemy should spawn");
+  assert.equal(enemyGraphic, "&gt;{ .}\n        ", "current enemy should spawn");
   battle.battlePopup.hide();
 });
 
