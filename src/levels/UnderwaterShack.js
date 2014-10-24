@@ -26,16 +26,12 @@ window.UnderwaterShack = {
   },
 
   buildFish: function(){
-    var fishType    = this.pickFish().name;
-    var fish        = dom.find(".enemies #" + fishType).cloneNode(true);
-    fish.className  = "us-fish";
-    fish.id         = "fish-" + this.fishCount();
-    fish.style.top  = (Math.round(Math.random() * 370) + 90) + "px";
-    fish.onclick    = window.BattleInitializer.start.bind(this,
-      fishType,
-      null,
-      this.spawnFish.bind(this)
-    );
+    var fishType   = this.pickFish().name;
+    var fish       = dom.find(".enemies #" + fishType).cloneNode(true);
+    fish.className = "us-fish";
+    fish.id        = "fish-" + this.fishCount();
+    fish.style.top = (Math.round(Math.random() * 370) + 90) + "px";
+    fish.onclick   = window.BattleInitializer.start.bind(this, fishType, null, this.spawnFish.bind(this));
     return fish;
   },
 
