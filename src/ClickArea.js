@@ -1,21 +1,25 @@
 ClickArea.prototype = {
   clickAreaMethod: function(){
-    if(typeof(this.clickMethod) == "string"){
-      window[this.klass][this.clickMethod].apply(null, this.args);
-    }
-    else{
-      this.clickMethod();
-    }
+    this.clickMethod.apply(null, this.args);
+  },
+
+  enabled: function(){
+    var enabled = true;
+    $.each(this.clickElement, function(i, clickElement){
+      if(clickElement.classList.contains("disabled")){
+        enabled = false;
+        return false;
+      }
+    });
+    return enabled;
   },
 
   enable: function(){
-    if(!this.isDisabled()){
-      var self = this;
-      this.applyMethodToclickParts(function(i, clickPart){
-        clickPart.classList.remove("disabled");
-        clickPart.onclick = self.clickAreaMethod.bind(self);
-      });
-    }
+    var self = this;
+    this.applyMethodToclickParts(function(i, clickPart){
+      clickPart.classList.remove("disabled");
+      clickPart.onclick = self.clickAreaMethod.bind(self);
+    });
   },
 
   disable: function(){
@@ -30,12 +34,9 @@ ClickArea.prototype = {
   }
 };
 
-function ClickArea(identifier, klass, clickMethod, args, isDisabled){
+function ClickArea(identifier, clickMethod, arguments){
   this.identifier   = identifier;
-  this.klass        = klass;
   this.clickMethod  = clickMethod || function(){};
-  this.args         = args;
-  this.isDisabled   = isDisabled || function(){ return false };
+  this.arguments    = arguments || [];
   this.clickElement = dom.find(identifier, true);
-  this.enable();
 }
