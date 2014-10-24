@@ -37,9 +37,6 @@ Level.prototype = {
 
   setClickMethodsToLevel: function(){
     var self = this;
-    console.log(this.clickAreas);
-    console.log(self.clickMethods);
-    console.log(this.moduleName());
     $.each(this.clickAreas, function(i, area){
       var clickMethod = $.methodize(area);
       var clickArea = new ClickArea(area, self.clickMethods[clickMethod]);
