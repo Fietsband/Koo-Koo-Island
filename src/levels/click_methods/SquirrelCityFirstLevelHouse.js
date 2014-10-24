@@ -1,4 +1,4 @@
-window.LevelClickMethods.SquirrelCityFirstLevelClicks = {
+window.LevelClickMethods.SquirrelCityFirstLevelHouse = {
   squirrelCityGotoFirstLevel: function(){
     window.SquirrelCity.goToFirstLevel();
   },

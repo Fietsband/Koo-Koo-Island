@@ -16,6 +16,7 @@ window.ClickAreas = {
   ],
 
   squirrel_city_first_level_house:  [
+    ".door-squirrel-city-house",
     "#squirrel-city-goto-first-level"
   ],
 

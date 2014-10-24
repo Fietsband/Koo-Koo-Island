@@ -1,4 +1,4 @@
-window.LevelClickMethods.SquirrelCitySecondLevelClicks = {
+window.LevelClickMethods.SquirrelCitySecondLevelHouse = {
   squirrelCityGotoSecondLevel: function(){
     window.SquirrelCity.goToSecondLevel();
   },

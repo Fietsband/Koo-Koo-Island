@@ -1,4 +1,4 @@
-window.LevelClickMethods.SquirrelCityClicks = {
+window.LevelClickMethods.SquirrelCity = {
   mysteriousSquirrel: function(){
 
   },

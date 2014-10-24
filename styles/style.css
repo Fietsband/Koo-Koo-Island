@@ -126,6 +126,7 @@ span#inventory{
 
 .popup#battle-sequence-popup .inner{
   margin-top: 50px;
+  margin-left: 250px;
 }
 
 .popup#map-popup{

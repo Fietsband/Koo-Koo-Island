@@ -1,4 +1,4 @@
-window.LevelClickMethods.LonelyIslandClicks = {
+window.LevelClickMethods.LonelyIsland = {
   islandSeashell: function(){
     window.currentStats.increaseStat(
       "seashell", 1, window.currentGame.callbacks.statsCallbacks.seashell.performCallback

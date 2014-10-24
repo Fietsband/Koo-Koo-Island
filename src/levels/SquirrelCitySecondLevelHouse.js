@@ -1,4 +1,4 @@
-window.SquirrelCitySecondLevel = {
+window.SquirrelCitySecondLevelHouse = {
   initialize: function(){
 
   },
