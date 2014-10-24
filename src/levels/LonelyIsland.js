@@ -110,13 +110,12 @@ window.LonelyIsland = {
   disableSeashell: function(){
     GameData.progress.hide_seashell = 1;
     window.currentGame.levels.island.setClickAreas();
-    window.currentGame.levels.island.levelClickAreas["#island-seashell"].disable();
-    dom.find("#game-levels #island #island-seashell").innerHTML = "&nbsp;";
+    dom.find("#game-levels #lonely_island #island-seashell").innerHTML = "&nbsp;";
     window.LonelyIsland.enableWhirlpool();
   },
 
   enableWhirlpool: function(){
-    var whirlpool = dom.find("#game-levels #island #island-whirlpool");
+    var whirlpool = dom.find("#game-levels #lonely_island #island-whirlpool");
     whirlpool.style.display = "inline";
   }
 }
