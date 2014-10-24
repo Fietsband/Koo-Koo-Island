@@ -10,8 +10,8 @@ var GameData = {
     seashells:        0,
     oysters:          0,
     woods:            0,
-    armor:            null,
-    weapon:           null,
+    armor:            'none',
+    weapon:           'none',
     inventory:        {
       weapons:          [],
       armors:           [],
