@@ -1,5 +1,5 @@
 window.ClickAreas = {
-  island: [
+  lonely_island: [
     "#island-seashell",
     "#island-bridge",
     "#battle-big-shark",

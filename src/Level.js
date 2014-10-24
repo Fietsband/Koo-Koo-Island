@@ -6,7 +6,7 @@ Level.prototype = {
 
   setCurrentGame: function(){
     this.showMap();
-    this.setClickAreas();
+    this.setClickMethodsToLevel();
     this.performInitialize();
     window.currentGame.gameMap.disableMapSpot(this.mapSpot);
     window.currentLevel = this;
@@ -32,14 +32,17 @@ Level.prototype = {
   },
 
   removeClickAreas: function(){
-    this.levelClickAreas = {};
+    this.clickArea = [];
   },
 
-  setClickAreas: function(){
+  setClickMethodsToLevel: function(){
     var self = this;
-    $.each(window.clickAreas[this.identifier], function(i, area){
-      var levelClickArea = new ClickArea(area.id, area.klass, area.method, area.args, area.isDisabled);
-      self.levelClickAreas[area.id] = levelClickArea;
+    $.each(this.clickAreas, function(i, area){
+      var clickMethod = $.methodize(area);
+      var clickArea = new ClickArea(area, self.clickMethods[clickMethod]);
+      if(clickArea.enabled()){
+        clickArea.enable();
+      }
     });
   },
 
@@ -48,11 +51,33 @@ Level.prototype = {
   },
 
   setLevelModule: function(){
-    if(window.Levels[this.identifier]){
-      return window[window.Levels[this.identifier]];
+    if(window[this.moduleName()]){
+      return window[this.moduleName()];
     }
     else{
       return {};
+    }
+  },
+
+  moduleName: function(){
+    return $.constantize(this.identifier);
+  },
+
+  setClickMethods: function(){
+    if(window.LevelClickMethods[this.moduleName() + "Clicks"]){
+      return window.LevelClickMethods[this.moduleName() + "Clicks"];
+    }
+    else{
+      return {};
+    }
+  },
+
+  setClickAreas: function(){
+    if(window.ClickAreas[this.identifier]){
+      return window.ClickAreas[this.identifier];
+    }
+    else{
+      return [];
     }
   },
 
@@ -66,9 +91,7 @@ Level.prototype = {
     if(this.levelModule && this.levelModule["destroy"]){
       this.levelModule["destroy"]();
     }
-  },
-
-  levelClickAreas: {}
+  }
 }
 
 function Level(identifier, mapSpot){
@@ -77,4 +100,6 @@ function Level(identifier, mapSpot){
   this.levelDom    = dom.find("#game-levels #" + identifier);
   this.pointOnMap  = this.setMapSpot();
   this.levelModule = this.setLevelModule();
+  this.clickAreas  = this.setClickAreas();
+  this.clickMethods= this.setClickMethods();
 }

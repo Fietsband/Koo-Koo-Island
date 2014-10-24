@@ -1,11 +1,12 @@
 window.Levels = {
-  island: {
+  lonely_island: {
     module: "LonelyIsland",
     clicks: "LonelyIslandClicks"
   },
 
   underwater_shack:{
-    module: "UnderwaterShack"
+    module: "UnderwaterShack",
+    clicks: "UnderwaterShackClicks"
   },
 
   squirrel_city:{
@@ -14,7 +15,7 @@ window.Levels = {
   },
 
   squirrel_city_first_level:{
-    module: null,
+    module: "SquirrelCityFirstLevel",
     clicks: "SquirrelCityFirstLevelClicks"
   },
 
@@ -24,7 +25,7 @@ window.Levels = {
   },
 
   squirrel_city_attic_level:{
-    module: null,
+    module: "SquirrelCityAtticLevel",
     clicks: "SquirrelCityAtticLevelClicks"
   }
 }
