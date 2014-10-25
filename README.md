@@ -7,8 +7,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 
 #### General
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
-- C disable attack buttons when dead
-- W making timeout in battle between end - reward a litte faster
 - C remembering which level you last went
 
 ### Player
@@ -49,6 +47,8 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~disable attack buttons when dead~~
+- ~~making timeout in battle between end - reward a litte faster~~
 - ~~Initiate boss fight with the painting in the attic~~
 - ~~scoping click methods in a different folder (Level.js)~~
 - ~~Updating graphics of underwater shack (make it fullscreen + more underwater chareteristics)~~
