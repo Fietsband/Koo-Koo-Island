@@ -3,28 +3,23 @@ ClickArea.prototype = {
     this.clickMethod.apply(null, this.args);
   },
 
+  toggle: function(){
+    this.enabled() ? this.enable() : this.disable();
+  },
+
   enabled: function(){
-    var enabled = true;
-    $.each(this.clickElement, function(i, clickElement){
-      if(clickElement.classList.contains("disabled")){
-        enabled = false;
-        return false;
-      }
-    });
-    return enabled;
+    return dom.find(this.identifier + ".disabled", true).length == 0;
   },
 
   enable: function(){
     var self = this;
     this.applyMethodToclickParts(function(i, clickPart){
-      clickPart.classList.remove("disabled");
       clickPart.onclick = self.clickAreaMethod.bind(self);
     });
   },
 
   disable: function(){
     this.applyMethodToclickParts(function(i, clickPart){
-      clickPart.classList.add("disabled");
       clickPart.onclick = null;
     });
   },
