@@ -1,68 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Koo Koo Island</title>
-    <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" src="vendor/json3.js"></script>
-    <script language="javascript" src="src/helper/dollar.js"></script>
-    <script language="javascript" src="src/helper/dom.js"></script>
-    <script language="javascript" src="src/helper/storage.js"></script>
-    <script language="javascript" src="src/animations/Animations.js"></script>
-    <script language="javascript" src="src/animations/Attack.js"></script>
-    <script language="javascript" src="src/animations/FishSpawner.js"></script>
-    <script language="javascript" src="src/interaction/Flash.js"></script>
-    <script language="javascript" src="src/interaction/Popup.js"></script>
-    <script language="javascript" src="src/interaction/Bar.js"></script>
-    <script language="javascript" src="src/interaction/StatBar.js"></script>
-    <script language="javascript" src="src/levels/LonelyIsland.js"></script>
-    <script language="javascript" src="src/levels/UnderwaterShack.js"></script>
-    <script language="javascript" src="src/levels/SquirrelCity.js"></script>
-    <script language="javascript" src="src/levels/SquirrelCitySecondLevelHouse.js"></script>
-    <script language="javascript" src="src/levels/click_methods/LevelClickMethods.js"></script>
-    <script language="javascript" src="src/levels/click_methods/LonelyIsland.js"></script>
-    <script language="javascript" src="src/levels/click_methods/SquirrelCity.js"></script>
-    <script language="javascript" src="src/levels/click_methods/SquirrelCityFirstLevelHouse.js"></script>
-    <script language="javascript" src="src/levels/click_methods/SquirrelCitySecondLevelHouse.js"></script>
-    <script language="javascript" src="src/levels/click_methods/SquirrelCityAtticLevelHouse.js"></script>
-    <script language="javascript" src="src/statics/ExperiencePoints.js"></script>
-    <script language="javascript" src="src/callbacks/ExperienceCallbacks.js"></script>
-    <script language="javascript" src="src/callbacks/StatsCallbacks.js"></script>
-    <script language="javascript" src="src/callbacks/LoadCallbacks.js"></script>
-    <script language="javascript" src="src/Character.js"></script>
-    <script language="javascript" src="src/statics/ClickAreas.js"></script>
-    <script language="javascript" src="src/statics/GameData.development.js"></script>
-    <script language="javascript" src="src/statics/SellPrices.js"></script>
-    <script language="javascript" src="src/statics/Enemies.js"></script>
-    <script language="javascript" src="src/statics/Weapons.js"></script>
-    <script language="javascript" src="src/statics/Armors.js"></script>
-    <script language="javascript" src="src/statics/Items.js"></script>
-    <script language="javascript" src="src/Stats.js"></script>
-    <script language="javascript" src="src/GameMap.js"></script>
-    <script language="javascript" src="src/Graphic.js"></script>
-    <script language="javascript" src="src/Inventory.js"></script>
-    <script language="javascript" src="src/InventoryItem.js"></script>
-    <script language="javascript" src="src/Player.js"></script>
-    <script language="javascript" src="src/Enemy.js"></script>
-    <script language="javascript" src="src/Item.js"></script>
-    <script language="javascript" src="src/Weapon.js"></script>
-    <script language="javascript" src="src/Armor.js"></script>
-    <script language="javascript" src="src/battle/Rewarder.js"></script>
-    <script language="javascript" src="src/battle/events/Events.js"></script>
-    <script language="javascript" src="src/battle/BattleEventEngine.js"></script>
-    <script language="javascript" src="src/battle/BattleControls.js"></script>
-    <script language="javascript" src="src/battle/BattleInfoHeader.js"></script>
-    <script language="javascript" src="src/battle/Battle.js"></script>
-    <script language="javascript" src="src/battle/BattleInitializer.js"></script>
-    <script language="javascript" src="src/ClickArea.js"></script>
-    <script language="javascript" src="src/Level.js"></script>
-    <script language="javascript" src="src/Main.js"></script>
-    <script language="javascript" src="src/Controls.js"></script>
-    <script language="javascript" src="src/Boot.js"></script>
-  </head>
-  <body>
-    <script language="javascript" src="vendor/move.min.js"></script>
-    <!--**BEGIN**-->
     <div id="stats">
       <span id="seashells">
         seashells: <span id="seashell-count">0</span>
@@ -78,7 +13,7 @@
       </span>
     </div>
     <div id="game-levels">
-      <div id="lonely_island">
+      <div id="island">
         <pre>                    _
                    /_'. _
                  _   \ / '-.
@@ -216,7 +151,7 @@
 ||                           /
 ||    ~     ~       '```````,
 ||  ~   ~       ~  /```<span id="squirrel_city" class="map-place">O</span>```/
-||           ~  <span id="lonely_island" class="map-place">X</span><span class="map-bridge">&nbsp;&nbsp;</span>'``````.
+||           ~  <span id="island" class="map-place">X</span><span class="map-bridge">&nbsp;&nbsp;</span>'``````.
 ||                / \._`/
 ||         ._/'\/
 ||  . '\  '
@@ -464,15 +399,6 @@ _________________
         </div>
       </div>
       <!-- End Squirrel house warning -->
-      <!-- Squirrel house closet -->
-      <div class="popup" id="squirrel-closet-closed">
-        <div class="inner">
-          <strong>The closet is closed</strong>
-          <p>Seems that this closet needs a key.</p>
-          <button id="squirrel-warning-close">Exit</button>
-        </div>
-      </div>
-      <!-- End Squirrel house warning -->
       <div class="enemies">
         <pre id="tiny-fish">
 >{ .}
@@ -511,6 +437,3 @@ _________________
 <span class="armor legs">/ \</span>
 </pre>
     </div>
-    <!--**END**-->
-  </body>
-</html>
