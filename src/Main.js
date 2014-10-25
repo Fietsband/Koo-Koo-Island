@@ -13,7 +13,7 @@ Game.prototype = {
       this.toggleAutoSaveInterval();
     }
     else{
-      // display message that only modern browsers can play this game
+      alert("Your browser is not compatible to play this game.");
     }
   },
 
