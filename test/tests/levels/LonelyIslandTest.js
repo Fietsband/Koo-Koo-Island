@@ -37,3 +37,5 @@ QUnit.module("enabling lonely island whirlpool", {
   QUnit.test("should add graphic to the whirlpool", function(assert){
     assert.equal(window.Test.whirlpool.innerHTML, "≋");
   });
+
+QUnit.module();
