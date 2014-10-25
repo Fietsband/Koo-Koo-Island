@@ -9,6 +9,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C disable attack buttons when dead
 - W making timeout in battle between end - reward a litte faster
+- C remembering which level you last went
 
 ### Player
 - M Adding item rewards callback
