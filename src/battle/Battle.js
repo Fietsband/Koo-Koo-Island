@@ -20,8 +20,8 @@ Battle.prototype = {
     window.currentGame.player.prepareForBattle();
     this.graphic.fill.bind(this)();
     this.battlePopup.show();
-    this.controls.enable.bind(this)();
     this.controls.unlock.bind(this)();
+    this.controls.enable.bind(this)();
     this.enemy.startAttacking();
     this.startCallback();
   },
