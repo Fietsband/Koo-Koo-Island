@@ -1,10 +1,3 @@
-QUnit.test("setting current player name", function(assert){
-  p = new Player();
-  p.setName("test");
-
-  assert.equal(p.name, "test", "player name should be test");
-});
-
 QUnit.test("buying an item", function(assert){
   p = new Player();
   GameData.player.oysters = 0;
@@ -19,7 +12,7 @@ QUnit.test("get graphic", function(assert){
   p1 = new Player();
   p1.removeArmorAndWeapons();
 
-  assert.equal(p1.getGraphic(), " <span class=\"armor head\"> o  </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load");
+  assert.equal(p1.getGraphic(), " <span class=\"armor head\">o </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load");
 });
 
 QUnit.test("adding a weapon to inventory", function(assert){
@@ -40,7 +33,7 @@ QUnit.test("setting a weapon to his hand", function(assert){
   p3.setCurrentWeapon("spear");
 
   assert.equal(window.GameData.player.weapon, "spear");
-  assert.equal(p3.getGraphic(), " <span class=\"armor head\"> o  </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
+  assert.equal(p3.getGraphic(), " <span class=\"armor head\">o </span><span class=\"weapon\">^</span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\">|</span>\n<span class=\"armor legs\">/ \\</span>\n", "player graphic should load with spear");
   assert.ok(dom.find("#inventory-stash .weapons select option[value='spear']").selected, "should be selected");
   assert.equal(p3.calculateDamage(), 12, "should increase damage dealt with 20%");
 });
