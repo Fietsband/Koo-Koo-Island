@@ -30,16 +30,12 @@ window.Animations.EvilPortrait = {
       .duration(3000)
       .end(function(){
         if(endOfAnimation()){
-          self.initiateBossFight();
+          window.currentLevel.levelModule.initiateBossFight();
         }
       });
 
     if(endOfAnimation()){
       clearTimeout(self.colorTimeout);
     }
-  },
-
-  initiateBossFight: function(){
-    window.BattleInitializer.start("evil-portrait");
   }
 }

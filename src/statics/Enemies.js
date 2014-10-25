@@ -98,5 +98,37 @@ var Enemies = {
       experience: { amount: 2 },
       stats:      { seashell: 5, wood: 10 }
     }
+  },
+
+  'evil-portrait' : {
+    name: "Evil Portrait",
+    health: 100,
+    attack_interval: 7500,
+    attacks: {
+      paint: {
+        name: "paint",
+        damage: 5,
+        probability: 5
+      },
+
+      water: {
+        name: "water",
+        damage: 10,
+        probability: 1
+      },
+
+      smear: {
+        name: "smear",
+        damage: 1,
+        probability: 1
+      }
+    },
+
+    player_position: { x: 680, y: -105 },
+    position:        { x: 0,   y: 40 },
+    rewards: {
+      experience: { amount: 50 },
+      stats:      { seashell: 150, oyster: 20 }
+    }
   }
 }
