@@ -22,7 +22,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Island
 - C Cleaning up levels/LonelyIsland.js
 - C Moving showBridge method from the GameMap to LonelyIsland
-- C Updating graphics of underwater shack (make it fullscreen + more underwater chareteristics)
 
 #### Squirrel House
 - M Adding progress for squirrel house
@@ -51,6 +50,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Updating graphics of underwater shack (make it fullscreen + more underwater chareteristics)~~
 - ~~updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.~~
 - ~~Level module's scoping upon currentGame.levels.\<x\>~~
 - ~~Grabbing spear of wall progress item~~
