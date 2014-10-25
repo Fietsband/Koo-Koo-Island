@@ -24,7 +24,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Moving showBridge method from the GameMap to LonelyIsland
 
 ### Underwater Shack
-- W Background-color from fish should be white
 
 #### Squirrel House
 - M Adding progress for squirrel house
@@ -52,6 +51,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Background-color from fish should be white~~
 - ~~Able to use items in battle~~
 - ~~disable attack buttons when dead~~
 - ~~making timeout in battle between end - reward a litte faster~~
