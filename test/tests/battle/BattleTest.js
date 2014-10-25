@@ -42,7 +42,7 @@ QUnit.test("should fill the graphics with the user", function(assert){
 
   var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
 
-  assert.equal(playerGraphic, " <span class=\"armor head\"> o  </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "current graphic of player should be there");
+  assert.equal(playerGraphic, " <span class=\"armor head\">o </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "current graphic of player should be there");
   battle.battlePopup.hide();
 });
 
@@ -89,3 +89,26 @@ QUnit.test("should empty player graphic", function(assert){
   assert.equal(playerGraphic, "", "current graphic of player should be there");
   battle.battlePopup.hide();
 });
+
+QUnit.module("items in battle", {
+  setup: function(){
+    var enemy  = new Enemy("tiny-fish");
+    var potion = new InventoryItem("potion", "items");
+    window.Test.battle = new Battle(enemy);
+    window.currentGame.player.inventory.addItem("items", potion);
+    window.Test.battle.start();
+    window.Test.battle.stop();
+  },
+
+  teardown: function(){
+    window.Test.battle.battlePopup.hide();
+  }
+});
+
+  QUnit.test("should fill the items menu in the battle", function(assert){
+    var itemList = dom.find("ul.items.list li", true);
+
+    assert.equal(itemList.length, 1);
+  });
+
+QUnit.module();

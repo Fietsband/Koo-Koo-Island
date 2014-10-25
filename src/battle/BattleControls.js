@@ -6,27 +6,18 @@ BattleControls.prototype = {
   },
 
   addMenuButtonOnClickListeners: function(){
-    var self = this;
-    this.attackButton.onclick = function(){
-      window.currentGame.player.attack(self.enemy);
-    }
+    this.attackButton.onclick = window.currentGame.player.attack.bind(this, this.enemy);
 
     if(!this.skillButton.classList.contains("hide")){
-      this.skillButton.onclick = function(){
-        // open skills menu
-      }
+      this.skillButton.onclick = this.openMenu.bind(this, "skills");
     }
 
     if(!this.magicButton.classList.contains("hide")){
-      this.magicButton.onclick = function(){
-        // open magic menu
-      }
+      this.magicButton.onclick = this.openMenu.bind(this, "magic");
     }
 
     if(!this.itemsButton.classList.contains("disabled")){
-      this.itemsButton.onclick = function(){
-        // open items menu
-      }
+      this.itemsButton.onclick = this.openMenu.bind(this, "items");
     }
   },
 
@@ -36,32 +27,54 @@ BattleControls.prototype = {
       var e = e || window.event;
       switch(e.keyCode){
         case 65:
+          self.closeAllMenus();
           window.currentGame.player.attack(self.enemy);
         break;
 
         case 70:
+          self.closeAllMenus();
           window.currentBattle.battlePopup.hide();
         break;
 
         case 73:
-          if(!this.itemsButton.classList.contains("disabled")){
-            // I code
+          if(!self.itemsButton.classList.contains("disabled")){
+            self.openMenu("items");
           }
         break;
 
         case 77:
-          if(!this.magicButton.classList.contains("hide")){
-            // M code
+          if(!self.magicButton.classList.contains("hide")){
+            self.openMenu("magic");
           }
         break;
 
         case 83:
-          if(!this.skillButton.classList.contains("hide")){
-            // S code
+          if(!self.skillButton.classList.contains("hide")){
+            self.openMenu("skills");
           }
         break;
       };
     }
+  },
+
+  openMenu: function(scope){
+    var menu = dom.find(".battle-sequence-interface ." + scope + ".list");
+    if(menu.style.display == "block"){
+      menu.style.display = "none";
+    }
+    else{
+      this.closeAllMenus();
+      menu.style.display = "block";
+    }
+  },
+
+  closeMenu: function(i, scope){
+    dom.find(".battle-sequence-interface ." + scope + ".list").style.display = "none";
+  },
+
+  closeAllMenus: function(){
+    var scopes = ["items", "skills", "magic"];
+    $.each(scopes, this.closeMenu.bind(this));
   },
 
   removePlayerAttackListeners: function(){
@@ -71,9 +84,9 @@ BattleControls.prototype = {
 
   removeMenuButtonOnClickListeners: function(){
     this.attackButton.onclick = null;
-    this.skillButton.onclick = null;
-    this.magicButton.onclick = null;
-    this.itemsButton.onclick = null;
+    this.skillButton.onclick  = null;
+    this.magicButton.onclick  = null;
+    this.itemsButton.onclick  = null;
     this.battleInterface.classList.add("disabled");
   },
 

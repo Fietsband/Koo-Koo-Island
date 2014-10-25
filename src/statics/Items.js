@@ -1,9 +1,16 @@
 window.Items = {
+  remove: function(scope){
+    dom.find("#inventory-stash .items #" + scope).remove();
+    dom.find(".battle-sequence-interface .items #" + scope).remove();
+    var itemIndex = GameData.player.inventory.items.indexOf(scope);
+    GameData.player.inventory.items.splice(itemIndex, 1);
+  },
+
   potion: {
     title: "Potion",
     description: "Restores 25 hp",
     use: function(){
-      document.getElementById("potion").remove();
+      window.Items.remove("potion");
       window.currentGame.player.increaseHealth(25);
     }
   },
@@ -12,7 +19,7 @@ window.Items = {
     title: "Hi-Potion",
     description: "Restores 100 hp",
     use: function(){
-      document.getElementById("hiPotion").remove()
+      window.Items.remove("hiPotion");
       window.currentGame.player.increaseHealth(100);
     }
   },
@@ -21,7 +28,7 @@ window.Items = {
     title: "Ether",
     description: "Restores 15 mp",
     use: function(){
-      document.getElementById("ether").remove()
+      window.Items.remove("ether");
       window.currentGame.player.increaseMagic(15);
     }
   },
@@ -30,7 +37,7 @@ window.Items = {
     title: "Hi-Ether",
     description: "Restores 50 mp",
     use: function(){
-      document.getElementById("hiEther").remove()
+      window.Items.remove("hiEther");
       window.currentGame.player.increaseMagic(50);
     }
   },
@@ -39,7 +46,7 @@ window.Items = {
     title: "Elixer",
     description: "Restores full hp and mp",
     use: function(){
-      document.getElementById("elixer").remove()
+      window.Items.remove("elixer");
       window.currentGame.player.increaseHealth(GameData.player.hp[1]);
       window.currentGame.player.increaseMagic(GameData.player.mp[1]);
     }
