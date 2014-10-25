@@ -1,7 +1,9 @@
 window.Items = {
   remove: function(scope){
     dom.find("#inventory-stash .items #" + scope).remove();
-    dom.find(".battle-sequence-interface .items #" + scope).remove();
+    if(window.currentBattle){
+      dom.find(".battle-sequence-interface .items #" + scope).remove();
+    }
     var itemIndex = GameData.player.inventory.items.indexOf(scope);
     GameData.player.inventory.items.splice(itemIndex, 1);
   },

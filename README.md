@@ -23,6 +23,9 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Cleaning up levels/LonelyIsland.js
 - C Moving showBridge method from the GameMap to LonelyIsland
 
+### Underwater Shack
+- W Background-color from fish should be white
+
 #### Squirrel House
 - M Adding progress for squirrel house
 - M Figuring out what is in the closet
