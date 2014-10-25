@@ -109,6 +109,7 @@ span#inventory{
   top: 32px;
   left: 0;
   overflow: hidden;
+  z-index: 2;
 }
 
 .popup div.inner{
@@ -130,7 +131,7 @@ span#inventory{
 }
 
 .popup#map-popup{
-  z-index: 2;
+  z-index: 3;
   top: 50px;
 }
 
