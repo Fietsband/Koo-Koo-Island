@@ -9,6 +9,9 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C remembering which level you last went
 
+### Enemy
+- W Introduce the enemy in the battle screen (Who are you fighting?)
+
 ### Player
 - M Adding item rewards callback
 - M Adding skill attacks
