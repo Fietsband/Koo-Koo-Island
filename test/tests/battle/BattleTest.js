@@ -53,7 +53,7 @@ QUnit.test("should fill the graphics with the enemy", function(assert){
 
   var enemyGraphic = dom.find("#battle-sequence-popup .field .enemy #graphic").innerHTML;
 
-  assert.equal(enemyGraphic, "&gt;{ .}\n        ", "current enemy should spawn");
+  assert.equal(enemyGraphic, "&gt;{ .}", "current enemy should spawn");
   battle.battlePopup.hide();
 });
 
@@ -106,7 +106,7 @@ QUnit.module("items in battle", {
 });
 
   QUnit.test("should fill the items menu in the battle", function(assert){
-    var itemList = dom.find("ul.items.list li", true);
+    var itemList = dom.find(".items ul.list li", true);
 
     assert.equal(itemList.length, 1);
   });
