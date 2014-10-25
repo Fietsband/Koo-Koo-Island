@@ -130,6 +130,7 @@ Player.prototype = {
   prepareForBattle: function(){
     this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
     $.each(["skills", "magic", "items"], function(i, scope){
+      dom.find("#battle-sequence-popup ." + scope + " ul.list").innerHTML = "";
       $.each(GameData.player.inventory[scope], function(i, item){
         new BattleItem(item, scope).add();
       });
