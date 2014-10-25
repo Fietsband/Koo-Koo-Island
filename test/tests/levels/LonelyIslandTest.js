@@ -15,11 +15,11 @@ QUnit.module("disable seashell", {
   });
 
   QUnit.test("should empty the graphic of the seashell", function(assert){
-    assert.equal(window.Test.seashell.innerHTML, "&nbsp;", "there should be no graphic attached to the seashell");
+    assert.equal(window.Test.seashell.innerHTML, "&nbsp;");
   });
 
   QUnit.test("should set the hide seashell progress to 1", function(assert){
-    assert.equal(GameData.progress.hide_seashell, 1, 'should hide seashell to 1');
+    assert.equal(GameData.progress.hide_seashell, 1);
   });
 
 QUnit.module("enabling lonely island whirlpool", {
