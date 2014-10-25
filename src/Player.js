@@ -1,8 +1,4 @@
 Player.prototype = {
-  setName: function(name){
-    this.name = name;
-  },
-
   buy: function(item){
     var sellPrice = sellPrices[item];
     if(GameData.player[sellPrice.type] >= sellPrice.value){
@@ -129,6 +125,15 @@ Player.prototype = {
     window.GameData.player.armor = null;
     window.GameData.player.weapon = null;
     this.inventory.empty();
+  },
+
+  prepareForBattle: function(){
+    this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
+    $.each(["skills", "magic", "items"], function(i, scope){
+      $.each(GameData.player.inventory[scope], function(i, item){
+        new BattleItem(item, scope).add();
+      });
+    });
   }
 }
 
