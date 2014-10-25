@@ -338,4 +338,6 @@ span#battle-big-shark,
   display: block;
   position: fixed;
   left: -100px;
+  z-index: 1;
+  background-color: white;
 }
