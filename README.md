@@ -27,7 +27,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Adding progress for squirrel house
 - M Figuring out what is in the closet
 - M Figuring out what will be on the small portrait on the wall
-- M Initiate boss fight with the painting in the attic
 
 #### Cliffhill town Part I
 
@@ -50,6 +49,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Initiate boss fight with the painting in the attic~~
 - ~~scoping click methods in a different folder (Level.js)~~
 - ~~Updating graphics of underwater shack (make it fullscreen + more underwater chareteristics)~~
 - ~~updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.~~
