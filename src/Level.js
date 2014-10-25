@@ -36,14 +36,12 @@ Level.prototype = {
   },
 
   setClickMethodsToLevel: function(){
-    var self = this;
-    $.each(this.clickAreas, function(i, area){
-      var clickMethod = $.methodize(area);
-      var clickArea = new ClickArea(area, self.clickMethods[clickMethod]);
-      if(clickArea.enabled()){
-        clickArea.enable();
-      }
-    });
+    $.each(this.clickAreas, this.setClickMethodToArea.bind(this));
+  },
+
+  setClickMethodToArea: function(i, area){
+    var clickMethod = $.methodize(area);
+    new ClickArea(area, this.clickMethods[clickMethod]).toggle();
   },
 
   setMapSpot: function(){
