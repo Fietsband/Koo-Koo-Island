@@ -132,7 +132,7 @@ BattleControls.prototype = {
       this.magicButton.classList.remove("hide");
     }
 
-    if(GameData.player.inventory.items.length <= 0){
+    if(GameData.player.inventory.items.length <= 1){
       this.itemsButton.classList.add("disabled");
     }
     else{
