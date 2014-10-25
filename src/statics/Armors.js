@@ -21,7 +21,7 @@ Armors = {
     title: "",
     description: "",
     damage_reduction: 0,
-    graphic: [" o  ", "/|\\", "/ \\"],
+    graphic: ["o ", "/|\\", "/ \\"],
     large_graphic: [
       '               ',
       '               ',

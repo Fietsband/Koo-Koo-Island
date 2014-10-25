@@ -9,5 +9,11 @@ window.Events = {
     invoke: function(){
       window.currentBattle.battleControls.disable();
     }
+  },
+
+  death: {
+    invoke: function(){
+      window.currentBattle.pause();
+    }
   }
 };

@@ -10,11 +10,18 @@ Battle.prototype = {
     delete window.currentBattle;
   },
 
+  pause: function(){
+    this.controls.lock.bind(this)();
+    this.controls.disable.bind(this)();
+    this.enemy.quitAttacking();
+  },
+
   initialize: function(){
     window.currentGame.player.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
     this.graphic.fill.bind(this)();
     this.battlePopup.show();
     this.controls.enable.bind(this)();
+    this.controls.unlock.bind(this)();
     this.enemy.startAttacking();
     this.startCallback();
   },
@@ -33,6 +40,14 @@ Battle.prototype = {
   },
 
   controls: {
+    lock: function(){
+      this.battleControls.lock();
+    },
+
+    unlock: function(){
+      this.battleControls.unlock();
+    },
+
     enable: function(){
       window.currentGame.player.attackBar.resetBar(
         this.battleControls.enable.bind(this.battleControls)

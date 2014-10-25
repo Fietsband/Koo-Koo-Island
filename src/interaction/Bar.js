@@ -1,4 +1,12 @@
 Bar.prototype = {
+  show: function(){
+    this.domBar.style.display = "block";
+  },
+
+  hide: function(){
+    this.domBar.style.display = "none";
+  },
+
   fillBar: function(){
     move(this.bar)
         .set('width', "100%")
@@ -23,7 +31,8 @@ Bar.prototype = {
 }
 
 function Bar(bar, interval){
-  this.bar = bar;
+  this.bar      = bar;
+  this.domBar   = dom.find(bar).parentNode;
   this.interval = interval;
   this.fillBarCallback;
 }

@@ -34,12 +34,14 @@ Player.prototype = {
     if(GameData.player.hp[0] <= 0){
       GameData.player.hp[0] = 0;
       window.currentBattle.eventEngine.add({
+        type:    "death",
         message: "You lost",
         timeOut: 2000
       });
+
       window.currentBattle.eventEngine.add({
         type: "end",
-        timeOut: 4000
+        timeOut: 2000
       });
     }
     this.healthBar.update(GameData.player.hp[0]);

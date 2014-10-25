@@ -77,12 +77,26 @@ BattleControls.prototype = {
     this.battleInterface.classList.add("disabled");
   },
 
+  lock: function(){
+    this.locked = true;
+    window.currentGame.player.attackBar.hide();
+    this.enemy.attackHoldBar.hide();
+  },
+
+  unlock: function(){
+    this.locked = false;
+    window.currentGame.player.attackBar.show();
+    this.enemy.attackHoldBar.show();
+  },
+
   removeMenuOnKeyUpListeners: function(){
     document.onkeydown = null;
   },
 
   enable: function(){
-    this.addPlayerAttackListeners();
+    if(!this.locked){
+      this.addPlayerAttackListeners();
+    }
   },
 
   disable: function(){
@@ -121,5 +135,6 @@ function BattleControls(enemy){
   this.magicButton     = this.battleInterface.querySelector("#magic");
   this.itemsButton     = this.battleInterface.querySelector("#items");
   this.battleTimeout   = null;
+  this.locked          = false;
   this.showButtons();
 }
