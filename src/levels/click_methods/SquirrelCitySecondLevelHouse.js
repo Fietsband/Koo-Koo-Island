@@ -9,5 +9,9 @@ window.LevelClickMethods.SquirrelCitySecondLevelHouse = {
 
   squirrelCitySpearWall: function(){
     window.SquirrelCity.grabSpear();
+  },
+
+  squirrelHouseCloset: function(){
+    window.SquirrelCitySecondLevelHouse.openCloset();
   }
 };

@@ -23,7 +23,8 @@ window.ClickAreas = {
   squirrel_city_second_level_house: [
     "#squirrel-city-goto-second-level",
     "#squirrel-city-goto-ground-level",
-    ".squirrel-city-spear-wall"
+    ".squirrel-city-spear-wall",
+    ".squirrel-house-closet"
   ],
 
   squirrel_city_attic_level_house:  [
