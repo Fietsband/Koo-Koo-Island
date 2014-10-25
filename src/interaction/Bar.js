@@ -1,10 +1,10 @@
 Bar.prototype = {
   show: function(){
-    this.domBar.style.visibility = "visible";
+    this.domBar.style.opacity = "1";
   },
 
   hide: function(){
-    this.domBar.style.visibility = "hidden";
+    this.domBar.style.opacity = "0";
   },
 
   fillBar: function(){
