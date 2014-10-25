@@ -3,7 +3,10 @@ QUnit.module("disable seashell", {
     window.LonelyIsland.disableSeashell();
     window.Test.seashell = dom.find("#game-levels #lonely_island #island-seashell");
   },
-  teardown: function(){}
+
+  teardown: function(){
+    window.Test.seashell.classList.remove("disabled");
+  }
 });
 
   QUnit.test("should add a disabled class to the island seashell", function(assert){
