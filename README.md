@@ -6,7 +6,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 ### Progress:
 
 #### General
-- C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C disable attack buttons when dead
 - W making timeout in battle between end - reward a litte faster
@@ -52,6 +51,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.~~
 - ~~Level module's scoping upon currentGame.levels.\<x\>~~
 - ~~Grabbing spear of wall progress item~~
 - ~~Initiate in fights with different enemies than tiny fish~~

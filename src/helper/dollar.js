@@ -1,4 +1,10 @@
 $ = {
+  isBrowserCompatible: function(){
+    return GameStorage.canStore() &&
+           Array.prototype.map && Array.prototype.filter &&
+           document.querySelector && document.querySelectorAll;
+  },
+
   domReady: function(fn){
     if (document.addEventListener) {
       document.addEventListener('DOMContentLoaded', fn);

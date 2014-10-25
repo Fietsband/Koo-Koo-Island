@@ -1,6 +1,6 @@
 Game.prototype = {
   initialize: function(){
-    if(GameStorage.canStore()){
+    if($.isBrowserCompatible()){
       GameData.settings.autoSaveEnabled = true;
 
       this.gid        = GameStorage.get("koo-koo-island-gid") || $.guid();
