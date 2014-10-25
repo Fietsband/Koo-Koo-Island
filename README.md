@@ -13,7 +13,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Adding item rewards callback
 - M Adding skill attacks
 - M Adding magic attacks
-- M Able to use items in battle
 - C Adding animations for magic attacks
 - C Adding animations for enemy
 
@@ -47,6 +46,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Able to use items in battle~~
 - ~~disable attack buttons when dead~~
 - ~~making timeout in battle between end - reward a litte faster~~
 - ~~Initiate boss fight with the painting in the attic~~
