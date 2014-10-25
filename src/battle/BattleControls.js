@@ -58,7 +58,7 @@ BattleControls.prototype = {
   },
 
   openMenu: function(scope){
-    var menu = dom.find(".battle-sequence-interface ." + scope + ".list");
+    var menu = dom.find(".battle-sequence-interface div." + scope);
     if(menu.style.display == "block"){
       menu.style.display = "none";
     }
@@ -69,7 +69,7 @@ BattleControls.prototype = {
   },
 
   closeMenu: function(i, scope){
-    dom.find(".battle-sequence-interface ." + scope + ".list").style.display = "none";
+    dom.find(".battle-sequence-interface div." + scope).style.display = "none";
   },
 
   closeAllMenus: function(){
@@ -108,6 +108,7 @@ BattleControls.prototype = {
 
   enable: function(){
     if(!this.locked){
+      this.showButtons();
       this.addPlayerAttackListeners();
     }
   },

@@ -188,21 +188,27 @@ span#inventory{
   text-decoration: underline;
 }
 
-.popup#battle-sequence-popup ul.list{
+.popup#battle-sequence-popup .battle-sequence-interface div.items,
+.popup#battle-sequence-popup .battle-sequence-interface div.magic,
+.popup#battle-sequence-popup .battle-sequence-interface div.skills{
   display: none;
   position: absolute;
   top: 0;
   left: 62px;
-  padding: 0;
   border: 1px solid #000;
+  padding: 0 7px;
+}
+
+.popup#battle-sequence-popup .battle-sequence-interface ul.list{
+  padding: 0;
 }
 
 .popup#battle-sequence-popup ul.list li{
-  padding: 2px 7px;
+  padding: 2px 0px;
   cursor: pointer;
 }
 
-.popup#battle-sequence-popup ul.list li.header{
+.popup#battle-sequence-popup .header{
   font-weight: bold;
 }
 

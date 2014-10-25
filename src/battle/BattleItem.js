@@ -4,7 +4,7 @@ BattleItem.prototype = {
   add: function(){
     if(this.isExcluded()) return;
     this.item = this["create" + $.titleize(this.itemScope)]();
-    dom.find("#battle-sequence-popup ul." + this.itemScope + ".list")
+    dom.find("#battle-sequence-popup ." + this.itemScope + " ul.list")
       .appendChild(this.item);
   },
 
