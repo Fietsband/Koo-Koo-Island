@@ -1,14 +1,13 @@
 window.SquirrelCitySecondLevelHouse = {
   initialize: function(){
-
+    this.openClosetPopup = new Popup("squirrel-city-house-closet");
   },
 
   openCloset: function(){
-    var openClosetPopup = new Popup("squirrel-city-house-closet");
-    openClosetPopup.show();
+    this.openClosetPopup.show();
   },
 
   destroy: function(){
-
+    delete this.openClosetPopup;
   }
 };
