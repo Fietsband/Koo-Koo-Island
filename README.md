@@ -6,7 +6,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 ### Progress:
 
 #### General
-- C Level module's scoping upon currentGame.levels.\<x\>
 - C updating dollar.js with helper to test whether the current user's browser complies with modern Javascript standards and features that are used for this game.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C disable attack buttons when dead
@@ -53,6 +52,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Level module's scoping upon currentGame.levels.\<x\>~~
 - ~~Grabbing spear of wall progress item~~
 - ~~Initiate in fights with different enemies than tiny fish~~
 - ~~Making it possible to build the bridge for 100 wood~~
