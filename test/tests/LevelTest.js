@@ -34,5 +34,5 @@ QUnit.test("setting onclick methods", function(assert){
 QUnit.test("setting onclick methods", function(assert){
   window.currentGame.levels.island.addToGame();
 
-  assert.ok(dom.findId("island-seashell").onclick !== null, "should have more than 1 click area");
+  assert.ok(dom.findId("island-seashell").onclick !== null, "should have added a method to the island seashell click area");
 });
