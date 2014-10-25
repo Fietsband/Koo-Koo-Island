@@ -18,9 +18,9 @@ Popup.prototype = {
 };
 
 function Popup(identifier, openCallback, closeCallback){
-  this.popup = dom.findId(identifier);
-  this.closeButton = dom.findId(identifier + "-close");
-  this.openCallback = openCallback || function(){};
+  this.popup         = dom.findId(identifier);
+  this.closeButton   = dom.findId(identifier + "-close");
+  this.openCallback  = openCallback || function(){};
   this.closeCallback = closeCallback || function(){};
   this.addCloseListener();
 }
