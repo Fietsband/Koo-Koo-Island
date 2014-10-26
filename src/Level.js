@@ -45,7 +45,7 @@ Level.prototype = {
   },
 
   setMapSpot: function(){
-    return dom.find("#map-popup #" + this.mapSpot);
+    return window.currentGame.gameMap.findMapSpot(this.mapSpot);
   },
 
   setLevelModule: function(){
