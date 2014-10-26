@@ -9,6 +9,7 @@ QUnit.module("reward player with a weapon", {
 
   teardown: function(){
     window.Test.battle.battlePopup.hide();
+    window.Test.resetStats();
   }
 });
 
@@ -35,6 +36,7 @@ QUnit.module("reward player with a part of the map", {
     window.Test.battle.battlePopup.hide();
     window.currentGame.gameMap.popUp.hide();
     GameData.player.inventory.items = [];
+    window.Test.resetStats();
   }
 });
 
