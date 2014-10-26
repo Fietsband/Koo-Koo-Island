@@ -3,14 +3,14 @@ window.Weapons = {
     title: "Shark Laser",
     description: "Heavy shark laser",
     damage: 5.0,
-    graphic: ['Y', 'H'],
+    graphic: ['H', 'Y'],
     large_graphic: [
       '               ',
       '       H       ',
       '       H       ',
       '       H       ',
       '       Y       ',
-      '     //|\\     ',
+      '     //|\\\\     ',
       '       ^       ',
       '       ^       ',
       '       |       '
