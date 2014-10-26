@@ -12,6 +12,7 @@ var GameData = {
     woods:            0,
     armor:            'none',
     weapon:           'none',
+    map:              0,
     inventory:        {
       weapons:          [],
       armors:           [],

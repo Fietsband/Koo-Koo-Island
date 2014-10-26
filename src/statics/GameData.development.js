@@ -12,6 +12,7 @@ var GameData = {
     woods:            100,
     armor:            "clown",
     weapon:           "spear",
+    map:              1,
     inventory:        {
       weapons:          ["spear"],
       armors:           ["clown"],
