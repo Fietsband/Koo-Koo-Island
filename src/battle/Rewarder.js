@@ -40,6 +40,11 @@ Rewarder.prototype = {
         var item = new Weapon(itemIdentifier);
         window.currentGame.player.inventory.addItem("weapons", item);
       break;
+
+      case "item":
+        var item = new InventoryItem(itemIdentifier, "items");
+        window.currentGame.player.inventory.addItem("items", item);
+      break;
     };
   },
 
