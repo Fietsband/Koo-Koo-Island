@@ -36,7 +36,8 @@ LoadCallbacks = {
   },
 
   squirrel_house_boss_fight: function(){
-
+    window.currentGame.gameMap.enableMapSpot("cliffhill_town");
+    window.currentGame.gameMap.enableMapSpot("forest_of_protectors");
   },
 
   squirrel_house_chimney: function(){
