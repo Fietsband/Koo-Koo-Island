@@ -68,16 +68,6 @@ Inventory.prototype = {
     GameData.player.inventory[scope].push(item.identifier);
     item.add();
     this.checkInventory();
-  },
-
-  empty: function(){
-    GameData.player.inventory.items   = [];
-    GameData.player.inventory.weapons = [];
-    GameData.player.inventory.armor   = [];
-    GameData.player.inventory.magic   = [];
-    GameData.player.inventory.skills  = [];
-    this.weaponSelectBox.innerHTML    = "";
-    this.armorSelectBox.innerHTML     = "";
   }
 }
 

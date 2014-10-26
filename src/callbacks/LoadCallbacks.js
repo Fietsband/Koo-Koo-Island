@@ -50,7 +50,7 @@ LoadCallbacks = {
     statCount.innerHTML = GameData.player[type + "s"];
   },
 
-  setup_inventory: function(){
+  setupInventory: function(){
     window.currentGame.player.inventory.checkInventory();
     for(var inventoryScope in window.GameData.player.inventory){
       $.each(window.GameData.player.inventory[inventoryScope], function(i, inventoryItem){
@@ -63,7 +63,7 @@ LoadCallbacks = {
     }
   },
 
-  setup_player: function(){
+  setupPlayer: function(){
     window.currentGame.player.loadCurrentArmor();
     window.currentGame.player.loadCurrentWeapon();
   },

@@ -28,13 +28,14 @@ QUnit.test("0.3 stats should be initialized", function(assert){
 
 QUnit.module("loading current items", {
   setup: function(){
-    GameData.player.inventory.items = [];
+    window.Test.resetStats();
+    GameData.progress.show_bottle = 1;
     GameData.player.inventory.items.push("map");
     resetGame();
   },
 
   teardown: function(){
-    window.currentGame.player.removeArmorAndWeapons();
+    window.Test.resetStats();
   }
 });
 
@@ -57,7 +58,6 @@ QUnit.module("loading current weapon and armor", {
   },
 
   teardown: function(){
-    window.currentGame.player.removeArmorAndWeapons();
     resetGame();
   }
 });

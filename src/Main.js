@@ -84,7 +84,7 @@ Game.prototype = {
     this.trackCurrentProgress();
     this.setupStats();
     this.setupCurrentInventory();
-    this.callbacks.loadCallbacks.setup_player();
+    this.callbacks.loadCallbacks.setupPlayer();
   },
 
   trackCurrentProgress: function(){
@@ -98,7 +98,7 @@ Game.prototype = {
 
   setupCurrentInventory: function(){
     if(this.player.inventory.hasSomethingInInventory()){
-      this.callbacks.loadCallbacks.setup_inventory();
+      this.callbacks.loadCallbacks.setupInventory();
     }
   },
 

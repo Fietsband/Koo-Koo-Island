@@ -119,14 +119,6 @@ Player.prototype = {
     }
   },
 
-  removeArmorAndWeapons: function(){
-    this.updateArmorGraphics("none");
-    this.updateWeaponGraphics("none");
-    window.GameData.player.armor = null;
-    window.GameData.player.weapon = null;
-    this.inventory.empty();
-  },
-
   prepareForBattle: function(){
     this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
     $.each(["skills", "magic", "items"], function(i, scope){

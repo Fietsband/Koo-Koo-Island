@@ -36,7 +36,6 @@ QUnit.module("battle tests", {
   });
 
   QUnit.test("should fill the graphics with the user", function(assert){
-    window.currentGame.player.removeArmorAndWeapons();
     window.Test.battle.start();
 
     var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
@@ -69,7 +68,6 @@ QUnit.module("battle tests", {
   });
 
   QUnit.test("should empty player graphic", function(assert){
-    window.currentGame.player.removeArmorAndWeapons();
     window.Test.battle.start();
     window.Test.battle.stop();
 
