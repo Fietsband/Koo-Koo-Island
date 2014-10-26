@@ -19,13 +19,13 @@ Game.prototype = {
 
   setLevels: function(){
     this.levels = {};
-    this.levels.island                     = new Level("lonely_island");
+    this.levels.lonely_island              = new Level("lonely_island");
     this.levels.underwater_shack           = new Level("underwater_shack", "lonely_island");
     this.levels.squirrel_city              = new Level("squirrel_city");
     this.levels.squirrel_city_first_level  = new Level("squirrel_city_first_level_house", "squirrel_city");
     this.levels.squirrel_city_second_level = new Level("squirrel_city_second_level_house", "squirrel_city");
     this.levels.squirrel_city_attic_level  = new Level("squirrel_city_attic_level_house", "squirrel_city");
-    this.levels.island.addToGame();
+    this.levels.lonely_island.addToGame();
   },
 
   setCallbacks: function(){
