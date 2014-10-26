@@ -112,7 +112,7 @@ window.LonelyIsland = {
     var islandSeashell = dom.find("#game-levels #lonely_island #island-seashell");
     islandSeashell.classList.add("disabled");
     islandSeashell.innerHTML = "&nbsp;";
-    window.currentGame.levels.island.setClickMethodsToLevel();
+    window.currentGame.levels.lonely_island.setClickMethodsToLevel();
     window.LonelyIsland.enableWhirlpool();
   },
 
