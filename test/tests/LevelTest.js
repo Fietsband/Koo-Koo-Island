@@ -1,11 +1,11 @@
 QUnit.module("setting current level", {
   setup: function(){
-    window.Test.oldLevel = window.currentGame.levels.island;
+    window.Test.oldLevel = window.currentGame.levels.lonely_island;
     window.currentGame.levels.squirrel_city.addToGame();
   },
 
   teardown: function(){
-    window.currentGame.levels.island.addToGame();
+    window.currentGame.levels.lonely_island.addToGame();
   }
 });
 
@@ -23,12 +23,12 @@ QUnit.module("setting current level", {
 
 QUnit.module("setting current sub level", {
   setup: function(){
-    window.Test.oldLevel = window.currentGame.levels.island;
+    window.Test.oldLevel = window.currentGame.levels.lonely_island;
     window.currentGame.levels.squirrel_city_first_level.addToGame();
   },
 
   teardown: function(){
-    window.currentGame.levels.island.addToGame();
+    window.currentGame.levels.lonely_island.addToGame();
   }
 });
 
@@ -41,7 +41,7 @@ QUnit.module("setting current sub level", {
   });
 
   QUnit.test("Should set island as O", function(assert){
-    assert.equal(window.currentGame.levels.island.pointOnMap.innerHTML, "O");
+    assert.equal(window.currentGame.levels.lonely_island.pointOnMap.innerHTML, "O");
   });
 
 QUnit.module();
@@ -53,13 +53,13 @@ QUnit.module();
   });
 
   QUnit.test("setting onclick methods", function(assert){
-    window.currentGame.levels.island.addToGame();
+    window.currentGame.levels.lonely_island.addToGame();
 
     assert.ok(window.currentLevel.clickAreas.length > 0);
   });
 
   QUnit.test("setting onclick methods", function(assert){
-    window.currentGame.levels.island.addToGame();
+    window.currentGame.levels.lonely_island.addToGame();
 
     assert.ok(dom.findId("island-seashell").onclick !== null);
   });

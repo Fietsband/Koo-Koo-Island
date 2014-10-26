@@ -6,7 +6,7 @@ window.UnderwaterShack = {
   initialize: function(){
     var whirlpoolArea = dom.find("#island-whirlpool-2");
     whirlpoolArea.onclick = function(){
-      window.currentGame.levels.island.addToGame.bind(window.currentGame.levels.island)();
+      window.currentGame.levels.lonely_island.addToGame.bind(window.currentGame.levels.lonely_island)();
     }
     this.spawnFish();
   },

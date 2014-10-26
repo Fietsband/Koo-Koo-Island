@@ -4,7 +4,7 @@ QUnit.module("initializing squirrel city second level house", {
   },
 
   teardown: function(){
-    window.currentGame.levels.island.addToGame();
+    window.currentGame.levels.lonely_island.addToGame();
   }
 });
 

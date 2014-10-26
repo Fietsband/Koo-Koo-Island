@@ -14,7 +14,7 @@ QUnit.test("0.1 game player initialization", function(assert){
 
 QUnit.test("0.2 game levels initialization", function(assert){
   assert.ok(window.currentGame.levels, "Passed");
-  assert.ok(window.currentGame.levels.island, "Passed");
+  assert.ok(window.currentGame.levels.lonely_island, "Passed");
   assert.ok(window.currentGame.levels.underwater_shack, "Passed");
   assert.ok(window.currentGame.levels.squirrel_city, "Passed");
   assert.ok(window.currentGame.levels.squirrel_city_first_level, "Passed");

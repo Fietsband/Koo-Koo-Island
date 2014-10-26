@@ -4,7 +4,7 @@ QUnit.module("initializing the attic level", {
   },
 
   teardown: function(){
-    window.currentGame.levels.island.addToGame();
+    window.currentGame.levels.lonely_island.addToGame();
   }
 });
 
