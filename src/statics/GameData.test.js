@@ -30,6 +30,11 @@ var GameData = {
     show_build_bridge_button: 1,
     enable_build_bridge_button: 1,
     hide_seashell: 0,
-    beaten_shark: 0
+    beaten_shark: 0,
+    squirrel_house_spear:          1,
+    squirrel_house_small_painting: 0,
+    squirrel_house_closet:         0,
+    squirrel_house_boss_fight:     0,
+    squirrel_house_chimney:        0
   }
 }
