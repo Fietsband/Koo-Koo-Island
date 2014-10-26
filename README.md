@@ -13,11 +13,10 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - W Introduce the enemy in the battle screen (Who are you fighting?)
 
 ### Player
-- M Adding item rewards callback
 - M Adding skill attacks
 - M Adding magic attacks
 - C Adding animations for magic attacks
-- C Adding animations for enemy
+- C Adding animations for enemy attacks
 
 #### Island
 - C Cleaning up levels/LonelyIsland.js
@@ -51,6 +50,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### Secret base Part IV
 
 #### Done
+- ~~Adding item rewards callback~~
 - ~~Background-color from fish should be white~~
 - ~~Able to use items in battle~~
 - ~~disable attack buttons when dead~~
