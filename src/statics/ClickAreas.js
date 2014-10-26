@@ -28,6 +28,7 @@ window.ClickAreas = {
   ],
 
   squirrel_city_attic_level_house:  [
-    "#squirrel-city-goto-first-level-back"
+    "#squirrel-city-goto-first-level-back",
+    "#add-magical-fire-spell"
   ]
 };
