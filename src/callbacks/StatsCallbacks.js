@@ -13,11 +13,6 @@ StatsCallbacks = {
       else if(amount > 999 && !window.currentGame.checkProgressOn('show_shark')){
         window.LonelyIsland.addShark();
       }
-    },
-
-    showMapPopup: function(){
-      window.currentGame.mapPopUp = new Popup("map-popup");
-      window.currentGame.mapPopUp.show();
     }
   },
 
