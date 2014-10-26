@@ -58,7 +58,7 @@ window.Items = {
     title: "A partial map of the world",
     description: "A partial map of the world",
     use: function(){
-      window.currentGame.callbacks.statsCallbacks.seashell.showMapPopup();
+      window.currentGame.gameMap.popUp.show();
     }
   }
 };
