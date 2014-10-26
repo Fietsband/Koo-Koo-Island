@@ -1,33 +1,37 @@
-QUnit.test("battle engine initialize", function(assert){
-  var enemy = new Enemy("tiny-fish");
-  var battleEngine = new BattleControls(enemy);
+QUnit.module("battle engine tests", {
+  setup: function(){
+    window.Test.enemy = new Enemy("btl-tiny-fish");
+    window.Test.battleEngine = new BattleControls(window.Test.enemy);
+  },
 
-  assert.deepEqual(battleEngine.enemy, enemy, "battle engine should pass enemy correctly");
+  teardown: function(){
+    delete window.Test.enemy;
+    delete window.Test.battleEngine;
+  }
 });
 
-QUnit.test("player should be able to select skills", function(assert){
-  GameData.player.inventory.skills.push({skill: "Drill"});
+  QUnit.test("battle engine should pass enemy correctly", function(assert){
+    assert.deepEqual(window.Test.battleEngine.enemy, window.Test.enemy);
+  });
 
-  var enemy = new Enemy("tiny-fish");
-  var battleEngine = new BattleControls(enemy);
+  QUnit.test("player should be able to select skills", function(assert){
+    GameData.player.inventory.skills.push({skill: "Drill"});
+    window.Test.battleEngine.showButtons();
 
-  assert.ok(!battleEngine.skillButton.classList.contains("hide"), "skill button should be enabled");
-  GameData.player.inventory.skills = [];
-});
+    assert.ok(!window.Test.battleEngine.skillButton.classList.contains("hide"));
+    GameData.player.inventory.skills = [];
+  });
 
-QUnit.test("player should be able to select magic", function(assert){
-  GameData.player.inventory.magic.push({spell: "Fire"});
+  QUnit.test("player should be able to select magic", function(assert){
+    GameData.player.inventory.magic.push({spell: "Fire"});
+    window.Test.battleEngine.showButtons();
 
-  var enemy = new Enemy("tiny-fish");
-  var battleEngine = new BattleControls(enemy);
+    assert.ok(!window.Test.battleEngine.magicButton.classList.contains("hide"));
+    GameData.player.inventory.magic = [];
+  });
 
-  assert.ok(!battleEngine.magicButton.classList.contains("hide"), "magic button should be enabled");
-  GameData.player.inventory.magic = [];
-});
+  QUnit.test("player should be able to select items", function(assert){
+    assert.ok(!window.Test.battleEngine.itemsButton.classList.contains("hide"));
+  });
 
-QUnit.test("player should be able to select items", function(assert){
-  var enemy = new Enemy("tiny-fish");
-  var battleEngine = new BattleControls(enemy);
-
-  assert.ok(!battleEngine.itemsButton.classList.contains("hide"), "item button should be enabled");
-});
+QUnit.module();

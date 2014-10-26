@@ -1,98 +1,86 @@
-QUnit.test("should start a new battle", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
+QUnit.module("battle tests", {
+  setup: function(){
+    window.Test.enemy  = new Enemy("btl-tiny-fish");
+    window.Test.battle = new Battle(window.Test.enemy);
+  },
 
-  assert.deepEqual(window.currentBattle, battle, "current battle should be battle");
-  battle.battlePopup.hide();
+  teardown: function(){
+    window.Test.battle.battlePopup.hide();
+    delete window.Test.enemy;
+    delete window.Test.battle;
+  }
 });
 
-QUnit.test("should start a new battle", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
+  QUnit.test("should start a new battle in currentBattle", function(assert){
+    window.Test.battle.start();
 
-  assert.deepEqual(window.currentBattle.enemy, enemy, "current battle enemy should be an enemy");
-  battle.battlePopup.hide();
-});
+    assert.deepEqual(window.currentBattle, window.Test.battle);
+  });
 
-QUnit.test("should have battle controls", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
+  QUnit.test("current battle enemy should be an enemy", function(assert){
+    window.Test.battle.start();
 
-  assert.ok(window.currentBattle.battleControls, "current battle engine should be there");
-  battle.battlePopup.hide();
-});
+    assert.deepEqual(window.currentBattle.enemy, window.Test.enemy);
+  });
 
-QUnit.test("should start a new battle", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
+  QUnit.test("should have battle controls", function(assert){
+    window.Test.battle.start();
 
-  assert.ok(window.currentBattle.battlePopup, "current battle popup should be there");
-  battle.battlePopup.hide();
-});
+    assert.ok(window.currentBattle.battleControls);
+  });
 
-QUnit.test("should fill the graphics with the user", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  window.currentGame.player.removeArmorAndWeapons();
-  battle.start();
+  QUnit.test("current battle popup should be there", function(assert){
+    window.Test.battle.start();
 
-  var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
+    assert.ok(window.currentBattle.battlePopup);
+  });
 
-  assert.equal(playerGraphic, " <span class=\"armor head\">o </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n", "current graphic of player should be there");
-  battle.battlePopup.hide();
-});
+  QUnit.test("should fill the graphics with the user", function(assert){
+    window.currentGame.player.removeArmorAndWeapons();
+    window.Test.battle.start();
 
-QUnit.test("should fill the graphics with the enemy", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
+    var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
 
-  var enemyGraphic = dom.find("#battle-sequence-popup .field .enemy #graphic").innerHTML;
+    assert.equal(playerGraphic, " <span class=\"armor head\">o </span><span class=\"weapon\"></span>\n<span class=\"armor body\">/|\\</span><span class=\"weapon\"></span>\n<span class=\"armor legs\">/ \\</span>\n");
+  });
 
-  assert.equal(enemyGraphic, "&gt;{ .}", "current enemy should spawn");
-  battle.battlePopup.hide();
-});
+  QUnit.test("should fill the graphics with the enemy", function(assert){
+    window.Test.battle.start();
 
-QUnit.test("should stop a battle", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
-  battle.stop();
+    var enemyGraphic = dom.find("#battle-sequence-popup .field .enemy #graphic").innerHTML;
 
-  assert.equal(window.currentBattle, undefined, "shoud be undefined");
-});
+    assert.equal(enemyGraphic, "{. }&lt;");
+  });
 
-QUnit.test("should empty enemy graphic", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  battle.start();
-  battle.stop();
+  QUnit.test("should stop a battle", function(assert){
+    window.Test.battle.start();
+    window.Test.battle.stop();
 
-  var enemyGraphic = dom.find("#battle-sequence-popup .field .enemy #graphic").innerHTML;
+    assert.equal(window.currentBattle, undefined, "shoud be undefined");
+  });
 
-  assert.equal(enemyGraphic, "", "shoud be undefined");
-});
+  QUnit.test("should empty enemy graphic", function(assert){
+    window.Test.battle.start();
+    window.Test.battle.stop();
 
-QUnit.test("should empty player graphic", function(assert){
-  var enemy  = new Enemy("tiny-fish");
-  var battle = new Battle(enemy);
-  window.currentGame.player.removeArmorAndWeapons();
-  battle.start();
-  battle.stop();
+    var enemyGraphic = dom.find("#battle-sequence-popup .field .enemy #graphic").innerHTML;
 
-  var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
+    assert.equal(enemyGraphic, "");
+  });
 
-  assert.equal(playerGraphic, "", "current graphic of player should be there");
-  battle.battlePopup.hide();
-});
+  QUnit.test("should empty player graphic", function(assert){
+    window.currentGame.player.removeArmorAndWeapons();
+    window.Test.battle.start();
+    window.Test.battle.stop();
+
+    var playerGraphic = dom.find("#battle-sequence-popup .field .player #graphic").innerHTML;
+
+    assert.equal(playerGraphic, "");
+  });
 
 QUnit.module("items in battle", {
   setup: function(){
-    var enemy  = new Enemy("tiny-fish");
+    var enemy  = new Enemy("btl-tiny-fish");
     var potion = new InventoryItem("potion", "items");
     window.Test.battle = new Battle(enemy);
     window.currentGame.player.inventory.addItem("items", potion);
