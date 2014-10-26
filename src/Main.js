@@ -40,11 +40,11 @@ Game.prototype = {
   },
 
   toggleAutoSaveInterval: function(){
-    var self = this;
     if(GameData.settings.autoSaveEnabled){
-      this.autoSaveInterval = setInterval(function(){
-        self.save();
-      }, this.autoSaveTimeInterval);
+      this.autoSaveInterval = setInterval(
+        this.save.bind(this),
+        this.autoSaveTimeInterval
+      );
     }
     else{
       clearInterval(this.autoSaveInterval);
@@ -81,24 +81,34 @@ Game.prototype = {
   },
 
   toggleLoadCallbacks: function(){
+    this.trackCurrentProgress();
+    this.setupStats();
+    this.setupCurrentInventory();
+    this.callbacks.loadCallbacks.setup_player();
+  },
+
+  trackCurrentProgress: function(){
     var self = this;
     $.each(Object.keys(window.GameData.progress), function(i, progressItem){
       if(self.checkProgressOn(progressItem)){
         self.callbacks.loadCallbacks[progressItem]();
       }
     });
+  },
 
+  setupCurrentInventory: function(){
+    if(this.player.inventory.hasSomethingInInventory()){
+      this.callbacks.loadCallbacks.setup_inventory();
+    }
+  },
+
+  setupStats: function(){
+    var self = this;
     $.each(["seashell", "oyster", "wood"], function(i, statType){
       if(window.GameData.player[statType + "s"] > 0){
         self.callbacks.loadCallbacks.show_stat(statType);
       }
     });
-
-    if(self.player.inventory.hasSomethingInInventory()){
-      self.callbacks.loadCallbacks.setup_inventory();
-    }
-
-    self.callbacks.loadCallbacks.setup_player();
   },
 
   toggleAutoSave: function(){
