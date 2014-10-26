@@ -25,7 +25,7 @@ var Enemies = {
       items:      { weapon: "shark_laser" }
     },
 
-    ending_callback: function(){
+    endingCallback: function(){
       GameData.progress.beaten_shark = 1;
       window.LonelyIsland.removeShark();
     }
@@ -130,6 +130,10 @@ var Enemies = {
       experience: { amount: 50 },
       stats:      { seashell: 150, oyster: 20 },
       items:      { map: 2 }
+    },
+
+    endingCallback: function(){
+      GameData.progress.squirrel_house_boss_fight = 1;
     }
   }
 }

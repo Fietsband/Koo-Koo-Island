@@ -52,9 +52,18 @@ Enemy.prototype = {
     this.enemyInformation.health -= amount;
     if(this.enemyInformation.health <= 0){
       this.enemyInformation.health = 0;
-      window.currentBattle.eventEngine.add({ type: "death", timeOut: 2000 });
+
+      window.currentBattle.eventEngine.add({
+        type: "death",
+        timeOut: 2000
+      });
+
       this.rewardPlayer();
       this.quitAttacking();
+
+      if(this.enemyInformation.endingCallback){
+        this.enemyInformation.endingCallback();
+      }
 
       window.currentBattle.eventEngine.add({
         type: "end",
