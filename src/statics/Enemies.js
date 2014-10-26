@@ -128,7 +128,8 @@ var Enemies = {
     position:        { x: 0,   y: 40 },
     rewards: {
       experience: { amount: 50 },
-      stats:      { seashell: 150, oyster: 20 }
+      stats:      { seashell: 150, oyster: 20 },
+      items:      { map: 2 }
     }
   }
 }
