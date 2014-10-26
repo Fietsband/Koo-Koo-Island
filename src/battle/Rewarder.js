@@ -1,14 +1,9 @@
 Rewarder.prototype = {
   reward: function(){
-    var self = this;
-    $.each(this.rewardedItems(), function(i, reward){
-      if(!(ENV == "test")){
-        self.setBattleMessage(reward);
-      }
-    });
+    $.each(this.rewardedItems(), this.rewardSingleItem.bind(this));
   },
 
-  setBattleMessage: function(reward){
+  rewardSingleItem: function(i, reward){
     var self = this;
     window.currentBattle.eventEngine.add({
       message: self.rewardMessage(reward),
@@ -18,13 +13,15 @@ Rewarder.prototype = {
   },
 
   rewardMessage: function(reward){
-    var message = "You get ";
-    if(this.typeOfReward == "stats" || this.typeOfReward == "items"){
+    var message = "You receive ";
+    if(this.typeOfReward == "stats"){
       message += this.rewards[reward] + " " + reward;
       if(this.rewards[reward] > 1){
         message += "s";
       }
     }
+    else if(this.typeOfReward == "items")
+      message += this.rewards[reward];
     else{
       message += this.rewards[reward] + " experience";
     }
@@ -36,8 +33,14 @@ Rewarder.prototype = {
     window.currentStats.increaseStat(reward, this.rewards[reward]);
   },
 
-  itemsRewardCallback: function(){
-
+  itemsRewardCallback: function(reward){
+    var itemIdentifier = this.rewards[reward];
+    switch(reward){
+      case "weapon":
+        var item = new Weapon(itemIdentifier);
+        window.currentGame.player.inventory.addItem("weapons", item);
+      break;
+    };
   },
 
   experienceRewardCallback: function(reward){

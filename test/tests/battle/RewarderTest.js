@@ -1,19 +1,25 @@
-// QUnit.module("reward player with items", {
-//   setup: function(){
-//     //var enemy = new Enemy("big-shark");
-//     //new Battle(enemy);
-//     // enemy.looseHealth(9999);
-//     // window.currentBattle.eventEngine.invoke();
-//   },
+QUnit.module("reward player with items", {
+  setup: function(){
+    window.Test.enemy = new Enemy("big-shark");
+    window.Test.battle = new Battle(window.Test.enemy);
+    window.Test.battle.start();
+    window.Test.enemy.looseHealth(9999);
+    window.currentBattle.eventEngine.invoke();
+  },
 
-//   teardown: function(){
-//     //window.currentBattle.battlePopup.hide();
-//   }
-// });
+  teardown: function(){
+    window.Test.battle.battlePopup.hide();
+  }
+});
 
-//   QUnit.test("should reward the player with a weapon", function(assert){
-//     expect(0);
-//     //assert.ok(GameData.player.inventory.weapons.indexOf("shark-laser") !== -1);
-//   });
+  QUnit.test("should reward the player with a weapon", function(assert){
+    assert.ok(GameData.player.inventory.weapons.indexOf("shark_laser") !== -1);
+  });
 
-// QUnit.module();
+  QUnit.test("weapon should be found in the inventory", function(assert){
+    var option = dom.find("#inventory-stash #select-weapons select option[value='shark_laser']");
+
+    assert.ok(option);
+  });
+
+QUnit.module();

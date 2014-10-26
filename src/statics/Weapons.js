@@ -1,4 +1,22 @@
 window.Weapons = {
+  shark_laser: {
+    title: "Shark Laser",
+    description: "Heavy shark laser",
+    damage: 5.0,
+    graphic: ['Y', 'H'],
+    large_graphic: [
+      '               ',
+      '       H       ',
+      '       H       ',
+      '       H       ',
+      '       Y       ',
+      '     //|\\     ',
+      '       ^       ',
+      '       ^       ',
+      '       |       '
+    ]
+  },
+
   spear: {
     title: "Spear",
     description: "Basic spear",

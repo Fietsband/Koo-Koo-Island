@@ -22,7 +22,7 @@ var Enemies = {
     rewards: {
       experience: { amount: 1000 },
       stats:      { seashell: 150, oyster: 20 },
-      items:      { sharklaser: 1 }
+      items:      { weapon: "shark_laser" }
     },
 
     ending_callback: function(){
