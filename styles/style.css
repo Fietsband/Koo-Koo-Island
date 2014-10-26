@@ -135,6 +135,10 @@ span#inventory{
   top: 50px;
 }
 
+.popup#map-popup pre{
+  display: none;
+}
+
 .popup#map-popup .map-place.enabled{
   cursor: pointer;
 }
