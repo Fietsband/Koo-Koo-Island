@@ -45,6 +45,10 @@ Rewarder.prototype = {
         var item = new InventoryItem(itemIdentifier, "items");
         window.currentGame.player.inventory.addItem("items", item);
       break;
+
+      case "map":
+        GameData.player.map = itemIdentifier;
+      break;
     };
   },
 
