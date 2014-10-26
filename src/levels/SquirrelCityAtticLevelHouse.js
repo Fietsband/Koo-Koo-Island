@@ -1,7 +1,9 @@
 window.SquirrelCityAtticLevelHouse = {
   initialize: function(){
-    this.disableFleeing();
-    window.Animations.EvilPortrait.start();
+    if(!window.currentGame.checkProgressOn("squirrel_house_boss_fight")){
+      this.disableFleeing();
+      window.Animations.EvilPortrait.start();
+    }
   },
 
   disableFleeing: function(){
