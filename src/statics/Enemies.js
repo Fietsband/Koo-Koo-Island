@@ -31,7 +31,7 @@ var Enemies = {
     }
   },
 
-  'tiny-fish' : {
+  'btl-tiny-fish' : {
     name: "Tiny Fish",
     health: 10,
     attack_interval: 7500,
@@ -50,7 +50,7 @@ var Enemies = {
     }
   },
 
-  'tiny-fish-with-gun' : {
+  'btl-tiny-fish-with-gun' : {
     name: "Tiny Fish With Gun",
     health: 20,
     attack_interval: 7500,
@@ -75,7 +75,7 @@ var Enemies = {
     }
   },
 
-  'big-fish' : {
+  'btl-big-fish' : {
     name: "Big Fish",
     health: 50,
     attack_interval: 10500,

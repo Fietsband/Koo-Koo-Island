@@ -38,3 +38,4 @@ QUnit.module("constantizing strings");
   });
 
 QUnit.module();
+

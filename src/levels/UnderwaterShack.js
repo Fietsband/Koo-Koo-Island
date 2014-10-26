@@ -31,7 +31,7 @@ window.UnderwaterShack = {
     fish.className = "us-fish";
     fish.id        = "fish-" + this.fishCount();
     fish.style.top = (Math.round(Math.random() * 370) + 90) + "px";
-    fish.onclick   = window.BattleInitializer.start.bind(this, fishType, null, this.spawnFish.bind(this));
+    fish.onclick   = window.BattleInitializer.start.bind(this, ("btl-" + fishType), null, this.spawnFish.bind(this));
     return fish;
   },
 
