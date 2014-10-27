@@ -8,6 +8,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 #### General
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C remembering which level you last went
+- C adding more experience callbacks
 
 ### Enemy
 - W Introduce the enemy in the battle screen (Who are you fighting?)
@@ -32,26 +33,37 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M hide the painting when the boss battle is done
 - M add fire spell when can click on the star --> see player magic todos
 - M add progress item for star place (disable when already clicked)
+- M adding messages near the painting for story purposes
 
 #### Cliffhill town Part I
+- M initial design
 
 #### Forest of protectors
+- M initial design
 
 #### Temeloe Town
+- M initial design
 
 #### Sideous cave
+- M initial design
 
 #### The boat
+- M initial design
 
 #### Cliffhill town Part II
+- M initial design
 
 #### Secret base Part I
+- M initial design
 
 #### Secret base Part II
+- M initial design
 
 #### Secret base Part III
+- M initial design
 
 #### Secret base Part IV
+- M initial design
 
 #### Done
 - ~~Adding item rewards callback~~
