@@ -25,6 +25,7 @@ Game.prototype = {
     this.levels.squirrel_city_first_level  = new Level("squirrel_city_first_level_house", "squirrel_city");
     this.levels.squirrel_city_second_level = new Level("squirrel_city_second_level_house", "squirrel_city");
     this.levels.squirrel_city_attic_level  = new Level("squirrel_city_attic_level_house", "squirrel_city");
+    this.levels.cliffhill_town             = new Level("cliffhill_town");
     this.levels.lonely_island.addToGame();
   },
 
