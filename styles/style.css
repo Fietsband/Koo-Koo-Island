@@ -24,7 +24,7 @@ div.click-area.enabled{
 }
 
 .controls{
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
 }
@@ -345,4 +345,8 @@ span#battle-big-shark,
   left: -100px;
   z-index: 1;
   background-color: white;
+}
+
+#game-levels #cliffhill_town{
+  margin-top: 20px;
 }
