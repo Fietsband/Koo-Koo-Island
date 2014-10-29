@@ -1,56 +1,56 @@
 var Level = (function(){
   Level.prototype = {
     addToGame: function(){
-      this.unsetCurrentGame();
-      this.setCurrentGame();
-    },
-
-    setCurrentGame: function(){
-      this.showMap();
-      this.setClickMethodsToLevel();
-      this.performInitialize();
-      window.currentGame.gameMap.disableMapSpot(this.mapSpot);
-      window.currentLevel = this;
-    },
-
-    unsetCurrentGame: function(){
-      if(window.currentLevel){
-        window.currentLevel.hideMap();
-        window.currentLevel.removeClickAreas();
-        window.currentLevel.destroy();
-        window.currentGame.gameMap.enableMapSpot(window.currentLevel.mapSpot);
-        window.currentLevel = null;
-        delete window.currentLevel;
-      }
-    },
-
-    showMap: function(){
-      this.levelDom.style.display = "block";
-    },
-
-    hideMap: function(){
-      this.levelDom.style.display = "none";
-    },
-
-    removeClickAreas: function(){
-      this.clickArea = [];
+      unsetCurrentGame.bind(this)();
+      setCurrentGame.bind(this)();
     },
 
     setClickMethodsToLevel: function(){
       $.each(this.clickAreas, setClickMethodToArea.bind(this));
-    },
-
-    performInitialize: function(){
-      if(this.levelModule && this.levelModule["initialize"]){
-        this.levelModule["initialize"]();
-      }
-    },
-
-    destroy: function(){
-      if(this.levelModule && this.levelModule["destroy"]){
-        this.levelModule["destroy"]();
-      }
     }
+  }
+
+  function setCurrentGame(){
+    showMap.bind(this)();
+    this.setClickMethodsToLevel();
+    performInitialize.bind(this)();
+    window.currentGame.gameMap.disableMapSpot(this.mapSpot);
+    window.currentLevel = this;
+  }
+
+  function unsetCurrentGame(){
+    if(window.currentLevel){
+      hideMap.bind(window.currentLevel)();
+      removeClickAreas.bind(window.currentLevel)();
+      destroy.bind(window.currentLevel)();
+      window.currentGame.gameMap.enableMapSpot(window.currentLevel.mapSpot);
+      window.currentLevel = null;
+      delete window.currentLevel;
+    }
+  }
+
+  function removeClickAreas(){
+    this.clickArea = [];
+  }
+
+  function performInitialize(){
+    if(this.levelModule && this.levelModule["initialize"]){
+      this.levelModule["initialize"]();
+    }
+  }
+
+  function destroy(){
+    if(this.levelModule && this.levelModule["destroy"]){
+      this.levelModule["destroy"]();
+    }
+  }
+
+  function showMap(){
+    this.levelDom.style.display = "block";
+  }
+
+  function hideMap(){
+    this.levelDom.style.display = "none";
   }
 
   function setClickMethodToArea(i, area){
