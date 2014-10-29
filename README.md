@@ -9,6 +9,8 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
 - C remembering which level you last went
 - C adding more experience callbacks
+- W building anti-cheating engine with Object.freeze (deepFreeze)
+- W Deepfreeze all statics
 
 ### Enemy
 - W Introduce the enemy in the battle screen (Who are you fighting?)
