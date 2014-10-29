@@ -52,4 +52,6 @@ window.Weapons = {
       '               '
     ]
   }
-}
+};
+
+$.freeze(window.Weapons);

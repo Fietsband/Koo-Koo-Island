@@ -32,3 +32,5 @@ window.ClickAreas = {
     "#add-magical-fire-spell"
   ]
 };
+
+$.freeze(window.ClickAreas);

@@ -2,7 +2,8 @@ $ = {
   isBrowserCompatible: function(){
     return GameStorage.canStore() &&
            Array.prototype.map && Array.prototype.filter &&
-           document.querySelector && document.querySelectorAll;
+           document.querySelector && document.querySelectorAll &&
+           window.btoa && window.atob;
   },
 
   domReady: function(fn){
@@ -49,5 +50,19 @@ $ = {
       option.selected = false;
     });
     selectBox.querySelector("option[value="+ optionValue +"]").selected = true;
+  },
+
+  freeze: function(o){
+    var prop, propKey;
+    Object.freeze(o);
+    for (propKey in o) {
+      prop = o[propKey];
+      if (!o.hasOwnProperty(propKey) ||
+          !(typeof prop === 'object') ||
+          Object.isFrozen(prop)) {
+        continue;
+      }
+      $.freeze(prop);
+    }
   }
 };

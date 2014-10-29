@@ -1,4 +1,4 @@
-Armors = {
+window.Armors = {
   clown: {
     title: "Clown armor",
     description: "Clown armor - reduces 20% of damage",
@@ -34,4 +34,6 @@ Armors = {
       '               '
     ]
   }
-}
+};
+
+$.freeze(window.Armors);

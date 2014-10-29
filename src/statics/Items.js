@@ -62,3 +62,5 @@ window.Items = {
     }
   }
 };
+
+$.freeze(window.Items);

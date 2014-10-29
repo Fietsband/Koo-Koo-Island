@@ -37,5 +37,23 @@ QUnit.module("constantizing strings");
     assert.equal($.constantize("hello_test"), "HelloTest");
   });
 
+QUnit.module("freezing objects");
+
+  QUnit.test("freezing an object", function(assert){
+    var a = {a: 2};
+    $.freeze(a);
+    a["a"] = 10;
+
+    assert.equal(a["a"], 2);
+  });
+
+  QUnit.test("freezing a multidimensional object", function(assert){
+    var a = {a: {b: 3}};
+    $.freeze(a);
+    a.a.b = 10;
+
+    assert.equal(a.a.b, 3);
+  });
+
 QUnit.module();
 

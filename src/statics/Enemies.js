@@ -1,4 +1,4 @@
-var Enemies = {
+window.Enemies = {
   'big-shark' : {
     name: "Shark",
     health: 9999,
@@ -136,4 +136,4 @@ var Enemies = {
       GameData.progress.squirrel_house_boss_fight = 1;
     }
   }
-}
+};
