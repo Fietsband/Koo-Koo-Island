@@ -1,40 +1,20 @@
-InventoryItem.prototype = {
-  add: function(){
-    this.item = this["create" + $.titleize(this.itemScope)]();
-    dom.find("#inventory-stash ." + this.appendItemScope())
-      .appendChild(this.item);
-  },
+var InventoryItem = (function(){
+  var create = {};
 
-  createItems: function(){
-    var pTag       = document.createElement("a");
-    pTag.id        = this.identifier;
-    pTag.innerHTML = this.itemOptions.title;
-    pTag.title     = this.itemOptions.description;
-    pTag.onclick   = this.itemOptions.use;
-    return pTag;
-  },
+  InventoryItem.prototype = {
+    add: function(){
+      this.item = create[this.itemScope].call(this);
+      dom.find("#inventory-stash ." + appendItemScope.call(this))
+        .appendChild(this.item);
+    }
+  }
 
-  createWeapons: function(){
-    var pTag       = document.createElement("option");
-    pTag.innerHTML = this.itemOptions.title;
-    pTag.title     = this.itemOptions.description;
-    pTag.value     = this.identifier;
-    return pTag;
-  },
+  function getItemOptions(){
+    var scope = $.titleize(this.itemScope);
+    return window[scope][this.identifier];
+  }
 
-  createArmors: function(){
-    var pTag       = document.createElement("option");
-    pTag.innerHTML = this.itemOptions.title;
-    pTag.title     = this.itemOptions.description;
-    pTag.value     = this.identifier;
-    return pTag;
-  },
-
-  createMagic: function(){
-
-  },
-
-  appendItemScope: function(){
+  function appendItemScope(){
     switch(this.itemScope){
       case "weapons":
         return this.itemScope + " #select-weapons select";
@@ -45,19 +25,52 @@ InventoryItem.prototype = {
       break;
 
       case "items":
+      case "magic":
         return this.itemScope;
       break;
     }
-  },
-
-  getItemOptions: function(){
-    var scope = $.titleize(this.itemScope);
-    return window[scope][this.identifier];
   }
-}
 
-function InventoryItem(identifier, itemScope){
-  this.identifier    = identifier;
-  this.itemScope     = itemScope;
-  this.itemOptions   = this.getItemOptions();
-}
+  create = {
+    items: function(){
+      var pTag       = document.createElement("a");
+      pTag.id        = this.identifier;
+      pTag.innerHTML = this.itemOptions.title;
+      pTag.title     = this.itemOptions.description;
+      pTag.onclick   = this.itemOptions.use;
+      return pTag;
+    },
+
+    weapons: function(){
+      var pTag       = document.createElement("option");
+      pTag.innerHTML = this.itemOptions.title;
+      pTag.title     = this.itemOptions.description;
+      pTag.value     = this.identifier;
+      return pTag;
+    },
+
+    armors: function(){
+      var pTag       = document.createElement("option");
+      pTag.innerHTML = this.itemOptions.title;
+      pTag.title     = this.itemOptions.description;
+      pTag.value     = this.identifier;
+      return pTag;
+    },
+
+    magic:function(){
+      var pTag       = document.createElement("a");
+      pTag.id        = this.identifier;
+      pTag.innerHTML = this.itemOptions.title;
+      pTag.title     = this.itemOptions.description;
+      return pTag;
+    }
+  }
+
+  function InventoryItem(identifier, itemScope){
+    this.identifier    = identifier;
+    this.itemScope     = itemScope;
+    this.itemOptions   = getItemOptions.call(this);
+  }
+
+  return InventoryItem;
+})();
