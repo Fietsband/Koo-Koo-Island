@@ -1,7 +1,8 @@
-window.Test = {};
+ENV = "test";
 
+window.Test = {};
 window.Test.resetStats = function(){
-  GameData = {
+  window.GameData = {
     settings: {},
     player: {
       hp:               [20, 20],
@@ -22,7 +23,8 @@ window.Test.resetStats = function(){
         magic:            [],
         items:            []
       },
-      experience_rewards: []
+      experience_rewards: [],
+      last_visited: "lonely_island"
     },
 
     progress: {
@@ -41,3 +43,5 @@ window.Test.resetStats = function(){
     }
   }
 };
+
+window.Test.resetStats();

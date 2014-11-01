@@ -20,7 +20,8 @@ var GameData = {
       magic:            [],
       items:            ["map", "potion"]
     },
-    experience_rewards: []
+    experience_rewards: [],
+    last_visited: "lonely_island"
   },
 
   progress: {
