@@ -1,4 +1,12 @@
 window.SquirrelCity = {
+  initialize: function(){
+    this.squirrelPopUp = new Popup("squirrel-city-mysterious-squirrel");
+  },
+
+  talkToSquirrel: function(){
+    this.squirrelPopUp.show();
+  },
+
   openDoor: function(){
     var entertheHouseButton = dom.find("#squirrel-warning button#enter-the-house");
     var squirrelWarningPopup = new Popup("squirrel-warning");
@@ -40,5 +48,9 @@ window.SquirrelCity = {
       spearPart.classList.add("disabled");
       spearPart.onclick = null;
     });
+  },
+
+  destroy: function(){
+    delete this.squirrelPopUp;
   }
 }

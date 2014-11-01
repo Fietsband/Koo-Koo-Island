@@ -5,7 +5,7 @@ var GameData = {
     hp:               [20, 20],
     mp:               [0, 0],
     experience:       0,
-    attack_damage:    10,
+    attack_damage:    90,
     battle_timeout:   5000,
     seashells:        199,
     oysters:          0,
@@ -35,7 +35,7 @@ var GameData = {
     squirrel_house_spear:          1,
     squirrel_house_small_painting: 0,
     squirrel_house_closet:         0,
-    squirrel_house_boss_fight:     1,
+    squirrel_house_boss_fight:     0,
     squirrel_house_chimney:        0
   }
 }
