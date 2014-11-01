@@ -10,6 +10,8 @@ function setup(){
 }
 
 function resetGame(){
+  window.currentGame = null;
+  window.currentStats = null;
   delete window.currentGame;
   delete window.currentStats;
   setup();
