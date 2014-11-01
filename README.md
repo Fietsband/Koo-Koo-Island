@@ -29,7 +29,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M Adding progress for squirrel house
 - M Figuring out what is in the closet
 - M Figuring out what will be on the small portrait on the wall
-- M hide the painting when the boss battle is done
 - M add fire spell when can click on the star --> see player magic todos
 - M add progress item for star place (disable when already clicked)
 - M adding messages near the painting for story purposes
@@ -65,6 +64,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M initial design
 
 #### Done
+- ~~hide the painting when the boss battle is done~~
 - ~~disable clicking the star at the attic when still trying to fight the boss~~
 - ~~initial design cliffhill town~~
 - ~~remembering which level you last went~~
