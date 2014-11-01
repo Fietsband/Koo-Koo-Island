@@ -8,6 +8,10 @@ ExperienceCallbacks = {
     GameData.player.hp[1] += amount;
   },
 
+  increaseMagicPoints: function(amount){
+    GameData.player.mp[1] += amount;
+  },
+
   checkExperiencePoints: function(){
     $.each(window.currentGame.callbacks.experienceCallbacks.experienceCallbacks(), function(i, experienceKey){
       if(GameData.player.experience > parseInt(experienceKey) &&
