@@ -20,14 +20,16 @@ var Game = (function(){
 
     setLevels: function(){
       this.levels = {};
-      this.levels.lonely_island              = new Level("lonely_island");
-      this.levels.underwater_shack           = new Level("underwater_shack", "lonely_island");
-      this.levels.squirrel_city              = new Level("squirrel_city");
-      this.levels.squirrel_city_first_level  = new Level("squirrel_city_first_level_house", "squirrel_city");
-      this.levels.squirrel_city_second_level = new Level("squirrel_city_second_level_house", "squirrel_city");
-      this.levels.squirrel_city_attic_level  = new Level("squirrel_city_attic_level_house", "squirrel_city");
-      this.levels.cliffhill_town             = new Level("cliffhill_town");
-      this.levels.forest_of_protectors       = new Level("forest_of_protectors");
+      var self = this;
+      for(var level in window.Levels){
+        this.levels[level] = new Level(level);
+        $.each(window.Levels[level], function(i, sublevel){
+          self.levels[sublevel] = new Level(sublevel, level);
+        });
+      };
+      window.Levels = null;
+      delete window.Levels;
+
       this.levels.lonely_island.addToGame();
     },
 
@@ -125,6 +127,10 @@ var Game = (function(){
 
     autoSaveInterval: null,
     autoSaveTimeInterval: 5000
+  }
+
+  function createLevel(){
+
   }
 
   function Game(){}

@@ -17,9 +17,9 @@ QUnit.test("game levels initialization", function(assert){
   assert.ok(window.currentGame.levels.lonely_island, "Passed");
   assert.ok(window.currentGame.levels.underwater_shack, "Passed");
   assert.ok(window.currentGame.levels.squirrel_city, "Passed");
-  assert.ok(window.currentGame.levels.squirrel_city_first_level, "Passed");
-  assert.ok(window.currentGame.levels.squirrel_city_second_level, "Passed");
-  assert.ok(window.currentGame.levels.squirrel_city_attic_level, "Passed");
+  assert.ok(window.currentGame.levels.squirrel_city_first_level_house, "Passed");
+  assert.ok(window.currentGame.levels.squirrel_city_second_level_house, "Passed");
+  assert.ok(window.currentGame.levels.squirrel_city_attic_level_house, "Passed");
 });
 
 QUnit.test("0.3 stats should be initialized", function(assert){

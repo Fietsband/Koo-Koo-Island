@@ -1,6 +1,6 @@
 QUnit.module("initializing the attic level", {
   setup: function(){
-    window.currentGame.levels.squirrel_city_attic_level.addToGame();
+    window.currentGame.levels.squirrel_city_attic_level_house.addToGame();
   },
 
   teardown: function(){
@@ -24,7 +24,7 @@ QUnit.module("initializing the attic level when beaten the boss", {
     GameData.player.map = 2;
     resetGame();
 
-    window.currentGame.levels.squirrel_city_attic_level.addToGame();
+    window.currentGame.levels.squirrel_city_attic_level_house.addToGame();
   },
 
   teardown: function(){

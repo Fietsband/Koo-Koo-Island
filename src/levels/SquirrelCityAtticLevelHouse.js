@@ -9,13 +9,15 @@ window.SquirrelCityAtticLevelHouse = {
   disableFleeing: function(){
     dom.findId("open-inventory-button").setAttribute("disabled", "disabled");
     dom.findId("squirrel-city-goto-first-level-back").classList.add("disabled");
-    window.currentGame.levels.squirrel_city_attic_level.setClickMethodsToLevel();
+    dom.findId("add-magical-fire-spell").classList.add("disabled");
+    window.currentGame.levels.squirrel_city_attic_level_house.setClickMethodsToLevel();
   },
 
   enableFleeing: function(){
     dom.findId("open-inventory-button").removeAttribute("disabled");
     dom.findId("squirrel-city-goto-first-level-back").classList.remove("disabled");
-    window.currentGame.levels.squirrel_city_attic_level.setClickMethodsToLevel();
+    dom.findId("add-magical-fire-spell").classList.remove("disabled");
+    window.currentGame.levels.squirrel_city_attic_level_house.setClickMethodsToLevel();
   },
 
   initiateBossFight: function(){

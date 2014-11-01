@@ -4,21 +4,21 @@ window.SquirrelCity = {
     var squirrelWarningPopup = new Popup("squirrel-warning");
     squirrelWarningPopup.show();
     entertheHouseButton.onclick = function(){
-      window.currentGame.levels.squirrel_city_first_level.addToGame();
+      window.currentGame.levels.squirrel_city_first_level_house.addToGame();
       squirrelWarningPopup.hide();
     }
   },
 
   goToFirstLevel: function(){
-    window.currentGame.levels.squirrel_city_second_level.addToGame();
+    window.currentGame.levels.squirrel_city_second_level_house.addToGame();
   },
 
   goToSecondLevel: function(){
-    window.currentGame.levels.squirrel_city_attic_level.addToGame();
+    window.currentGame.levels.squirrel_city_attic_level_house.addToGame();
   },
 
   goToGroundLevel: function(){
-    window.currentGame.levels.squirrel_city_first_level.addToGame();
+    window.currentGame.levels.squirrel_city_first_level_house.addToGame();
   },
 
   goOutside: function(){

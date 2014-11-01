@@ -1,6 +1,6 @@
 QUnit.module("initializing squirrel city second level house", {
   setup: function(){
-    window.currentGame.levels.squirrel_city_second_level.addToGame();
+    window.currentGame.levels.squirrel_city_second_level_house.addToGame();
   },
 
   teardown: function(){

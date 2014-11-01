@@ -26,7 +26,7 @@ QUnit.module("setting current level", {
 QUnit.module("setting current sub level", {
   setup: function(){
     window.Test.oldLevel = window.currentGame.levels.lonely_island;
-    window.currentGame.levels.squirrel_city_first_level.addToGame();
+    window.currentGame.levels.squirrel_city_first_level_house.addToGame();
   },
 
   teardown: function(){
@@ -35,7 +35,7 @@ QUnit.module("setting current sub level", {
 });
 
   QUnit.test("Setting squirrel city first level as current level", function(assert){
-    assert.deepEqual(window.currentLevel, window.currentGame.levels.squirrel_city_first_level);
+    assert.deepEqual(window.currentLevel, window.currentGame.levels.squirrel_city_first_level_house);
   });
 
   QUnit.test("Should set squirrel city spot as X", function(assert){
