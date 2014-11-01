@@ -10,7 +10,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - C remembering which level you last went
 - C adding more experience callbacks
 - W building anti-cheating engine with Object.freeze (deepFreeze)
-- W Deepfreeze all statics
 
 ### Enemy
 - W Introduce the enemy in the battle screen (Who are you fighting?)
@@ -38,7 +37,8 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M adding messages near the painting for story purposes
 
 #### Cliffhill town Part I
-- M initial design
+- ~~M initial design~~
+- Designing all the houses
 
 #### Forest of protectors
 - M initial design
@@ -68,6 +68,7 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M initial design
 
 #### Done
+- ~~Deepfreeze all statics~~
 - ~~Adding item rewards callback~~
 - ~~Background-color from fish should be white~~
 - ~~Able to use items in battle~~
