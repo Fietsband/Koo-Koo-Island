@@ -1,6 +1,6 @@
 $ = {
   isBrowserCompatible: function(){
-    return GameStorage.canStore() &&
+    return window['localStorage'] !== null &&
            Array.prototype.map && Array.prototype.filter &&
            document.querySelector && document.querySelectorAll &&
            window.btoa && window.atob;
