@@ -7,7 +7,6 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 
 #### General
 - C Checking format of loaded game (if someone just posts nonsense the game will break)
-- C remembering which level you last went
 - C adding more experience callbacks
 - W building anti-cheating engine with Object.freeze (deepFreeze)
 
@@ -37,11 +36,10 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M adding messages near the painting for story purposes
 
 #### Cliffhill town Part I
-- ~~M initial design~~
 - Designing all the houses
 
 #### Forest of protectors
-- M initial design
+- M P initial design
 
 #### Temeloe Town
 - M initial design
@@ -68,6 +66,8 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - M initial design
 
 #### Done
+- ~~initial design cliffhill town~~
+- ~~remembering which level you last went~~
 - ~~Deepfreeze all statics~~
 - ~~Adding item rewards callback~~
 - ~~Background-color from fish should be white~~
@@ -96,6 +96,12 @@ Stuck on an island you await the fish to guide you through an amazing adventure.
 - ~~Design + implementing player menu~~
 - ~~Setting player weapon + armor~~
 - ~~Adding deploy shell scripts for future reference~~
+
+### Meaning of letters:
+*M* = must have
+*C* = could have
+*W* = would have
+*P* = pending
 
 ### Technological goal
 
