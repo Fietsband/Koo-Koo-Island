@@ -21,7 +21,7 @@ Rewarder.prototype = {
       }
     }
     else if(this.typeOfReward == "items")
-      message += this.rewards[reward];
+      message += ("a " + reward);
     else{
       message += this.rewards[reward] + " experience";
     }
