@@ -26,6 +26,7 @@ BattleItem.prototype = {
     pTag.innerHTML = this.itemOptions.title;
     pTag.title     = this.itemOptions.description;
     pTag.value     = this.identifier;
+    pTag.onclick   = this.itemOptions.use;
     return pTag;
   },
 
@@ -34,6 +35,7 @@ BattleItem.prototype = {
     pTag.innerHTML = this.itemOptions.title;
     pTag.title     = this.itemOptions.description;
     pTag.value     = this.identifier;
+    pTag.onclick   = this.itemOptions.cast;
     return pTag;
   },
 
