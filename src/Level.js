@@ -11,6 +11,7 @@ var Level = (function(){
   }
 
   function setCurrentGame(){
+    GameData.player.last_visited = this.identifier;
     showMap.bind(this)();
     this.setClickMethodsToLevel();
     performInitialize.bind(this)();

@@ -1,15 +1,18 @@
 var Game = (function(){
   var autoSaveInterval = null;
   var autoSaveTimeInterval = 5000;
+  var gameData = {};
+  var gameIdentifier;
 
   Game.prototype = {
     initialize: function(){
       if($.isBrowserCompatible()){
         GameData.settings.autoSaveEnabled = true;
 
-        this.gid        = GameStorage.get("koo-koo-island-gid") || $.guid();
         this.player     = new Player();
         this.gameMap    = new GameMap();
+
+        gameIdentifier = GameStorage.get("koo-koo-island-gid") || $.guid();
 
         setLevels.call(this);
         loadCurrentLevel.call(this);
@@ -25,12 +28,12 @@ var Game = (function(){
 
     save: function(){
       new Flash("saved").show();
-      GameStorage.store(this.gid, this.getCurrentGame());
+      GameStorage.store(gameIdentifier, this.getCurrentGame());
     },
 
     loadGame: function(base64_string){
-      GameStorage.store(this.gid, base64_string);
-      window.GameData = JSON.parse(atob(GameStorage.get(this.gid)));
+      GameStorage.store(gameIdentifier, base64_string);
+      window.GameData = JSON.parse(atob(GameStorage.get(gameIdentifier)));
       toggleLoadCallbacks.call(this);
     },
 
@@ -76,15 +79,13 @@ var Game = (function(){
 
   function storeGid(){
     if(!GameStorage.keyExists("koo-koo-island-gid")){
-      GameStorage.store("koo-koo-island-gid", this.gid);
+      GameStorage.store("koo-koo-island-gid", gameIdentifier);
       this.save();
     }
   }
 
   function getOldGameData(){
-    if(ENV == "production"){
-      window.GameData = JSON.parse(atob(GameStorage.get(this.gid))) || {};
-    }
+    window.GameData = JSON.parse(atob(GameStorage.get(gameIdentifier)));
     toggleLoadCallbacks.call(this);
   }
 
