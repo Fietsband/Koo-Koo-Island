@@ -4,6 +4,16 @@ window.SquirrelCityAtticLevelHouse = {
       this.disableFleeing();
       window.Animations.EvilPortrait.start();
     }
+    else{
+      this.hidePainting();
+      this.enableFleeing();
+    }
+  },
+
+  hidePainting: function(){
+    $.each(dom.find(".evil-painting .inner-painting", true), function(i, inner){
+      inner.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    });
   },
 
   disableFleeing: function(){

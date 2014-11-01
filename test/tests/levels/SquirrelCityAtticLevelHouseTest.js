@@ -39,6 +39,12 @@ QUnit.module("initializing the attic level when beaten the boss", {
     assert.ok(!stairs.classList.contains("disabled"));
   });
 
+  QUnit.test("should hide the painting", function(assert){
+    var piece_of_painting = dom.find(".evil-painting .inner-painting", true)[1];
+
+    assert.equal(piece_of_painting.innerHTML, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+  });
+
   QUnit.test("should enable the inventory button", function(assert){
     assert.ok(!dom.findId("open-inventory-button").disabled);
   });
