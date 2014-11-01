@@ -2,6 +2,7 @@ ENV = "test";
 
 window.Test = {};
 window.Test.resetStats = function(){
+  localStorage.clear();
   window.GameData = {
     settings: {},
     player: {

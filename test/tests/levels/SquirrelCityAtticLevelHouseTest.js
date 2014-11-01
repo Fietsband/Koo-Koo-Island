@@ -33,13 +33,13 @@ QUnit.module("initializing the attic level when beaten the boss", {
   }
 });
 
-  QUnit.test("should disable the stairs", function(assert){
+  QUnit.test("should enable the stairs", function(assert){
     var stairs = dom.findId("squirrel-city-goto-first-level-back");
 
     assert.ok(!stairs.classList.contains("disabled"));
   });
 
-  QUnit.test("should disable the inventory button", function(assert){
+  QUnit.test("should enable the inventory button", function(assert){
     assert.ok(!dom.findId("open-inventory-button").disabled);
   });
 
