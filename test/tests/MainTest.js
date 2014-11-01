@@ -22,9 +22,29 @@ QUnit.test("game levels initialization", function(assert){
   assert.ok(window.currentGame.levels.squirrel_city_attic_level_house, "Passed");
 });
 
-QUnit.test("0.3 stats should be initialized", function(assert){
+QUnit.test("stats should be initialized", function(assert){
   assert.ok(window.currentStats, "Passed");
 });
+
+QUnit.test("default level is lonely island", function(assert){
+  assert.equal(dom.findId("lonely_island").style.display, "block");
+});
+
+QUnit.module("remembering where the player last went", {
+  setup: function(){
+    window.Test.resetStats();
+    GameData.player.last_visited = "squirrel_city";
+    resetGame();
+  },
+
+  teardown: function(){
+    window.Test.resetStats();
+  }
+});
+
+  QUnit.test("remembers the last level", function(assert){
+    assert.equal(dom.findId("squirrel_city").style.display, "block");
+  });
 
 QUnit.module("loading current items", {
   setup: function(){
