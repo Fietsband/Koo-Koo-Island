@@ -1,7 +1,6 @@
 var Game = (function(){
   var autoSaveInterval = null;
   var autoSaveTimeInterval = 5000;
-  var gameData = {};
   var gameIdentifier;
 
   Game.prototype = {
@@ -85,7 +84,9 @@ var Game = (function(){
   }
 
   function getOldGameData(){
-    window.GameData = JSON.parse(atob(GameStorage.get(gameIdentifier)));
+    if(!(ENV === "development")){
+      window.GameData = JSON.parse(atob(GameStorage.get(gameIdentifier)));
+    }
     toggleLoadCallbacks.call(this);
   }
 
