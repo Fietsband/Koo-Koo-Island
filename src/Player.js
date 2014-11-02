@@ -23,10 +23,12 @@ var Player = (function(){
     },
 
     magicAttack: function(magicAttackName){
+      var magicInfo = window.Magic[magicAttackName];
       window.currentBattle.eventEngine.add({
         type:    "player_battle_move",
         message: "You cast " + magicAttackName,
-        perform: window.Animations.Magic[magicAttackName].play
+        perform: window.Animations.Magic[magicAttackName].play,
+        timeOut: magicInfo.castTime
       });
     },
 
@@ -66,7 +68,8 @@ var Player = (function(){
       if(GameData.player.mp[0] >= GameData.player.mp[1]){
         GameData.player.mp[0] = GameData.player.mp[1];
       }
-      // update magic bar
+      this.magicBar.set(GameData.player.mp[0], GameData.player.mp[1]);
+      this.inventory.magicBar.set(GameData.player.mp[0], GameData.player.mp[1])
     },
 
     getGraphic: function(){
@@ -143,12 +146,11 @@ var Player = (function(){
     this.inventory      = new Inventory();
     this.graphic        = dom.findId("game-character");
     this.battleGraphic  = dom.find("#battle-sequence-popup .player #graphic");
-    this.healthBar      = dom.find(".field .player .healthbar .health-left");
-    this.healthStats    = dom.find(".field .player .health-stats .health-stats-left");
     this.attackBar      = new Bar(".field .player .attackbar .attack-left", GameData.player.battle_timeout);
     this.healthBar      = new StatBar(".player #health", ".health-stats-left", ".total-health", ".healthbar .inner-bar");
-    //this.magicBar       = new StatBar(".player #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
+    this.magicBar       = new StatBar(".player #magic", ".magic-stats-left", ".total-magic", ".magicbar .inner-bar");
     this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
+    this.magicBar.set(GameData.player.mp[0], GameData.player.mp[1]);
   }
   return Player;
 })();
