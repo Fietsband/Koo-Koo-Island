@@ -95,6 +95,7 @@ var BattleControls = (function(){
       this.locked = true;
       window.currentGame.player.attackBar.hide();
       this.enemy.attackHoldBar.hide();
+      this.closeAllMenus();
     },
 
     unlock: function(){
@@ -115,6 +116,7 @@ var BattleControls = (function(){
     },
 
     disable: function(){
+      this.closeAllMenus();
       this.removePlayerAttackListeners();
     },
 

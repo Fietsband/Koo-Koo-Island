@@ -285,6 +285,10 @@ span#battle-big-shark,
   font-size: 10px;
 }
 
+.player #magic{
+  font-size: 10px;
+}
+
 #battle-sequence-info-header{
   height: 12px;
   text-align: center;
@@ -361,4 +365,14 @@ span#battle-big-shark,
 
 #squirrel-city-mysterious-squirrel .inner p{
   width: 300px;
+}
+
+.field .player .magic{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.field .player .magic.fire{
+  background-color: #FF5500;
 }

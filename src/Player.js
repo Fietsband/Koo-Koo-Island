@@ -23,12 +23,10 @@ var Player = (function(){
     },
 
     magicAttack: function(magicAttackName){
-      var magicInfo = window.Magic[magicAttackName];
       window.currentBattle.eventEngine.add({
         type:    "player_battle_move",
         message: "You cast " + magicAttackName,
-        perform: window.Animations.Magic[magicAttackName].play,
-        timeOut: magicInfo.castTime
+        perform: window.Animations.Magic[magicAttackName].play
       });
     },
 

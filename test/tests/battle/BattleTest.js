@@ -97,4 +97,49 @@ QUnit.module("items in battle", {
     assert.equal(itemList.length, 1);
   });
 
+QUnit.module("battle magic tests", {
+  setup: function(){
+    GameData.player.mp = [20, 20];
+    GameData.player.inventory.magic = ["fire"];
+    window.Test.enemy  = new Enemy("btl-tiny-fish");
+    window.Test.battle = new Battle(window.Test.enemy);
+    window.Test.battle.start();
+  },
+
+  teardown: function(){
+    GameData.player.mp = [0, 0];
+    GameData.player.inventory.magic = [];
+    window.Test.battle.battlePopup.hide();
+    delete window.Test.enemy;
+    delete window.Test.battle;
+  }
+});
+
+  QUnit.test("should fill the magic list", function(assert){
+    var magicList = dom.find(".magic ul.list li", true);
+
+    assert.equal(magicList.length, 1);
+  });
+
+  QUnit.test("should fill the magic list", function(assert){
+    window.currentGame.player.magicAttack('fire');
+
+    assert.equal(window.currentBattle.eventEngine.events.length, 1);
+  });
+
+  QUnit.test("when casting the spell, the player mp should go down", function(assert){
+    window.currentGame.player.magicAttack('fire');
+    window.currentBattle.eventEngine.invoke();
+
+    assert.equal(window.GameData.player.mp[0], 15);
+  });
+
+  // TODO: how to test move timeouts
+  // QUnit.test("enemy should loose health when attacked", function(assert){
+  //   window.currentGame.player.magicAttack('fire');
+  //   window.currentBattle.eventEngine.invoke();
+
+  //   assert.equal(window.currentBattle.enemy.enemyInformation.health, 0);
+  // });
+
 QUnit.module();
