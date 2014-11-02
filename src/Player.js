@@ -14,11 +14,19 @@ var Player = (function(){
       return playerInventoryItemCount >= sellPrices[item].value;
     },
 
-    attack: function(enemy){
+    attack: function(){
       window.currentBattle.eventEngine.add({
         type:    "player_battle_move",
         message: "You attacked",
         perform: window.Animations.Attack.play
+      });
+    },
+
+    magicAttack: function(magicAttackName){
+      window.currentBattle.eventEngine.add({
+        type:    "player_battle_move",
+        message: "You cast " + magicAttackName,
+        perform: window.Animations.Magic[magicAttackName].play
       });
     },
 
