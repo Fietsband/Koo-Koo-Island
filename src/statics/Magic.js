@@ -3,7 +3,7 @@ window.Magic = {
     title: "Fire attack",
     description: "Relaases a fire blast to an enemy",
     cast: function(){
-
+      window.currentGame.player.magicAttack('fire');
     }
   }
 };
