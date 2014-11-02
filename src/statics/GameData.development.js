@@ -3,7 +3,7 @@ var GameData = {
   settings: {},
   player: {
     hp:               [20, 20],
-    mp:               [0, 0],
+    mp:               [20, 20],
     experience:       0,
     attack_damage:    90,
     battle_timeout:   5000,
@@ -17,10 +17,10 @@ var GameData = {
       weapons:          ["spear"],
       armors:           ["clown"],
       skills:           [],
-      magic:            [],
+      magic:            ["fire"],
       items:            ["map", "potion"]
     },
-    experience_rewards: [],
+    experience_rewards: ["9", "19", "49"],
     last_visited: "lonely_island"
   },
 
