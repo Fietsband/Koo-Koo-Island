@@ -18,6 +18,7 @@ Inventory.prototype = {
     }
     if(GameData.player.mp[1] > 0){
       this.inventoryDom.querySelector("#magic").classList.remove("disabled");
+      this.inventoryDom.querySelector(".magic").classList.remove("disabled");
     }
     this.healthBar.set(GameData.player.hp[0], GameData.player.hp[1]);
     this.magicBar.set(GameData.player.mp[0], GameData.player.mp[1]);
