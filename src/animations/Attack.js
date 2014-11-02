@@ -1,7 +1,7 @@
 window.Animations.Attack = {
   play: function(graphic){
-    var player = window.currentGame.player;
-    var enemy = window.currentBattle.enemy;
+    var player    = window.currentGame.player;
+    var enemy     = window.currentBattle.enemy;
     var clearMove = null;
 
     move(player.battleGraphic)
@@ -19,7 +19,7 @@ window.Animations.Attack = {
         .duration('0.3s')
         .ease('out')
         .end(function(){
-          window.currentBattle.controls.enable.bind(window.currentBattle)();
+          window.currentBattle.controls.enable.call(window.currentBattle);
           enemy.looseHealth(player.calculateDamage());
         });
 
