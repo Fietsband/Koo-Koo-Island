@@ -375,4 +375,5 @@ span#battle-big-shark,
 
 .field .player .magic.fire{
   background-color: #FF5500;
+  border-radius: 10px;
 }
