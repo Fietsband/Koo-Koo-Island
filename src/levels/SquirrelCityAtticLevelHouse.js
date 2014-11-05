@@ -26,7 +26,9 @@ window.SquirrelCityAtticLevelHouse = {
   enableFleeing: function(){
     dom.findId("open-inventory-button").removeAttribute("disabled");
     dom.findId("squirrel-city-goto-first-level-back").classList.remove("disabled");
-    dom.findId("add-magical-fire-spell").classList.remove("disabled");
+    if(!window.currentGame.checkProgressOn("squirrel_house_chimney")){
+      dom.findId("add-magical-fire-spell").classList.remove("disabled");
+    }
     window.currentGame.levels.squirrel_city_attic_level_house.setClickMethodsToLevel();
   },
 

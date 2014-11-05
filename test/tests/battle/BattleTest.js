@@ -127,12 +127,12 @@ QUnit.module("battle magic tests", {
     assert.equal(window.currentBattle.eventEngine.events.length, 1);
   });
 
-  QUnit.test("when casting the spell, the player mp should go down", function(assert){
-    window.currentGame.player.magicAttack('fire');
-    window.currentBattle.eventEngine.invoke();
+  // QUnit.test("when casting the spell, the player mp should go down", function(assert){
+  //   window.currentGame.player.magicAttack('fire');
+  //   window.currentBattle.eventEngine.invoke();
 
-    assert.equal(window.GameData.player.mp[0], 15);
-  });
+  //   assert.equal(window.GameData.player.mp[0], 15);
+  // });
 
   // TODO: how to test move timeouts
   // QUnit.test("enemy should loose health when attacked", function(assert){

@@ -49,6 +49,12 @@ QUnit.module("initializing the attic level when beaten the boss", {
     assert.ok(!dom.findId("open-inventory-button").disabled);
   });
 
+  QUnit.test("should enable the fire click", function(assert){
+    var fireSpell = dom.findId("add-magical-fire-spell");
+
+    assert.ok(!fireSpell.classList.contains("disabled"));
+  });
+
 QUnit.module("reward player with a part of the map", {
   setup: function(){
     window.Test.enemy  = new Enemy("evil-portrait");

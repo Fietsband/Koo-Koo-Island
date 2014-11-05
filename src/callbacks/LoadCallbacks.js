@@ -42,7 +42,8 @@ var LoadCallbacks = (function(){
     },
 
     squirrel_house_chimney: function(){
-
+      dom.findId("add-magical-fire-spell").innerHTML = "_";
+      dom.findId("add-magical-fire-spell").classList.add("disabled");
     },
 
     show_stat: function(type){

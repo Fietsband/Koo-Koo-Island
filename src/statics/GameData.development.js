@@ -18,7 +18,7 @@ var GameData = {
       armors:           ["clown"],
       skills:           [],
       magic:            ["fire"],
-      items:            ["map", "potion"]
+      items:            ["map", "potion", "ether"]
     },
     experience_rewards: ["9", "19", "49"],
     last_visited: "lonely_island"
@@ -35,7 +35,7 @@ var GameData = {
     squirrel_house_spear:          1,
     squirrel_house_small_painting: 0,
     squirrel_house_closet:         0,
-    squirrel_house_boss_fight:     0,
-    squirrel_house_chimney:        0
+    squirrel_house_boss_fight:     1,
+    squirrel_house_chimney:        1
   }
 }
