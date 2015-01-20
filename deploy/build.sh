@@ -32,7 +32,7 @@ JAVASCRIPTS=(
   "src/callbacks/LoadCallbacks.js"
   "src/Character.js"
   "src/statics/ClickAreas.js"
-  "src/statics/GameData.development.js"
+  "src/statics/GameData.js"
   "src/statics/SellPrices.js"
   "src/statics/Enemies.js"
   "src/statics/Weapons.js"
