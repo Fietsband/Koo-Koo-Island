@@ -1,19 +1,19 @@
 window.LevelClickMethods.LonelyIsland = {
-  islandSeashell: function(){
-    window.currentStats.increaseStat(
-      "seashell", 1, window.currentGame.callbacks.statsCallbacks.seashell.performCallback
-    );
-  },
+    islandSeashell: function() {
+        window.currentStats.increaseStat(
+            "seashell", 1, window.currentGame.callbacks.statsCallbacks.seashell.performCallback
+        );
+    },
 
-  islandBridge: function(){
+    islandBridge: function() {
 
-  },
+    },
 
-  battleBigShark: function(){
-    window.BattleInitializer.start("big-shark");
-  },
+    battleBigShark: function() {
+        window.BattleInitializer.start("big-shark");
+    },
 
-  islandWhirlpool: function(){
-    window.currentGame.levels.underwater_shack.addToGame();
-  }
+    islandWhirlpool: function() {
+        window.currentGame.levels.underwater_shack.addToGame();
+    }
 };

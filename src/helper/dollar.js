@@ -1,4 +1,8 @@
 $ = {
+    /* Test if your browser is compatible with Koo-Koo-Island.
+     *
+     * Returns: Boolean
+     */
     isBrowserCompatible: function() {
         return window['localStorage'] !== null &&
             Array.prototype.map && Array.prototype.filter &&

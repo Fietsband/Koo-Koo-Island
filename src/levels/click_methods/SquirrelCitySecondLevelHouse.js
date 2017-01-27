@@ -1,17 +1,17 @@
 window.LevelClickMethods.SquirrelCitySecondLevelHouse = {
-  squirrelCityGotoSecondLevel: function(){
-    window.SquirrelCity.goToSecondLevel();
-  },
+    squirrelCityGotoSecondLevel: function() {
+        window.SquirrelCity.goToSecondLevel();
+    },
 
-  squirrelCityGotoGroundLevel: function(){
-    window.SquirrelCity.goToGroundLevel();
-  },
+    squirrelCityGotoGroundLevel: function() {
+        window.SquirrelCity.goToGroundLevel();
+    },
 
-  squirrelCitySpearWall: function(){
-    window.SquirrelCity.grabSpear();
-  },
+    squirrelCitySpearWall: function() {
+        window.SquirrelCity.grabSpear();
+    },
 
-  squirrelHouseCloset: function(){
-    window.SquirrelCitySecondLevelHouse.openCloset();
-  }
+    squirrelHouseCloset: function() {
+        window.SquirrelCitySecondLevelHouse.openCloset();
+    }
 };
