@@ -88,13 +88,13 @@ var Level = (function() {
     }
 
     function Level(identifier, mapSpot) {
-        this.identifier = identifier;
-        this.mapSpot = mapSpot || identifier;
-        this.levelDom = dom.find("#game-levels #" + identifier);
-        this.moduleName = $.constantize(identifier);
-        this.pointOnMap = setMapSpot.bind(this)();
-        this.levelModule = setLevelModule.bind(this)();
-        this.clickAreas = setClickAreas.bind(this)();
+        this.identifier   = identifier;
+        this.mapSpot      = mapSpot || identifier;
+        this.levelDom     = dom.find("#game-levels #" + identifier);
+        this.moduleName   = $.constantize(identifier);
+        this.pointOnMap   = setMapSpot.bind(this)();
+        this.levelModule  = setLevelModule.bind(this)();
+        this.clickAreas   = setClickAreas.bind(this)();
         this.clickMethods = setClickMethods.bind(this)();
     }
     return Level;
