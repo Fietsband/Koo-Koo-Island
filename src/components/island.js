@@ -6,7 +6,6 @@ export const Island = (function () {
     e.target.classList.remove('click');
 
     Progress.setStat('progress', 'hasClickedShell', true);
-    // TODO: Whenever a player finds the shell start autocollecting.
   }
 
   return {

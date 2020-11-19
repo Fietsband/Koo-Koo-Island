@@ -1,3 +1,5 @@
+import { ProgressCallbacks } from './progress/callbacks.js';
+
 export const Progress = (function () {
   const saveKey = 'kookooisland.save';
   const autoSaveCycle = 10000;
@@ -31,10 +33,13 @@ export const Progress = (function () {
   return {
     setStat: function (scope, key, val) {
       stats[scope][key] = val;
+      ProgressCallbacks[key].call();
     },
+
     getStat: function (scope, key) {
       return stats[scope][key];
     },
+
     enableInterface: function () {
       const autoSaver = document.getElementById('interactive_autosave');
       const saveButton = document.getElementById('interactive_save');
@@ -45,9 +50,16 @@ export const Progress = (function () {
       autoSaver.addEventListener('click', clickAutoSaver);
       saveButton.addEventListener('click', this.save);
     },
+
     load: function () {
       const current = atob(localStorage.getItem(saveKey));
       stats = JSON.parse(current);
+
+      for (const key in stats.progress) {
+        if (stats.progress[key]) {
+          ProgressCallbacks[key].call();
+        }
+      }
     },
 
     save: function () {
