@@ -1,1 +1,3 @@
-target: 'static'
+export default {
+  target: 'static'
+}
