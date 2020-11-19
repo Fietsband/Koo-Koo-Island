@@ -16,11 +16,11 @@ export const Progress = (function () {
   };
 
   function clickAutoSaver (e) {
-     stats.settings.autoSaveEnabled = e.checked;
-     toggleAutoSaver();
+    stats.settings.autoSaveEnabled = e.checked;
+    toggleAutoSaver();
   }
 
-  function toggleAutoSaver() {
+  function toggleAutoSaver () {
     if (stats.settings.autoSaveEnabled) {
       clearInterval(autoSaveTimeout);
     } else {

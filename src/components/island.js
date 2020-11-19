@@ -1,4 +1,3 @@
-import { Player } from './player.js';
 import { Progress } from './progress.js';
 
 export const Island = (function () {
