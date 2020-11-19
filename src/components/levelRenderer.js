@@ -3,23 +3,30 @@ LevelRenderer = (function () {
     island: Island
   };
 
+  function draw (graphic, level) {
+    for (const property in level.parts) {
+      let part = level.parts[property].render();
+      graphic = graphic.replace("[[" + property + "]]", part);
+    };
+    return graphic;
+  }
+
+  function turnPartsInteractive (element, level) {
+    for (const property in level.parts) {
+      let el = element.querySelector('#interactive_' + property);
+
+      level.parts[property].afterRender(el);
+    };
+  }
+
   return {
     render: function (element, identifier) {
       let level = levels[identifier];
-      let graphic = Graphics[identifier];
-
-      for (const property in level.staticParts) {
-        let part = level.staticParts[property];
-        graphic = graphic.replace("[[" + property + "]]", part);
-      };
+      let staticGraphic = Graphics[identifier];
+      let graphic = draw(staticGraphic, level);
 
       element.innerHTML = graphic;
-
-      for (const property in level.interactiveParts) {
-        let el = element.querySelector('#interactive_' + property);
-
-        level.interactiveParts[property](el);
-      };
+      turnPartsInteractive(element, level);
     }
   };
 }());
