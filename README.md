@@ -24,3 +24,9 @@ open dist/test.html
 ```bash
 npm run lint
 ```
+
+## Development
+
+### Rules:
+
+- Every interactive element in a level has to have an id prepended with `interactive_`
