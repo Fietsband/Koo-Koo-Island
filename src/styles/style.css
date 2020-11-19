@@ -5,3 +5,9 @@ body {
 .click {
   cursor: pointer;
 }
+
+#controls {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}

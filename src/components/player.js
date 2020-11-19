@@ -1,3 +1,7 @@
-const Player = (function () {
-  return {};
+export const Player = (function () {
+  return {
+    track: function () {
+
+    }
+  };
 })();

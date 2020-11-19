@@ -1,8 +1,12 @@
+import { Player } from './player.js';
+import { Progress } from './progress.js';
+
 export const Island = (function () {
   function clickShell (e) {
     e.target.removeEventListener('click', clickShell);
     e.target.classList.remove('click');
-    console.log(e);
+
+    Progress.setStat('progress', 'hasClickedShell', true);
     // TODO: Whenever a player finds the shell start autocollecting.
   }
 
@@ -12,12 +16,16 @@ export const Island = (function () {
         render: function () {
           const shell = document.createElement('span');
           shell.setAttribute('id', 'interactive_shell');
-          shell.classList.add('click');
+          if (!Progress.getStat('progress', 'hasClickedShell')) {
+            shell.classList.add('click');
+          }
           shell.innerHTML = 'o';
           return shell.outerHTML;
         },
         afterRender: function (element) {
-          element.addEventListener('click', clickShell);
+          if (!Progress.getStat('progress', 'hasClickedShell')) {
+            element.addEventListener('click', clickShell);
+          }
         }
       }
     }
