@@ -1,10 +1,6 @@
 Game = (function (){
   return {
-    // creates a div#main element
     init: function () {
-      const element = document.createElement('div');
-      element.setAttribute('id', 'main');
-      document.body.appendChild(element);
     },
 
     loadLevel: function(identifier) {
