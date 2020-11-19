@@ -1,6 +1,9 @@
-Game = (function (){
+import './levelRenderer.js';
+
+var Game = (function (){
   return {
     init: function () {
+      this.loadLevel('island');
     },
 
     loadLevel: function(identifier) {
@@ -13,4 +16,3 @@ Game = (function (){
 })();
 
 Game.init();
-Game.loadLevel('island');

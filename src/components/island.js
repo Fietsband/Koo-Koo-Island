@@ -1,6 +1,9 @@
 Island = (function () {
-  function clickShell() {
-    console.log('shell');
+  function clickShell(e) {
+    e.target.removeEventListener('click', clickShell);
+    e.target.classList.remove('click');
+    console.log(e);
+    // TODO: Whenever a player finds the shell start autocollecting.
   }
 
   return {
