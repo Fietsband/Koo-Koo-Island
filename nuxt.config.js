@@ -1,3 +1,9 @@
 export default {
-  target: 'static'
+  meta: {
+    charset: 'utf-8'
+  },
+  target: 'static',
+  css: [
+    '~/assets/main.css'
+  ]
 }
