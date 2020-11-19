@@ -1,11 +1,5 @@
-import './style.css';
-import './cheese.js';
-
-function component () {
-  const element = document.createElement('div');
-  element.innerHTML = 'test1244';
-  element.classList.add('red');
-  return element;
-}
-
-document.body.appendChild(component());
+import './styles/style.css';
+import './graphics/index.js';
+import './components/island.js';
+import './components/levelRenderer.js';
+import './components/game.js';
