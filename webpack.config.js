@@ -3,14 +3,25 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    application: './src/index.js',
+    tests: './test/index.js'
+  },
   output: {
-    filename: 'application.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
-    new HtmlWebpackPlugin({title: 'Koo Koo Island'})
+    new HtmlWebpackPlugin({
+      title: 'Koo Koo Island',
+      excludeChunks: ['tests']
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Koo Koo Island Tests',
+      template: 'test/index.ejs',
+      filename: 'test.html'
+    })
   ],
   module: {
     rules: [

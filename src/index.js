@@ -1,5 +1,5 @@
 import './style.css';
-import './cheese.js'
+import './cheese.js';
 
 function component() {
     const element = document.createElement('div');
