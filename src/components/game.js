@@ -5,16 +5,16 @@ import { Progress } from './progress.js';
 const Game = (function () {
   return {
     init: function () {
+      Progress.load();
+      Progress.enableInterface();
+
       this.player = Player;
       this.loadLevel('island');
-
-      Progress.enableInterface();
-      Progress.load();
     },
 
     loadLevel: function (identifier) {
       const element = document.createElement('pre');
-      const mainEl = document.getElementById('main');
+      const mainEl = document.getElementById('level');
       mainEl.innerHTML = '';
       LevelRenderer.render(element, identifier);
       mainEl.appendChild(element);

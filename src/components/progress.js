@@ -1,8 +1,9 @@
 import { ProgressCallbacks } from './progress/callbacks.js';
+import { Stats } from './stats.js';
 
 export const Progress = (function () {
   const saveKey = 'kookooisland.save';
-  const autoSaveCycle = 10000;
+  const autoSaveCycle = 10000; // 10 seconds
   let autoSaveTimeout;
   let stats = {
     player: {
@@ -36,6 +37,15 @@ export const Progress = (function () {
       ProgressCallbacks[key].call();
     },
 
+    setInterfaceStat: function (key) {
+      Stats.set(key, stats.player[key]);
+    },
+
+    increase: function (scope, key) {
+       stats[scope][key] += 1;
+       ProgressCallbacks[key + 'Increase'].call();
+    },
+
     getStat: function (scope, key) {
       return stats[scope][key];
     },
@@ -46,6 +56,7 @@ export const Progress = (function () {
 
       autoSaver.checked = stats.settings.autoSaveEnabled;
       toggleAutoSaver();
+      this.setInterfaceStat('seashells');
 
       autoSaver.addEventListener('click', clickAutoSaver);
       saveButton.addEventListener('click', this.save);
