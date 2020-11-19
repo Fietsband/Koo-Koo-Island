@@ -1,5 +1,5 @@
-Island = (function () {
-  function clickShell(e) {
+export const Island = (function () {
+  function clickShell (e) {
     e.target.removeEventListener('click', clickShell);
     e.target.classList.remove('click');
     console.log(e);
@@ -21,5 +21,5 @@ Island = (function () {
         }
       }
     }
-  }
+  };
 })();
