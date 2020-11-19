@@ -1,11 +1,17 @@
 {
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "lint": "eslint 'src/**/*.js' && eslint 'test/**/*.js'"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "html-webpack-plugin": "^4.5.0",
     "qunit": "^2.12.0",
     "style-loader": "^2.0.0",
