@@ -3,18 +3,24 @@ Koo-Koo-Island
 
 Stuck on an island you await the fish to guide you through an amazing adventure.
 
-## Some info:
+## How to run:
 
-To run in development mode:
-
-```
-npm run dev
-```
-
-To make a production build:
-
-```
-npm run build
+```bash
+npm run watch
+open dist/index.html
 ```
 
-In the `dist` folder there will be the static files.
+## How to run the tests
+
+Tests are written in QUnit through the browser. Run by:
+
+```bash
+npm run watch
+open dist/test.html
+```
+
+## Linting
+
+```bash
+npm run lint
+```
