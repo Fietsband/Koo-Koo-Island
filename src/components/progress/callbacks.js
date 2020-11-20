@@ -10,7 +10,6 @@ export const ProgressCallbacks = (function () {
       Progress.setInterfaceStat('seashells');
     },
     hasClickedShell: function () {
-      Stats.enable();
       shellInterval = setInterval(function () {
         Progress.increase('player', 'seashells');
       }, shellIntervalCycle);
