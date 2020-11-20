@@ -1,5 +1,4 @@
 import { ProgressCallbacks } from './progress/callbacks.js';
-import { ProgressInterface } from './progress/interface.js';
 import { Stats } from './stats.js';
 
 export const Progress = (function () {
@@ -23,7 +22,7 @@ export const Progress = (function () {
     }
   };
 
-  function statCallback(key) {
+  function statCallback (key) {
     const callback = ProgressCallbacks[key];
     if (callback) {
       callback.call();
@@ -39,7 +38,6 @@ export const Progress = (function () {
     getStat: function (scope, key) {
       return stats[scope][key];
     },
-
 
     setInterfaceStat: function (key) {
       Stats.set(key, stats.player[key]);

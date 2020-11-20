@@ -5,9 +5,9 @@ export const Fish = (function () {
   const products = {
     oysters: 10,
     wood: 20
-  }
+  };
 
-  function buy(product) {
+  function buy (product) {
     const message = this.querySelector('#fish_buy_message');
     const seashells = Progress.getStat('player', 'seashells');
     const price = products[product];
@@ -18,7 +18,7 @@ export const Fish = (function () {
       Progress.setStat(product, function (stat) {
         stat.player.seashells = seashells - price;
         stat.player[product] += 1;
-      })
+      });
       message.innerHTML = 'thanks!';
     }
   }
@@ -29,10 +29,10 @@ export const Fish = (function () {
         Modal.cancel();
       },
       oyster: function () {
-        buy.call(this, 'oysters')
+        buy.call(this, 'oysters');
       },
       wood: function () {
-        buy.call(this, 'wood')
+        buy.call(this, 'wood');
       }
     });
   }

@@ -3,7 +3,7 @@ import { Progress } from '../../progress.js';
 import { Player } from '../../player.js';
 
 export const Bottle = (function () {
-  function emptyBottle() {
+  function emptyBottle () {
     const message = document.querySelector('.interactive_bottle.message');
     const bottleEl = document.querySelectorAll('#level .interactive_bottle');
     message.innerHTML = ' ';
@@ -30,9 +30,9 @@ export const Bottle = (function () {
     popup: function () {
       Modal.open('message_in_bottle', {
         cancel: function () {
-            emptyBottle();
-            Player.inventory.add('message_in_bottle');
-            Modal.cancel();
+          emptyBottle();
+          Player.inventory.add('message_in_bottle');
+          Modal.cancel();
         }
       });
     }

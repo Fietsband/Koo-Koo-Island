@@ -1,4 +1,4 @@
-import { Inventory } from './player/inventory.js'
+import { Inventory } from './player/inventory.js';
 
 export const Player = (function () {
   return {

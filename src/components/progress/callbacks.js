@@ -29,13 +29,13 @@ export const ProgressCallbacks = (function () {
       const foundFish = Progress.getStat('progress', 'hasFoundFish');
       const foundMessageInBottle = Progress.getStat('progress', 'hasFoundMessageInBottle');
 
-      if (!foundFish && stat == 10) {
+      if (!foundFish && stat === 10) {
         Progress.setStat('hasFoundFish', function (stat) {
           stat.progress.hasFoundFish = true;
         });
       }
 
-      if (!foundMessageInBottle && stat == 20) {
+      if (!foundMessageInBottle && stat === 20) {
         Progress.setStat('hasFoundMessageInBottle', function (stat) {
           stat.progress.hasFoundMessageInBottle = true;
         });
@@ -57,7 +57,7 @@ export const ProgressCallbacks = (function () {
       setInterval(function () {
         Progress.setStat('seashells', function (stat) {
           stat.player.seashells += 1;
-        })
+        });
       }, shellIntervalCycle);
     }
   };

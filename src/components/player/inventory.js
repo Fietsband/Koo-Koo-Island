@@ -13,8 +13,9 @@ export const Inventory = (function () {
       wrapper.classList.remove('hidden');
       button.addEventListener('click', openInventory);
     },
+
     add: function (item) {
-      Progress.setStat('inventory', function(stat) {
+      Progress.setStat('inventory', function (stat) {
         stat.player.inventory.push(item);
       });
     }

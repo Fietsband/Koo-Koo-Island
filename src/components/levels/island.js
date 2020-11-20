@@ -16,7 +16,7 @@ export const Island = (function () {
     Modal.open('shell', { ok: Modal.cancel });
   }
 
-  function enableFish(element) {
+  function enableFish (element) {
     if (Progress.getStat('progress', 'hasFoundFish')) {
       if (element.classList.contains('hidden')) {
         element.classList.remove('hidden');
