@@ -15,7 +15,9 @@ export const Progress = (function () {
     progress: {
       hasClickedShell: false,
       hasFoundFish: false,
-      hasFoundMessageInBottle: false
+      hasFoundMessageInBottle: false,
+      hasClickedMessageInBottle: false,
+      hasInventory: false
     },
     settings: {
       autoSaveEnabled: true

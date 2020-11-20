@@ -18,6 +18,8 @@ export const Inventory = (function () {
       Progress.setStat('inventory', function (stat) {
         stat.player.inventory.push(item);
       });
+
+      // Visually add it to the inventory
     }
   };
 })();

@@ -7,10 +7,11 @@ export const ProgressCallbacks = (function () {
 
   return {
     inventory: function () {
-      const inventory = Progress.getStat('player', 'inventory');
-      if (inventory.length > 0) {
-        Player.inventory.enable();
-      }
+      Progress.setStat(null, function (stat) {
+        stat.progress.hasInventory = true;
+      });
+
+      Player.inventory.enable();
     },
 
     oysters: function () {
@@ -47,9 +48,18 @@ export const ProgressCallbacks = (function () {
       Levels[level].callbacks.hasFoundFish();
     },
 
+    hasInventory: function () {
+      Player.inventory.enable();
+    },
+
     hasFoundMessageInBottle: function () {
       const level = Progress.getStat('player', 'currentLevel');
       Levels[level].callbacks.hasFoundMessageInBottle();
+    },
+
+    hasClickedMessageInBottle: function () {
+      const level = Progress.getStat('player', 'currentLevel');
+      Levels[level].callbacks.hasClickedMessageInBottle();
     },
 
     hasClickedShell: function () {

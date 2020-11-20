@@ -37,6 +37,9 @@ export const Island = (function () {
       hasFoundMessageInBottle: function () {
         const bottleEl = document.querySelectorAll('#level .interactive_bottle');
         bottleEl.forEach(Bottle.enablePart);
+      },
+      hasClickedMessageInBottle: function () {
+        Bottle.empty();
       }
     },
     parts: {

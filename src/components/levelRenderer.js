@@ -20,8 +20,8 @@ export const LevelRenderer = (function () {
     render: function (identifier) {
       const element = document.createElement('pre');
       const mainEl = document.getElementById('level');
-      const level = Levels[identifier];
       const staticGraphic = document.getElementById('graphic_' + identifier);
+      const level = Levels[identifier];
 
       mainEl.innerHTML = '';
       Progress.setStat('currentLevel', function (stat) {
