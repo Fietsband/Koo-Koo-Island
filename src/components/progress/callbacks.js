@@ -1,3 +1,4 @@
+import { Player } from '../player.js';
 import { Progress } from '../progress.js';
 import { Levels } from '../levelRenderer.js';
 
@@ -5,6 +6,14 @@ export const ProgressCallbacks = (function () {
   const shellIntervalCycle = 500;
 
   return {
+    inventory: function () {
+      const inventory = Progress.getStat('player', 'inventory');
+      console.log(inventory);
+      if (inventory.length > 0) {
+        Player.inventory.enable();
+      }
+    },
+
     oysters: function () {
       Progress.setInterfaceStat('oysters');
       ProgressCallbacks.seashells();
