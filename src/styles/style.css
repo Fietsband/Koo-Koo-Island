@@ -5,11 +5,15 @@ body {
   height: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 .click {
   cursor: pointer;
 }
 
-#level {
+#level, #modal {
   max-width: 800px;
   margin: 0 auto;
 }

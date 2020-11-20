@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const env = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
+  mode: env,
   entry: {
     application: './src/index.js',
     tests: './test/index.js'
@@ -16,7 +17,9 @@ module.exports = {
     new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
     new HtmlWebpackPlugin({
       title: 'Koo Koo Island',
-      excludeChunks: ['tests']
+      template: 'src/index.html',
+      excludeChunks: ['tests'],
+      environment: env
     }),
     new HtmlWebpackPlugin({
       title: 'Koo Koo Island Tests',

@@ -1,4 +1,3 @@
-import { Graphics } from '../graphics/index.js';
 import { Island } from './island.js';
 
 export const LevelRenderer = (function () {
@@ -6,29 +5,20 @@ export const LevelRenderer = (function () {
     island: Island
   };
 
-  function draw (graphic, level) {
-    for (const property in level.parts) {
-      const part = level.parts[property].render();
-      graphic = graphic.replace('[[' + property + ']]', part);
-    };
-    return graphic;
-  }
-
   function turnPartsInteractive (element, level) {
     for (const property in level.parts) {
-      const el = element.querySelector('#interactive_' + property);
+      const el = element.querySelector('.interactive_' + property);
 
-      level.parts[property].afterRender(el);
+      level.parts[property](el);
     };
   }
 
   return {
     render: function (element, identifier) {
       const level = levels[identifier];
-      const staticGraphic = Graphics[identifier];
-      const graphic = draw(staticGraphic, level);
+      const staticGraphic = document.getElementById('graphic_' + identifier);
 
-      element.innerHTML = graphic;
+      element.innerHTML = staticGraphic.innerHTML;
       turnPartsInteractive(element, level);
     }
   };

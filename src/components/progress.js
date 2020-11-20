@@ -11,7 +11,8 @@ export const Progress = (function () {
       seashells: 0
     },
     progress: {
-      hasClickedShell: false
+      hasClickedShell: false,
+      hasFoundFish: false
     },
     settings: {
       autoSaveEnabled: true
@@ -63,8 +64,11 @@ export const Progress = (function () {
     },
 
     load: function () {
-      const current = atob(localStorage.getItem(saveKey));
-      stats = JSON.parse(current);
+      const dev_mode = document.getElementById('dev_mode_enabled');
+      if (!dev_mode.classList.contains('reset')) {
+        const current = atob(localStorage.getItem(saveKey));
+        stats = JSON.parse(current);
+      }
 
       for (const key in stats.progress) {
         if (stats.progress[key]) {
