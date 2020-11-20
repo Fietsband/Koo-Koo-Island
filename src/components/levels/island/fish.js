@@ -2,8 +2,24 @@ import { Modal } from '../../modal.js';
 import { Progress } from '../../progress.js';
 
 export const Fish = (function () {
-  const oysterPrice = 10;
-  const woodPrice = 20;
+  const products = {
+    oysters: 10,
+    wood: 20
+  }
+
+  function buy(product) {
+    const message = this.querySelector('#fish_buy_message');
+    const seashells = Progress.getStat('player', 'seashells');
+    const price = products[product];
+
+    if (seashells < price) {
+      message.innerHTML = 'not enough seashells!';
+    } else {
+      Progress.setStat('player', 'seashells', seashells - price);
+      Progress.increase('player', product);
+      message.innerHTML = 'thanks!';
+    }
+  }
 
   function buyPopup () {
     Modal.open('fish_buy_seller', {
@@ -11,26 +27,10 @@ export const Fish = (function () {
         Modal.cancel();
       },
       oyster: function () {
-        const message = this.querySelector('#fish_buy_message');
-        const seashells = Progress.getStat('player', 'seashells');
-        if (seashells < oysterPrice) {
-          message.innerHTML = 'not enough seashells!';
-        } else {
-          Progress.setStat('player', 'seashells', seashells - oysterPrice);
-          Progress.increase('player', 'oysters');
-          message.innerHTML = 'thanks!';
-        }
+        buy.call(this, 'oysters')
       },
       wood: function () {
-        const message = this.querySelector('#fish_buy_message');
-        const seashells = Progress.getStat('player', 'seashells');
-        if (seashells < woodPrice) {
-          Progress.setStat('player', 'seashells', seashells - woodPrice);
-          Progress.increase('player', 'wood');
-          message.innerHTML = 'not enough seashells!';
-        } else {
-          message.innerHTML = 'thanks!';
-        }
+        buy.call(this, 'wood')
       }
     });
   }

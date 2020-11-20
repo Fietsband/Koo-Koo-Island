@@ -1,12 +1,13 @@
 import { LevelRenderer } from './levelRenderer.js';
 import { Player } from './player.js';
 import { Progress } from './progress.js';
+import { ProgressInterface } from './progress/interface.js';
 
 const Game = (function () {
   return {
     init: function () {
       Progress.load();
-      Progress.enableInterface();
+      ProgressInterface.enable();
 
       this.player = Player;
       this.loadLevel(Progress.getStat('player', 'currentLevel'));

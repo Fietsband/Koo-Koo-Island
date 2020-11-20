@@ -5,19 +5,15 @@ export const ProgressCallbacks = (function () {
   const shellIntervalCycle = 5000;
 
   return {
-    oystersIncrease: function () {
+    oysters: function () {
       Progress.setInterfaceStat('oysters');
     },
 
-    woodIncrease: function () {
+    wood: function () {
       Progress.setInterfaceStat('wood');
     },
 
     seashells: function () {
-      Progress.setInterfaceStat('seashells');
-    },
-
-    seashellsIncrease: function () {
       Progress.setInterfaceStat('seashells');
       const stat = Progress.getStat('player', 'seashells');
       const foundFish = Progress.getStat('progress', 'hasFoundFish');

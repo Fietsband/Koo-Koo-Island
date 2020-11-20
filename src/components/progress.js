@@ -1,10 +1,9 @@
 import { ProgressCallbacks } from './progress/callbacks.js';
+import { ProgressInterface } from './progress/interface.js';
 import { Stats } from './stats.js';
 
 export const Progress = (function () {
   const saveKey = 'kookooisland.save';
-  const autoSaveCycle = 10000; // 10 seconds
-  let autoSaveTimeout;
   let stats = {
     player: {
       hp: 20,
@@ -21,23 +20,6 @@ export const Progress = (function () {
       autoSaveEnabled: true
     }
   };
-
-  let internalStats = {
-    currentLevel: null
-  };
-
-  function clickAutoSaver (e) {
-    stats.settings.autoSaveEnabled = e.checked;
-    toggleAutoSaver();
-  }
-
-  function toggleAutoSaver () {
-    if (stats.settings.autoSaveEnabled) {
-      clearInterval(autoSaveTimeout);
-    } else {
-      autoSaveTimeout = setInterval(this.save, autoSaveCycle);
-    }
-  }
 
   return {
     setStat: function (scope, key, val) {
@@ -58,25 +40,7 @@ export const Progress = (function () {
     },
 
     increase: function (scope, key) {
-      stats[scope][key] += 1;
-      const callback = ProgressCallbacks[key + 'Increase'];
-      if (callback) {
-        callback.call();
-      }
-    },
-
-    enableInterface: function () {
-      const autoSaver = document.getElementById('interactive_autosave');
-      const saveButton = document.getElementById('interactive_save');
-
-      autoSaver.checked = stats.settings.autoSaveEnabled;
-      toggleAutoSaver();
-      this.setInterfaceStat('seashells');
-      this.setInterfaceStat('oysters');
-      this.setInterfaceStat('wood');
-
-      autoSaver.addEventListener('click', clickAutoSaver);
-      saveButton.addEventListener('click', this.save);
+      this.setStat(scope, key, stats[scope][key] + 1);
     },
 
     load: function () {
