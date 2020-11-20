@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-console.log();
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
@@ -30,7 +29,7 @@ module.exports = {
       {
         test: /\.css/i,
         use: ['style-loader', 'css-loader']
-     	}
+      }
     ]
   }
 }
