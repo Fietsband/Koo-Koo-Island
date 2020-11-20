@@ -1,4 +1,4 @@
-export const Modal = (function (){
+export const Modal = (function () {
   const modalLoader = document.getElementById('modal');
   const level = document.getElementById('level');
 
@@ -22,5 +22,5 @@ export const Modal = (function (){
         inter.addEventListener('click', callbacks[callback]);
       }
     }
-  }
+  };
 })();

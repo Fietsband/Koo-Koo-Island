@@ -4,5 +4,5 @@ export const Stats = (function () {
       const counter = document.getElementById('count_' + key);
       counter.innerHTML = val;
     }
-  }
+  };
 })();

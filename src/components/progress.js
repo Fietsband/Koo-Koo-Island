@@ -43,8 +43,8 @@ export const Progress = (function () {
     },
 
     increase: function (scope, key) {
-       stats[scope][key] += 1;
-       ProgressCallbacks[key + 'Increase'].call();
+      stats[scope][key] += 1;
+      ProgressCallbacks[key + 'Increase'].call();
     },
 
     getStat: function (scope, key) {
@@ -64,8 +64,8 @@ export const Progress = (function () {
     },
 
     load: function () {
-      const dev_mode = document.getElementById('dev_mode_enabled');
-      if (!dev_mode.classList.contains('reset')) {
+      const devMode = document.getElementById('dev_mode_enabled');
+      if (!devMode.classList.contains('reset')) {
         const current = atob(localStorage.getItem(saveKey));
         stats = JSON.parse(current);
       }
