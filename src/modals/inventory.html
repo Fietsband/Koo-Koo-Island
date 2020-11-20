@@ -1,8 +1,51 @@
 <div id="modal_inventory" class="modal">
-  <strong>Inventory</strong>
-  <p>
-    Here you'll find all the stuff you found
-  </p>
-  <div id="items"></div>
+  <div class='intro'>
+    <strong>Inventory</strong>
+    <p>
+      Here you'll find all the stuff you found.
+    </p>
+  </div>
+  <div class='menu'>
+    <span>Map</span> |
+    <span>Items</span> |
+    <span>Weapons</span> |
+    <span>Armor</span>
+  </div>
+  <div id="items">
+    <div class="menu_wrapper" id="map">
+      <pre class="l1">
+==============================
+||                           /
+||    ~     ~       '```````,
+||  ~   ~       ~  /```<span id="squirrel_city" class="map-place">O</span>```/
+||           ~  <span id="lonely_island" class="map-place">X</span><span class="map-bridge">&nbsp;&nbsp;</span>'``````.
+||                / \._`/
+||         ._/'\/
+||  . '\  '
+||/     '/
+||
+||
+||
+      </pre>
+
+      <pre class="l2 hidden">
+===============================
+||                     ~      /
+||    ~     ~       '````````/
+||  ~   ~       ~  /```<span id="squirrel_city" class="map-place">X</span>```/
+||           ~  <span id="lonely_island" class="map-place">O</span><span class="map-bridge">&nbsp;&nbsp;</span>'``````.\
+||    ~           / `````````\
+||         ._/'\/`````<span id="cliffhill_town" class="map-place enabled">O</span>````````\
+||  . '\  '```<span id="forest_of_protectors" class="map-place enabled">O</span>```````````````/
+||/     '/\/'\../\'\/'\/'\/\/
+||            \/
+||
+||
+      </pre>
+    </div>
+    <div class="menu_wrapper hidden" id="items"></div>
+    <div class="menu_wrapper hidden" id="weapons"></div>
+    <div class="menu_wrapper hidden" id="armor"></div>
+  </div>
   <button id="interactive_close">Close</button>
 </div>
