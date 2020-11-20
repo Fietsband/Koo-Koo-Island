@@ -8,7 +8,6 @@ export const ProgressCallbacks = (function () {
   return {
     inventory: function () {
       const inventory = Progress.getStat('player', 'inventory');
-      console.log(inventory);
       if (inventory.length > 0) {
         Player.inventory.enable();
       }
