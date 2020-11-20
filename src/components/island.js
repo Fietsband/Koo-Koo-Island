@@ -16,24 +16,47 @@ export const Island = (function () {
     });
   }
 
+  function enableEmptyFish(element) {
+    if (Progress.getStat('progress', 'hasFoundFish')) {
+      element.classList.add('hidden');
+    }
+  }
+
+  function enableFish(element) {
+    if (Progress.getStat('progress', 'hasFoundFish')) {
+      element.classList.remove('hidden');
+      element.classList.add('click');
+      element.addEventListener('click', clickFish);
+    }
+  }
+
   function clickFish (e) {
-    // TODO Open a dialog for the fish
+    Modal.open('fish_seller', {
+      cancel: function () {
+        Modal.cancel();
+      },
+      buy: function () {
+        Modal.open('fish_buy_seller', {
+          cancel: function () {
+            Modal.cancel();
+          }
+        });
+      }
+    });
   }
 
   return {
+    callbacks: {
+      hasFoundFish: function () {
+        const emptyFishEl = document.querySelector('#level .interactive_empty_fish');
+        const fishEl = document.querySelector('#level .interactive_fish');
+        enableEmptyFish(emptyFishEl);
+        enableFish(fishEl);
+      }
+    },
     parts: {
-      empty_fish: function (element) {
-        if (Progress.getStat('progress', 'hasFoundFish')) {
-          element.classList.add('hidden');
-        }
-      },
-      fish: function (element) {
-        if (Progress.getStat('progress', 'hasFoundFish')) {
-          element.classList.remove('hidden');
-          element.classList.add('click');
-          element.addEventListener('click', clickFish);
-        }
-      },
+      empty_fish: enableEmptyFish,
+      fish: enableFish,
       shell: function (element) {
         if (!Progress.getStat('progress', 'hasClickedShell')) {
           element.classList.add('click');

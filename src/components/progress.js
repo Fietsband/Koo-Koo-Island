@@ -8,7 +8,8 @@ export const Progress = (function () {
   let stats = {
     player: {
       hp: 20,
-      seashells: 0
+      seashells: 0,
+      currentLevel: 'island'
     },
     progress: {
       hasClickedShell: false,
@@ -17,6 +18,10 @@ export const Progress = (function () {
     settings: {
       autoSaveEnabled: true
     }
+  };
+
+  let internalStats = {
+    currentLevel: null
   };
 
   function clickAutoSaver (e) {
@@ -35,8 +40,16 @@ export const Progress = (function () {
   return {
     setStat: function (scope, key, val) {
       stats[scope][key] = val;
-      ProgressCallbacks[key].call();
+      const callback = ProgressCallbacks[key];
+      if (callback) {
+        callback.call();
+      }
     },
+
+    getStat: function (scope, key) {
+      return stats[scope][key];
+    },
+
 
     setInterfaceStat: function (key) {
       Stats.set(key, stats.player[key]);
@@ -45,10 +58,6 @@ export const Progress = (function () {
     increase: function (scope, key) {
       stats[scope][key] += 1;
       ProgressCallbacks[key + 'Increase'].call();
-    },
-
-    getStat: function (scope, key) {
-      return stats[scope][key];
     },
 
     enableInterface: function () {

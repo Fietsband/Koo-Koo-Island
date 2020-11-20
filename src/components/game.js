@@ -9,7 +9,7 @@ const Game = (function () {
       Progress.enableInterface();
 
       this.player = Player;
-      this.loadLevel('island');
+      this.loadLevel(Progress.getStat('player', 'currentLevel'));
     },
 
     loadLevel: function (identifier) {
