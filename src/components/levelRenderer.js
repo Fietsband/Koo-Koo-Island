@@ -1,4 +1,4 @@
-import { Island } from './island.js';
+import { Island } from './levels/island.js';
 import { Progress } from './progress.js';
 
 export const Levels = {

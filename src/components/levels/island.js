@@ -1,19 +1,16 @@
-import { Progress } from './progress.js';
-import { Modal } from './modal.js';
+import { Progress } from '../progress.js';
+import { Modal } from '../modal.js';
+import { Fish } from './island/fish.js';
 
 export const Island = (function () {
   function clickShell (e) {
     e.target.removeEventListener('click', clickShell);
     e.target.classList.remove('click');
 
+    Progress.setStat('progress', 'hasClickedShell', true);
     Progress.increase('player', 'seashells');
 
-    Modal.open('shell', {
-      ok: function () {
-        Modal.cancel();
-        Progress.setStat('progress', 'hasClickedShell', true);
-      }
-    });
+    Modal.open('shell', { ok: Modal.cancel });
   }
 
   function enableEmptyFish(element) {
@@ -26,23 +23,8 @@ export const Island = (function () {
     if (Progress.getStat('progress', 'hasFoundFish')) {
       element.classList.remove('hidden');
       element.classList.add('click');
-      element.addEventListener('click', clickFish);
+      element.addEventListener('click', Fish.popup);
     }
-  }
-
-  function clickFish (e) {
-    Modal.open('fish_seller', {
-      cancel: function () {
-        Modal.cancel();
-      },
-      buy: function () {
-        Modal.open('fish_buy_seller', {
-          cancel: function () {
-            Modal.cancel();
-          }
-        });
-      }
-    });
   }
 
   return {

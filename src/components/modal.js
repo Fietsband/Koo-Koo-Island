@@ -19,7 +19,9 @@ export const Modal = (function () {
 
       for (const callback in callbacks) {
         const inter = modalLoader.querySelector('#interactive_' + callback);
-        inter.addEventListener('click', callbacks[callback]);
+
+        inter.classList.add('click');
+        inter.addEventListener('click', callbacks[callback].bind(modalLoader));
       }
     }
   };

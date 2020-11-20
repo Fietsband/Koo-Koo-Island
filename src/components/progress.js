@@ -9,6 +9,8 @@ export const Progress = (function () {
     player: {
       hp: 20,
       seashells: 0,
+      oysters: 0,
+      wood: 0,
       currentLevel: 'island'
     },
     progress: {
@@ -57,7 +59,10 @@ export const Progress = (function () {
 
     increase: function (scope, key) {
       stats[scope][key] += 1;
-      ProgressCallbacks[key + 'Increase'].call();
+      const callback = ProgressCallbacks[key + 'Increase'];
+      if (callback) {
+        callback.call();
+      }
     },
 
     enableInterface: function () {
@@ -67,6 +72,8 @@ export const Progress = (function () {
       autoSaver.checked = stats.settings.autoSaveEnabled;
       toggleAutoSaver();
       this.setInterfaceStat('seashells');
+      this.setInterfaceStat('oysters');
+      this.setInterfaceStat('wood');
 
       autoSaver.addEventListener('click', clickAutoSaver);
       saveButton.addEventListener('click', this.save);
