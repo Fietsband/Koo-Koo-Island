@@ -10,24 +10,30 @@ export const Progress = (function () {
       seashells: 0,
       oysters: 0,
       wood: 0,
-      currentLevel: 'island'
+      currentLevel: 'island',
+      inventory: []
     },
     progress: {
       hasClickedShell: false,
-      hasFoundFish: false
+      hasFoundFish: false,
+      hasFoundMessageInBottle: false
     },
     settings: {
       autoSaveEnabled: true
     }
   };
 
+  function statCallback(key) {
+    const callback = ProgressCallbacks[key];
+    if (callback) {
+      callback.call();
+    }
+  }
+
   return {
-    setStat: function (scope, key, val) {
-      stats[scope][key] = val;
-      const callback = ProgressCallbacks[key];
-      if (callback) {
-        callback.call();
-      }
+    setStat: function (key, method) {
+      method.call(this, stats);
+      statCallback(key);
     },
 
     getStat: function (scope, key) {
@@ -37,10 +43,6 @@ export const Progress = (function () {
 
     setInterfaceStat: function (key) {
       Stats.set(key, stats.player[key]);
-    },
-
-    increase: function (scope, key) {
-      this.setStat(scope, key, stats[scope][key] + 1);
     },
 
     load: function () {

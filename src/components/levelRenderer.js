@@ -8,9 +8,11 @@ export const Levels = {
 export const LevelRenderer = (function () {
   function turnPartsInteractive (element, level) {
     for (const property in level.parts) {
-      const el = element.querySelector('.interactive_' + property);
+      const els = element.querySelectorAll('.interactive_' + property);
 
-      level.parts[property](el);
+      els.forEach(function (el) {
+        level.parts[property](el);
+      });
     };
   }
 
@@ -19,7 +21,9 @@ export const LevelRenderer = (function () {
       const level = Levels[identifier];
       const staticGraphic = document.getElementById('graphic_' + identifier);
 
-      Progress.setStat('player', 'currentLevel', identifier);
+      Progress.setStat('currentLevel', function (stat) {
+        stat.player.currentLevel = identifier;
+      });
       element.innerHTML = staticGraphic.innerHTML;
       turnPartsInteractive(element, level);
     }

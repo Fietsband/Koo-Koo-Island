@@ -15,8 +15,10 @@ export const Fish = (function () {
     if (seashells < price) {
       message.innerHTML = 'not enough seashells!';
     } else {
-      Progress.setStat('player', 'seashells', seashells - price);
-      Progress.increase('player', product);
+      Progress.setStat(product, function (stat) {
+        stat.player.seashells = seashells - price;
+        stat.player[product] += 1;
+      })
       message.innerHTML = 'thanks!';
     }
   }
