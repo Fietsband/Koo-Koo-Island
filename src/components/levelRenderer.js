@@ -17,15 +17,19 @@ export const LevelRenderer = (function () {
   }
 
   return {
-    render: function (element, identifier) {
+    render: function (identifier) {
+      const element = document.createElement('pre');
+      const mainEl = document.getElementById('level');
       const level = Levels[identifier];
       const staticGraphic = document.getElementById('graphic_' + identifier);
 
+      mainEl.innerHTML = '';
       Progress.setStat('currentLevel', function (stat) {
         stat.player.currentLevel = identifier;
       });
       element.innerHTML = staticGraphic.innerHTML;
       turnPartsInteractive(element, level);
+      mainEl.appendChild(element);
     }
   };
 }());

@@ -8,15 +8,7 @@ const Game = (function () {
       Progress.load();
       ProgressInterface.enable();
 
-      this.loadLevel(Progress.getStat('player', 'currentLevel'));
-    },
-
-    loadLevel: function (identifier) {
-      const element = document.createElement('pre');
-      const mainEl = document.getElementById('level');
-      mainEl.innerHTML = '';
-      LevelRenderer.render(element, identifier);
-      mainEl.appendChild(element);
+      LevelRenderer.render(Progress.getStat('player', 'currentLevel'));
     }
   };
 })();
