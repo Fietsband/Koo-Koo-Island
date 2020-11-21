@@ -14,12 +14,10 @@ export const Inventory = (function () {
       button.addEventListener('click', openInventory);
     },
 
-    add: function (item) {
-      Progress.setStat('inventory', function (stat) {
-        stat.player.inventory.push(item);
+    add: function (scope, item) {
+      Progress.setStat(function (stat) {
+        stat.player.inventory[scope].push(item);
       });
-
-      // Visually add it to the inventory
     }
   };
 })();

@@ -5,14 +5,27 @@ export const Levels = {
   island: Island
 };
 
-export const LevelRenderer = (function () {
-  function turnPartsInteractive (element, level) {
-    for (const property in level.parts) {
-      const els = element.querySelectorAll('.interactive_' + property);
+export const LevelPart = function (levelId, property, element) {
+  const els = element.querySelectorAll('.interactive_' + property);
+  const part = Levels[levelId].parts[property];
 
-      els.forEach(function (el) {
-        level.parts[property](el);
-      });
+  return {
+    disable: function () {
+      els.forEach(part.disable);
+    },
+
+    enable: function () {
+      els.forEach(part.enable);
+    }
+  }
+};
+
+export const LevelRenderer = (function () {
+  function turnPartsInteractive (element, levelId) {
+    const level = Levels[levelId];
+
+    for (const property in level.parts) {
+      LevelPart(levelId, property, element).enable();
     };
   }
 
@@ -21,14 +34,13 @@ export const LevelRenderer = (function () {
       const element = document.createElement('pre');
       const mainEl = document.getElementById('level');
       const staticGraphic = document.getElementById('graphic_' + identifier);
-      const level = Levels[identifier];
 
       mainEl.innerHTML = '';
-      Progress.setStat('currentLevel', function (stat) {
+      Progress.setStat(function (stat) {
         stat.player.currentLevel = identifier;
       });
       element.innerHTML = staticGraphic.innerHTML;
-      turnPartsInteractive(element, level);
+      turnPartsInteractive(element, identifier);
       mainEl.appendChild(element);
     }
   };

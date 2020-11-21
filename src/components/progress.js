@@ -1,5 +1,5 @@
-import { ProgressCallbacks } from './progress/callbacks.js';
 import { Stats } from './stats.js';
+import { Event, Eventbus } from './eventbus.js';
 
 export const Progress = (function () {
   const saveKey = 'kookooisland.save';
@@ -10,13 +10,17 @@ export const Progress = (function () {
       oysters: 0,
       wood: 0,
       currentLevel: 'island',
-      inventory: []
+      inventory: {
+        maps: [],
+        armor: [],
+        weapons: [],
+        items: []
+      }
     },
     progress: {
       hasClickedShell: false,
       hasFoundFish: false,
       hasFoundMessageInBottle: false,
-      hasClickedMessageInBottle: false,
       hasInventory: false
     },
     settings: {
@@ -24,17 +28,9 @@ export const Progress = (function () {
     }
   };
 
-  function statCallback (key) {
-    const callback = ProgressCallbacks[key];
-    if (callback) {
-      callback.call();
-    }
-  }
-
   return {
-    setStat: function (key, method) {
+    setStat: function (method) {
       method.call(this, stats);
-      statCallback(key);
     },
 
     getStat: function (scope, key) {
@@ -52,9 +48,9 @@ export const Progress = (function () {
         stats = JSON.parse(current);
       }
 
-      for (const key in stats.progress) {
-        if (stats.progress[key]) {
-          ProgressCallbacks[key].call();
+      for (const progress in stats.progress) {
+        if (stats.progress[progress]) {
+          Eventbus.apply(new Event(progress + 'Init'));
         }
       }
     },

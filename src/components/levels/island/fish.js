@@ -1,5 +1,6 @@
 import { Modal } from '../../modal.js';
 import { Progress } from '../../progress.js';
+import { Event, Eventbus } from '../../eventbus.js';
 
 export const Fish = (function () {
   const products = {
@@ -15,10 +16,14 @@ export const Fish = (function () {
     if (seashells < price) {
       message.innerHTML = 'not enough seashells!';
     } else {
-      Progress.setStat(product, function (stat) {
-        stat.player.seashells = seashells - price;
-        stat.player[product] += 1;
-      });
+      Eventbus.apply(
+        new Event(
+          'seashellsTraded', {
+            product: product,
+            price: price
+          }
+        )
+      );
       message.innerHTML = 'thanks!';
     }
   }
@@ -37,6 +42,18 @@ export const Fish = (function () {
     });
   }
   return {
+    enable: function (element) {
+      if (Progress.getStat('progress', 'hasFoundFish')) {
+        if (element.classList.contains('hidden')) {
+          element.classList.remove('hidden');
+          element.classList.add('click');
+          element.addEventListener('click', Fish.popup);
+        } else if (element.classList.contains('empty')) {
+          element.classList.add('hidden');
+        }
+      }
+    },
+
     popup: function () {
       Modal.open('fish_seller', {
         buy: buyPopup,
