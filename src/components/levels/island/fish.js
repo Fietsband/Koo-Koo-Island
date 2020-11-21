@@ -44,12 +44,15 @@ export const Fish = (function () {
   return {
     enable: function (element) {
       if (Progress.getStat('progress', 'hasFoundFish')) {
-        if (element.classList.contains('hidden')) {
-          element.classList.remove('hidden');
-          element.classList.add('click');
-          element.addEventListener('click', Fish.popup);
-        } else if (element.classList.contains('empty')) {
+        if (element.classList.contains('empty')) {
           element.classList.add('hidden');
+        } else {
+          if (element.classList.contains('hidden')) {
+            element.classList.remove('hidden');
+            element.classList.add('click');
+            console.log('clickity clack');
+            element.addEventListener('click', Fish.popup);
+          }
         }
       }
     },

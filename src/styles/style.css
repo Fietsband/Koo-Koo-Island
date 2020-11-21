@@ -18,6 +18,10 @@ body {
   margin: 0 auto;
 }
 
+#level {
+  overflow: hidden;
+}
+
 #stats {
   margin-top: 5px;
   margin-left: 10px;

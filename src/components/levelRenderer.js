@@ -7,8 +7,9 @@ export const Levels = {
   islandUnderwater: IslandUnderwater
 };
 
-export const LevelPart = function (levelId, property, element) {
-  const els = element.querySelectorAll('.interactive_' + property);
+export const LevelPart = function (levelId, property) {
+  const mainEl = document.getElementById('level');
+  const els = mainEl.querySelectorAll('.interactive_' + property);
   const part = Levels[levelId].parts[property];
 
   return {
@@ -23,11 +24,11 @@ export const LevelPart = function (levelId, property, element) {
 };
 
 export const LevelRenderer = (function () {
-  function turnPartsInteractive (element, levelId) {
+  function turnPartsInteractive (levelId) {
     const level = Levels[levelId];
 
     for (const property in level.parts) {
-      LevelPart(levelId, property, element).enable();
+      LevelPart(levelId, property).enable();
     };
   }
 
@@ -39,8 +40,8 @@ export const LevelRenderer = (function () {
 
   return {
     render: function (identifier) {
-      const element = document.createElement('pre');
       const mainEl = document.getElementById('level');
+      const element = document.createElement('pre');
       const underId = idToUnderscore(identifier);
       const staticGraphic = document.getElementById('graphic_' + underId);
 
@@ -49,8 +50,8 @@ export const LevelRenderer = (function () {
         stat.player.currentLevel = identifier;
       });
       element.innerHTML = staticGraphic.innerHTML;
-      turnPartsInteractive(element, identifier);
       mainEl.appendChild(element);
+      turnPartsInteractive(identifier);
     }
   };
 }());
