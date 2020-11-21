@@ -46,5 +46,5 @@ export const IslandBus = (function () {
           break;
       }
     }
-  }
+  };
 })();

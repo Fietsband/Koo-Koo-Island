@@ -1,15 +1,14 @@
-import { Progress } from '../player.js';
 import { Player } from '../player.js';
 import { LevelPart } from '../levelRenderer.js';
 
 export const InventoryBus = (function () {
-  function inventoryEnabled(e) {
+  function inventoryEnabled (e) {
     LevelPart('island', 'bottle', document).disable();
     LevelPart('island', 'whirlpool', document).enable();
     Player.inventory.enable();
   }
 
-  function mapAdded(e) {
+  function mapAdded (e) {
     Player.inventory.add(e.params.scope, e.params.item);
   }
 
@@ -25,5 +24,5 @@ export const InventoryBus = (function () {
           break;
       }
     }
-  }
+  };
 })();

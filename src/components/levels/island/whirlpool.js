@@ -1,8 +1,8 @@
 import { Progress } from '../../progress.js';
-import { LevelRenderer } from './levelRenderer.js';
+import { LevelRenderer } from '../../levelRenderer.js';
 
 export const Whirlpool = (function () {
-  function renderUnderwaterLevel() {
+  function renderUnderwaterLevel () {
     LevelRenderer.render('islandUnderwater');
   };
 

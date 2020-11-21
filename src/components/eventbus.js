@@ -4,7 +4,7 @@ import { InventoryBus } from './eventbus/inventoryBus.js';
 import { SellerBus } from './eventbus/sellerBus.js';
 
 export const Event = (function () {
-  function Event(key, params) {
+  function Event (key, params) {
     this.key = key;
     this.params = params;
   }

@@ -10,9 +10,9 @@ export const ShellCounter = (function () {
       const seashells = Progress.getStat('player', 'seashells');
 
       if (seashells === 10) {
-        Eventbus.apply(new Event('fishFound'))
+        Eventbus.apply(new Event('fishFound'));
       } else if (seashells === 20) {
-        Eventbus.apply(new Event('messageInBottleFound'))
+        Eventbus.apply(new Event('messageInBottleFound'));
       }
     }
   };
@@ -36,5 +36,5 @@ export const Shell = (function () {
         element.addEventListener('click', clickShell);
       }
     }
-  }
+  };
 })();

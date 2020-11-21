@@ -1,8 +1,10 @@
 import { Island } from './levels/island.js';
+import { IslandUnderwater } from './levels/islandUnderwater.js';
 import { Progress } from './progress.js';
 
 export const Levels = {
-  island: Island
+  island: Island,
+  islandUnderwater: IslandUnderwater
 };
 
 export const LevelPart = function (levelId, property, element) {
@@ -17,7 +19,7 @@ export const LevelPart = function (levelId, property, element) {
     enable: function () {
       els.forEach(part.enable);
     }
-  }
+  };
 };
 
 export const LevelRenderer = (function () {
@@ -29,11 +31,18 @@ export const LevelRenderer = (function () {
     };
   }
 
+  function idToUnderscore (id) {
+    const result = id.replace(/([A-Z])/g, ' $1');
+
+    return result.split(' ').join('_').toLowerCase();
+  }
+
   return {
     render: function (identifier) {
       const element = document.createElement('pre');
       const mainEl = document.getElementById('level');
-      const staticGraphic = document.getElementById('graphic_' + identifier);
+      const underId = idToUnderscore(identifier);
+      const staticGraphic = document.getElementById('graphic_' + underId);
 
       mainEl.innerHTML = '';
       Progress.setStat(function (stat) {

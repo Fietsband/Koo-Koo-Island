@@ -22,5 +22,5 @@ export const SellerBus = (function () {
           break;
       }
     }
-  }
+  };
 })();

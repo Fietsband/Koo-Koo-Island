@@ -25,7 +25,7 @@ export const ProgressBus = (function () {
     });
   }
 
-  function shellAdded(e) {
+  function shellAdded (e) {
     Progress.setStat(function (stat) {
       stat.player.seashells += 1;
     });
@@ -47,5 +47,5 @@ export const ProgressBus = (function () {
           break;
       }
     }
-  }
+  };
 })();

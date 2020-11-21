@@ -1,6 +1,5 @@
 import { Modal } from '../../modal.js';
 import { Progress } from '../../progress.js';
-import { Player } from '../../player.js';
 import { Event, Eventbus } from '../../eventbus.js';
 
 export const Bottle = (function () {
