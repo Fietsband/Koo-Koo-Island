@@ -5,6 +5,7 @@ import { LevelPart } from '../levelRenderer.js';
 export const InventoryBus = (function () {
   function inventoryEnabled(e) {
     LevelPart('island', 'bottle', document).disable();
+    LevelPart('island', 'whirlpool', document).enable();
     Player.inventory.enable();
   }
 
