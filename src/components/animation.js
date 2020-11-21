@@ -1,5 +1,5 @@
 import move from 'move-js';
-import { FishAnimation } from './animate/fishAnimation.js'
+import { FishAnimation } from './animation/fishAnimation.js'
 
 export const Animation = (function () {
   Animation.prototype = {

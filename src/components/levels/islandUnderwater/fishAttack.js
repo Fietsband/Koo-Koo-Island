@@ -1,5 +1,6 @@
 import { Enemy } from '../../enemy.js';
 import { Animation } from '../../animation.js';
+import { Event, Eventbus } from '../../eventbus.js';
 
 export const FishAttack = (function () {
   const maxFish = 5;
@@ -28,7 +29,9 @@ export const FishAttack = (function () {
   }
 
   function startBattle () {
-    // TODO: Initialize a battle
+    Eventbus.apply(
+      new Event('battleStarted', { enemy: this.key })
+    );
   }
 
   function destroyFish () {
@@ -36,22 +39,23 @@ export const FishAttack = (function () {
     this.node.remove();
   }
 
+  function spawnCallback () {
+    const animation = new Animation(
+      'fishAnimation', this, destroyFish
+    );
+    this.node.classList.add('click', 'moveable');
+    this.node.style.top = (Math.round(Math.random() * 300)) + 'px';
+    this.node.addEventListener('click', startBattle.bind(this));
+
+    document.getElementById('level').appendChild(this.node);
+
+    animation.animate();
+  }
+
   function spawnFish () {
     if (fishesInFrame < maxFish) {
       const fish = new Enemy(pickFish());
-
-      fish.spawn(function () {
-        this.node.classList.add('click', 'moveable');
-        this.node.style.top = (Math.round(Math.random() * 300)) + 'px';
-        this.node.addEventListener('click', startBattle);
-
-        document.getElementById('level').appendChild(this.node);
-        const animation = new Animation(
-          'fishAnimation', this, destroyFish
-        );
-        animation.animate();
-      });
-
+      fish.spawn(spawnCallback);
       fishesInFrame++;
     }
 
