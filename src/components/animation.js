@@ -1,25 +1,16 @@
 import move from 'move-js';
 
 export const Animation = (function () {
-  function animateFish() {
+  function animateFish () {
     const animationTime = 15000 + Math.round(Math.random() * 3000);
     const moveToRight = this.thing.node.classList.contains('ltr');
     const width = document.querySelector('#level').offsetWidth;
-
-    let direction;
-    let finalPosition;
+    const direction = moveToRight ? 'left' : 'right';
+    const finalPosition = (width + 100) + 'px';
 
     move(this.thing.node)
       .duration(animationTime)
       .end();
-
-    if (moveToRight) {
-      direction = 'left';
-      finalPosition = (width + 100) + "px";
-    } else {
-      direction = 'right';
-      finalPosition = (width + 100) + "px";
-    }
 
     move(this.thing.node)
       .set(direction, finalPosition)
@@ -38,7 +29,7 @@ export const Animation = (function () {
     }
   };
 
-  function Animation(type, thing, end) {
+  function Animation (type, thing, end) {
     this.type = type;
     this.thing = thing;
     this.end = end;

@@ -16,7 +16,7 @@ export const FishAttack = (function () {
   ];
 
   function pickFish () {
-    let pickFishes = [];
+    const pickFishes = [];
     for (let i = 0; i < fishes.length; i++) {
       for (let j = 0; j < fishes[i].probability; j++) {
         pickFishes.push(fishes[i].name);
@@ -29,12 +29,10 @@ export const FishAttack = (function () {
 
   function startBattle () {
     // TODO: Initialize a battle
-    return;
   }
 
   function destroyFish () {
     fishesInFrame--;
-    console.log("DESTRUCTION BABY YEAH");
     this.node.remove();
   }
 
@@ -44,7 +42,7 @@ export const FishAttack = (function () {
 
       fish.spawn(function () {
         this.node.classList.add('click', 'moveable');
-        this.node.style.top = (Math.round(Math.random() * 300)) + "px";
+        this.node.style.top = (Math.round(Math.random() * 300)) + 'px';
         this.node.addEventListener('click', startBattle);
 
         document.getElementById('level').appendChild(this.node);
