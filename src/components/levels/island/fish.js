@@ -50,7 +50,6 @@ export const Fish = (function () {
           if (element.classList.contains('hidden')) {
             element.classList.remove('hidden');
             element.classList.add('click');
-            console.log('clickity clack');
             element.addEventListener('click', Fish.popup);
           }
         }

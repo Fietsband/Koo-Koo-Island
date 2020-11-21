@@ -30,6 +30,8 @@ export const LevelRenderer = (function () {
     for (const property in level.parts) {
       LevelPart(levelId, property).enable();
     };
+
+    level.initialize();
   }
 
   function idToUnderscore (id) {
@@ -44,8 +46,13 @@ export const LevelRenderer = (function () {
       const element = document.createElement('pre');
       const underId = idToUnderscore(identifier);
       const staticGraphic = document.getElementById('graphic_' + underId);
+      const currentId = Progress.getStat('player', 'currentLevel');
 
+      // Teardown:
+      Levels[currentId].destroy();
       mainEl.innerHTML = '';
+
+      // Setup:
       Progress.setStat(function (stat) {
         stat.player.currentLevel = identifier;
       });

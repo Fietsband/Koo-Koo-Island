@@ -20,6 +20,7 @@ body {
 
 #level {
   overflow: hidden;
+  position: relative;
 }
 
 #stats {
@@ -31,4 +32,18 @@ body {
   position: absolute;
   bottom: 5px;
   right: 10px;
+}
+
+.moveable {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+}
+
+.moveable.ltr {
+  left: -100px;
+}
+
+.moveable.rtl {
+  right: -100px;
 }

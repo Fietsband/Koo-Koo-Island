@@ -6,6 +6,8 @@ import { Whirlpool } from './island/whirlpool.js';
 
 export const Island = (function () {
   return {
+    initialize: function () { return; },
+    destroy: function () { return; },
     parts: {
       fish: Fish,
       bottle: Bottle,
