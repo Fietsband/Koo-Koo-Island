@@ -1,9 +1,9 @@
-import { Modal } from '../../modal.js';
 import { Progress } from '../../progress.js';
+import { LevelRenderer } from './levelRenderer.js';
 
 export const Whirlpool = (function () {
   function renderUnderwaterLevel() {
-
+    LevelRenderer.render('islandUnderwater');
   };
 
   return {

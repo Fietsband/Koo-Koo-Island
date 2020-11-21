@@ -1,5 +1,3 @@
-import { Progress } from '../progress.js';
-import { Modal } from '../modal.js';
 import { Shell } from './island/shell.js';
 import { Fish } from './island/fish.js';
 import { Bottle } from './island/bottle.js';
