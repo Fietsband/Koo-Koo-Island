@@ -1,4 +1,4 @@
-import move from 'move-js';
+import anime from 'animejs/lib/anime.es.js';
 
 export const Bar = (function () {
   Bar.prototype = {
@@ -16,11 +16,15 @@ export const Bar = (function () {
     },
 
     fill: function(end) {
-      move('.' + this.scope + ' .' + this.key + '.bar .inner_bar')
-        .set('width', '100%')
-        .ease('in')
-        .duration(2000)
-        .end(end.bind(this));
+      const targets = '.' + this.scope + ' .' + this.key + '.bar .inner_bar';
+
+      anime({
+        targets: targets,
+        duration: 2000,
+        width: '100%',
+        easing: 'linear',
+        complete: end.bind(this)
+      });
     }
   }
 

@@ -1,4 +1,3 @@
-import move from 'move-js';
 import { FishAnimation } from './animation/fishAnimation.js'
 
 export const Animation = (function () {
