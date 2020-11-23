@@ -18,7 +18,7 @@ export const Enemy = (function () {
     attack: function (battle) {
       const pickAttacks = [];
 
-      for (let i in this.attacks) {
+      for (const i in this.attacks) {
         for (let j = 0; j < this.attacks[i].probability; j++) {
           pickAttacks.push(this.attacks[i]);
         }

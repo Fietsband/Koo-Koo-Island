@@ -7,7 +7,7 @@ export const FishAnimation = function () {
   const direction = moveToRight ? 'left' : 'right';
   const finalPosition = (width + 100) + 'px';
 
-  let options = {
+  const options = {
     targets: this.thing.node,
     duration: duration,
     easing: 'easeInQuad',

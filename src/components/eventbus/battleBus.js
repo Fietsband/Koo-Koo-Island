@@ -6,7 +6,7 @@ export const BattleBus = (function () {
     battle.start();
   }
 
-  function battleFinished(e) {
+  function battleFinished (e) {
     e.params.battle.finish();
   }
 

@@ -1,7 +1,7 @@
 export const Graphic = (function () {
   return {
     draw: function () {
-      return " O \n/|\\ \n/ \\";
+      return ' O \n/|\\ \n/ \\';
     }
   };
 })();

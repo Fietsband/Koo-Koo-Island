@@ -1,4 +1,7 @@
-import { FishAnimation } from './animation/fishAnimation.js'
+import { FishAnimation } from './animation/fishAnimation.js';
+import { ShootAttackAnimation } from './animation/ShootAttackAnimation.js';
+import { SplashAttackAnimation } from './animation/SplashAttackAnimation.js';
+import { TackleAttackAnimation } from './animation/TackleAttackAnimation.js';
 
 export const Animation = (function () {
   Animation.prototype = {

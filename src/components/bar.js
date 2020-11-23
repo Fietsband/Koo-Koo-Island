@@ -5,7 +5,7 @@ export const Bar = (function () {
     const targets = '.' + this.scope + ' .' + this.key + '.bar .inner_bar';
     const options = {
       targets: targets,
-      easing: 'linear',
+      easing: 'linear'
     };
 
     const animeOptions = Object.assign(options, extraOptions);
@@ -29,26 +29,28 @@ export const Bar = (function () {
       totalLeft.innerHTML = this.max;
     },
 
-    lower: function(value, end) {
-      this.statsLeft.innerHTML = this.current - value;
+    add: function (value, end) {
+      const currentValue = this.current + value;
+      const barWidth = Math.round(currentValue / this.max) + '%';
+      this.statsLeft.innerHTML = currentValue;
 
       animateBar.call(this, {
         duration: 1000,
-        width: '100%',
+        width: barWidth,
         complete: end.bind(this)
       });
     },
 
-    fill: function(end) {
+    fill: function (end) {
       animateBar.call(this, {
         duration: this.options.duration,
         width: '100%',
         complete: end.bind(this)
       });
     }
-  }
+  };
 
-  function Bar(key, options) {
+  function Bar (key, options) {
     const keys = key.split('.');
     this.scope = keys[0];
     this.key = keys[1];

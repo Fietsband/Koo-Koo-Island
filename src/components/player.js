@@ -19,10 +19,12 @@ export const Player = (function () {
       return Progress.getStat('player', stat);
     },
     takeDamage: function (damage) {
-      Eventbus.apply(new Event('playerDamaged', {
-        battle: this,
-        damage: damage
-      });
+      Eventbus.apply(
+        new Event('playerDamaged', {
+          battle: this,
+          damage: damage * -1
+        })
+      );
     }
   };
 })();

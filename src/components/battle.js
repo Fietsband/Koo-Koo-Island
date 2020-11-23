@@ -23,9 +23,9 @@ export const Battle = (function () {
 
     finish: function () {
       level.classList.remove('hidden');
-      renderTarget.innerHTML = '';
+      battleEl.classList.addClass('hidden');
 
-      BattleInteractions.disable(renderTarget, this);
+      BattleInteractions.disable(battleEl, this);
     }
   };
 

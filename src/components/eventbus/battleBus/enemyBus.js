@@ -12,6 +12,7 @@ export const EnemyBus = (function () {
   function enemyAttack (e) {
     const attack = e.params.attack;
     const enemy = e.params.battle.enemy;
+    const player = e.params.battle.player;
     const animation = new Animation(
       attack.key + 'AttackAnimation',
       enemy.node,
@@ -28,7 +29,7 @@ export const EnemyBus = (function () {
           battleRendered(e);
           break;
         case 'enemyAttack':
-          enemyAttack(e)
+          enemyAttack(e);
           break;
       }
     }

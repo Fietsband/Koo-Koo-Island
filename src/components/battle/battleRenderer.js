@@ -65,7 +65,6 @@ export const BattleRenderer = (function () {
 
         callback(elem, battle);
       }
-      console.log("done render");
     }
   };
 })();
