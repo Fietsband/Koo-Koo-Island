@@ -7,6 +7,7 @@ export const Progress = (function () {
     player: {
       hp: { total: 20, left: 20 },
       mp: { total: 0, left: 0 },
+      turnSpeed: 2000,
       seashells: 0,
       oysters: 0,
       wood: 0,

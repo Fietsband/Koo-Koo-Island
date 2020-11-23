@@ -20,7 +20,7 @@ export const Bar = (function () {
 
       anime({
         targets: targets,
-        duration: 2000,
+        duration: this.options.duration,
         width: '100%',
         easing: 'linear',
         complete: end.bind(this)
@@ -28,10 +28,11 @@ export const Bar = (function () {
     }
   }
 
-  function Bar(key) {
+  function Bar(key, options) {
     const keys = key.split('.');
     this.scope = keys[0];
     this.key = keys[1];
+    this.options = options;
   }
 
   return Bar;

@@ -6,14 +6,8 @@ export const BattleBus = (function () {
     battle.start();
   }
 
-  function battleRendered(e) {
-    e.params.battle.enemy.turnBar.fill(function () {
-      console.log('full enemy');
-    });
-
-    e.params.battle.player.turnBar.fill(function () {
-      console.log('full player');
-    });
+  function battleFinished(e) {
+    e.params.battle.finish();
   }
 
   return {
@@ -22,8 +16,8 @@ export const BattleBus = (function () {
         case 'battleStarted':
           battleStarted(e);
           break;
-        case 'battleRendered':
-          battleRendered(e);
+        case 'battleFinished':
+          battleFinished(e);
           break;
       }
     }

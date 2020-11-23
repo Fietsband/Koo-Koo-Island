@@ -1,31 +1,6 @@
 import { Bar } from './bar.js';
-
-const EnemyNames = {
-  fish_ltr: {
-    name: 'Fish',
-    hp: 20
-  },
-  fish_rtl: {
-    name: 'Fish',
-    hp: 20
-  },
-  fish_with_gun_ltr: {
-    name: 'Armed Fish',
-    hp: 20
-  },
-  fish_with_gun_rtl: {
-    name: 'Armed Fish',
-    hp: 20
-  },
-  big_fish_ltr: {
-    name: 'Big Fish',
-    hp: 50
-  },
-  big_fish_rtl: {
-    name: 'Big Fish',
-    hp: 50
-  }
-};
+import { Event, Eventbus } from './eventbus.js';
+import EnemyData from '../../data/enemies.yaml';
 
 export const Enemy = (function () {
   Enemy.prototype = {
@@ -36,14 +11,31 @@ export const Enemy = (function () {
       this.node.classList.remove('enemy_' + this.key);
 
       method.call(this);
+    },
+
+    attack: function () {
+      const pickAttacks = [];
+
+      for (let i = 0; i < this.attacks.length; i++) {
+        for (let j = 0; j < this.attacks[i].probability; j++) {
+          pickAttacks.push(this.attacks[i]);
+        }
+      }
+
+      const attack = pickAttacks[
+        Math.round(Math.random() * (pickAttacks.length - 1))
+      ];
+
+      Eventbus.apply(new Event('enemyAttack', { attack: attack }));
     }
   };
 
   function Enemy (key) {
     this.key = key;
+    Object.assign(this, EnemyData[this.key]);
+
     this.hpBar = new Bar('enemy.health');
-    this.turnBar = new Bar('enemy.attack');
-    Object.assign(this, EnemyNames[this.key]);
+    this.turnBar = new Bar('enemy.attack', { duration: this.turnSpeed });
   }
 
   return Enemy;

@@ -1,4 +1,5 @@
 const path = require('path');
+const yaml = require('yamljs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const env = process.env.NODE_ENV || 'development';
@@ -41,8 +42,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.css/i,
-        use: ['style-loader', 'css-loader']
+        test: /\.yaml$/i,
+        type: 'json',
+        parser: {
+          parse: yaml.parse,
+        }
       }
     ]
   }

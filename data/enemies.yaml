@@ -1,0 +1,65 @@
+fish_ltr:
+  name: 'Fish'
+  hp: 20
+  turnSpeed: 7000
+  attacks:
+    splash:
+      damage: 2
+      probability: 1
+
+fish_rtl:
+  name: 'Fish'
+  hp: 20
+  turnSpeed: 7000
+  attacks:
+    splash:
+      damage: 2
+      probability: 1
+
+fish_with_gun_ltr:
+  name: 'Armed Fish'
+  hp: 20
+  turnSpeed: 7000
+  attacks:
+    splash:
+      damage: 2
+      probability: 4
+    shoot:
+      damage: 5
+      probability: 1
+
+fish_with_gun_rtl:
+  name: 'Armed Fish'
+  hp: 20
+  turnSpeed: 7000
+  attacks:
+    splash:
+      damage: 2
+      probability: 4
+    shoot:
+      damage: 5
+      probability: 1
+
+big_fish_ltr:
+  name: 'Big Fish'
+  hp: 50
+  turnSpeed: 10000
+  attacks:
+    splash:
+      damage: 2
+      probability: 4
+    tackle:
+      damage: 5
+      probability: 1
+
+big_fish_rtl:
+  name: 'Big Fish'
+  hp: 50
+  turnSpeed: 10000
+  attacks:
+    splash:
+      damage: 2
+      probability: 4
+    tackle:
+      damage: 5
+      probability: 1
