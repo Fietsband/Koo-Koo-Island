@@ -5,7 +5,8 @@ export const Progress = (function () {
   const saveKey = 'kookooisland.save';
   let stats = {
     player: {
-      hp: 20,
+      hp: { total: 20, left: 20 },
+      mp: { total: 0, left: 0 },
       seashells: 0,
       oysters: 0,
       wood: 0,

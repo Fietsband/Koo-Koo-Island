@@ -1,4 +1,4 @@
-<div id='template_battle'>
+<div id='battle' class='hidden'>
   <div id='battle_sequence_info_header'>
     &nbsp;
   </div>
@@ -12,21 +12,21 @@
           /
           <span class='total_health'></span> hp
         </div>
-        <div class='healthbar bar'>
+        <div class='health bar'>
           <div class='health_left inner_bar'></div>
         </div>
       </div>
-      <div id='magic' class='disabled'>
+      <div id='magic' class='hidden'>
         <div class='magic_stats'>
           <span class='magic_stats_left'></span>
           /
           <span class='total_magic'></span> mp
         </div>
-        <div class='magicbar bar'>
+        <div class='magic bar'>
           <div class='magic_left inner_bar'></div>
         </div>
       </div>
-      <div class='attackbar bar'>
+      <div class='attack bar'>
         <div class='attack_left inner_bar'></div>
       </div>
     </div>
@@ -39,12 +39,12 @@
           /
           <span class='total_health'></span> hp
         </div>
-        <div class='healthbar bar'>
+        <div class='health bar'>
           <div class='health_left inner_bar'></div>
         </div>
       </div>
-      <div class='attackbar bar'>
-        <div class='attack_left'></div>
+      <div class='attack bar'>
+        <div class='attack_left inner_bar'></div>
       </div>
     </div>
   </div>
@@ -53,14 +53,14 @@
       <li>
         <a id='attack' href='#'><span class='keyboard_shortcut'>A</span>ttack</a>
       </li>
-      <li>
+      <li class='hidden'>
         <a id='skill' href='#'><span class='keyboard_shortcut'>S</span>kill</a>
         <div class='skills'>
           <div class='header'>SKILLS</div>
           <ul class='list'></ul>
         </div>
       </li>
-      <li>
+      <li class='hidden'>
         <a id='magic' href='#'><span class='keyboard_shortcut'>M</span>agic</a>
         <div class='magic'>
           <div class='header'>MAGIC</div>

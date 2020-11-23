@@ -5,6 +5,7 @@
     "lint": "eslint 'src/**/*.js' && eslint 'test/**/*.js'"
   },
   "devDependencies": {
+    "animejs": "^3.2.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "eslint": "^7.13.0",

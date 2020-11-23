@@ -46,16 +46,19 @@ body
   div
     height: 100%
     position: absolute
-.attackbar
-  .attack-left
-    background-color: #AAAAAA
-    width: 0px
-.healthbar
-  .health-left
-    background-color: #22CC22
-.magicbar
-  .magic-left
-    background-color: #22CCCC
+  &.attack
+    .attack_left
+      background-color: #AAAAAA
+      width: 0%
+
+  &.health
+    .health_left
+      background-color: #22CC22
+
+  &.magic
+    .magic_left
+      background-color: #22CCCC
+
 .enemy #health,
 .player #health
   display: block

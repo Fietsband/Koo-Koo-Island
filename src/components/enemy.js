@@ -1,3 +1,5 @@
+import { Bar } from './bar.js';
+
 const EnemyNames = {
   fish_ltr: {
     name: 'Fish',
@@ -39,6 +41,8 @@ export const Enemy = (function () {
 
   function Enemy (key) {
     this.key = key;
+    this.hpBar = new Bar('enemy.health');
+    this.turnBar = new Bar('enemy.attack');
     Object.assign(this, EnemyNames[this.key]);
   }
 

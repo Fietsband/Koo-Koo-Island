@@ -6,11 +6,24 @@ export const BattleBus = (function () {
     battle.start();
   }
 
+  function battleRendered(e) {
+    e.params.battle.enemy.turnBar.fill(function () {
+      console.log('full enemy');
+    });
+
+    e.params.battle.player.turnBar.fill(function () {
+      console.log('full player');
+    });
+  }
+
   return {
     apply: function (e) {
       switch (e.key) {
         case 'battleStarted':
           battleStarted(e);
+          break;
+        case 'battleRendered':
+          battleRendered(e);
           break;
       }
     }
