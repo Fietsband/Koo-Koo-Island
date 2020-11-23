@@ -8,7 +8,7 @@ export const PlayerBus = (function () {
   function playerDamaged (e) {
     // blink the player a little bit (like FF VI style)
     const player = e.params.battle.player;
-    player.hpBar.lower(e.params.damage, function () {
+    player.hpBar.add(e.params.damage, function () {
       // if hp lowers below 0 - DIE!
     });
   }

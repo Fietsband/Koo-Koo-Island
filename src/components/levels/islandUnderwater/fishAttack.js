@@ -28,35 +28,41 @@ export const FishAttack = (function () {
     ];
   }
 
-  function startBattle () {
+  function startBattle (fishId) {
+    const enemy = fishId.replace(RegExp('(_ltr|_rtl)+'), '');
     Eventbus.apply(
-      new Event('battleStarted', { enemy: this.key })
+      new Event('battleStarted', { enemy: enemy })
     );
   }
 
   function destroyFish () {
     fishesInFrame--;
-    this.node.remove();
+    this.remove();
   }
 
-  function spawnCallback () {
-    const animation = new Animation(
-      'fishAnimation', this, destroyFish
-    );
-    this.node.classList.add('click', 'moveable');
-    this.node.style.top = (Math.round(Math.random() * 300)) + 'px';
-    this.node.addEventListener('click', startBattle.bind(this));
+  function spawnInFrame (fishId) {
+    const node = document.querySelector(
+      '.enemy_' + fishId
+    ).cloneNode(true);
 
-    document.getElementById('level').appendChild(this.node);
+    const animation = new Animation(
+      'fishAnimation', node, destroyFish
+    );
+
+    node.classList.remove('enemy_' + fishId);
+    node.classList.add('click', 'moveable');
+    node.style.top = (Math.round(Math.random() * 300)) + 'px';
+    node.addEventListener('click', startBattle.bind(this, fishId));
+
+    document.getElementById('level').appendChild(node);
 
     animation.animate();
   }
 
   function spawnFish () {
     if (fishesInFrame < maxFish) {
-      const fishId = pickFish().replace(RegExp('(_ltr|_rtl)+'), '');
-      const fish = new Enemy(fishId);
-      fish.spawn(spawnCallback);
+      const fishId = pickFish();
+      spawnInFrame(fishId);
       fishesInFrame++;
     }
 

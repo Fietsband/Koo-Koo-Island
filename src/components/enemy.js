@@ -6,7 +6,7 @@ export const Enemy = (function () {
   Enemy.prototype = {
     spawn: function (method) {
       this.node = document.querySelector(
-        '.enemy_' + graphicKey
+        '.enemy_' + this.key
       ).cloneNode(true);
       this.node.classList.remove('enemy_' + this.key);
 
