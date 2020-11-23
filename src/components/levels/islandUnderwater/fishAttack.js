@@ -54,7 +54,8 @@ export const FishAttack = (function () {
 
   function spawnFish () {
     if (fishesInFrame < maxFish) {
-      const fish = new Enemy(pickFish());
+      const fishId = pickFish().replace(RegExp('(_ltr|_rtl)+'), '');
+      const fish = new Enemy(fishId);
       fish.spawn(spawnCallback);
       fishesInFrame++;
     }

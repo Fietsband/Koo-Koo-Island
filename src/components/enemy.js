@@ -5,8 +5,6 @@ import EnemyData from '../../data/enemies.yaml';
 export const Enemy = (function () {
   Enemy.prototype = {
     spawn: function (method) {
-      const graphicKey = this.key.replace('ltr', 'rtl');
-
       this.node = document.querySelector(
         '.enemy_' + graphicKey
       ).cloneNode(true);
