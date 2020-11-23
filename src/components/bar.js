@@ -1,28 +1,48 @@
 import anime from 'animejs/lib/anime.es.js';
 
 export const Bar = (function () {
+  function animateBar (extraOptions) {
+    const targets = '.' + this.scope + ' .' + this.key + '.bar .inner_bar';
+    const options = {
+      targets: targets,
+      easing: 'linear',
+    };
+
+    const animeOptions = Object.assign(options, extraOptions);
+    anime(animeOptions);
+  }
+
   Bar.prototype = {
     render: function (element) {
       this.element = element;
     },
 
     renderWithStats: function (element, attributes) {
-      this.render();
-
-      const statsLeft = element.querySelector('.' + this.key + '_stats_left');
       const totalLeft = element.querySelector('.total_' + this.key);
-      statsLeft.innerHTML = attributes.current;
-      totalLeft.innerHTML = attributes.max;
+
+      this.render();
+      this.current = attributes.current;
+      this.max = attributes.max;
+
+      this.statsLeft = element.querySelector('.' + this.key + '_stats_left');
+      this.statsLeft.innerHTML = this.current;
+      totalLeft.innerHTML = this.max;
+    },
+
+    lower: function(value, end) {
+      this.statsLeft.innerHTML = this.current - value;
+
+      animateBar.call(this, {
+        duration: 1000,
+        width: '100%',
+        complete: end.bind(this)
+      });
     },
 
     fill: function(end) {
-      const targets = '.' + this.scope + ' .' + this.key + '.bar .inner_bar';
-
-      anime({
-        targets: targets,
+      animateBar.call(this, {
         duration: this.options.duration,
         width: '100%',
-        easing: 'linear',
         complete: end.bind(this)
       });
     }

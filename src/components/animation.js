@@ -7,6 +7,15 @@ export const Animation = (function () {
         case 'fishAnimation':
           FishAnimation.call(this);
           break;
+        case 'shootAttackAnimation':
+          ShootAttackAnimation.call(this);
+          break;
+        case 'splashAttackAnimation':
+          SplashAttackAnimation.call(this);
+          break;
+        case 'tackleAttackAnimation':
+          TackleAttackAnimation.call(this);
+          break;
       }
     }
   };

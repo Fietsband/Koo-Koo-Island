@@ -5,18 +5,20 @@ import EnemyData from '../../data/enemies.yaml';
 export const Enemy = (function () {
   Enemy.prototype = {
     spawn: function (method) {
+      const graphicKey = this.key.replace('ltr', 'rtl');
+
       this.node = document.querySelector(
-        '.enemy_' + this.key
+        '.enemy_' + graphicKey
       ).cloneNode(true);
       this.node.classList.remove('enemy_' + this.key);
 
       method.call(this);
     },
 
-    attack: function () {
+    attack: function (battle) {
       const pickAttacks = [];
 
-      for (let i = 0; i < this.attacks.length; i++) {
+      for (let i in this.attacks) {
         for (let j = 0; j < this.attacks[i].probability; j++) {
           pickAttacks.push(this.attacks[i]);
         }
@@ -26,7 +28,10 @@ export const Enemy = (function () {
         Math.round(Math.random() * (pickAttacks.length - 1))
       ];
 
-      Eventbus.apply(new Event('enemyAttack', { attack: attack }));
+      Eventbus.apply(new Event('enemyAttack', {
+        attack: attack,
+        battle: battle
+      }));
     }
   };
 
