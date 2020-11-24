@@ -29,16 +29,20 @@ export const Bar = (function () {
       totalLeft.innerHTML = this.max;
     },
 
-    add: function (value, end) {
-      const currentValue = this.current + value;
-      const barWidth = Math.round(currentValue / this.max) + '%';
-      this.statsLeft.innerHTML = currentValue;
+    add: function (value, end, duration = 1000) {
+      this.current += value;
+      const barWidth = Math.round((this.current / this.max) * 100) + '%';
+      this.statsLeft.innerHTML = this.current;
 
       animateBar.call(this, {
-        duration: 1000,
+        duration: duration,
         width: barWidth,
         complete: end.bind(this)
       });
+    },
+
+    empty: function () {
+      animateBar.call(this, { duration: 1, width: '0%' });
     },
 
     fill: function (end) {

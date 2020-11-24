@@ -31,7 +31,7 @@ export const Battle = (function () {
   function Battle (enemyId) {
     this.enemy = new Enemy(enemyId);
     this.player = Player;
-    this.inface = BattleInteractions(battlEl, this);
+    this.inface = BattleInteractions(battleEl, this);
   }
 
   return Battle;

@@ -4,6 +4,7 @@ export const EnemyBus = (function () {
   function fillTurnBar (e) {
     const enemy = e.params.battle.enemy;
 
+    enemy.hpBar.add(0, function () {}, 1);
     enemy.turnBar.fill(function () {
       enemy.attack(e.params.battle);
     });
@@ -19,6 +20,7 @@ export const EnemyBus = (function () {
       player.takeDamage.bind(e.params.battle, attack.damage)
     );
 
+    enemy.turnBar.empty();
     animation.animate();
   }
 
