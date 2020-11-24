@@ -30,6 +30,19 @@ export const Enemy = (function () {
         attack: attack,
         battle: battle
       }));
+    },
+
+    takeDamage: function (damage) {
+      Eventbus.apply(
+        new Event('enemyDamaged', {
+          battle: this,
+          damage: damage * -1
+        })
+      );
+    },
+
+    die: function () {
+      Eventbus.apply(new Event('enemyDied', { battle: this }));
     }
   };
 

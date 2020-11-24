@@ -15,9 +15,11 @@ export const Player = (function () {
     hpBar: new Bar('player.health'),
     magicBar: new Bar('player.magic'),
     turnBar: new Bar('player.attack', { duration: turnDuration() }),
+
     get: function (stat) {
       return Progress.getStat('player', stat);
     },
+
     takeDamage: function (damage) {
       Eventbus.apply(
         new Event('playerDamaged', {
@@ -25,6 +27,10 @@ export const Player = (function () {
           damage: damage * -1
         })
       );
+    },
+
+    die: function () {
+      Eventbus.apply(new Event('playerDied', { battle: this }));
     }
   };
 })();

@@ -1,6 +1,5 @@
 export const BattleRenderer = (function () {
   const parts = {
-    '#battle_sequence_info_header': renderHeader,
     '.enemy #graphic': renderEnemyGraphic,
     '.enemy #health': renderEnemyHealth,
     '.enemy .attackbar': renderEnemyAttack,
@@ -9,10 +8,6 @@ export const BattleRenderer = (function () {
     '.player #magic': renderPlayerMagic,
     '.player .attackbar': renderPlayerAttack
   };
-
-  function renderHeader (element, battle) {
-    element.innerHTML = 'You are fighting "' + battle.enemy.name + '"';
-  }
 
   function renderEnemyAttack (element, battle) {
     battle.enemy.turnBar.render(element);

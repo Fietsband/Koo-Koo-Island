@@ -22,7 +22,7 @@ export const Battle = (function () {
 
     finish: function () {
       level.classList.remove('hidden');
-      battleEl.classList.addClass('hidden');
+      battleEl.classList.add('hidden');
 
       this.inface.disable();
     }
@@ -32,6 +32,7 @@ export const Battle = (function () {
     this.enemy = new Enemy(enemyId);
     this.player = Player;
     this.inface = BattleInteractions(battleEl, this);
+    this.paused = false;
   }
 
   return Battle;

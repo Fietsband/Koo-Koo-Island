@@ -5,6 +5,7 @@ import { SellerBus } from './eventbus/sellerBus.js';
 import { BattleBus } from './eventbus/battleBus.js';
 import { PlayerBus } from './eventbus/battleBus/playerBus.js';
 import { EnemyBus } from './eventbus/battleBus/enemyBus.js';
+import { InfoBus } from './eventbus/battleBus/infoBus.js';
 
 export const Event = (function () {
   function Event (key, params) {
@@ -23,7 +24,8 @@ export const Eventbus = (function () {
     InventoryBus,
     BattleBus,
     PlayerBus,
-    EnemyBus
+    EnemyBus,
+    InfoBus
   ];
 
   return {

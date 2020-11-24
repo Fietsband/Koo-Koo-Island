@@ -16,7 +16,7 @@ fish_with_gun:
     splash:
       key: 'splash'
       damage: 2
-      probability: 4
+      probability: 2
     shoot:
       key: 'shoot'
       damage: 5

@@ -1,13 +1,19 @@
+import { Animation } from '../../animation.js';
 import { Progress } from '../../progress.js';
 
 export const PlayerBus = (function () {
-  function battleRendered (e) {
+  function fillTurnBar (e) {
     const battle = e.params.battle;
 
-    battle.player.hpBar.add(0, function () {}, 1);
     battle.player.turnBar.fill(function () {
       battle.inface.enable();
     });
+  }
+
+  function fillHpBar (e) {
+    const battle = e.params.battle;
+
+    battle.player.hpBar.add(0, function () {}, 1);
   }
 
   function playerDamaged (e) {
@@ -20,22 +26,54 @@ export const PlayerBus = (function () {
     });
 
     player.hpBar.add(damage, function () {
-      const hpLeft = Progress.getStat('player', 'hp');
-      if (hpLeft < 0) {
-        console.log('trigger death');
-        console.log('set hp back to 1');
+      const hpLeft = Progress.getStat('player', 'hp').left;
+
+      if (hpLeft <= 0) {
+        player.die.call(e.params.battle);
       }
     });
+  }
+
+  function playerDied (e) {
+    Progress.setStat(function (stat) {
+      stat.player.hp.left = 1;
+    });
+  }
+
+  function playerAttacked (e) {
+    e.params.battle.inface.disable();
+
+    const player = e.params.battle.player;
+    const weapon = player.inventory.getEquipedWeapon();
+    const enemy = e.params.battle.enemy;
+    const animation = new Animation(
+      weapon.type + 'PlayerAttackAnimation',
+      document.querySelector('#battle .player'),
+      enemy.takeDamage.bind(e.params.battle, weapon.damage)
+    );
+
+    player.turnBar.empty();
+    animation.animate();
   }
 
   return {
     apply: function (e) {
       switch (e.key) {
         case 'battleRendered':
-          battleRendered(e);
+          fillTurnBar(e)
+          fillHpBar(e)
+          break;
+        case 'enemyDamaged':
+          fillTurnBar(e)
           break;
         case 'playerDamaged':
           playerDamaged(e);
+          break;
+        case 'playerDied':
+          playerDied(e);
+          break;
+        case 'playerAttacked':
+          playerAttacked(e);
           break;
       }
     }

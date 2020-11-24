@@ -2,6 +2,7 @@ import { FishAnimation } from './animation/fishAnimation.js';
 import { ShootAttackAnimation } from './animation/shootAttackAnimation.js';
 import { SplashAttackAnimation } from './animation/splashAttackAnimation.js';
 import { TackleAttackAnimation } from './animation/tackleAttackAnimation.js';
+import { BarePlayerAttackAnimation } from './animation/barePlayerAttackAnimation.js';
 
 export const Animation = (function () {
   Animation.prototype = {
@@ -18,6 +19,9 @@ export const Animation = (function () {
           break;
         case 'tackleAttackAnimation':
           TackleAttackAnimation.call(this);
+          break;
+        case 'barePlayerAttackAnimation':
+          BarePlayerAttackAnimation.call(this);
           break;
       }
     }

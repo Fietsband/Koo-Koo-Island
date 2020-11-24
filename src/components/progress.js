@@ -7,7 +7,8 @@ export const Progress = (function () {
     player: {
       hp: { total: 20, left: 20 },
       mp: { total: 0, left: 0 },
-      turnSpeed: 2000,
+      turnSpeed: 5000,
+      damageFactor: 1,
       seashells: 0,
       oysters: 0,
       wood: 0,
@@ -15,7 +16,7 @@ export const Progress = (function () {
       inventory: {
         maps: [],
         armor: [],
-        weapons: [],
+        weapons: [ { type: 'bare', damage: 10, equiped: true } ],
         items: []
       }
     },

@@ -1,6 +1,6 @@
 import anime from 'animejs/lib/anime.es.js';
 
-export const TackleAttackAnimation = function () {
+export const BarePlayerAttackAnimation = function () {
   const duration = 1000;
   const target = this.thing.querySelector('pre#graphic');
   const options = {
@@ -8,8 +8,8 @@ export const TackleAttackAnimation = function () {
     duration: duration,
     direction: 'alternate',
     easing: 'easeOutQuad',
-    translateX: -500,
-    translateY: 200,
+    translateX: 500,
+    translateY: -200,
     complete: function () {
       this.end.call(this.thing)
     }.bind(this)

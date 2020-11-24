@@ -7,7 +7,11 @@ export const BattleBus = (function () {
   }
 
   function battleFinished (e) {
-    e.params.battle.finish();
+    e.params.battle.paused = true;
+    e.params.battle.inface.disable();
+    setTimeout(function () {
+      e.params.battle.finish();
+    }, 5000);
   }
 
   return {
@@ -16,7 +20,9 @@ export const BattleBus = (function () {
         case 'battleStarted':
           battleStarted(e);
           break;
-        case 'battleFinished':
+        case 'enemyDied':
+        case 'playerDied':
+        case 'playerFleed':
           battleFinished(e);
           break;
       }
