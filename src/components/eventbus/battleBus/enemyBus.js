@@ -1,7 +1,7 @@
 import { Animation } from '../../animation.js';
 
 export const EnemyBus = (function () {
-  function battleRendered (e) {
+  function fillTurnBar (e) {
     const enemy = e.params.battle.enemy;
 
     enemy.turnBar.fill(function () {
@@ -25,8 +25,9 @@ export const EnemyBus = (function () {
   return {
     apply: function (e) {
       switch (e.key) {
+        case 'playerDamaged':
         case 'battleRendered':
-          battleRendered(e);
+          fillTurnBar(e);
           break;
         case 'enemyAttack':
           enemyAttack(e);

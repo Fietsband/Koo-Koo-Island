@@ -1,11 +1,11 @@
-export const BattleInteractions = (function () {
+export const BattleInteractions = function (battlEl, battle) {
   // This only adds event listeners for they key-ups
   // And click listeners for the player.
   return {
-    enable: function (target, battle) {
+    enable: function () {
     },
 
-    disable: function (target, battle) {
+    disable: function () {
     }
   };
-})();
+};

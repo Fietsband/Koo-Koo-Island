@@ -1,7 +1,8 @@
 export const PlayerBus = (function () {
   function battleRendered (e) {
-    e.params.battle.player.turnBar.fill(function () {
-      console.log('full enemy');
+    const battle = e.params.battle;
+    battle.player.turnBar.fill(function () {
+      battle.inface.enable();
     });
   }
 

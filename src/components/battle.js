@@ -14,7 +14,6 @@ export const Battle = (function () {
       level.classList.add('hidden');
 
       BattleRenderer.render(battleEl, this);
-      BattleInteractions.enable(battleEl, this);
 
       Eventbus.apply(
         new Event('battleRendered', { battle: this })
@@ -25,13 +24,14 @@ export const Battle = (function () {
       level.classList.remove('hidden');
       battleEl.classList.addClass('hidden');
 
-      BattleInteractions.disable(battleEl, this);
+      this.inface.disable();
     }
   };
 
   function Battle (enemyId) {
     this.enemy = new Enemy(enemyId);
     this.player = Player;
+    this.inface = BattleInteractions(battlEl, this);
   }
 
   return Battle;
