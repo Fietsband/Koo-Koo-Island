@@ -16,10 +16,6 @@ export const Player = (function () {
     magicBar: new Bar('player.magic'),
     turnBar: new Bar('player.attack', { duration: turnDuration() }),
 
-    get: function (stat) {
-      return Progress.getStat('player', stat);
-    },
-
     takeDamage: function (damage) {
       Eventbus.apply(
         new Event('playerDamaged', {

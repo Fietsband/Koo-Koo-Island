@@ -1,4 +1,5 @@
 import { Animation } from '../../animation.js';
+import { Rewarder } from '../../battle/rewarder.js';
 
 export const EnemyBus = (function () {
   function fillTurnBar (e) {
@@ -54,6 +55,13 @@ export const EnemyBus = (function () {
     fillTurnBar(e);
   }
 
+  function enemyDied (e) {
+    const player = e.params.battle.player;
+    const enemy = e.params.battle.enemy;
+
+    Rewarder.reward(player, enemy.rewards);
+  }
+
   return {
     apply: function (e) {
       switch (e.key) {
@@ -66,6 +74,9 @@ export const EnemyBus = (function () {
           break;
         case 'enemyDamaged':
           enemyDamaged(e);
+          break;
+        case 'enemyDied':
+          enemyDied(e);
           break;
         case 'enemyTurnPlayed':
           enemyTurnPlayed(e);

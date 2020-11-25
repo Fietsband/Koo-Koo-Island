@@ -7,6 +7,9 @@ fish:
       key: 'splash'
       damage: 2
       probability: 1
+  rewards:
+    - type: seashells
+      amount: 10
 
 fish_with_gun:
   name: 'Armed Fish'
@@ -21,6 +24,9 @@ fish_with_gun:
       key: 'shoot'
       damage: 5
       probability: 1
+  rewards:
+    - type: seashells
+      amount: 20
 
 big_fish:
   name: 'Big Fish'
@@ -35,3 +41,6 @@ big_fish:
       key: 'tackle'
       damage: 5
       probability: 1
+  rewards:
+    - type: seashells
+      amount: 50
