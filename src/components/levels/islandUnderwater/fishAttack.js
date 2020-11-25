@@ -1,6 +1,6 @@
 import { Enemy } from '../../enemy.js';
 import { Animation } from '../../animation.js';
-import { Event, Eventbus } from '../../eventbus.js';
+import { Battle } from '../../battle.js';
 
 export const FishAttack = (function () {
   const maxFish = 5;
@@ -30,9 +30,8 @@ export const FishAttack = (function () {
 
   function startBattle (fishId) {
     const enemy = fishId.replace(RegExp('(_ltr|_rtl)+'), '');
-    Eventbus.apply(
-      new Event('battleStarted', { enemy: enemy })
-    );
+    const battle = new Battle(enemy);
+    battle.start();
   }
 
   function destroyFish () {

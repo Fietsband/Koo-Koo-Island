@@ -4,7 +4,8 @@ export const BattleInteractions = function (battleEl, battle) {
   const inter = battleEl.querySelector('.battle_sequence_interface');
   const parts = {
     attack: function () {
-      Eventbus.apply(new Event('playerAttacked', { battle: battle }));
+      Eventbus.apply(new Event('playerTurnPlayed', { battle: battle }));
+      battle.turns.add(new Event('playerAttacked', { battle: battle }));
     },
 
     magic: function () {
@@ -16,7 +17,8 @@ export const BattleInteractions = function (battleEl, battle) {
     },
 
     flee: function () {
-      Eventbus.apply(new Event('playerFleed', { battle: battle }));
+      Eventbus.apply(new Event('playerTurnPlayed', { battle: battle }));
+      battle.turns.add(new Event('playerFleed', { battle: battle }));
     }
   };
 

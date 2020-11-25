@@ -41,8 +41,12 @@ export const Bar = (function () {
       });
     },
 
-    empty: function () {
-      animateBar.call(this, { duration: 1, width: '0%' });
+    empty: function (end) {
+      animateBar.call(this, {
+        duration: 1,
+        width: '0%',
+        complete: end.bind(this)
+      });
     },
 
     fill: function (end) {

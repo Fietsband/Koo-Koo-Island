@@ -26,9 +26,10 @@ export const Enemy = (function () {
         Math.round(Math.random() * (pickAttacks.length - 1))
       ];
 
-      Eventbus.apply(new Event('enemyAttack', {
-        attack: attack,
-        battle: battle
+      Eventbus.apply(new Event('enemyTurnPlayed', { battle: battle }));
+      battle.turns.add(new Event('enemyAttacked', {
+        battle: battle,
+        attack: attack
       }));
     },
 
@@ -48,6 +49,7 @@ export const Enemy = (function () {
 
   function Enemy (key) {
     this.key = key;
+    this.died = false;
     Object.assign(this, EnemyData[this.key]);
 
     this.hpBar = new Bar('enemy.health');

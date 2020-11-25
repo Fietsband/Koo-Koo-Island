@@ -1,12 +1,18 @@
 export const InfoBus = (function () {
-  function battleStarted (e, header) {
+  function battleRendered (e, header) {
     header.innerHTML = 'You are fighting "' + e.params.battle.enemy.name + '"';
   }
 
-  function enemyAttack (e, header) {
+  function enemyAttacked (e, header) {
     const name = e.params.battle.enemy.name;
     const attack = e.params.attack.key;
     header.innerHTML = name + ' uses "' + attack  + '"';
+  }
+
+  function playerAttacked (e, header) {
+    const name = e.params.battle.enemy.name;
+
+    header.innerHTML = 'You attacked "' + name  + '"';
   }
 
   function enemyDied (e, header) {
@@ -27,10 +33,13 @@ export const InfoBus = (function () {
       const header = document.getElementById('battle_sequence_info_header');
       switch (e.key) {
         case 'battleRendered':
-          battleStarted(e, header);
+          battleRendered(e, header);
           break;
-        case 'enemyAttack':
-          enemyAttack(e, header);
+        case 'enemyAttacked':
+          enemyAttacked(e, header);
+          break;
+        case 'playerAttacked':
+          playerAttacked(e, header);
           break;
         case 'enemyDied':
           enemyDied(e, header);

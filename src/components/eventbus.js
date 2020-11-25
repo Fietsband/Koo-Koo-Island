@@ -22,10 +22,10 @@ export const Eventbus = (function () {
     IslandBus,
     SellerBus,
     InventoryBus,
-    BattleBus,
     PlayerBus,
     EnemyBus,
-    InfoBus
+    InfoBus,
+    BattleBus
   ];
 
   return {

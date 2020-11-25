@@ -25,9 +25,10 @@ export const PlayerBus = (function () {
       stat.player.hp.left += damage;
     });
 
-    player.hpBar.add(damage, function () {
-      const hpLeft = Progress.getStat('player', 'hp').left;
+    const hpLeft = Progress.getStat('player', 'hp').left;
 
+    player.died = hpLeft <= 0;
+    player.hpBar.add(damage, function () {
       if (hpLeft <= 0) {
         player.die.call(e.params.battle);
       }
@@ -35,15 +36,15 @@ export const PlayerBus = (function () {
   }
 
   function playerDied (e) {
+    e.params.battle.player.died = false;
     Progress.setStat(function (stat) {
       stat.player.hp.left = 1;
     });
   }
 
   function playerAttacked (e) {
-    e.params.battle.inface.disable();
-
-    const player = e.params.battle.player;
+    const battle = e.params.battle;
+    const player = battle.player;
     const weapon = player.inventory.getEquipedWeapon();
     const enemy = e.params.battle.enemy;
     const animation = new Animation(
@@ -51,9 +52,18 @@ export const PlayerBus = (function () {
       document.querySelector('#battle .player'),
       enemy.takeDamage.bind(e.params.battle, weapon.damage)
     );
-
-    player.turnBar.empty();
     animation.animate();
+  }
+
+  function playerTurnPlayed (e) {
+    const battle = e.params.battle;
+    const turnType = e.params.type;
+    const player = battle.player;
+
+    battle.inface.disable();
+    player.turnBar.empty(function () {
+      fillTurnBar(e);
+    });
   }
 
   return {
@@ -63,17 +73,17 @@ export const PlayerBus = (function () {
           fillTurnBar(e)
           fillHpBar(e)
           break;
-        case 'enemyDamaged':
-          fillTurnBar(e)
-          break;
         case 'playerDamaged':
           playerDamaged(e);
+          break;
+        case 'playerAttacked':
+          playerAttacked(e);
           break;
         case 'playerDied':
           playerDied(e);
           break;
-        case 'playerAttacked':
-          playerAttacked(e);
+        case 'playerTurnPlayed':
+          playerTurnPlayed(e);
           break;
       }
     }

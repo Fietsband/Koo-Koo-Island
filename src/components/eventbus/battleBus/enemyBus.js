@@ -21,21 +21,16 @@ export const EnemyBus = (function () {
     const enemy = e.params.battle.enemy;
     const damage = e.params.damage;
 
+    enemy.died = (enemy.hpBar.current + damage) <= 0;
     enemy.hpBar.add(damage, function () {
-      console.log(this.current);
       if (this.current <= 0) {
         enemy.die.call(e.params.battle);
       }
     });
   }
 
-  function enemyAttack (e) {
-    if (e.params.battle.paused) {
-      return;
-    }
-
+  function enemyAttacked (e) {
     const attack = e.params.attack;
-    const enemy = e.params.battle.enemy;
     const player = e.params.battle.player;
     const animation = new Animation(
       attack.key + 'AttackAnimation',
@@ -43,25 +38,31 @@ export const EnemyBus = (function () {
       player.takeDamage.bind(e.params.battle, attack.damage)
     );
 
-    enemy.turnBar.empty();
     animation.animate();
+  }
+
+  function enemyTurnPlayed (e) {
+    const enemy = e.params.battle.enemy;
+    enemy.turnBar.empty(function () {
+      fillTurnBar(e);
+    });
   }
 
   return {
     apply: function (e) {
       switch (e.key) {
-        case 'playerDamaged':
-          fillTurnBar(e);
-          break;
         case 'battleRendered':
           fillTurnBar(e);
           fillHpBar(e);
           break;
-        case 'enemyAttack':
-          enemyAttack(e);
+        case 'enemyAttacked':
+          enemyAttacked(e);
           break;
         case 'enemyDamaged':
           enemyDamaged(e);
+          break;
+        case 'enemyTurnPlayed':
+          enemyTurnPlayed(e);
           break;
       }
     }

@@ -7,7 +7,7 @@ export const BarePlayerAttackAnimation = function () {
     targets: target,
     duration: duration,
     direction: 'alternate',
-    easing: 'easeOutQuad',
+    easing: 'easeInQuad',
     translateX: 500,
     translateY: -200,
     complete: function () {

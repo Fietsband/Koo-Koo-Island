@@ -1,5 +1,6 @@
-import { BattleRenderer } from './battle/battleRenderer.js';
-import { BattleInteractions } from './battle/battleInteractions.js';
+import { BattleRenderer } from './battle/renderer.js';
+import { BattleInteractions } from './battle/interactions.js';
+import { BattleTurnEngine } from './battle/turnEngine.js';
 import { Event, Eventbus } from './eventbus.js';
 import { Enemy } from './enemy.js';
 import { Player } from './player.js';
@@ -31,8 +32,8 @@ export const Battle = (function () {
   function Battle (enemyId) {
     this.enemy = new Enemy(enemyId);
     this.player = Player;
+    this.turns = new BattleTurnEngine();
     this.inface = BattleInteractions(battleEl, this);
-    this.paused = false;
   }
 
   return Battle;
