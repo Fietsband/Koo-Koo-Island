@@ -17,7 +17,7 @@ export const InfoBus = (function () {
 
   function enemyDied (e, header) {
     const name = e.params.battle.enemy.name;
-    header.innerHTML = 'You killed "' + name + '"';
+    header.innerHTML = 'You killed "' + name + '" and will be rewarded';
   }
 
   function playerDied (e, header) {

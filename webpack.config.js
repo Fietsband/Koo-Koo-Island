@@ -24,7 +24,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Koo Koo Island Tests',
-      template: 'test/index.ejs',
+      template: 'test/index.html',
+      excludeChunks: ['application'],
       filename: 'test.html'
     })
   ],

@@ -5,15 +5,20 @@ import { TackleAttackAnimation } from './animation/tackleAttackAnimation.js';
 import { BarePlayerAttackAnimation } from './animation/barePlayerAttackAnimation.js';
 
 export const Animation = (function () {
+  const animations = {
+    fishAnimation: FishAnimation,
+    shootAttackAnimation: ShootAttackAnimation,
+    splashAttackAnimation: SplashAttackAnimation,
+    tackleAttackAnimation: TackleAttackAnimation,
+    barePlayerAttackAnimation: BarePlayerAttackAnimation
+  };
+
   Animation.prototype = {
     animate: function () {
-      switch (this.type) {
-        case 'fishAnimation': return FishAnimation.call(this);
-        case 'shootAttackAnimation': return ShootAttackAnimation.call(this);
-        case 'splashAttackAnimation': return SplashAttackAnimation.call(this);
-        case 'tackleAttackAnimation': return TackleAttackAnimation.call(this);
-        case 'barePlayerAttackAnimation': return BarePlayerAttackAnimation.call(this);
-        default: throw new Error('Unknown animation type ' + this.type);
+      if (animations[this.type]) {
+        return animations[this.type].call(this);
+      } else {
+        throw new Error('Unknown animation type ' + this.type);
       }
     }
   };
