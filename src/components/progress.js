@@ -16,7 +16,7 @@ export const Progress = (function () {
       inventory: {
         maps: [],
         armor: [],
-        weapons: [ { type: 'bare', damage: 10, equiped: true } ],
+        weapons: [{ type: 'bare', damage: 10, equiped: true }],
         items: []
       }
     },

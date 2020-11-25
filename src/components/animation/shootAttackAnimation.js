@@ -15,7 +15,7 @@ export const ShootAttackAnimation = function () {
     translateY: 190,
     complete: function () {
       bullet.remove();
-      this.end.call(this.thing)
+      this.end.call(this.thing);
     }.bind(this)
   };
 

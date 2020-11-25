@@ -57,7 +57,6 @@ export const PlayerBus = (function () {
 
   function playerTurnPlayed (e) {
     const battle = e.params.battle;
-    const turnType = e.params.type;
     const player = battle.player;
 
     battle.inface.disable();
@@ -70,8 +69,8 @@ export const PlayerBus = (function () {
     apply: function (e) {
       switch (e.key) {
         case 'battleRendered':
-          fillTurnBar(e)
-          fillHpBar(e)
+          fillTurnBar(e);
+          fillHpBar(e);
           break;
         case 'playerDamaged':
           playerDamaged(e);

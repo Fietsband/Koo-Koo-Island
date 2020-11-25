@@ -23,11 +23,10 @@ export const BattleInteractions = function (battleEl, battle) {
   };
 
   function openMenu (scope) {
-    const el = battlEl.querySelector('.battle_sequence_interface div.' + scope);
-    if (el.style.display == 'block') {
+    const el = battleEl.querySelector('.battle_sequence_interface div.' + scope);
+    if (el.style.display === 'block') {
       el.style.display = 'none';
     } else {
-      //this.closeAllMenus();
       el.style.display = 'block';
     }
   }
@@ -43,9 +42,9 @@ export const BattleInteractions = function (battleEl, battle) {
   };
 
   function addMenuOnKeyUpListeners () {
-    document.onkeydown = function(e) {
-      var e = e || window.event;
-      switch (e.keyCode) {
+    document.onkeydown = function (e) {
+      const ef = e || window.event;
+      switch (ef.keyCode) {
         case 65:
           break;
 
@@ -61,7 +60,7 @@ export const BattleInteractions = function (battleEl, battle) {
         case 83:
           break;
       };
-    }
+    };
   };
 
   function removeMenuButtonOnClickListeners () {
@@ -91,4 +90,4 @@ export const BattleInteractions = function (battleEl, battle) {
       inter.classList.add('disabled');
     }
   };
-
+};

@@ -2,11 +2,7 @@ import { Eventbus } from '../eventbus.js';
 
 export const BattleTurnEngine = (function () {
   function playTurn () {
-    if (this.locked) {
-      return;
-    }
-
-    if (this.turns.length == 0) {
+    if (this.locked || this.turns.length === 0) {
       return;
     }
 
@@ -29,7 +25,7 @@ export const BattleTurnEngine = (function () {
     lock: function () {
       this.locked = true;
     }
-  }
+  };
 
   function BattleTurnEngine () {
     this.turns = [];

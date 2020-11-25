@@ -1,5 +1,3 @@
-import { Battle } from '../battle.js';
-
 export const BattleBus = (function () {
   function battleFinished (e) {
     e.params.battle.turns.lock();

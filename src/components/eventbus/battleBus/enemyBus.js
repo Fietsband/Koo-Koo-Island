@@ -1,5 +1,4 @@
 import { Animation } from '../../animation.js';
-import { Progress } from '../../progress.js';
 
 export const EnemyBus = (function () {
   function fillTurnBar (e) {

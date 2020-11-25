@@ -6,13 +6,13 @@ export const InfoBus = (function () {
   function enemyAttacked (e, header) {
     const name = e.params.battle.enemy.name;
     const attack = e.params.attack.key;
-    header.innerHTML = name + ' uses "' + attack  + '"';
+    header.innerHTML = name + ' uses "' + attack + '"';
   }
 
   function playerAttacked (e, header) {
     const name = e.params.battle.enemy.name;
 
-    header.innerHTML = 'You attacked "' + name  + '"';
+    header.innerHTML = 'You attacked "' + name + '"';
   }
 
   function enemyDied (e, header) {

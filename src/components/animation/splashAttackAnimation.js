@@ -15,7 +15,7 @@ export const SplashAttackAnimation = function () {
     translateY: 200,
     complete: function () {
       water.remove();
-      this.end.call(this.thing)
+      this.end.call(this.thing);
     }.bind(this)
   };
 

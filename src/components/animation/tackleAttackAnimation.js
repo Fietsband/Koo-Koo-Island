@@ -10,9 +10,7 @@ export const TackleAttackAnimation = function () {
     easing: 'easeOutQuad',
     translateX: -500,
     translateY: 200,
-    complete: function () {
-      this.end.call(this.thing)
-    }.bind(this)
+    complete: this.end.bind(this.thing)
   };
 
   anime(options);
