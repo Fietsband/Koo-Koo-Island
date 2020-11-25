@@ -4,7 +4,7 @@ import { Battle } from '../../battle.js';
 export const FishAttack = (function () {
   const maxFish = 5;
   let fishSpawnInterval;
-  let fishesInFrame = 0;
+  let fishesInFrame = [];
 
   const fishes = [
     { name: 'fish_ltr', probability: 5 },
@@ -31,11 +31,15 @@ export const FishAttack = (function () {
     const enemy = fishId.replace(/(_ltr|_rtl)/, '');
     const battle = new Battle(enemy);
     battle.start();
+    clearFish();
   }
 
   function destroyFish () {
-    fishesInFrame--;
     this.remove();
+    const index = fishesInFrame.indexOf(this);
+    if (index > -1) {
+      fishesInFrame.splice(index, 1);
+    }
   }
 
   function spawnInFrame (fishId) {
@@ -55,13 +59,14 @@ export const FishAttack = (function () {
     document.getElementById('level').appendChild(node);
 
     animation.animate();
+    return node;
   }
 
   function spawnFish () {
-    if (fishesInFrame < maxFish) {
+    if (fishesInFrame.length < maxFish) {
       const fishId = pickFish();
-      spawnInFrame(fishId);
-      fishesInFrame++;
+      const fish = spawnInFrame(fishId);
+      fishesInFrame.push(fish);
     }
 
     fishSpawnInterval = setTimeout(spawnFish, calculateInterval());
@@ -71,9 +76,16 @@ export const FishAttack = (function () {
     return Math.round(Math.random() * 7000) + 1000;
   }
 
+  function clearFish () {
+    for (const i in fishesInFrame) {
+      fishesInFrame[i].remove();
+    }
+  }
+
   return {
     spawn: spawnFish,
     destroy: function () {
+      clearFish();
       clearTimeout(fishSpawnInterval);
     }
   };

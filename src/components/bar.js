@@ -20,7 +20,7 @@ export const Bar = (function () {
     renderWithStats: function (element, attributes) {
       const totalLeft = element.querySelector('.total_' + this.key);
 
-      this.render();
+      this.render(element);
       this.current = attributes.current;
       this.max = attributes.max;
 

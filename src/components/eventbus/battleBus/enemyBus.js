@@ -4,8 +4,10 @@ export const EnemyBus = (function () {
   function fillTurnBar (e) {
     const enemy = e.params.battle.enemy;
 
-    enemy.turnBar.fill(function () {
-      enemy.attack(e.params.battle);
+    enemy.turnBar.empty(function () {
+      enemy.turnBar.fill(function () {
+        enemy.attack(e.params.battle);
+      });
     });
   }
 
@@ -42,9 +44,7 @@ export const EnemyBus = (function () {
 
   function enemyTurnPlayed (e) {
     const enemy = e.params.battle.enemy;
-    enemy.turnBar.empty(function () {
-      fillTurnBar(e);
-    });
+    fillTurnBar(e);
   }
 
   return {

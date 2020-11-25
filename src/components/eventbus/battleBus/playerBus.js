@@ -5,8 +5,10 @@ export const PlayerBus = (function () {
   function fillTurnBar (e) {
     const battle = e.params.battle;
 
-    battle.player.turnBar.fill(function () {
-      battle.inface.enable();
+    battle.player.turnBar.empty(function () {
+      battle.player.turnBar.fill(function () {
+        battle.inface.enable();
+      });
     });
   }
 
@@ -60,9 +62,7 @@ export const PlayerBus = (function () {
     const player = battle.player;
 
     battle.inface.disable();
-    player.turnBar.empty(function () {
-      fillTurnBar(e);
-    });
+    fillTurnBar(e);
   }
 
   return {

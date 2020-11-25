@@ -2,11 +2,11 @@ export const BattleRenderer = (function () {
   const parts = {
     '.enemy #graphic': renderEnemyGraphic,
     '.enemy #health': renderEnemyHealth,
-    '.enemy .attackbar': renderEnemyAttack,
+    '.enemy .attack.bar': renderEnemyAttack,
     '.player #graphic': renderPlayerGraphic,
     '.player #health': renderPlayerHealth,
     '.player #magic': renderPlayerMagic,
-    '.player .attackbar': renderPlayerAttack
+    '.player .attack.bar': renderPlayerAttack
   };
 
   function renderEnemyAttack (element, battle) {
