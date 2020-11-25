@@ -2,12 +2,21 @@ import { Animation } from '../../animation.js';
 
 export const EnemyBus = (function () {
   function fillTurnBar (e) {
-    const enemy = e.params.battle.enemy;
+    const battle = e.params.battle;
+    const player = battle.player;
+    const enemy = battle.enemy;
 
     enemy.turnBar.empty(function () {
-      enemy.turnBar.fill(function () {
-        enemy.attack(e.params.battle);
-      });
+      enemy.turnBar.fill(
+        function () {
+          enemy.attack(e.params.battle);
+        },
+        function (anim) {
+          if (battle.finished) {
+            anim.pause();
+          }
+        }
+      );
     });
   }
 
@@ -22,7 +31,7 @@ export const EnemyBus = (function () {
     const enemy = e.params.battle.enemy;
     const damage = e.params.damage;
 
-    enemy.died = (enemy.hpBar.current + damage) <= 0;
+    e.params.battle.finished = (enemy.hpBar.current + damage) <= 0;
     enemy.hpBar.add(damage, function () {
       if (this.current <= 0) {
         enemy.die.call(e.params.battle);

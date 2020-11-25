@@ -16,5 +16,5 @@ export const FishAnimation = function () {
 
   options[direction] = finalPosition;
 
-  anime(options);
+  return anime(options);
 };

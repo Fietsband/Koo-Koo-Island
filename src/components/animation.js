@@ -8,21 +8,12 @@ export const Animation = (function () {
   Animation.prototype = {
     animate: function () {
       switch (this.type) {
-        case 'fishAnimation':
-          FishAnimation.call(this);
-          break;
-        case 'shootAttackAnimation':
-          ShootAttackAnimation.call(this);
-          break;
-        case 'splashAttackAnimation':
-          SplashAttackAnimation.call(this);
-          break;
-        case 'tackleAttackAnimation':
-          TackleAttackAnimation.call(this);
-          break;
-        case 'barePlayerAttackAnimation':
-          BarePlayerAttackAnimation.call(this);
-          break;
+        case 'fishAnimation': return FishAnimation.call(this);
+        case 'shootAttackAnimation': return ShootAttackAnimation.call(this);
+        case 'splashAttackAnimation': return SplashAttackAnimation.call(this);
+        case 'tackleAttackAnimation': return TackleAttackAnimation.call(this);
+        case 'barePlayerAttackAnimation': return BarePlayerAttackAnimation.call(this);
+        default: throw('Unknown animation type ' + this.type);
       }
     }
   };

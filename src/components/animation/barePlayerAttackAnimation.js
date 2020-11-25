@@ -13,5 +13,5 @@ export const BarePlayerAttackAnimation = function () {
     complete: this.end.bind(this.thing)
   };
 
-  anime(options);
+  return anime(options);
 };

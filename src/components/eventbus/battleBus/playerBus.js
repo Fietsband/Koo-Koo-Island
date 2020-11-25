@@ -4,11 +4,20 @@ import { Progress } from '../../progress.js';
 export const PlayerBus = (function () {
   function fillTurnBar (e) {
     const battle = e.params.battle;
+    const player = e.params.battle.player;
+    const enemy = e.params.battle.enemy;
 
-    battle.player.turnBar.empty(function () {
-      battle.player.turnBar.fill(function () {
-        battle.inface.enable();
-      });
+    player.turnBar.empty(function () {
+      player.turnBar.fill(
+        function () {
+          battle.inface.enable();
+        },
+        function (anim) {
+          if (battle.finished) {
+            anim.pause();
+          }
+        }
+      );
     });
   }
 
@@ -20,7 +29,8 @@ export const PlayerBus = (function () {
 
   function playerDamaged (e) {
     // blink the player a little bit (like FF VI style)
-    const player = e.params.battle.player;
+    const battle = e.params.battle;
+    const player = battle.player;
     const damage = e.params.damage;
 
     Progress.setStat(function (stat) {
@@ -29,7 +39,7 @@ export const PlayerBus = (function () {
 
     const hpLeft = Progress.getStat('player', 'hp').left;
 
-    player.died = hpLeft <= 0;
+    battle.finished = hpLeft <= 0;
     player.hpBar.add(damage, function () {
       if (hpLeft <= 0) {
         player.die.call(e.params.battle);
@@ -38,7 +48,6 @@ export const PlayerBus = (function () {
   }
 
   function playerDied (e) {
-    e.params.battle.player.died = false;
     Progress.setStat(function (stat) {
       stat.player.hp.left = 1;
     });
@@ -55,6 +64,10 @@ export const PlayerBus = (function () {
       enemy.takeDamage.bind(e.params.battle, weapon.damage)
     );
     animation.animate();
+  }
+
+  function playerFleed (e) {
+    e.params.battle.finished = true;
   }
 
   function playerTurnPlayed (e) {
@@ -77,6 +90,9 @@ export const PlayerBus = (function () {
           break;
         case 'playerAttacked':
           playerAttacked(e);
+          break;
+        case 'playerFleed':
+          playerFleed(e);
           break;
         case 'playerDied':
           playerDied(e);

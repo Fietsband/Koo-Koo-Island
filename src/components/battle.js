@@ -26,14 +26,17 @@ export const Battle = (function () {
       battleEl.classList.add('hidden');
 
       this.inface.disable();
+      this.finishCallback();
     }
   };
 
-  function Battle (enemyId) {
+  function Battle (enemyId, finishCallback) {
     this.enemy = new Enemy(enemyId);
     this.player = Player;
     this.turns = new BattleTurnEngine();
     this.inface = BattleInteractions(battleEl, this);
+    this.finishCallback = finishCallback;
+    this.finished = false;
   }
 
   return Battle;

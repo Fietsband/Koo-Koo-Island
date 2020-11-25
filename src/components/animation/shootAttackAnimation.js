@@ -19,5 +19,5 @@ export const ShootAttackAnimation = function () {
     }.bind(this)
   };
 
-  anime(options);
+  return anime(options);
 };

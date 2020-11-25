@@ -19,5 +19,5 @@ export const SplashAttackAnimation = function () {
     }.bind(this)
   };
 
-  anime(options);
+  return anime(options);
 };

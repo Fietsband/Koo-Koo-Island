@@ -49,10 +49,12 @@ export const Bar = (function () {
       });
     },
 
-    fill: function (end) {
+    fill: function (end, update) {
+      let updateCallback = update || function () {};
       animateBar.call(this, {
         duration: this.options.duration,
         width: '100%',
+        update: updateCallback.bind(this),
         complete: end.bind(this)
       });
     }

@@ -49,7 +49,6 @@ export const Enemy = (function () {
 
   function Enemy (key) {
     this.key = key;
-    this.died = false;
     Object.assign(this, EnemyData[this.key]);
 
     this.hpBar = new Bar('enemy.health');

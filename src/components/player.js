@@ -10,7 +10,6 @@ export const Player = (function () {
   };
 
   return {
-    died: false,
     inventory: Inventory,
     graphic: Graphic,
     hpBar: new Bar('player.health'),

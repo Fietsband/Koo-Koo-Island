@@ -28,15 +28,20 @@ export const FishAttack = (function () {
   }
 
   function startBattle (fishId) {
+    pauseFish();
+
     const enemy = fishId.replace(/(_ltr|_rtl)/, '');
-    const battle = new Battle(enemy);
+    const battle = new Battle(enemy, resumeFish);
     battle.start();
-    clearFish();
   }
 
   function destroyFish () {
     this.remove();
-    const index = fishesInFrame.indexOf(this);
+    const scope = this;
+    const index = fishesInFrame.findIndex(function (el) {
+      return el.fish === scope;
+    });
+
     if (index > -1) {
       fishesInFrame.splice(index, 1);
     }
@@ -47,10 +52,6 @@ export const FishAttack = (function () {
       '.enemy_' + fishId
     ).cloneNode(true);
 
-    const animation = new Animation(
-      'fishAnimation', node, destroyFish
-    );
-
     node.classList.remove('enemy_' + fishId);
     node.classList.add('click', 'moveable');
     node.style.top = (Math.round(Math.random() * 300)) + 'px';
@@ -58,7 +59,6 @@ export const FishAttack = (function () {
 
     document.getElementById('level').appendChild(node);
 
-    animation.animate();
     return node;
   }
 
@@ -66,7 +66,11 @@ export const FishAttack = (function () {
     if (fishesInFrame.length < maxFish) {
       const fishId = pickFish();
       const fish = spawnInFrame(fishId);
-      fishesInFrame.push(fish);
+      const animation = new Animation(
+        'fishAnimation', fish, destroyFish
+      );
+
+      fishesInFrame.push({ fish: fish, animation: animation.animate() });
     }
 
     fishSpawnInterval = setTimeout(spawnFish, calculateInterval());
@@ -76,16 +80,25 @@ export const FishAttack = (function () {
     return Math.round(Math.random() * 7000) + 1000;
   }
 
-  function clearFish () {
+  function pauseFish () {
+    clearTimeout(fishSpawnInterval);
+
     for (const i in fishesInFrame) {
-      fishesInFrame[i].remove();
+      fishesInFrame[i].animation.pause();
     }
+  }
+
+  function resumeFish () {
+    for (const i in fishesInFrame) {
+      fishesInFrame[i].animation.play();
+    }
+
+    fishSpawnInterval = setTimeout(spawnFish, calculateInterval());
   }
 
   return {
     spawn: spawnFish,
     destroy: function () {
-      clearFish();
       clearTimeout(fishSpawnInterval);
     }
   };

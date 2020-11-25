@@ -10,7 +10,7 @@ export const BattleBus = (function () {
   function unlockTurnQueue (e) {
     const battle = e.params.battle;
 
-    if (!battle.player.died && !battle.enemy.died) {
+    if (!battle.finished) {
       setTimeout(function () {
         battle.turns.unlock();
       }, 1000);
