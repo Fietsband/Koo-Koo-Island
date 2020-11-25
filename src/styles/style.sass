@@ -46,16 +46,19 @@ body
   div
     height: 100%
     position: absolute
-.attackbar
-  .attack-left
-    background-color: #AAAAAA
-    width: 0px
-.healthbar
-  .health-left
-    background-color: #22CC22
-.magicbar
-  .magic-left
-    background-color: #22CCCC
+  &.attack
+    .attack_left
+      background-color: #AAAAAA
+      width: 0%
+
+  &.health
+    .health_left
+      background-color: #22CC22
+
+  &.magic
+    .magic_left
+      background-color: #22CCCC
+
 .enemy #health,
 .player #health
   display: block
@@ -86,6 +89,20 @@ body
 
   .battle_sequence_interface
     clear: both
+
+    &.disabled
+      ul li a
+        color: #AAAAAA
+        cursor: default
+
+    div.items, div.magic
+      display: none
+      position: absolute
+      top: 0
+      left: 62px
+      border: 1px solid #000
+      padding: 0 7px
+
     ul
       &.battle_options
         padding-left: 0
@@ -113,16 +130,9 @@ body
   .header
     font-weight: bold
 
-#battle .battle_sequence_interface ul li a.disabled,
-#battle .battle_sequence_interface.disabled ul li a
-  color: #AAAAAA
-
-#battle .battle_sequence_interface div.items,
-#battle .battle_sequence_interface div.magic,
-#battle .battle_sequence_interface div.skills
-  display: none
+span.attack
   position: absolute
-  top: 0
-  left: 62px
-  border: 1px solid #000
-  padding: 0 7px
+  &.water
+    top: 15px
+    left: -10px
+    color: #2222CC

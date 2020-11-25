@@ -1,13 +1,19 @@
-import move from 'move-js';
-import { FishAnimation } from './animation/fishAnimation.js'
+import { FishAnimation } from './animation/fishAnimation.js';
+import { ShootAttackAnimation } from './animation/shootAttackAnimation.js';
+import { SplashAttackAnimation } from './animation/splashAttackAnimation.js';
+import { TackleAttackAnimation } from './animation/tackleAttackAnimation.js';
+import { BarePlayerAttackAnimation } from './animation/barePlayerAttackAnimation.js';
 
 export const Animation = (function () {
   Animation.prototype = {
     animate: function () {
       switch (this.type) {
-        case 'fishAnimation':
-          FishAnimation.call(this);
-          break;
+        case 'fishAnimation': return FishAnimation.call(this);
+        case 'shootAttackAnimation': return ShootAttackAnimation.call(this);
+        case 'splashAttackAnimation': return SplashAttackAnimation.call(this);
+        case 'tackleAttackAnimation': return TackleAttackAnimation.call(this);
+        case 'barePlayerAttackAnimation': return BarePlayerAttackAnimation.call(this);
+        default: throw new Error('Unknown animation type ' + this.type);
       }
     }
   };

@@ -1,0 +1,20 @@
+name: Linting
+
+on: [pull_request]
+
+jobs:
+  run_linting:
+    name: Lint Javascript files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Dependencies
+        run: npm install
+      - name: Run linter
+        run: npm run lint

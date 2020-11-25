@@ -5,10 +5,12 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <%= require('html-loader!./main.html') %>
+    <div id="main">
+      <%= require('html-loader!./main.html') %>
+      <%= require('html-loader!./battle.html') %>
+    </div>
     <%= require('html-loader!./controls.html') %>
     <div class="hidden">
-      <%= require('html-loader!./battle.html') %>
       <!-- GRAPHICS -->
       <%= require('html-loader!./graphics/island.html') %>
       <%= require('html-loader!./graphics/island_underwater.html') %>

@@ -18,6 +18,13 @@ export const Inventory = (function () {
       Progress.setStat(function (stat) {
         stat.player.inventory[scope].push(item);
       });
+    },
+
+    getEquipedWeapon: function () {
+      const weapons = Progress.getStat('player', 'inventory').weapons;
+      return weapons.find(function (weapon) {
+        return weapon.equiped;
+      });
     }
   };
 })();

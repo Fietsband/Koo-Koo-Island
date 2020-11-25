@@ -1,11 +1,10 @@
-import { Enemy } from '../../enemy.js';
 import { Animation } from '../../animation.js';
-import { Event, Eventbus } from '../../eventbus.js';
+import { Battle } from '../../battle.js';
 
 export const FishAttack = (function () {
   const maxFish = 5;
   let fishSpawnInterval;
-  let fishesInFrame = 0;
+  const fishesInFrame = [];
 
   const fishes = [
     { name: 'fish_ltr', probability: 5 },
@@ -28,35 +27,50 @@ export const FishAttack = (function () {
     ];
   }
 
-  function startBattle () {
-    Eventbus.apply(
-      new Event('battleStarted', { enemy: this.key })
-    );
+  function startBattle (fishId) {
+    pauseFish();
+
+    const enemy = fishId.replace(/(_ltr|_rtl)/, '');
+    const battle = new Battle(enemy, resumeFish);
+    battle.start();
   }
 
   function destroyFish () {
-    fishesInFrame--;
-    this.node.remove();
+    this.remove();
+    const scope = this;
+    const index = fishesInFrame.findIndex(function (el) {
+      return el.fish === scope;
+    });
+
+    if (index > -1) {
+      fishesInFrame.splice(index, 1);
+    }
   }
 
-  function spawnCallback () {
-    const animation = new Animation(
-      'fishAnimation', this, destroyFish
-    );
-    this.node.classList.add('click', 'moveable');
-    this.node.style.top = (Math.round(Math.random() * 300)) + 'px';
-    this.node.addEventListener('click', startBattle.bind(this));
+  function spawnInFrame (fishId) {
+    const node = document.querySelector(
+      '.enemy_' + fishId
+    ).cloneNode(true);
 
-    document.getElementById('level').appendChild(this.node);
+    node.classList.remove('enemy_' + fishId);
+    node.classList.add('click', 'moveable');
+    node.style.top = (Math.round(Math.random() * 300)) + 'px';
+    node.addEventListener('click', startBattle.bind(this, fishId));
 
-    animation.animate();
+    document.getElementById('level').appendChild(node);
+
+    return node;
   }
 
   function spawnFish () {
-    if (fishesInFrame < maxFish) {
-      const fish = new Enemy(pickFish());
-      fish.spawn(spawnCallback);
-      fishesInFrame++;
+    if (fishesInFrame.length < maxFish) {
+      const fishId = pickFish();
+      const fish = spawnInFrame(fishId);
+      const animation = new Animation(
+        'fishAnimation', fish, destroyFish
+      );
+
+      fishesInFrame.push({ fish: fish, animation: animation.animate() });
     }
 
     fishSpawnInterval = setTimeout(spawnFish, calculateInterval());
@@ -64,6 +78,22 @@ export const FishAttack = (function () {
 
   function calculateInterval () {
     return Math.round(Math.random() * 7000) + 1000;
+  }
+
+  function pauseFish () {
+    clearTimeout(fishSpawnInterval);
+
+    for (const i in fishesInFrame) {
+      fishesInFrame[i].animation.pause();
+    }
+  }
+
+  function resumeFish () {
+    for (const i in fishesInFrame) {
+      fishesInFrame[i].animation.play();
+    }
+
+    fishSpawnInterval = setTimeout(spawnFish, calculateInterval());
   }
 
   return {
