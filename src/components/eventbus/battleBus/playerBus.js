@@ -5,7 +5,6 @@ export const PlayerBus = (function () {
   function fillTurnBar (e) {
     const battle = e.params.battle;
     const player = e.params.battle.player;
-    const enemy = e.params.battle.enemy;
 
     player.turnBar.empty(function () {
       player.turnBar.fill(
@@ -72,7 +71,6 @@ export const PlayerBus = (function () {
 
   function playerTurnPlayed (e) {
     const battle = e.params.battle;
-    const player = battle.player;
 
     battle.inface.disable();
     fillTurnBar(e);

@@ -50,7 +50,7 @@ export const Bar = (function () {
     },
 
     fill: function (end, update) {
-      let updateCallback = update || function () {};
+      const updateCallback = update || function () {};
       animateBar.call(this, {
         duration: this.options.duration,
         width: '100%',

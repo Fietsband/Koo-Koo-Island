@@ -4,7 +4,7 @@ import { Battle } from '../../battle.js';
 export const FishAttack = (function () {
   const maxFish = 5;
   let fishSpawnInterval;
-  let fishesInFrame = [];
+  const fishesInFrame = [];
 
   const fishes = [
     { name: 'fish_ltr', probability: 5 },

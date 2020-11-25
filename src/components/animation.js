@@ -13,7 +13,7 @@ export const Animation = (function () {
         case 'splashAttackAnimation': return SplashAttackAnimation.call(this);
         case 'tackleAttackAnimation': return TackleAttackAnimation.call(this);
         case 'barePlayerAttackAnimation': return BarePlayerAttackAnimation.call(this);
-        default: throw('Unknown animation type ' + this.type);
+        default: throw new Error('Unknown animation type ' + this.type);
       }
     }
   };

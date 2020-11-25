@@ -3,7 +3,6 @@ import { Animation } from '../../animation.js';
 export const EnemyBus = (function () {
   function fillTurnBar (e) {
     const battle = e.params.battle;
-    const player = battle.player;
     const enemy = battle.enemy;
 
     enemy.turnBar.empty(function () {
@@ -52,7 +51,6 @@ export const EnemyBus = (function () {
   }
 
   function enemyTurnPlayed (e) {
-    const enemy = e.params.battle.enemy;
     fillTurnBar(e);
   }
 
