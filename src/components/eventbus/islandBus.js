@@ -11,13 +11,13 @@ export const IslandBus = (function () {
       stats.progress.hasClickedShell = true;
     });
 
+    Progress.setInterfaceStat('seashells');
     Modal.open('shell', { ok: Modal.cancel });
   }
 
   function shellCounterEnabled (e) {
-    Progress.setInterfaceStat('seashells');
-
-    setInterval(ShellCounter.count, ShellCounter.intervalCycle);
+    const seashellTimeout = Progress.getStat('player', 'seashellInterval');
+    setTimeout(ShellCounter.count, seashellTimeout);
   }
 
   function fishFound (e) {
@@ -40,6 +40,7 @@ export const IslandBus = (function () {
         case 'shellClicked':
           shellClicked(e);
           break;
+        case 'shellAdded':
         case 'shellCounterEnabled':
         case 'hasClickedShellInit':
           shellCounterEnabled(e);

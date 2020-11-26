@@ -9,7 +9,6 @@
       <%= require('html-loader!./main.html') %>
       <%= require('html-loader!./battle.html') %>
     </div>
-    <%= require('html-loader!./controls.html') %>
     <div class="hidden">
       <!-- GRAPHICS -->
       <%= require('html-loader!./graphics/island.html') %>
@@ -21,7 +20,7 @@
       <%= require('html-loader!./modals/message_in_bottle.html') %>
       <%= require('html-loader!./modals/inventory.html') %>
       <% if (htmlWebpackPlugin.options.environment == 'development') { %>
-        <div class='reset' id="dev_mode_enabled"></div>
+        <div id="dev_mode_enabled"></div>
       <% } %>
     </div>
   </body>

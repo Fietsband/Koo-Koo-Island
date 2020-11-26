@@ -1,35 +1,10 @@
 import { Stats } from './stats.js';
 import { Event, Eventbus } from './eventbus.js';
+import SaveData from '../../data/saveData.yaml';
 
 export const Progress = (function () {
   const saveKey = 'kookooisland.save';
-  let stats = {
-    player: {
-      hp: { total: 20, left: 20 },
-      mp: { total: 0, left: 0 },
-      turnSpeed: 5000,
-      damageFactor: 1,
-      seashells: 0,
-      oysters: 0,
-      wood: 0,
-      currentLevel: 'island',
-      inventory: {
-        maps: [],
-        armor: [],
-        weapons: [{ type: 'bare', damage: 10, equiped: true }],
-        items: []
-      }
-    },
-    progress: {
-      hasClickedShell: false,
-      hasFoundFish: false,
-      hasFoundMessageInBottle: false,
-      hasInventory: false
-    },
-    settings: {
-      autoSaveEnabled: true
-    }
-  };
+  let stats = SaveData.current;
 
   return {
     setStat: function (method) {
@@ -46,9 +21,12 @@ export const Progress = (function () {
 
     load: function () {
       const devMode = document.getElementById('dev_mode_enabled');
-      if (!devMode.classList.contains('reset')) {
+
+      if (devMode === null) {
         const current = atob(localStorage.getItem(saveKey));
         stats = JSON.parse(current);
+      } else {
+        stats = SaveData.development;
       }
 
       for (const progress in stats.progress) {

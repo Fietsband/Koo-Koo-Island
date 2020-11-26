@@ -3,7 +3,6 @@ import { Event, Eventbus } from '../../eventbus.js';
 
 export const ShellCounter = (function () {
   return {
-    intervalCycle: 500,
     count: function () {
       Eventbus.apply(new Event('shellAdded'));
 
@@ -24,8 +23,7 @@ export const Shell = (function () {
 
     Eventbus.applyMultiple([
       new Event('shellClicked', { target: e.target }),
-      new Event('shellCounterEnabled'),
-      new Event('shellAdded')
+      new Event('shellCounterEnabled')
     ]);
   }
 
