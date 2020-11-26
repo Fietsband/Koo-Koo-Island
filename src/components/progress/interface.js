@@ -5,7 +5,7 @@ export const ProgressInterface = (function () {
   let autoSaveTimeout;
 
   function clickAutoSaver (e) {
-    Progress.setStat('autoSaveEneabled', function (stat) {
+    Progress.setStat(function (stat) {
       stat.settings.autoSaveEnabled = e.checked;
     });
     toggleAutoSaver();
