@@ -1,3 +1,5 @@
+import { Progress } from '../progress.js';
+
 export const BattleRenderer = (function () {
   const parts = {
     '.enemy #graphic': renderEnemyGraphic,
@@ -35,14 +37,15 @@ export const BattleRenderer = (function () {
   }
 
   function renderPlayerHealth (element, battle) {
+    const hp = Progress.getStat('player', 'hp');
     battle.player.hpBar.renderWithStats(element, {
-      current: battle.player.get('hp').left,
-      max: battle.player.get('hp').total
+      current: hp.left,
+      max: hp.total
     });
   }
 
   function renderPlayerMagic (element, battle) {
-    const mp = battle.player.get('mp');
+    const mp = Progress.getStat('player', 'mp');
     if (mp > 0) {
       element.classList.remove('hidden');
       battle.player.hpBar.renderWithStats(element, {
