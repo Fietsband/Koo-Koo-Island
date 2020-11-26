@@ -16,8 +16,13 @@ export const InfoBus = (function () {
   }
 
   function enemyDied (e, header) {
-    const name = e.params.battle.enemy.name;
-    header.innerHTML = 'You killed "' + name + '" and will be rewarded';
+    const enemy = e.params.battle.enemy;
+    const rewardTexts = [];
+    for (const i in enemy.rewards) {
+      const reward = enemy.rewards[i];
+      rewardTexts.push(reward.amount + ' ' + reward.type);
+    }
+    header.innerHTML = 'You killed "' + enemy.name + '" and gained ' + rewardTexts.join(' and ');
   }
 
   function playerDied (e, header) {
