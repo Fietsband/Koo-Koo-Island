@@ -1,5 +1,5 @@
 current: &current
-  player:
+  player: &current_player
     hp:
       total: 20
       left: 20
@@ -12,6 +12,7 @@ current: &current
     oysters: 0
     wood: 0
     currentLevel: 'island'
+    seashellInterval: 5000
     inventory:
       maps: []
       armor: []
@@ -21,7 +22,7 @@ current: &current
           equiped: true
       items: []
 
-  progress:
+  progress: &current_progress
     hasClickedShell: false
     hasFoundFish: false
     hasFoundMessageInBottle: false
@@ -32,3 +33,6 @@ current: &current
 
 development:
   <<: *current
+  player:
+    <<: *current_player
+    seashellInterval: 500

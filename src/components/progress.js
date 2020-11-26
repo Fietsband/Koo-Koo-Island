@@ -22,7 +22,7 @@ export const Progress = (function () {
     load: function () {
       const devMode = document.getElementById('dev_mode_enabled');
 
-      if (devMode !== null) {
+      if (devMode === null) {
         const current = atob(localStorage.getItem(saveKey));
         stats = JSON.parse(current);
       } else {
